@@ -5,7 +5,7 @@ export default function Testimonials() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 text-center">
       <h2 className="mb-4 text-3xl font-semibold">
-        Real feedback <span className="text-purple-600">real results</span>
+        Real feedback. <span className="text-purple-600">Real Results.</span>
       </h2>
 
       <div className="mt-16 grid gap-16 md:grid-cols-2 text-left">
