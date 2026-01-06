@@ -12,6 +12,9 @@ export function Footer() {
           <Link href="/feedback" className="text-gray-600 hover:text-gray-900">
             Get feedback
           </Link>
+          <Link href="/impressum" className="text-gray-600 hover:text-gray-900">
+            Impressum
+          </Link>
           <a
             href="mailto:amir@redigma.com"
             className="text-gray-600 hover:text-gray-900"
