@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
@@ -65,7 +66,9 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
           <div className="flex min-h-screen flex-col">
-            <Header />
+            <Suspense fallback={null}>
+              <Header />
+            </Suspense>
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
