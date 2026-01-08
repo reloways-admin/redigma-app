@@ -1,0 +1,248 @@
+{
+  "header": {
+    "cta": "Get quick feedback",
+    "impressum": "Impressum",
+    "menu": "Menu",
+    "aria": {
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    }
+  },
+  "home": {
+    "hero": {
+      "status": "Ready for work",
+      "title": "Building clarity into digital products",
+      "subtitle": "I help founders and product teams shape clear, usable products — from early definition to improving existing systems.",
+      "labels": {
+        "productUx": "Product UX",
+        "structure": "Structure",
+        "productThinking": "Product thinking"
+      },
+      "cta": "Get feedback on your product"
+    },
+    "entryPoints": {
+      "badge": "Entry points",
+      "title": "Most teams reach me in one of two moments",
+      "subtitle": "Different stages, same goal: clarity before complexity.",
+      "cards": {
+        "existing": {
+          "kicker": "Something already exists",
+          "heading": "Improve an active product",
+          "tag": "Live or in build",
+          "intro": "Your product or MVP is live, or actively being built. Things work, but the UX starts to feel fragile.",
+          "listTitle": "Common signals",
+          "bullets": {
+            "uxInconsistent": "UX feels inconsistent",
+            "decisionsSlow": "Decisions slow the team down",
+            "featuresFriction": "Adding features creates friction"
+          },
+          "outro": "This is where I usually step in, bringing structure, clarity, and better UX decisions into an existing system."
+        },
+        "building": {
+          "kicker": "You’re about to build",
+          "heading": "Define before you design",
+          "tag": "Early stage",
+          "intro": "You’re early, but serious. The goal is to make the product clear enough that development can move fast without chaos.",
+          "listTitle": "What teams want",
+          "bullets": {
+            "defineClearly": "Define the product clearly before development",
+            "avoidMistakes": "Avoid costly UX mistakes later",
+            "moveFast": "Move fast without losing clarity"
+          },
+          "outro": "In these cases, the focus is not on screens yet. It is on defining the product properly from the start."
+        }
+      }
+    },
+    "miniProduct": {
+      "badge": "UX feedback",
+      "title": "A quick UX perspective on your product or idea",
+      "subtitle": "Before committing to anything, send me what you have and I’ll reply with 3–4 focused UX observations.",
+      "step1": {
+        "kicker": "Step 1",
+        "title": "You send",
+        "tag": "1–3 items",
+        "items": {
+          "link": "A link to your live product (or a prototype)",
+          "screens": "Screenshots or early designs of the key flow",
+          "note": "A short note: who it’s for, and what users should achieve"
+        },
+        "footnote": "No deck needed. No polishing. Just enough to understand the problem."
+      },
+      "step2": {
+        "kicker": "Step 2",
+        "title": "You get",
+        "tag": "Clear next steps",
+        "items": {
+          "observations": "3–4 focused UX observations",
+          "risks": "What feels unclear or risky",
+          "simplify": "What I’d simplify or rethink first"
+        },
+        "calloutTitle": "No sales pitch.",
+        "calloutText": "Just useful feedback you can act on."
+      },
+      "footerText": "This feedback often helps decide whether refining, rebuilding, or building an MVP makes sense.",
+      "cta": "Send your product or idea"
+    }
+    ,
+    "strategyPartnership": {
+      "badge": "Product direction",
+      "title": "When UX isn’t the first step",
+      "subtitle": "This is only relevant when the product direction isn’t clear yet.",
+      "intro": "Sometimes the challenge isn’t the interface yet. In early or complex situations, teams need clarity around the problem, direction, or business logic before jumping into design.",
+      "partnershipLabel": "The partnership",
+      "partnershipBody": "In these cases, I collaborate with a trusted strategic partner to help define what to build and why. We sharpen your product identity and decision-making framework to ensure the foundation is solid.",
+      "note": "This is optional and only relevant when the product direction isn’t clear yet."
+    },
+    "mvpExecution": {
+      "badge": "MVP execution",
+      "title": "From idea to working MVP",
+      "subtitle": "Relevant when teams need something real and usable, not just direction.",
+      "intro": "Sometimes teams don’t just need direction; they need something real, fast. When it’s the right fit, I help define the MVP scope, design the UX, and work closely with a trusted developer to turn the concept into a working product.",
+      "whenLabel": "When it makes sense",
+      "list": {
+        "scope": "Define the MVP scope clearly",
+        "ux": "Design the product structure and UX",
+        "dev": "Work closely with a trusted developer",
+        "mvp": "Turn the concept into a working MVP"
+      },
+      "boundaryLabel": "The boundary",
+      "boundaryText": "I don’t run development teams. I lead the product thinking and UX, collaborating with development to move fast and smart without running a heavy development team."
+    },
+    "howIWork": {
+      "badge": "How I work",
+      "title": "How I usually work with teams",
+      "intro": "I work best when UX decisions actually affect the product.",
+      "expectations": {
+        "label": "What you can expect",
+        "text": "Less noise. More clarity. Decisions that survive real product pressure."
+      },
+      "listLabel": "That can mean:",
+      "steps": {
+        "existing": {
+          "title": "Stepping into an existing system",
+          "body": "Bringing structure and clarity into a product that is already moving."
+        },
+        "beforeDev": {
+          "title": "Helping define a product before development",
+          "body": "Turning ideas into a clear structure so development can move fast without chaos."
+        },
+        "mvp": {
+          "title": "Guiding an MVP from idea to something usable",
+          "body": "Keeping decisions grounded and making tradeoffs explicit."
+        }
+      },
+      "outro": "My role is to reduce uncertainty, keep decisions grounded, and help teams move forward with confidence."
+    },
+    "whoIsThisFor": {
+      "goodFit": {
+        "title": "This is a good fit if:",
+        "items": {
+          "realProduct": "You’re building a real product",
+          "clarity": "You value clarity over trends",
+          "longTermUx": "You want UX decisions that hold over time"
+        }
+      },
+      "notFit": {
+        "title": "Probably not a fit if:",
+        "items": {
+          "branding": "You’re looking for branding",
+          "marketingPages": "You need marketing pages",
+          "noProductThinking": "You want design without product thinking"
+        }
+      }
+    },
+    "projects": {
+      "title": "Selected product work",
+      "subtitle": "A few examples of how I bring structure and clarity into products. Short on fluff, focused on decisions.",
+      "viewAll": "View all projects",
+      "cardBadge": "Case",
+      "viewCase": "View case study",
+      "cta": {
+        "title": "Not sure what you need yet?",
+        "subtitle": "Send what you have and I will reply with 3-4 focused UX observations.",
+        "button": "Send your product or idea"
+      }
+    },
+    "testimonials": {
+      "title": {
+        "main": "Real feedback.",
+        "highlight": "Real Results."
+      },
+      "items": {
+        "keren": {
+          "quote": "I was so impressed with Amir’s original approach, creativity, and manners, that I even had him work on my own brand. Even after our project was done, I still consulted with Amir – my satisfaction was clearly his priority.",
+          "name": "Keren Rightler",
+          "role": "Owner, Method Queen"
+        },
+        "adi": {
+          "quote": "Amir’s ability to communicate ideas visually is truly remarkable. His work is both technically proficient and creatively vibrant.",
+          "name": "Adi Nudel",
+          "role": "CEO, Financial Cat"
+        }
+      }
+    },
+    "about": {
+      "title": "About",
+      "intro": "I’m Amir, a product-focused UX/UI designer.",
+      "body1": "I enjoy working with products in motion – sometimes improving what already exists, sometimes helping teams move from idea to working MVP.",
+      "body2": "Based in Berlin. Working internationally."
+    },
+    "finalCta": {
+      "title": "Not sure where your product stands?",
+      "line1": "Send what you have.",
+      "line2": "We’ll figure out the right next step together.",
+      "button": "Send your product or idea"
+    }
+  },
+  "footer": {
+    "copyright": "Redigma. Amir Shalev.",
+    "links": {
+      "feedback": "Get feedback",
+      "impressum": "Impressum",
+      "email": "Email"
+    }
+  },
+  "feedback": {
+    "title": "Send your product or idea",
+    "intro": "Share what you have and I will reply with 3-4 focused UX observations. No decks. No sales pitch. Just useful feedback.",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "name@company.com"
+      },
+      "stage": {
+        "label": "Where are you right now?",
+        "options": {
+          "live": "Live product / MVP",
+          "building": "Actively building",
+          "idea": "Idea stage"
+        }
+      },
+      "productUrl": {
+        "label": "Product URL (optional)",
+        "placeholder": "https://..."
+      },
+      "figmaUrl": {
+        "label": "Figma / designs link (optional)",
+        "placeholder": "https://figma.com/..."
+      },
+      "message": {
+        "label": "What should I look at?",
+        "placeholder": "Tell me what it is, what is confusing, and what you want to improve.",
+        "helper": "This feedback often helps decide whether refining, rebuilding, or building an MVP makes sense."
+      }
+    },
+    "actions": {
+      "submit": "Send for feedback",
+      "sending": "Sending..."
+    },
+    "status": {
+      "success": "Sent. I will get back to you soon.",
+      "errorFallback": "Something went wrong. Please try again."
+    }
+  }
+}

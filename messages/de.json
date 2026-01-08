@@ -1,0 +1,251 @@
+{
+  "home": {
+    "hero": {
+      "status": "Bereit für neue Projekte",
+      "title": "Klarheit für digitale Produkte schaffen",
+      "subtitle": "Ich unterstütze Gründer und Produktteams dabei, klare und nutzbare Produkte zu entwickeln – von der frühen Definition bis zur Verbesserung bestehender Systeme.",
+      "labels": {
+        "productUx": "Product UX",
+        "structure": "Struktur",
+        "productThinking": "Produktdenken"
+      },
+      "cta": "Feedback zu deinem Produkt erhalten"
+    },
+    "about": {
+      "title": "Über mich",
+      "intro": "Ich bin Amir, ein produktorientierter UX/UI Designer.",
+      "body1": "Ich arbeite gerne mit Produkten in Bewegung – manchmal verbessere ich bestehende Systeme, manchmal begleite ich Teams von der Idee bis zum funktionierenden MVP.",
+      "body2": "Ansässig in Berlin. International tätig."
+    },
+    "entryPoints": {
+      "badge": "Einstiegspunkte",
+      "title": "Die meisten Teams kommen in einem von zwei Momenten zu mir",
+      "subtitle": "Unterschiedliche Phasen, gleiches Ziel: Klarheit vor Komplexität.",
+      "cards": {
+        "existing": {
+          "kicker": "Etwas existiert bereits",
+          "heading": "Ein bestehendes Produkt verbessern",
+          "tag": "Live oder im Aufbau",
+          "intro": "Dein Produkt oder MVP ist live oder befindet sich aktiv in der Entwicklung. Vieles funktioniert – aber die UX fühlt sich zunehmend fragil an.",
+          "listTitle": "Typische Anzeichen",
+          "bullets": {
+            "uxInconsistent": "Die UX wirkt inkonsistent",
+            "decisionsSlow": "Entscheidungen verlangsamen das Team",
+            "featuresFriction": "Neue Features erzeugen Reibung"
+          },
+          "outro": "Genau hier steige ich meist ein – und bringe Struktur, Klarheit und bessere UX-Entscheidungen in ein bestehendes System."
+        },
+        "building": {
+          "kicker": "Du stehst kurz vor dem Start",
+          "heading": "Definieren, bevor gestaltet wird",
+          "tag": "Frühe Phase",
+          "intro": "Du bist noch am Anfang – aber ernsthaft dabei. Ziel ist es, das Produkt so klar zu definieren, dass die Entwicklung schnell und ohne Chaos vorangehen kann.",
+          "listTitle": "Was Teams sich wünschen",
+          "bullets": {
+            "defineClearly": "Das Produkt klar definieren, bevor entwickelt wird",
+            "avoidMistakes": "Teure UX-Fehler später vermeiden",
+            "moveFast": "Schnell vorankommen, ohne Klarheit zu verlieren"
+          },
+          "outro": "In diesen Fällen geht es noch nicht um Screens – sondern darum, das Produkt von Anfang an richtig zu definieren."
+        }
+      }
+    },
+    "miniProduct": {
+      "badge": "UX-Feedback",
+      "title": "Eine schnelle UX-Einschätzung zu deinem Produkt oder deiner Idee",
+      "subtitle": "Bevor du dich festlegst, schick mir einfach, was du hast – und ich antworte mit 3–4 fokussierten UX-Beobachtungen.",
+      "step1": {
+        "kicker": "Schritt 1",
+        "title": "Du schickst",
+        "tag": "1–3 Elemente",
+        "items": {
+          "link": "Einen Link zu deinem Live-Produkt (oder Prototyp)",
+          "screens": "Screenshots oder frühe Designs des wichtigsten Flows",
+          "note": "Eine kurze Erklärung: für wen es ist und was Nutzer erreichen sollen"
+        },
+        "footnote": "Kein Deck nötig. Kein Feinschliff. Gerade genug, um das Problem zu verstehen."
+      },
+      "step2": {
+        "kicker": "Schritt 2",
+        "title": "Du bekommst",
+        "tag": "Klare nächste Schritte",
+        "items": {
+          "observations": "3–4 gezielte UX-Beobachtungen",
+          "risks": "Was unklar oder riskant wirkt",
+          "simplify": "Was ich zuerst vereinfachen oder neu denken würde"
+        },
+        "calloutTitle": "Kein Sales-Pitch.",
+        "calloutText": "Nur hilfreiches Feedback, mit dem du direkt weiterarbeiten kannst."
+      },
+      "footerText": "Dieses Feedback hilft oft bei der Entscheidung, ob ein Produkt verfeinert, neu aufgebaut oder als MVP umgesetzt werden sollte.",
+      "cta": "Produkt oder Idee senden"
+    },
+    "strategyPartnership": {
+      "badge": "Produktrichtung",
+      "title": "Wenn UX nicht der erste Schritt ist",
+      "subtitle": "Dieser Schritt ist nur relevant, wenn die Produktrichtung noch nicht klar ist.",
+      "intro": "Manchmal liegt die Herausforderung noch nicht im Interface. In frühen oder komplexen Situationen brauchen Teams Klarheit über das Problem, die Richtung oder die Business-Logik, bevor sie mit dem Design beginnen.",
+      "partnershipLabel": "Die Zusammenarbeit",
+      "partnershipBody": "In diesen Fällen arbeite ich mit einer erfahrenen strategischen Partnerin zusammen, um zu definieren, was gebaut werden soll und warum. Gemeinsam schärfen wir die Produktidentität und den Entscheidungsrahmen, damit das Fundament stabil ist.",
+      "note": "Optional – und nur relevant, wenn die Produktrichtung noch nicht klar ist."
+    },
+    "mvpExecution": {
+      "badge": "MVP-Umsetzung",
+      "title": "Von der Idee zum funktionierenden MVP",
+      "subtitle": "Relevant, wenn Teams etwas Reales und Nutzbares brauchen – nicht nur Richtung.",
+      "intro": "Manchmal brauchen Teams nicht nur Orientierung, sondern schnell etwas Reales. Wenn es passt, helfe ich dabei, den MVP klar zu definieren, die UX zu gestalten und eng mit einem erfahrenen Entwickler zusammenzuarbeiten, um aus der Idee ein funktionierendes Produkt zu machen.",
+      "whenLabel": "Wann das sinnvoll ist",
+      "list": {
+        "scope": "Den MVP-Umfang klar definieren",
+        "ux": "Produktstruktur und UX gestalten",
+        "dev": "Eng mit einem erfahrenen Entwickler zusammenarbeiten",
+        "mvp": "Das Konzept in einen funktionierenden MVP überführen"
+      },
+      "boundaryLabel": "Die Abgrenzung",
+      "boundaryText": "Ich leite keine Entwicklungsteams. Ich führe die Produkt- und UX-Denke an und arbeite eng mit der Entwicklung zusammen, um schnell und fokussiert voranzukommen – ohne ein schwergewichtiges Dev-Team zu betreiben."
+    },
+    "howIWork": {
+      "badge": "Arbeitsweise",
+      "title": "So arbeite ich normalerweise mit Teams",
+      "intro": "Ich arbeite am besten, wenn UX-Entscheidungen das Produkt tatsächlich beeinflussen.",
+      "expectations": {
+        "label": "Was du erwarten kannst",
+        "text": "Weniger Lärm. Mehr Klarheit. Entscheidungen, die echtem Produktdruck standhalten."
+      },
+      "listLabel": "Das kann zum Beispiel bedeuten:",
+      "steps": {
+        "existing": {
+          "title": "In ein bestehendes System einsteigen",
+          "body": "Struktur und Klarheit in ein Produkt bringen, das bereits in Bewegung ist."
+        },
+        "beforeDev": {
+          "title": "Ein Produkt vor der Entwicklung definieren",
+          "body": "Ideen in eine klare Struktur übersetzen, damit die Entwicklung schnell und ohne Chaos starten kann."
+        },
+        "mvp": {
+          "title": "Ein MVP von der Idee bis zur Nutzbarkeit begleiten",
+          "body": "Entscheidungen fundiert halten und Abwägungen transparent machen."
+        }
+      },
+      "outro": "Meine Rolle ist es, Unsicherheit zu reduzieren, Entscheidungen zu erden und Teams dabei zu helfen, mit Zuversicht voranzukommen."
+    },
+    "whoIsThisFor": {
+      "goodFit": {
+        "title": "Das passt gut, wenn:",
+        "items": {
+          "realProduct": "Du ein echtes Produkt entwickelst",
+          "clarity": "Du Klarheit höher bewertest als Trends",
+          "longTermUx": "Du UX-Entscheidungen willst, die langfristig tragen"
+        }
+      },
+      "notFit": {
+        "title": "Wahrscheinlich kein guter Fit, wenn:",
+        "items": {
+          "branding": "Du nach Branding suchst",
+          "marketingPages": "Du Marketing- oder Landingpages brauchst",
+          "noProductThinking": "Du Design ohne Produktdenken möchtest"
+        }
+      }
+    },
+    "projects": {
+      "title": "Ausgewählte Produktarbeiten",
+      "subtitle": "Einige Beispiele dafür, wie ich Struktur und Klarheit in Produkte bringe. Wenig Floskeln, Fokus auf Entscheidungen.",
+      "viewAll": "Alle Projekte ansehen",
+      "cardBadge": "Case",
+      "viewCase": "Case ansehen",
+      "cta": {
+        "title": "Noch unsicher, was du brauchst?",
+        "subtitle": "Schick mir, was du hast, und ich antworte mit 3–4 fokussierten UX-Beobachtungen.",
+        "button": "Produkt oder Idee senden"
+      }
+    },
+    "finalCta": {
+      "title": "Nicht sicher, wo dein Produkt gerade steht?",
+      "line1": "Schick mir, was du hast.",
+      "line2": "Gemeinsam finden wir den nächsten sinnvollen Schritt.",
+      "button": "Produkt oder Idee senden"
+    },
+    "testimonials": {
+      "title": {
+        "main": "Echtes Feedback.",
+        "highlight": "Echte Ergebnisse."
+      },
+      "items": {
+        "keren": {
+          "quote": "Ich war sehr beeindruckt von Amirs ursprünglichem Ansatz, seiner Kreativität und seiner Art zu arbeiten. So sehr, dass ich ihn sogar für meine eigene Marke engagiert habe. Auch nach Abschluss des Projekts habe ich Amir weiterhin konsultiert – meine Zufriedenheit hatte für ihn klar oberste Priorität.",
+          "name": "Keren Rightler",
+          "role": "Inhaberin, Method Queen"
+        },
+        "adi": {
+          "quote": "Amirs Fähigkeit, Ideen visuell zu kommunizieren, ist wirklich außergewöhnlich. Seine Arbeit ist sowohl technisch versiert als auch kreativ lebendig.",
+          "name": "Adi Nudel",
+          "role": "CEO, Financial Cat"
+        }
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Redigma. Amir Shalev.",
+    "links": {
+      "feedback": "Feedback erhalten",
+      "impressum": "Impressum",
+      "email": "E-Mail"
+    }
+  }
+  ,
+  "feedback": {
+    "title": "Produkt oder Idee senden",
+    "intro": "Schick mir, was du hast, und ich antworte mit 3–4 fokussierten UX-Beobachtungen. Keine Decks. Kein Sales-Pitch. Nur hilfreiches Feedback.",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Dein Name"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "name@unternehmen.com"
+      },
+      "stage": {
+        "label": "Wo stehst du gerade?",
+        "options": {
+          "live": "Live-Produkt / MVP",
+          "building": "Aktiv in Entwicklung",
+          "idea": "Ideenphase"
+        }
+      },
+      "productUrl": {
+        "label": "Produkt-URL (optional)",
+        "placeholder": "https://..."
+      },
+      "figmaUrl": {
+        "label": "Figma- / Design-Link (optional)",
+        "placeholder": "https://figma.com/..."
+      },
+      "message": {
+        "label": "Worauf soll ich achten?",
+        "placeholder": "Beschreib kurz, worum es geht, was unklar ist und was du verbessern möchtest.",
+        "helper": "Dieses Feedback hilft oft bei der Entscheidung, ob ein Produkt verfeinert, neu aufgebaut oder als MVP umgesetzt werden sollte."
+      }
+    },
+    "actions": {
+      "submit": "Feedback senden",
+      "sending": "Wird gesendet..."
+    },
+    "status": {
+      "success": "Gesendet. Ich melde mich bald bei dir.",
+      "errorFallback": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+    }
+  }
+  ,
+  "header": {
+    "menu": "Menü",
+    "cta": "Feedback erhalten",
+    "language": {
+      "label": "Sprache wechseln"
+    },
+    "aria": {
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen"
+    }
+  }
+}

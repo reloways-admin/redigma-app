@@ -1,24 +1,28 @@
+'use client';
+
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export function HomeAbout() {
+  const t = useTranslations('home.about');
+
   return (
     <section className="mx-auto max-w-5xl px-6 py-16">
       <div className="grid items-center gap-10 md:grid-cols-2">
         {/* Text */}
         <div>
-          <h2 className="mb-4 text-2xl font-semibold">About</h2>
+          <h2 className="mb-4 text-2xl font-semibold">{t('title')}</h2>
 
           <p className="mb-4 text-gray-700">
-            I’m Amir, a product-focused UX/UI designer.
+            {t('intro')}
           </p>
 
           <p className="mb-4 text-gray-700">
-            I enjoy working with products in motion – sometimes improving what
-            already exists, sometimes helping teams move from idea to working MVP.
+            {t('body1')}
           </p>
 
           <p className="text-gray-700">
-            Based in Berlin. Working internationally.
+            {t('body2')}
           </p>
         </div>
 

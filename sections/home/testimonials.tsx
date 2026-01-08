@@ -1,19 +1,20 @@
+'use client';
 import Image from 'next/image';
-
+import { useTranslations } from 'next-intl';
 
 export default function Testimonials() {
+  const t = useTranslations('home.testimonials');
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 text-center">
       <h2 className="mb-4 text-3xl font-semibold">
-        Real feedback. <span className="text-purple-600">Real Results.</span>
+        {t('title.main')} <span className="text-purple-600">{t('title.highlight')}</span>
       </h2>
 
       <div className="mt-16 grid gap-16 md:grid-cols-2 text-left">
         <div>
           <p className="text-lg leading-relaxed text-gray-800">
-            I was so impressed with Amir’s original approach, creativity, and manners,
-            that I even had him work on my own brand. Even after our project was done,
-            I still consulted with Amir – my satisfaction was clearly his priority.
+            {t('items.keren.quote')}
           </p>
 
           <div className="mt-6 flex items-center gap-4">
@@ -25,16 +26,15 @@ export default function Testimonials() {
               className="rounded-full"
             />
             <div className="font-medium">
-              Keren Rightler
-              <div className="text-sm text-gray-500">Owner, Method Queen</div>
+              {t('items.keren.name')}
+              <div className="text-sm text-gray-500">{t('items.keren.role')}</div>
             </div>
           </div>
         </div>
 
         <div>
           <p className="text-lg leading-relaxed text-gray-800">
-            Amir’s ability to communicate ideas visually is truly remarkable.
-            His work is both technically proficient and creatively vibrant.
+            {t('items.adi.quote')}
           </p>
 
           <div className="mt-6 flex items-center gap-4">
@@ -46,8 +46,8 @@ export default function Testimonials() {
               className="rounded-full"
             />
             <div className="font-medium">
-              Adi Nudel
-              <div className="text-sm text-gray-500">CEO, Financial Cat</div>
+              {t('items.adi.name')}
+              <div className="text-sm text-gray-500">{t('items.adi.role')}</div>
             </div>
           </div>
         </div>

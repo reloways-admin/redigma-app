@@ -1,18 +1,24 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 export function HomeEntryPoints() {
+  const t = useTranslations('home.entryPoints');
+
   return (
     <section className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-6xl px-6 py-20">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-gray-600">
-              Entry points
+              {t('badge')}
             </span>
           </div>
           <h2 className="text-2xl font-semibold tracking-tight">
-            Most teams reach me in one of two moments
+            {t('title')}
           </h2>
           <p className="mt-3 text-base text-gray-700">
-            Different stages, same goal: clarity before complexity.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -26,43 +32,43 @@ export function HomeEntryPoints() {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    Something already exists
+                    {t('cards.existing.kicker')}
                   </p>
                   <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                    Improve an active product
+                    {t('cards.existing.heading')}
                   </h3>
                 </div>
               </div>
 
               <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700">
-                Live or in build
+                {t('cards.existing.tag')}
               </span>
             </div>
 
             <p className="mt-5 text-sm leading-6 text-gray-700">
-              Your product or MVP is live, or actively being built. Things work, but the UX starts to feel fragile.
+              {t('cards.existing.intro')}
             </p>
 
             <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
-              <p className="text-sm font-medium text-gray-900">Common signals</p>
+              <p className="text-sm font-medium text-gray-900">{t('cards.existing.listTitle')}</p>
               <ul className="mt-3 space-y-2 text-sm text-gray-700">
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>UX feels inconsistent</span>
+                  <span>{t('cards.existing.bullets.uxInconsistent')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>Decisions slow the team down</span>
+                  <span>{t('cards.existing.bullets.decisionsSlow')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>Adding features creates friction</span>
+                  <span>{t('cards.existing.bullets.featuresFriction')}</span>
                 </li>
               </ul>
             </div>
 
             <p className="mt-6 text-sm leading-6 text-gray-700">
-              This is where I usually step in, bringing structure, clarity, and better UX decisions into an existing system.
+              {t('cards.existing.outro')}
             </p>
 
             <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent transition group-hover:ring-gray-300" />
@@ -77,43 +83,43 @@ export function HomeEntryPoints() {
                 </span>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    You’re about to build
+                    {t('cards.building.kicker')}
                   </p>
                   <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                    Define before you design
+                    {t('cards.building.heading')}
                   </h3>
                 </div>
               </div>
 
               <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700">
-                Early stage
+                {t('cards.building.tag')}
               </span>
             </div>
 
             <p className="mt-5 text-sm leading-6 text-gray-700">
-              You’re early, but serious. The goal is to make the product clear enough that development can move fast without chaos.
+              {t('cards.building.intro')}
             </p>
 
             <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
-              <p className="text-sm font-medium text-gray-900">What teams want</p>
+              <p className="text-sm font-medium text-gray-900">{t('cards.building.listTitle')}</p>
               <ul className="mt-3 space-y-2 text-sm text-gray-700">
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>Define the product clearly before development</span>
+                  <span>{t('cards.building.bullets.defineClearly')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>Avoid costly UX mistakes later</span>
+                  <span>{t('cards.building.bullets.avoidMistakes')}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>Move fast without losing clarity</span>
+                  <span>{t('cards.building.bullets.moveFast')}</span>
                 </li>
               </ul>
             </div>
 
             <p className="mt-6 text-sm leading-6 text-gray-700">
-              In these cases, the focus is not on screens yet. It is on defining the product properly from the start.
+              {t('cards.building.outro')}
             </p>
 
             <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent transition group-hover:ring-gray-300" />

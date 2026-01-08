@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useTranslations, useLocale } from 'next-intl';
 
 type Project = {
   title: string;
@@ -36,22 +39,25 @@ const PROJECTS: Project[] = [
 ];
 
 export default function HomeProjects() {
+  const t = useTranslations('home.projects');
+  const locale = useLocale();
+
   return (
     <section className="border-t border-gray-200 bg-white">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight">Selected product work</h2>
+            <h2 className="text-2xl font-semibold tracking-tight">{t('title')}</h2>
             <p className="mt-2 text-sm text-gray-600">
-              A few examples of how I bring structure and clarity into products. Short on fluff, focused on decisions.
+              {t('subtitle')}
             </p>
           </div>
 
           <Link
-            href="/projects"
+            href={`/${locale}/projects`}
             className="inline-flex w-fit items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50"
           >
-            View all projects
+            {t('viewAll')}
           </Link>
         </div>
 
@@ -67,19 +73,19 @@ export default function HomeProjects() {
                   <p className="mt-1 text-xs font-medium uppercase tracking-wide text-gray-500">{p.subtitle}</p>
                 </div>
                 <span className="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-700">
-                  Case
+                  {t('cardBadge')}
                 </span>
               </div>
 
               <p className="mt-4 text-sm leading-6 text-gray-700">{p.summary}</p>
 
               <div className="mt-5 flex flex-wrap gap-2">
-                {p.tags.map((t) => (
+                {p.tags.map((tTag) => (
                   <span
-                    key={t}
+                    key={tTag}
                     className="rounded-full border border-gray-200 bg-white px-2.5 py-1 text-xs text-gray-700"
                   >
-                    {t}
+                    {tTag}
                   </span>
                 ))}
               </div>
@@ -89,7 +95,7 @@ export default function HomeProjects() {
                   href={p.href}
                   className="inline-flex items-center text-sm font-medium text-gray-900 underline-offset-4 group-hover:underline"
                 >
-                  View case study
+                  {t('viewCase')}
                 </Link>
               </div>
 
@@ -100,16 +106,16 @@ export default function HomeProjects() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-xl border border-gray-200 bg-gray-50 p-6 md:flex-row md:items-center">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-gray-900">Not sure what you need yet?</p>
+            <p className="text-sm font-medium text-gray-900">{t('cta.title')}</p>
             <p className="mt-1 text-sm text-gray-600">
-              Send what you have and I will reply with 3-4 focused UX observations.
+              {t('cta.subtitle')}
             </p>
           </div>
           <Link
-            href="/feedback"
+            href={`/${locale}/feedback`}
             className="inline-flex w-fit items-center justify-center rounded-md bg-black px-5 py-2.5 text-sm font-medium text-white hover:opacity-90"
           >
-            Send your product or idea
+            {t('cta.button')}
           </Link>
         </div>
       </div>

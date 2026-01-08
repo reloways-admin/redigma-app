@@ -1,4 +1,10 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 export function HomeHowIWork() {
+  const t = useTranslations('home.howIWork');
+
   return (
     <section className="bg-white">
       {/* full-width divider */}
@@ -9,21 +15,21 @@ export function HomeHowIWork() {
           {/* Left rail */}
           <div className="md:col-span-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-700">How I work</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-700">{t('badge')}</p>
             </div>
 
             <h2 className="mt-5 text-3xl font-semibold tracking-tight text-gray-900">
-              How I usually work with teams
+              {t('title')}
             </h2>
 
             <p className="mt-4 max-w-md text-base leading-7 text-gray-700">
-              I work best when UX decisions actually affect the product.
+              {t('intro')}
             </p>
 
             <div className="mt-10 border-l-2 border-gray-200 pl-4">
-              <p className="text-sm font-medium text-gray-900">What you can expect</p>
+              <p className="text-sm font-medium text-gray-900">{t('expectations.label')}</p>
               <p className="mt-2 text-sm leading-6 text-gray-600">
-                Less noise. More clarity. Decisions that survive real product pressure.
+                {t('expectations.text')}
               </p>
             </div>
           </div>
@@ -32,7 +38,7 @@ export function HomeHowIWork() {
           <div className="md:col-span-7">
             <div className="space-y-10">
               <div>
-                <p className="text-sm font-medium text-gray-600">That can mean:</p>
+                <p className="text-sm font-medium text-gray-600">{t('listLabel')}</p>
 
                 <ol className="mt-5 space-y-6">
                   <li className="flex gap-4">
@@ -40,9 +46,9 @@ export function HomeHowIWork() {
                       1
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">Stepping into an existing system</p>
+                      <p className="text-sm font-semibold text-gray-900">{t('steps.existing.title')}</p>
                       <p className="mt-1 text-sm leading-6 text-gray-700">
-                        Bringing structure and clarity into a product that is already moving.
+                        {t('steps.existing.body')}
                       </p>
                     </div>
                   </li>
@@ -52,9 +58,9 @@ export function HomeHowIWork() {
                       2
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">Helping define a product before development</p>
+                      <p className="text-sm font-semibold text-gray-900">{t('steps.beforeDev.title')}</p>
                       <p className="mt-1 text-sm leading-6 text-gray-700">
-                        Turning ideas into a clear structure so development can move fast without chaos.
+                        {t('steps.beforeDev.body')}
                       </p>
                     </div>
                   </li>
@@ -64,9 +70,9 @@ export function HomeHowIWork() {
                       3
                     </span>
                     <div>
-                      <p className="text-sm font-semibold text-gray-900">Guiding an MVP from idea to something usable</p>
+                      <p className="text-sm font-semibold text-gray-900">{t('steps.mvp.title')}</p>
                       <p className="mt-1 text-sm leading-6 text-gray-700">
-                        Keeping decisions grounded and making tradeoffs explicit.
+                        {t('steps.mvp.body')}
                       </p>
                     </div>
                   </li>
@@ -74,7 +80,7 @@ export function HomeHowIWork() {
               </div>
 
               <p className="max-w-2xl text-base leading-7 text-gray-700">
-                My role is to reduce uncertainty, keep decisions grounded, and help teams move forward with confidence.
+                {t('outro')}
               </p>
             </div>
           </div>
