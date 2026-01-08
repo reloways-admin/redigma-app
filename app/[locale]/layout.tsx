@@ -43,15 +43,15 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (locale !== "en" && locale !== "de") {
     notFound();
   }
 
-  const safeLocale: Locale = locale;
+  const safeLocale = locale as Locale;
 
   // Tell next-intl which locale is active for this request (helps avoid dynamic rendering surprises).
   setRequestLocale(safeLocale);
