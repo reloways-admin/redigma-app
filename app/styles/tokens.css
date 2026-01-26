@@ -1,0 +1,29 @@
+:root {
+
+/* Surface Tokens */
+--surface-0: var(--grey-100);
+--surface-1: var(--grey-200);
+--surface-3: var(--grey-300);
+--surface-4: var(--grey-400);
+--surface-5: var(--grey-800);
+--surface-primary: var(--purple-500);
+--primary-blue: var(--blue-500);
+ 
+/* Text Tokens */
+--text-primary: var(--grey-800);
+--text-secondary: var(--grey-600);
+--text-dimmed: var(--grey-500);
+--text-brand: var(--purple-500);
+--text-inverse: var(--grey-100);
+--text-high: var(--grey-800);
+
+/* Border Tokens */
+--border-default: var(--grey-800);
+--border-subtle: var(--grey-300);
+--border-strong: var(--grey-800);
+--border-brand: var(--purple-500);
+
+/* Typography Size Tokens */
+--size-small: 12px;
+
+}

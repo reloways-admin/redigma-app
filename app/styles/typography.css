@@ -1,0 +1,87 @@
+/* app/styles/typogrpahy.css */
+
+/* ========================= */
+/* Typography Roles (type-*) */
+/* ========================= */
+
+/* Page / Hero */
+@utility type-page-title {
+    font-size: var(--font-size-9); /* 72px */
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  
+  @utility type-page-subtitle {
+    font-size: var(--font-size-4); /* 20px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  /* Section */
+  @utility type-section-title {
+    font-size: var(--font-size-7); /* 48px */
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  
+  @utility type-section-subtitle {
+    font-size: var(--font-size-4); /* 20px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  /* Cards */
+  @utility type-card-title {
+    font-size: var(--font-size-5); /* 24px */
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  
+  @utility type-card-subtitle {
+    font-size: var(--font-size-3); /* 16px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  /* Body */
+  @utility type-body {
+    font-size: var(--font-size-3); /* 16px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  @utility type-body-small {
+    font-size: var(--font-size-2); /* 14px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  
+  /* Meta / Labels */
+  @utility type-label {
+    font-size: var(--font-size-1); /* 12px */
+    line-height: 1;
+    font-weight: 500;
+  }
+  
+  @utility type-meta {
+    font-size: var(--font-size-1); /* 12px */
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  
+  @utility type-kicker {
+    font-size: var(--font-size-1); /* 12px */
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  @utility type-quote {
+    font-size: var(--font-size-6); /* 20px */
+    line-height: 1.6;
+    font-weight: 400;
+  }

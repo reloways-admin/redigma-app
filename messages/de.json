@@ -2,8 +2,9 @@
   "home": {
     "hero": {
       "status": "Bereit für neue Projekte",
-      "title": "Klarheit für digitale Produkte schaffen",
+      "title": "<brand>Klarheit</brand> für <brand>digitale Produkte</brand> schaffen",
       "subtitle": "Ich unterstütze Gründer und Produktteams dabei, klare und nutzbare Produkte zu entwickeln – von der frühen Definition bis zur Verbesserung bestehender Systeme.",
+      "viewSelectedWork": "Ausgewählte Arbeiten ansehen",
       "labels": {
         "productUx": "Product UX",
         "structure": "Struktur",
@@ -19,7 +20,7 @@
     },
     "entryPoints": {
       "badge": "Einstiegspunkte",
-      "title": "Die meisten Teams kommen in einem von zwei Momenten zu mir",
+      "title": "Die meisten Teams kommen in einem von zwei Momenten <brand>zu mir</brand>",
       "subtitle": "Unterschiedliche Phasen, gleiches Ziel: Klarheit vor Komplexität.",
       "cards": {
         "existing": {
@@ -240,6 +241,14 @@
   "header": {
     "menu": "Menü",
     "cta": "Feedback erhalten",
+    "nav": {
+      "whenTeamsReachOut": "Wann Teams auf mich zukommen",
+      "uxFeedback": "UX-Feedback",
+      "howIWork": "Arbeitsweise",
+      "selectedWork": "Ausgewählte Arbeiten",
+      "clientFeedback": "Kundenstimmen",
+      "about": "Über mich"
+    },
     "impressum": "Impressum",
     "language": {
       "label": "Sprache wechseln"

@@ -1,0 +1,124 @@
+:root {
+  /* Surfaces & Globals */
+  --background: var(--surface-0);
+  --foreground: var(--text-primary);
+
+  /* Header */
+  --header-bg: var(--background);
+  --header-border: var(--border-subtle);
+  --header-brand: var(--text-brand);
+  --header-link: var(--text-secondary);
+  --header-link-hover: var(--text-primary);
+
+  /* Header CTA (uses primary button styling) */
+  --header-cta-bg: var(--btn-primary-bg);
+  --header-cta-text: var(--btn-primary-text);
+
+  /* Button - Primary */
+  --btn-primary-bg: var(--surface-primary);
+  --btn-primary-text: var(--text-inverse);
+
+  /* Button - Secondary */
+  --btn-secondary-bg: var(--surface-1);
+  --btn-secondary-text: var(--text-primary);
+  --btn-secondary-bg-hover: var(--surface-3);
+
+  /* Button - Outline */
+  --btn-outline-border: var(--border-subtle);
+  --btn-outline-text: var(--text-high);
+  --btn-outline-bg-hover: var(--surface-1);
+
+  /* Entry Cards General */
+  --entry-card-bg: var(--surface-0);
+  --entry-card-border: var(--border-subtle);
+  --entry-card-accent-width: 4px;
+
+  /* Variant Colors */
+  --entry-early-color: var(--purple-500);
+  --entry-live-color: var(--blue-500);
+
+  /* Label Component */
+  --label-bg: var(--surface-1);
+  --label-bg-hover: var(--surface-3);
+  --label-text: var(--text-secondary);
+  --label-text-size: var(--size-small);
+  --label-padding-y: var(--spacing-0-75);
+  --label-padding-x: var(--spacing-1-25);
+  --label-radius: var(--radius-0);
+
+  /* Kicker */
+  --kicker-bg: var(--purple-100);
+  --kicker-text: var(--text-brand);
+
+  /* Generic Layout / Components */
+
+  /* Sections */
+  --section-bg: var(--background);
+  --section-border: var(--border-subtle);
+
+  /* Cards */
+  --card-bg: var(--surface-0);
+  --card-bg-muted: var(--surface-1);
+  --card-border: var(--border-default);
+  --card-radius: var(--radius-0);
+  --card-shadow: none;
+
+  /* Chips / Badges */
+  --chip-bg: var(--surface-1);
+  --chip-border: var(--border-subtle);
+  --chip-text: var(--text-secondary);
+
+  /* ============================= */
+  /* Mini Product (semantic alias) */
+  /* ============================= */
+
+  /* Section */
+  --mini-product-bg: var(--section-bg);
+  --mini-product-border: var(--section-border);
+
+  /* Badge */
+  --mini-product-badge-bg: var(--chip-bg);
+  --mini-product-badge-border: var(--chip-border);
+  --mini-product-badge-text: var(--chip-text);
+
+  /* Cards */
+  --mini-product-card-bg: var(--card-bg);
+  --mini-product-card-bg-muted: var(--card-bg-muted);
+  --mini-product-card-border: var(--card-border);
+  --mini-product-card-shadow: var(--card-shadow);
+
+  /* Footer */
+  --mini-product-footer-bg: var(--card-bg);
+  --mini-product-footer-border: var(--card-border);
+  --mini-product-footer-text: var(--text-secondary);
+
+  /* ============================= */
+  /* How I work */
+  /* ============================= */
+
+  /* Section */
+  --how-i-work-bg: var(--background);
+  --how-i-work-divider: var(--border-subtle);
+
+  /* Cards */
+  --how-i-work-card-bg: var(--card-bg);
+  --how-i-work-card-border: var(--border-subtle);
+  --how-i-work-card-radius: var(--card-radius);
+  --how-i-work-card-shadow: var(--card-shadow);
+
+  /* Card accent borders (3 variants) */
+  --how-i-work-accent-1: var(--text-brand);
+  --how-i-work-accent-2: var(--coral-500);
+  --how-i-work-accent-3: var(--green-500);
+
+  /* Quote box */
+  --how-i-work-quote-bg: var(--background);
+  --how-i-work-quote-border: var(--border-default);
+
+  /* Aliases used by the current generic utilities, scoped via values above */
+  --section-divider: var(--how-i-work-divider);
+  --quote-bg: var(--how-i-work-quote-bg);
+  --quote-border: var(--how-i-work-quote-border);
+  --quote-padding: var(--spacing-8);
+  --quote-radius: var(--card-radius);
+} 

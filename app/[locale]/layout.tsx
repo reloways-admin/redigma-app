@@ -4,12 +4,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 
-import "../globals.css";
-
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { notFound } from "next/navigation";
 import { getMessages, setRequestLocale } from "next-intl/server";
+
+// Import globals at the bottom to ensure variables are available
+import "../globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -53,16 +54,13 @@ export default async function RootLayout({
   }
 
   const safeLocale = locale as Locale;
-
-  // Tell next-intl which locale is active for this request (helps avoid dynamic rendering surprises).
   setRequestLocale(safeLocale);
-
   const messages = await getMessages({ locale: safeLocale });
 
   return (
     <html lang={safeLocale}>
       <body
-        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white text-gray-900`}
+        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen font-sans`}
       >
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
           <div className="flex min-h-screen flex-col">

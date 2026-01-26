@@ -1,4 +1,6 @@
 import { HomeHero } from '@/sections/home/hero';
+/* Updated the import name to match the export in your hero-tags.tsx file */
+import { HeroTags } from '@/sections/home/hero-tags'; 
 import { HomeEntryPoints } from '@/sections/home/entry-points';
 import { HomeMiniProduct } from '@/sections/home/mini-product';
 import HomeStrategicPartnership from '@/sections/home/strategy-partnership';
@@ -14,12 +16,17 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+      <HeroTags /> 
       <HomeEntryPoints />
       <HomeMiniProduct />
+      {/*
       <HomeStrategicPartnership />
       <HomeMVPExecution />
+      */}
       <HomeHowIWork />
+      {/*
       <HomeWhoIsThisFor />
+      */}
       <HomeProjects />
       <Testimonials />
       <HomeAbout />

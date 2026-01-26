@@ -6,13 +6,22 @@
     "aria": {
       "openMenu": "Open menu",
       "closeMenu": "Close menu"
+    },
+    "nav": {
+      "whenTeamsReachOut": "When teams reach out",
+      "uxFeedback": "UX feedback",
+      "howIWork": "How I work",
+      "selectedWork": "Selected work",
+      "clientFeedback": "Client feedback",
+      "about": "About"
     }
   },
   "home": {
     "hero": {
       "status": "Ready for work",
-      "title": "Building clarity into digital products",
+      "title": "Building <brand>clarity</brand><br></br>into <brand>digital products</brand>",
       "subtitle": "I help founders and product teams shape clear, usable products — from early definition to improving existing systems.",
+      "viewSelectedWork": "View selected work",
       "labels": {
         "productUx": "Product UX",
         "structure": "Structure",
@@ -22,7 +31,7 @@
     },
     "entryPoints": {
       "badge": "Entry points",
-      "title": "Most teams reach me in one of two moments",
+      "title": "Most teams <brand>reach me</brand> in one of two moments",
       "subtitle": "Different stages, same goal: clarity before complexity.",
       "cards": {
         "existing": {
@@ -59,7 +68,7 @@
       "subtitle": "Before committing to anything, send me what you have and I’ll reply with 3–4 focused UX observations.",
       "step1": {
         "kicker": "Step 1",
-        "title": "You send",
+        "title": "What to send",
         "tag": "1–3 items",
         "items": {
           "link": "A link to your live product (or a prototype)",
@@ -70,7 +79,7 @@
       },
       "step2": {
         "kicker": "Step 2",
-        "title": "You get",
+        "title": "What you get",
         "tag": "Clear next steps",
         "items": {
           "observations": "3–4 focused UX observations",

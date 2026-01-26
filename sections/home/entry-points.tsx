@@ -1,129 +1,100 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Kicker } from '@/components/ui/kicker';
 
 export function HomeEntryPoints() {
   const t = useTranslations('home.entryPoints');
 
   return (
-    <section className="border-t border-gray-200 bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 flex justify-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-wide text-gray-600">
-              {t('badge')}
-            </span>
-          </div>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            {t('title')}
+    <section className="bg-[var(--background)] py-24 lg:py-32 border-t border-[var(--border-subtle)]">
+      <div className="mx-auto max-w-[1440px] px-6">
+        
+        {/* Header */}
+        <div className="mb-24 text-center">
+          <Kicker className="inline-flex w-fit mx-auto">{t('badge')}</Kicker>
+          <h2 className="mx-auto max-w-2xl text-section-title text-[var(--foreground)]">
+            {t.rich('title', {
+              brand: (chunks) => <span className="text-[var(--text-brand)]">{chunks}</span>,
+            })}
           </h2>
-          <p className="mt-3 text-base text-gray-700">
+          <p className="mt-6 text-lg text-[var(--text-secondary)]">
             {t('subtitle')}
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {/* Entry point 1 */}
-          <article className="group rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-gray-50 text-sm font-semibold text-gray-900">
-                  1
-                </span>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    {t('cards.existing.kicker')}
-                  </p>
-                  <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                    {t('cards.existing.heading')}
-                  </h3>
+        {/* Grid */}
+        <div className="grid gap-8 md:grid-cols-2">
+          
+          {/* Card 1: Early Stage */}
+          <article 
+            className="entry-card-container border-t-[var(--entry-card-accent-width)]" 
+            style={{ borderColor: 'var(--entry-early-color)', ['--entry-accent-color' as any]: 'var(--entry-early-color)' }}
+          >
+            <div className="entry-card-header" style={{ backgroundColor: 'var(--entry-accent-color)' }}>
+               {t('cards.existing.tag')}
+            </div>
+            
+            <div className="p-10 flex flex-col h-full">
+              <h3 className="mb-6 text-3xl font-medium tracking-tight text-[var(--foreground)]">
+                {t('cards.existing.heading')}
+              </h3>
+              <p className="mb-10 text-[var(--text-secondary)] leading-relaxed">
+                {t('cards.existing.intro')}
+              </p>
+              
+              <div className="mt-auto aspect-video w-full flex items-center justify-center">
+                <div className="relative h-full w-full">
+                  <Image
+                    src="/illustrations/entry-point/sketch-define.svg"
+                    alt="Define stage illustration"
+                    fill
+                    className="object-contain scale-90"
+                  />
+                </div>
+              </div>
+              
+              <p className="mt-10 text-xs italic text-[var(--text-dimmed)] leading-relaxed">
+                {t('cards.existing.outro')}
+              </p>
+            </div>
+          </article>
+
+          {/* Card 2: Live Stage */}
+          <article 
+            className="entry-card-container border-t-[var(--entry-card-accent-width)]" 
+            style={{ borderColor: 'var(--entry-live-color)', ['--entry-accent-color' as any]: 'var(--entry-live-color)' }}
+          >
+            <div className="entry-card-header" style={{ backgroundColor: 'var(--entry-accent-color)' }}>
+               {t('cards.building.tag')}
+            </div>
+
+            <div className="p-10 flex flex-col h-full">
+              <h3 className="mb-6 text-3xl font-medium tracking-tight text-[var(--foreground)]">
+                {t('cards.building.heading')}
+              </h3>
+              <p className="mb-10 text-[var(--text-secondary)] leading-relaxed">
+                {t('cards.building.intro')}
+              </p>
+
+              <div className="mt-auto aspect-video w-full flex items-center justify-center">
+                <div className="relative h-full w-full">
+                  <Image
+                    src="/illustrations/entry-point/sketch-live.svg"
+                    alt="Live stage illustration"
+                    fill
+                    className="object-contain scale-80"
+                  />
                 </div>
               </div>
 
-              <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700">
-                {t('cards.existing.tag')}
-              </span>
+              <p className="mt-10 text-xs italic text-[var(--text-dimmed)] leading-relaxed">
+                {t('cards.building.outro')}
+              </p>
             </div>
-
-            <p className="mt-5 text-sm leading-6 text-gray-700">
-              {t('cards.existing.intro')}
-            </p>
-
-            <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
-              <p className="text-sm font-medium text-gray-900">{t('cards.existing.listTitle')}</p>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                <li className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>{t('cards.existing.bullets.uxInconsistent')}</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>{t('cards.existing.bullets.decisionsSlow')}</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>{t('cards.existing.bullets.featuresFriction')}</span>
-                </li>
-              </ul>
-            </div>
-
-            <p className="mt-6 text-sm leading-6 text-gray-700">
-              {t('cards.existing.outro')}
-            </p>
-
-            <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent transition group-hover:ring-gray-300" />
           </article>
 
-          {/* Entry point 2 */}
-          <article className="group rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-gray-50 text-sm font-semibold text-gray-900">
-                  2
-                </span>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    {t('cards.building.kicker')}
-                  </p>
-                  <h3 className="mt-1 text-lg font-semibold text-gray-900">
-                    {t('cards.building.heading')}
-                  </h3>
-                </div>
-              </div>
-
-              <span className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs text-gray-700">
-                {t('cards.building.tag')}
-              </span>
-            </div>
-
-            <p className="mt-5 text-sm leading-6 text-gray-700">
-              {t('cards.building.intro')}
-            </p>
-
-            <div className="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-5">
-              <p className="text-sm font-medium text-gray-900">{t('cards.building.listTitle')}</p>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                <li className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>{t('cards.building.bullets.defineClearly')}</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>{t('cards.building.bullets.avoidMistakes')}</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-gray-400" />
-                  <span>{t('cards.building.bullets.moveFast')}</span>
-                </li>
-              </ul>
-            </div>
-
-            <p className="mt-6 text-sm leading-6 text-gray-700">
-              {t('cards.building.outro')}
-            </p>
-
-            <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-transparent transition group-hover:ring-gray-300" />
-          </article>
         </div>
       </div>
     </section>

@@ -1,32 +1,61 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  /* Force light theme for now */
-  color-scheme: light;
-}
+@import "./styles/primitives.css";
+@import "./styles/tokens.css";
+@import "./styles/semantic.css";
+@import "./styles/typography.css";
+@import "./styles/components.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui;
+  --spacing-hero-gap: var(--spacing-9);
 }
 
-/*
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Typography Utilities (legacy aliases -> new type roles) */
+@utility text-hero-title {
+  @apply type-page-title;
 }
-*/
+
+@utility text-hero-subtitle {
+  @apply type-page-subtitle;
+}
+
+@utility text-label {
+  @apply type-label;
+}
+
+@utility text-section-title {
+  @apply type-section-title;
+}
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins), system-ui, -apple-system, Segoe UI, Roboto,
-    Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1280px) {
+  .text-hero-title {
+    font-size: var(--font-size-8); /* 56px */
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-hero-title {
+    font-size: var(--font-size-7); /* 48px */
+  }
+  :root {
+    --spacing-hero-gap: var(--spacing-6);
+  }
+}
+
+@media (max-width: 640px) {
+  .text-hero-title {
+    font-size: var(--font-size-6); /* 32px */
+  }
+  .text-hero-subtitle {
+    font-size: 1.125rem;
+  }
 }
