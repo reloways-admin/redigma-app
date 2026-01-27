@@ -149,6 +149,7 @@
       }
     },
     "projects": {
+      "kicker": "Fallstudien",
       "title": "Ausgewählte Produktarbeiten",
       "subtitle": "Einige Beispiele dafür, wie ich Struktur und Klarheit in Produkte bringe. Wenig Floskeln, Fokus auf Entscheidungen.",
       "viewAll": "Alle Projekte ansehen",
@@ -167,8 +168,9 @@
       "button": "Produkt oder Idee senden"
     },
     "testimonials": {
+      "kicker": "KUNDENFEEDBACK",
       "title": {
-        "main": "Echtes Feedback.",
+        "main": "Von Gründern und Produktteams geschätzt.",
         "highlight": "Echte Ergebnisse."
       },
       "items": {

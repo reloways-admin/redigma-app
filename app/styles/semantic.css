@@ -66,7 +66,7 @@
   /* Chips / Badges */
   --chip-bg: var(--surface-1);
   --chip-border: var(--border-subtle);
-  --chip-text: var(--text-secondary);
+  --chip-text: var(--font-size-1);
 
   /* ============================= */
   /* Mini Product (semantic alias) */
@@ -121,4 +121,41 @@
   --quote-border: var(--how-i-work-quote-border);
   --quote-padding: var(--spacing-8);
   --quote-radius: var(--card-radius);
+
+  /* ============================= */
+  /* Projects */
+  /* ============================= */
+
+  /* Section */
+  --projects-bg: var(--background);
+  --projects-border: var(--border-subtle);
+
+  /* Card */
+  --project-card-bg: var(--card-bg);
+  --project-card-border: var(--border-default);
+  --project-card-radius: var(--card-radius);
+  --project-card-shadow: none;
+  --project-card-padding: var(--spacing-4); /* 32px */
+
+  /* Meta label (project domain / type, e.g. Fintech) */
+  --project-meta-bg: var(--chip-bg);
+  --project-meta-border: var(--chip-border);
+  --project-meta-text: var(--chip-text);
+  --project-meta-radius: var(--radius-0);
+  --project-meta-padding-y: var(--spacing-0-2);
+  --project-meta-padding-x: var(--spacing-0-75);
+
+  /* Tags */
+  --project-tag-bg: var(--surface-0);
+  --project-tag-border: var(--border-subtle);
+  --project-tag-text: var(--text-secondary);
+  --project-tag-radius: var(--radius-0);
+  --project-tag-padding-y: var(--spacing-0-75);
+  --project-tag-padding-x: var(--spacing-1-25);
+  --project-tag-gap: var(--spacing-1);
+
+  /* Links inside project cards */
+  --project-link-text: var(--text-primary);
+  --project-link-text-hover: var(--text-primary);
 } 
+

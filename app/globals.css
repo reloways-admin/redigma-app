@@ -1,3 +1,4 @@
+/* 1. Framework & Core Design System Imports */
 @import "tailwindcss";
 @import "./styles/primitives.css";
 @import "./styles/tokens.css";
@@ -5,12 +6,13 @@
 @import "./styles/typography.css";
 @import "./styles/components.css";
 
+/* 2. Theme Configuration */
 @theme inline {
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui;
   --spacing-hero-gap: var(--spacing-9);
 }
 
-/* Typography Utilities (legacy aliases -> new type roles) */
+/* 3. Custom Global Utilities */
 @utility text-hero-title {
   @apply type-page-title;
 }
@@ -27,6 +29,7 @@
   @apply type-section-title;
 }
 
+/* 4. Base Global Styles */
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -35,7 +38,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Responsive Overrides */
+/* 5. Responsive Overrides & Adaptive Tokens */
 @media (max-width: 1280px) {
   .text-hero-title {
     font-size: var(--font-size-8); /* 56px */
@@ -43,11 +46,12 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .text-hero-title {
-    font-size: var(--font-size-7); /* 48px */
-  }
   :root {
     --spacing-hero-gap: var(--spacing-6);
+  }
+  
+  .text-hero-title {
+    font-size: var(--font-size-7); /* 48px */
   }
 }
 
@@ -55,6 +59,7 @@ body {
   .text-hero-title {
     font-size: var(--font-size-6); /* 32px */
   }
+  
   .text-hero-subtitle {
     font-size: 1.125rem;
   }

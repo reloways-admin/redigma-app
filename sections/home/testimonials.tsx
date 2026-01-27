@@ -1,55 +1,102 @@
 'use client';
+
+import * as React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Kicker } from '@/components/ui/kicker';
+
+/* Internal Card Component */
+function TestimonialCard({ 
+  quote, 
+  author, 
+  role, 
+  imageSrc 
+}: { 
+  quote: string; 
+  author: string; 
+  role: string; 
+  imageSrc: string;
+}) {
+  return (
+    <div className="testimonial-card">
+      <blockquote className="testimonial-quote">
+        “{quote}”
+      </blockquote>
+      
+      <div className="mt-auto flex items-center gap-4">
+        {/* Avatar with subtle border and grayscale effect */}
+        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[var(--border-subtle)] grayscale">
+          <Image
+            src={imageSrc}
+            alt={author}
+            fill
+            className="object-cover"
+            sizes="48px"
+          />
+        </div>
+        <div className="flex flex-col text-left">
+          <p className="testimonial-author">{author}</p>
+          <p className="testimonial-role">{role}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Testimonials() {
   const t = useTranslations('home.testimonials');
 
+  const items = [
+    {
+      quote: t('items.keren.quote'),
+      author: t('items.keren.name'),
+      role: t('items.keren.role'),
+      imageSrc: '/images/home/keren.png',
+    },
+    {
+      quote: t('items.adi.quote'),
+      author: t('items.adi.name'),
+      role: t('items.adi.role'),
+      imageSrc: '/images/home/adi.png',
+    },
+    /* Hidden for now:
+    {
+      quote: t('items.ariel.quote'),
+      author: t('items.ariel.name'),
+      role: t('items.ariel.role'),
+      imageSrc: '/images/home/ariel.png',
+    },
+    {
+      quote: t('items.erez.quote'), 
+      author: t('items.erez.name'),
+      role: t('items.erez.role'),
+      imageSrc: '/images/home/erez.png',
+    }
+    */
+  ];
+
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 text-center">
-      <h2 className="mb-4 text-3xl font-semibold">
-        {t('title.main')} <span className="text-purple-600">{t('title.highlight')}</span>
-      </h2>
-
-      <div className="mt-16 grid gap-16 md:grid-cols-2 text-left">
-        <div>
-          <p className="text-lg leading-relaxed text-gray-800">
-            {t('items.keren.quote')}
-          </p>
-
-          <div className="mt-6 flex items-center gap-4">
-            <Image
-              src="/images/home/keren.png"
-              alt="Keren Rightler"
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-            <div className="font-medium">
-              {t('items.keren.name')}
-              <div className="text-sm text-gray-500">{t('items.keren.role')}</div>
-            </div>
+    <section className="testimonials-section py-24 lg:py-32 border-t border-[var(--border-subtle)]">
+      <div className="mx-auto max-w-[1440px] px-6">
+        
+        {/* Header Section matching the Project list alignment */}
+        <div className="mb-20 text-left">
+          <div className="flex mb-4">
+            <Kicker className="w-fit">{t('kicker') || 'CLIENT FEEDBACK'}</Kicker>
           </div>
+          <h2 className="type-section-title text-[var(--text-primary)] max-w-2xl">
+            {t('title.main')}
+          </h2>
         </div>
 
-        <div>
-          <p className="text-lg leading-relaxed text-gray-800">
-            {t('items.adi.quote')}
-          </p>
-
-          <div className="mt-6 flex items-center gap-4">
-            <Image
-              src="/images/home/adi.png"
-              alt="Adi Nudel"
-              width={48}
-              height={48}
-              className="rounded-full"
+        {/* 2-Column Responsive Grid */}
+        <div className="grid gap-8 md:grid-cols-2">
+          {items.map((item, index) => (
+            <TestimonialCard 
+              key={index}
+              {...item}
             />
-            <div className="font-medium">
-              {t('items.adi.name')}
-              <div className="text-sm text-gray-500">{t('items.adi.role')}</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

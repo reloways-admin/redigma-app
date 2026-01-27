@@ -2,146 +2,146 @@
 
 /* Header CTA */
 @utility header-cta {
-    @apply px-4 py-2 text-sm font-medium transition-all inline-flex items-center justify-center;
-    @apply hover:opacity-90;
-    background-color: var(--header-cta-bg);
-    color: var(--header-cta-text);
-    border-radius: var(--radius-0);
-  }
-  
-  /* Label */
-  @utility label-base {
-    @apply inline-flex items-center transition-colors;
-    @apply hover:bg-[var(--label-bg-hover)];
-    background-color: var(--label-bg);
-    color: var(--label-text);
-    border-radius: var(--label-radius);
-    padding: var(--label-padding-y) var(--label-padding-x);
-  }
-  
-  /* Button Base */
-  @utility btn-base {
-    @apply inline-flex items-center justify-center transition-all font-medium text-sm;
-    @apply active:scale-[0.98] hover:opacity-90;
-    border-radius: var(--radius-0);
-    padding: var(--spacing-2) var(--spacing-4);
-  }
+  @apply px-4 py-2 text-sm font-medium transition-all inline-flex items-center justify-center;
+  @apply hover:opacity-90;
+  background-color: var(--header-cta-bg);
+  color: var(--header-cta-text);
+  border-radius: var(--radius-0);
+}
+
+/* Label */
+@utility label-base {
+  @apply inline-flex items-center transition-colors;
+  @apply hover:bg-[var(--label-bg-hover)];
+  background-color: var(--label-bg);
+  color: var(--label-text);
+  border-radius: var(--label-radius);
+  padding: var(--label-padding-y) var(--label-padding-x);
+}
+
+/* Button Base */
+@utility btn-base {
+  @apply inline-flex items-center justify-center transition-all font-medium text-sm;
+  @apply active:scale-[0.98] hover:opacity-90;
+  border-radius: var(--radius-0);
+  padding: var(--spacing-2) var(--spacing-4);
+}
 
 /* Entry Card Container */
 @utility entry-card-container {
-  @apply relative flex flex-col border transition-all;
-  border-radius: var(--radius-0);
-  border-color: var(--entry-card-border);
-  background-color: var(--entry-card-bg);
+@apply relative flex flex-col border transition-all;
+border-radius: var(--radius-0);
+border-color: var(--entry-card-border);
+background-color: var(--entry-card-bg);
 }
 
 /* Entry Card Header */
 @utility entry-card-header {
-  @apply flex items-center justify-center text-[10px] font-bold uppercase tracking-widest text-white;
-  height: 32px;
+@apply flex items-center justify-center text-[10px] font-bold uppercase tracking-widest text-white;
+height: 32px;
 }
-  
-  /* Entry Card */
-  @utility entry-card {
-    @apply relative flex flex-col p-10 transition-all border;
-    border-radius: var(--radius-0);
-    background-color: var(--entry-card-bg);
-    border-color: var(--entry-card-border);
-  }
+
+/* Entry Card */
+@utility entry-card {
+  @apply relative flex flex-col p-10 transition-all border;
+  border-radius: var(--radius-0);
+  background-color: var(--entry-card-bg);
+  border-color: var(--entry-card-border);
+}
 
 /* Mini Product Section */
 @utility mini-product-section {
-  background-color: var(--mini-product-bg);
-  border-top: 1px solid var(--mini-product-border);
+background-color: var(--mini-product-bg);
+border-top: 1px solid var(--mini-product-border);
 }
 
 @utility mini-product-badge {
-  @apply inline-flex items-center gap-2 rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-wide;
-  background-color: var(--mini-product-badge-bg);
-  border-color: var(--mini-product-border);
-  color: var(--mini-product-badge-text);
+@apply inline-flex items-center gap-2 rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-wide;
+background-color: var(--mini-product-badge-bg);
+border-color: var(--mini-product-border);
+color: var(--mini-product-badge-text);
 }
 
 @utility mini-product-card {
-  @apply border p-7;
-  background-color: var(--mini-product-card-bg);
-  border-color: var(--mini-product-border);
-  border-radius: var(--mini-product-card-radius);
-  box-shadow: var(--mini-product-card-shadow);
+@apply border p-7;
+background-color: var(--mini-product-card-bg);
+border-color: var(--mini-product-border);
+border-radius: var(--mini-product-card-radius);
+box-shadow: var(--mini-product-card-shadow);
 }
 
 @utility mini-product-card-muted {
-  @apply border p-7;
-  background-color: var(--mini-product-card-bg-muted);
-  border-color: var(--mini-product-border);
-  border-radius: var(--mini-product-card-radius);
-  box-shadow: var(--mini-product-card-shadow);
+@apply border p-7;
+background-color: var(--mini-product-card-bg-muted);
+border-color: var(--mini-product-border);
+border-radius: var(--mini-product-card-radius);
+box-shadow: var(--mini-product-card-shadow);
 }
 
 @utility mini-product-step-kicker {
-  @apply text-xs font-semibold uppercase tracking-wide;
-  color: var(--mini-product-kicker-text);
+@apply text-xs font-semibold uppercase tracking-wide;
+color: var(--mini-product-kicker-text);
 }
 
 @utility mini-product-step-tag {
-  @apply rounded-full border px-3 py-1 text-xs;
-  background-color: var(--mini-product-tag-bg);
-  border-color: var(--mini-product-border);
-  color: var(--mini-product-tag-text);
+@apply rounded-full border px-3 py-1 text-xs;
+background-color: var(--mini-product-tag-bg);
+border-color: var(--mini-product-border);
+color: var(--mini-product-tag-text);
 }
 
 @utility mini-product-step-number {
-  @apply inline-flex h-5 w-5 items-center justify-center text-xs;
-  border-radius: var(--mini-product-number-radius);
-  border: 1px solid var(--mini-product-border);
-  background-color: var(--mini-product-number-bg);
-  color: var(--mini-product-number-text);
+@apply inline-flex h-5 w-5 items-center justify-center text-xs;
+border-radius: var(--mini-product-number-radius);
+border: 1px solid var(--mini-product-border);
+background-color: var(--mini-product-number-bg);
+color: var(--mini-product-number-text);
 }
 
 @utility mini-product-footer {
-  @apply flex flex-col items-center justify-between gap-4 border p-6 md:flex-row;
-  background-color: var(--mini-product-footer-bg);
-  border-color: var(--mini-product-border);
-  border-radius: var(--mini-product-card-radius);
+@apply flex flex-col items-center justify-between gap-4 border p-6 md:flex-row;
+background-color: var(--mini-product-footer-bg);
+border-color: var(--mini-product-border);
+border-radius: var(--mini-product-card-radius);
 }
 
 /* Reveal helper (desktop) */
 @utility reveal-y {
-  @apply transition-all;
-  transform: translateY(var(--reveal-y-from));
-  opacity: var(--reveal-opacity-from);
+@apply transition-all;
+transform: translateY(var(--reveal-y-from));
+opacity: var(--reveal-opacity-from);
 }
 
 @utility reveal-y-in {
-  transform: translateY(0);
+transform: translateY(0);
 }
 
 /* Section (generic) */
 @utility section-surface {
-  background-color: var(--section-bg);
+background-color: var(--section-bg);
 }
 
 @utility section-divider {
-  height: 1px;
-  width: 100%;
-  background-color: var(--section-divider);
+height: 1px;
+width: 100%;
+background-color: var(--section-divider);
 }
 
 /* Card (generic) */
 @utility card {
-  @apply border;
-  background-color: var(--card-bg);
-  border-color: var(--card-border);
-  border-radius: var(--card-radius);
-  box-shadow: var(--card-shadow);
+@apply border;
+background-color: var(--card-bg);
+border-color: var(--card-border);
+border-radius: var(--card-radius);
+box-shadow: var(--card-shadow);
 }
 
 @utility card-pad-lg {
-  padding: var(--card-padding-lg);
+padding: var(--card-padding-lg);
 }
 
 @utility card-accent {
-  border-width: var(--card-accent-border-width);
+border-width: var(--card-accent-border-width);
 }
 
 /* ============================= */
@@ -149,40 +149,165 @@
 /* ============================= */
 
 @utility how-i-work-divider {
-  height: 1px;
-  width: 100%;
-  background-color: var(--how-i-work-divider);
+height: 1px;
+width: 100%;
+background-color: var(--how-i-work-divider);
 }
 
 @utility how-i-work-card {
-  @apply border;
-  background-color: var(--how-i-work-card-bg);
-  border-color: var(--how-i-work-card-border);
-  border-radius: var(--how-i-work-card-radius);
-  box-shadow: var(--how-i-work-card-shadow);
-  padding: var(--spacing-4); /* 32px */
+@apply border;
+background-color: var(--how-i-work-card-bg);
+border-color: var(--how-i-work-card-border);
+border-radius: var(--how-i-work-card-radius);
+box-shadow: var(--how-i-work-card-shadow);
+padding: var(--spacing-4); /* 32px */
 }
 
 @utility how-i-work-card--brand {
-  border-width: 2px;
-  border-color: var(--how-i-work-accent-1);
+border-width: 2px;
+border-color: var(--how-i-work-accent-1);
 }
 
 @utility how-i-work-card--coral {
-  border-width: 2px;
-  border-color: var(--how-i-work-accent-2);
+border-width: 2px;
+border-color: var(--how-i-work-accent-2);
 }
 
 @utility how-i-work-card--green {
-  border-width: 2px;
-  border-color: var(--how-i-work-accent-3);
+border-width: 2px;
+border-color: var(--how-i-work-accent-3);
 }
 
 /* How I Work: quote box */
 @utility how-i-work-quote {
-  @apply border;
-  background-color: var(--how-i-work-quote-bg);
-  border-color: var(--how-i-work-quote-border);
-  border-radius: var(--card-radius);
-  padding: var(--spacing-5); /* 40px */
+@apply border;
+background-color: var(--how-i-work-quote-bg);
+border-color: var(--how-i-work-quote-border);
+border-radius: var(--card-radius);
+padding: var(--spacing-5); /* 40px */
+}
+
+/* ============================= */
+/* Projects */
+/* ============================= */
+
+/* Centralizing Project Component Rules */
+
+@utility projects-section {
+background-color: var(--projects-bg);
+padding-top: var(--spacing-24);
+padding-bottom: var(--spacing-24);
+@media (min-width: 1024px) {
+  padding-top: var(--spacing-32);
+  padding-bottom: var(--spacing-32);
+}
+}
+
+@utility project-card {
+@apply grid gap-12 md:grid-cols-2 md:items-center border;
+border-color: var(--project-card-border);
+padding-top: var(--spacing-3);
+padding-bottom: var(--spacing-3);
+padding-left: var(--spacing-3);
+padding-right: var(--spacing-3);
+}
+
+@utility project-meta-label {
+@apply type-kicker inline-flex items-center;
+/* Variant color using local CSS variable for custom project styling */
+background-color: var(--accent-color, var(--project-meta-bg));
+border: 1px solid var(--accent-color, var(--project-meta-border));
+color: white; 
+border-radius: var(--project-meta-radius);
+padding: var(--project-meta-padding-y) var(--project-meta-padding-x);
+}
+
+@utility project-tag {
+@apply type-kicker inline-flex items-center;
+background-color: var(--project-tag-bg);
+border: 1px solid var(--project-tag-border);
+color: var(--project-tag-text);
+border-radius: var(--project-tag-radius);
+padding: var(--project-tag-padding-y) var(--project-tag-padding-x);
+letter-spacing: 0.05em; /* Specific adjustment for tags */
+}
+
+@utility project-link {
+@apply type-body font-medium transition-all underline underline-offset-8;
+color: var(--project-link-text);
+text-decoration-color: var(--border-subtle);
+&:hover {
+  text-decoration-color: var(--project-link-text);
+}
+}
+
+/* --- Client Feedback / Testimonials --- */
+
+@utility testimonials-section {
+  background-color: var(--background);
+  border-top: 1px solid var(--border-subtle);
+
+  padding-top: var(--spacing-24);
+  padding-bottom: var(--spacing-24);
+
+  @media (min-width: 1024px) {
+    padding-top: var(--spacing-32);
+    padding-bottom: var(--spacing-32);
+  }
+}
+
+@utility testimonial-card {
+  /* Full border implementation */
+  @apply flex flex-col border; 
+  border-color: var(--border-subtle);
+  background-color: var(--card-bg);
+  
+  /* Internal padding to ensure text doesn't touch the border */
+  padding: var(--spacing-8); 
+  border-radius: var(--radius-0);
+  transition: all 0.3s ease;
+}
+
+@utility testimonial-quote {
+  @apply type-quote mb-8 text-[var(--text-primary)];
+  max-width: 540px;
+}
+
+@utility testimonial-author {
+  @apply type-body font-medium text-[var(--text-primary)];
+}
+
+@utility testimonial-role {
+  @apply type-body-small text-[var(--text-secondary)];
+}
+
+/* --- About Section Specific Utilities --- */
+
+@utility status-pill {
+  @apply flex items-center gap-2 rounded-full border px-4 py-1 text-xs font-medium;
+  border-color: var(--border-subtle);
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+}
+
+@utility status-indicator {
+  @apply h-2 w-2 rounded-full bg-green-500; /* Represents "Ready for work" */
+}
+
+@utility about-image-container {
+  @apply relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden border;
+  border-color: var(--border-subtle);
+  background-color: var(--surface-1);
+}
+
+@utility about-grid-bg {
+  @apply absolute -top-10 -right-10 h-full w-full opacity-10 pointer-events-none grayscale invert;
+  background-image: radial-gradient(var(--text-secondary) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+@utility about-image-wrapper {
+  @apply relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden;
+  border-color: var(--border-subtle);
+  background-color: var(--surface-0);
 }

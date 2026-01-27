@@ -91,8 +91,7 @@
       },
       "footerText": "This feedback often helps decide whether refining, rebuilding, or building an MVP makes sense.",
       "cta": "Send your product or idea"
-    }
-    ,
+    },
     "strategyPartnership": {
       "badge": "Product direction",
       "title": "When UX isn’t the first step",
@@ -161,6 +160,7 @@
       }
     },
     "projects": {
+      "kicker": "Case studies",
       "title": "Selected product work",
       "subtitle": "A few examples of how I bring structure and clarity into products. Short on fluff, focused on decisions.",
       "viewAll": "View all projects",
@@ -173,8 +173,9 @@
       }
     },
     "testimonials": {
+      "kicker": "CLIENT FEEDBACK",
       "title": {
-        "main": "Real feedback.",
+        "main": "Trusted by founders and product teams",
         "highlight": "Real Results."
       },
       "items": {

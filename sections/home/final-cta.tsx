@@ -8,29 +8,39 @@ export function HomeFinalCta() {
   const locale = useLocale();
 
   return (
-    <section className="border-t border-gray-200 bg-gray-50">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
-          <div className="max-w-2xl">
-            <h2 className="mb-3 text-2xl font-semibold tracking-tight">
-              {t('title')}
-            </h2>
-            <p className="text-base text-gray-700">
-              {t('line1')}
-            </p>
-            <p className="mt-1 text-base text-gray-700">
-              {t('line2')}
-            </p>
-          </div>
+    /* Deep dark background with expansive vertical padding */
+    <section className="bg-[#050508] py-24 lg:py-40 text-white">
+      <div className="mx-auto max-w-[1440px] px-6 text-center">
+        
+        <div className="mx-auto max-w-4xl">
+          {/* Using your page title typography role for impact */}
+          <h2 className="type-page-title mb-8 text-white leading-tight">
+            {t('title')}
+          </h2>
+          
+          {/* Combining lines for a cohesive paragraph */}
+          <p className="type-body text-gray-400 max-w-2xl mx-auto mb-12">
+            {t('line1')} {t('line2')}
+          </p>
+        </div>
 
-          <div className="flex-shrink-0">
-            <Link
-              href={`/${locale}/feedback`}
-              className="inline-flex items-center justify-center rounded-md bg-black px-7 py-3 text-sm font-medium text-white transition hover:opacity-90"
-            >
-              {t('button')}
-            </Link>
-          </div>
+        {/* Dual action buttons matching the architectural style */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+          {/* Primary Action: Brand Purple */}
+          <Link
+            href={`/${locale}/feedback`}
+            className="w-full sm:w-auto px-8 py-4 bg-[#6344F5] text-white font-medium transition hover:brightness-110 text-center"
+          >
+            {t('button')}
+          </Link>
+          
+          {/* Secondary Action: White */}
+          <Link
+            href="mailto:hello@redigma.com"
+            className="w-full sm:w-auto px-8 py-4 bg-white text-black font-medium transition hover:bg-gray-100 text-center"
+          >
+            Get in touch
+          </Link>
         </div>
       </div>
     </section>
