@@ -2,7 +2,8 @@
   "home": {
     "hero": {
       "status": "Bereit für neue Projekte",
-      "title": "<brand>Klarheit</brand> für <brand>digitale Produkte</brand> schaffen",
+      "titleStatic": "Klarheit schaffen für",
+      "cyclingWords": ["digitale Produkte", "Produktteams", "komplexe Flows", "User Journeys", "SaaS-Produkte", "jede Entscheidung", "frühe MVPs"],
       "subtitle": "Ich unterstütze Gründer und Produktteams dabei, klare und nutzbare Produkte zu entwickeln – von der frühen Definition bis zur Verbesserung bestehender Systeme.",
       "viewSelectedWork": "Ausgewählte Arbeiten ansehen",
       "labels": {

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 
@@ -12,18 +13,59 @@ const SLIDES = [
   '/illustrations/hero/sketch-hero-grid.svg',
 ];
 
-const INTERVAL = 4000;
+const WORD_INTERVAL = 3800;
+const SLIDE_INTERVAL = 4000;
+
+const GRADIENTS = [
+  'from-[#732fff] to-[#f472b6]',   // purple → pink
+  'from-[#06b6d4] to-[#6366f1]',   // cyan → indigo
+  'from-[#f97316] to-[#ec4899]',   // orange → pink
+  'from-[#10b981] to-[#06b6d4]',   // emerald → cyan
+  'from-[#a855f7] to-[#3b82f6]',   // violet → blue
+  'from-[#f43f5e] to-[#fb923c]',   // rose → orange
+  'from-[#8b5cf6] to-[#10b981]',   // purple → green
+];
+
+function CyclingWord({ words }: { words: string[] }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setIndex((i) => (i + 1) % words.length), WORD_INTERVAL);
+    return () => clearInterval(t);
+  }, [words.length]);
+
+  const gradient = GRADIENTS[index % GRADIENTS.length];
+
+  return (
+    <span className="relative inline-block overflow-hidden" style={{ verticalAlign: 'bottom' }}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={index}
+          initial={{ y: '100%', opacity: 0 }}
+          animate={{ y: '0%', opacity: 1 }}
+          exit={{ y: '-100%', opacity: 0 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className={`inline-block bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}
+        >
+          {words[index]}.
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
 export function HomeHero() {
   const t = useTranslations('home.hero');
   const locale = useLocale();
   const [current, setCurrent] = useState(0);
 
-  // Auto-advance
+  const cyclingWords = t.raw('cyclingWords') as string[];
+
+  // Auto-advance slides
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((c) => (c + 1) % SLIDES.length);
-    }, INTERVAL);
+    }, SLIDE_INTERVAL);
     return () => clearInterval(timer);
   }, []);
 
@@ -42,13 +84,9 @@ export function HomeHero() {
                 {t('status')}
               </span>
             </div>
-            <h1 className="mb-8 text-hero-title tracking-tight text-[var(--text-primary)] max-w-2xl">
-              {t.rich('title', {
-                brand: (chunks) => (
-                  <span className="text-[var(--header-brand)]">{chunks}</span>
-                ),
-                br: () => <br />,
-              })}
+            <h1 className="mb-8 text-hero-title tracking-tight text-[var(--text-primary)] max-w-2xl leading-tight">
+              {t('titleStatic')}{' '}
+              <CyclingWord words={cyclingWords} />
             </h1>
 
             <p className="mb-10 max-w-xl text-hero-subtitle text-[var(--text-secondary)]">
@@ -59,11 +97,16 @@ export function HomeHero() {
               <Button href={`/${locale}/feedback`} variant="primary">
                 {t('cta')}
               </Button>
+              <span className="hidden sm:inline-flex">
+                <Button href="#projects" variant="outline">
+                  {t('viewSelectedWork')}
+                </Button>
+              </span>
             </div>
           </div>
 
-          {/* Right: testimonial (no card) */}
-          <div className="lg:w-2/5 lg:self-start">
+          {/* Right: testimonial (no card) — hidden on mobile/tablet */}
+          <div className="hidden lg:block lg:w-2/5 lg:self-center">
             <p className="type-body text-[var(--text-primary)] leading-relaxed mb-6">
               &ldquo;I was so impressed with Amir&apos;s original approach, creativity, and manners, that I even had him work on my own brand.&rdquo;
             </p>

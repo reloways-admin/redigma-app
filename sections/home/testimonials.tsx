@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 function TestimonialCard({
@@ -34,6 +35,71 @@ function TestimonialCard({
         </div>
       </div>
     </div>
+  );
+}
+
+type TestimonialItem = { company: string; quote: string; author: string; role: string; imageSrc: string };
+
+function MobileCarousel({ items }: { items: TestimonialItem[] }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [current, setCurrent] = useState(0);
+
+  function scrollTo(index: number) {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.children[index] as HTMLElement;
+    if (!card) return;
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    setCurrent(index);
+  }
+
+  function onScroll() {
+    const track = trackRef.current;
+    if (!track) return;
+    const scrollLeft = track.scrollLeft;
+    const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
+    if (cardWidth) setCurrent(Math.round(scrollLeft / cardWidth));
+  }
+
+  return (
+    <>
+      {/* Mobile carousel */}
+      <div className="md:hidden">
+        <div
+          ref={trackRef}
+          onScroll={onScroll}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide -mx-6 px-6"
+          style={{ scrollbarWidth: 'none' }}
+        >
+          {items.map((item, i) => (
+            <div key={i} className="snap-start shrink-0 w-[85vw]">
+              <TestimonialCard {...item} />
+            </div>
+          ))}
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-6">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === current ? 'w-6 bg-[#732fff]' : 'w-2 bg-[var(--border-subtle)]'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden md:grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {items.map((item, i) => (
+          <TestimonialCard key={i} {...item} />
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -81,12 +147,8 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <TestimonialCard key={i} {...item} />
-          ))}
-        </div>
+        {/* Cards — carousel on mobile, grid on md+ */}
+        <MobileCarousel items={items} />
 
       </div>
     </section>

@@ -24,7 +24,7 @@
   --btn-secondary-bg-hover: var(--surface-3);
 
   /* Button - Outline */
-  --btn-outline-border: var(--grey-800);
+  --btn-outline-border: var(--grey-400);
   --btn-outline-text: var(--text-high);
   --btn-outline-bg-hover: var(--surface-1);
 

@@ -21,7 +21,8 @@
   "home": {
     "hero": {
       "status": "Ready for work",
-      "title": "Building <brand>clarity</brand><br></br>into <brand>digital products</brand>",
+      "titleStatic": "Building clarity into",
+      "cyclingWords": ["digital products", "product teams", "complex flows", "user journeys", "SaaS products", "every decision", "early-stage MVPs"],
       "subtitle": "I help founders and product teams shape clear, usable products — from early definition to improving existing systems.",
       "viewSelectedWork": "View selected work",
       "labels": {

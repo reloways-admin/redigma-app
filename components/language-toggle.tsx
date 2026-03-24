@@ -1,11 +1,16 @@
 'use client';
 
-import {useState} from 'react';
-import {useLocale} from 'next-intl';
-import {usePathname, useRouter, useSearchParams} from 'next/navigation';
+import { useState, useRef, useEffect } from 'react';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
 type Locale = 'en' | 'de';
+
+const LANGUAGES = [
+  { locale: 'en' as Locale, label: 'English', flag: '/icons/language/ic-us.svg' },
+  { locale: 'de' as Locale, label: 'Deutsch', flag: '/icons/language/ic-de.svg' },
+];
 
 export function LanguageToggle() {
   const locale = useLocale() as Locale;
@@ -13,72 +18,57 @@ export function LanguageToggle() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  function switchLanguage(nextLocale: Locale) {
-    // Routes are under /[locale]/... so URLs look like /en, /en/projects, /de, etc.
-    // Replace the first path segment with the next locale.
-    const nextPathname = pathname.replace(/^\/(en|de)(?=\/|$)/, `/${nextLocale}`);
+  // Close on outside click
+  useEffect(() => {
+    function handle(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener('mousedown', handle);
+    return () => document.removeEventListener('mousedown', handle);
+  }, []);
 
+  function switchLanguage(next: Locale) {
+    if (next === locale) { setOpen(false); return; }
+    const nextPathname = pathname.replace(/^\/(en|de)(?=\/|$)/, `/${next}`);
     const query = searchParams?.toString();
     const hash = typeof window !== 'undefined' ? window.location.hash : '';
-    const nextUrl = `${nextPathname}${query ? `?${query}` : ''}${hash}`;
-
-    router.replace(nextUrl, {scroll: false});
+    router.replace(`${nextPathname}${query ? `?${query}` : ''}${hash}`, { scroll: false });
     setOpen(false);
   }
 
+  const current = LANGUAGES.find((l) => l.locale === locale)!;
+
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-md bg-white px-3 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-50"
-        aria-label="Change language"
+        className="inline-flex items-center justify-center rounded-full p-1.5 hover:bg-[var(--surface-1)] transition-colors"
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        <Image
-          src={locale === 'de' ? '/icons/language/ic-de.svg' : '/icons/language/ic-us.svg'}
-          alt={locale === 'de' ? 'Deutsch' : 'English'}
-          width={20}
-          height={20}
-        />
+        <Image src={current.flag} alt={current.label} width={22} height={22} className="rounded-sm" />
       </button>
 
       {open && (
-        <div
-          className="absolute right-0 z-50 mt-2 w-36 overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm"
-          role="menu"
-        >
-          <button
-            type="button"
-            onClick={() => switchLanguage('en')}
-            className="flex w-full items-center gap-2 px-3 py-2 hover:bg-gray-50"
-            role="menuitem"
-          >
-            <Image
-              src="/icons/language/ic-us.svg"
-              alt="English"
-              width={20}
-              height={20}
-            />
-            <span className="text-sm">English</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => switchLanguage('de')}
-            className="flex w-full items-center gap-2 px-3 py-2 hover:bg-gray-50"
-            role="menuitem"
-          >
-            <Image
-              src="/icons/language/ic-de.svg"
-              alt="Deutsch"
-              width={20}
-              height={20}
-            />
-            <span className="text-sm">Deutsch</span>
-          </button>
+        <div className="absolute right-0 top-full mt-2 z-50 min-w-[130px] overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--header-bg)] shadow-lg">
+          {LANGUAGES.map((lang) => (
+            <button
+              key={lang.locale}
+              type="button"
+              onClick={() => switchLanguage(lang.locale)}
+              className={`flex w-full items-center gap-3 px-4 py-2.5 text-sm transition-colors
+                ${locale === lang.locale
+                  ? 'bg-[var(--surface-1)] text-[var(--text-primary)] font-medium'
+                  : 'text-[var(--text-secondary)] hover:bg-[var(--surface-1)] hover:text-[var(--text-primary)]'
+                }`}
+            >
+              <Image src={lang.flag} alt={lang.label} width={18} height={18} className="rounded-sm" />
+              <span>{lang.label}</span>
+            </button>
+          ))}
         </div>
       )}
     </div>

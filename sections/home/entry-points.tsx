@@ -31,7 +31,7 @@ export function HomeEntryPoints() {
 
         {/* Heading */}
         <div className="mb-10 text-center">
-          <h2 className="mx-auto max-w-2xl type-section-title text-[var(--foreground)]">
+          <h2 className="mx-auto max-w-2xl text-3xl font-bold text-[var(--foreground)] lg:text-4xl">
             {t('title')}{' '}
             <span className="text-[var(--text-secondary)]">{t('titleHighlight')}</span>
           </h2>

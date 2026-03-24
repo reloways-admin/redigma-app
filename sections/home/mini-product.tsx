@@ -51,7 +51,7 @@ export function HomeMiniProduct() {
       <div className="mx-auto max-w-[1360px] px-6">
 
         {/* Title */}
-        <h2 className="mb-14 text-center text-3xl font-bold text-white lg:text-4xl xl:text-5xl leading-tight">
+        <h2 className="mb-14 text-center text-3xl font-bold text-white lg:text-4xl leading-tight">
           {t('title')}{' '}
           <span className="text-white/40">{t('titleHighlight')}</span>
         </h2>

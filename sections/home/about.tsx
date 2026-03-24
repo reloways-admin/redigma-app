@@ -3,7 +3,6 @@
 import * as React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Kicker } from '@/components/ui/kicker';
 
 /* Changed to named export HomeAbout to match your page.tsx import */
 export function HomeAbout() {
@@ -22,12 +21,8 @@ export function HomeAbout() {
           
           {/* Content Column */}
           <div className="flex flex-col items-start text-left">
-            <div className="mb-6">
-              <Kicker className="w-fit">{t('title')}</Kicker>
-            </div>
-            
             {/* Semantic typography for the heading */}
-            <h2 className="type-section-title text-[var(--text-primary)] mb-8 max-w-lg">
+            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-8 max-w-lg lg:text-4xl">
               {t('intro')}
             </h2>
             
