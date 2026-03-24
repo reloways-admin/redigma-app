@@ -1,39 +1,93 @@
 'use client';
 
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
+
+const linkClass = 'text-sm text-white/50 hover:text-white transition-colors';
 
 export function Footer() {
-  const locale = useLocale(); // 'en' | 'de'
-  const t = useTranslations('footer');
+  const locale = useLocale();
+  const href = (path: string) => `/${locale}${path}`;
 
   return (
-    <footer className="border-t">
-      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-gray-500">
-          © {new Date().getFullYear()} {t('copyright')}
-        </p>
+    <footer className="bg-[#0a0a0a]">
+      <div className="mx-auto max-w-[1360px] px-6 pt-20 pb-10">
 
-        <div className="flex items-center gap-4 text-sm">
-          <Link
-            href={`/${locale}/feedback`}
-            className="text-gray-600 hover:text-gray-900"
-          >
-            {t('links.feedback')}
-          </Link>
-          <Link
-            href={`/${locale}/impressum`}
-            className="text-gray-600 hover:text-gray-900"
-          >
-            {t('links.impressum')}
-          </Link>
-          <a
-            href="mailto:amir@redigma.com"
-            className="text-gray-600 hover:text-gray-900"
-          >
-            {t('links.email')}
-          </a>
+        {/* Main row */}
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_auto] lg:gap-24 mb-20">
+
+          {/* Left: tagline */}
+          <div className="max-w-lg">
+            <h2 className="text-3xl font-bold text-white leading-tight lg:text-4xl">
+              Think. Design.<br />Develop. Launch
+            </h2>
+            <p className="mt-4 text-sm text-white/50">
+              Send what you have. We&apos;ll figure out the right next step together.
+            </p>
+          </div>
+
+          {/* Right: nav columns */}
+          <div className="grid grid-cols-3 gap-12 lg:gap-16">
+
+            {/* Services */}
+            <div>
+              <p className="text-sm font-semibold text-white mb-5">Services</p>
+              <ul className="space-y-3">
+                <li><span className={linkClass}>UX UI Design</span></li>
+                <li><span className={linkClass}>Web Design</span></li>
+                <li><span className={linkClass}>UX Audit</span></li>
+                <li><span className={linkClass}>Product Design</span></li>
+                <li><span className={linkClass}>Mobile App</span></li>
+                <li><span className={linkClass}>SaaS Design</span></li>
+                <li><span className={linkClass}>Design System</span></li>
+                <li><span className={linkClass}>UX Research</span></li>
+              </ul>
+            </div>
+
+            {/* Case studies */}
+            <div>
+              <p className="text-sm font-semibold text-white mb-5">Case studies</p>
+              <ul className="space-y-3">
+                <li><Link href={href('/projects/bit')} className={linkClass}>Bit</Link></li>
+                <li><Link href={href('/projects/navonera')} className={linkClass}>Navonera</Link></li>
+                <li><Link href={href('/projects/gomatchit')} className={linkClass}>GoMatchIt</Link></li>
+                <li><Link href={href('/projects/reloways')} className={linkClass}>Reloways</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <p className="text-sm font-semibold text-white mb-5">Contact</p>
+              <ul className="space-y-3">
+                <li>
+                  <a href="https://www.instagram.com/redigma" target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/amirshalev" target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    Linkedin
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
         </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 pt-8 flex items-center justify-between gap-4 flex-wrap">
+          <p className="text-sm text-white/30">Redigma. © 2026</p>
+          <div className="flex items-center gap-6">
+            <Link href={href('/feedback')} className="text-sm text-white/50 hover:text-white transition-colors">
+              Get feedback
+            </Link>
+            <Link href={href('/impressum')} className="text-sm text-white/50 hover:text-white transition-colors">
+              Impressum
+            </Link>
+          </div>
+        </div>
+
       </div>
     </footer>
   );

@@ -29,6 +29,21 @@
   @apply type-section-title;
 }
 
+/* Hero tags marquee animation */
+@keyframes hero-tags-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility hero-tags-track {
+  animation: hero-tags-marquee 30s linear infinite;
+  will-change: transform;
+}
+
 /* 4. Base Global Styles */
 body {
   background-color: var(--background);

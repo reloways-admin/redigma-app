@@ -6,7 +6,7 @@
   @apply hover:opacity-90;
   background-color: var(--header-cta-bg);
   color: var(--header-cta-text);
-  border-radius: var(--radius-0);
+  border-radius: var(--radius-full);
 }
 
 /* Label */
@@ -23,7 +23,7 @@
 @utility btn-base {
   @apply inline-flex items-center justify-center transition-all font-medium text-sm;
   @apply active:scale-[0.98] hover:opacity-90;
-  border-radius: var(--radius-0);
+  border-radius: var(--radius-full);
   padding: var(--spacing-2) var(--spacing-4);
 }
 

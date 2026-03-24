@@ -1,6 +1,6 @@
 :root {
   /* Surfaces & Globals */
-  --background: var(--surface-0);
+  --background: var(--grey-200);
   --foreground: var(--text-primary);
 
   /* Header */
@@ -24,7 +24,7 @@
   --btn-secondary-bg-hover: var(--surface-3);
 
   /* Button - Outline */
-  --btn-outline-border: var(--border-subtle);
+  --btn-outline-border: var(--grey-800);
   --btn-outline-text: var(--text-high);
   --btn-outline-bg-hover: var(--surface-1);
 
@@ -36,6 +36,7 @@
   /* Variant Colors */
   --entry-early-color: var(--purple-500);
   --entry-live-color: var(--blue-500);
+  --entry-consult-color: var(--green-700);
 
   /* Label Component */
   --label-bg: var(--surface-1);
@@ -73,8 +74,8 @@
   /* ============================= */
 
   /* Section */
-  --mini-product-bg: var(--section-bg);
-  --mini-product-border: var(--section-border);
+  --mini-product-bg: #050508;
+  --mini-product-border: rgba(255, 255, 255, 0.1);
 
   /* Badge */
   --mini-product-badge-bg: var(--chip-bg);
@@ -82,9 +83,9 @@
   --mini-product-badge-text: var(--chip-text);
 
   /* Cards */
-  --mini-product-card-bg: var(--card-bg);
-  --mini-product-card-bg-muted: var(--card-bg-muted);
-  --mini-product-card-border: var(--card-border);
+  --mini-product-card-bg: rgba(255, 255, 255, 0.05);
+  --mini-product-card-bg-muted: rgba(255, 255, 255, 0.03);
+  --mini-product-card-border: rgba(255, 255, 255, 0.1);
   --mini-product-card-shadow: var(--card-shadow);
 
   /* Footer */

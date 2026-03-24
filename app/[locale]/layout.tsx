@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 
 import { Header } from "@/components/header";
@@ -12,11 +12,16 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 // Import globals at the bottom to ensure variables are available
 import "../globals.css";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
+const poppins = localFont({
+  src: [
+    { path: "../../public/fonts/Poppins-Regular.ttf",  weight: "400", style: "normal" },
+    { path: "../../public/fonts/Poppins-Italic.ttf",   weight: "400", style: "italic" },
+    { path: "../../public/fonts/Poppins-Medium.ttf",   weight: "500", style: "normal" },
+    { path: "../../public/fonts/Poppins-SemiBold.ttf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/Poppins-Bold.ttf",     weight: "700", style: "normal" },
+  ],
   variable: "--font-poppins",
+  display: "swap",
 });
 
 const geistSans = Geist({

@@ -1,11 +1,8 @@
 import { HomeHero } from '@/sections/home/hero';
-import { HeroTags } from '@/sections/home/hero-tags'; 
 import { HomeEntryPoints } from '@/sections/home/entry-points';
+import HomeServicesAccordion from '@/sections/home/services-accordion';
 import { HomeMiniProduct } from '@/sections/home/mini-product';
-import HomeStrategicPartnership from '@/sections/home/strategy-partnership';
-import HomeMVPExecution from '@/sections/home/mvp-execution';
 import { HomeHowIWork } from '@/sections/home/how-i-work';
-import { HomeWhoIsThisFor } from '@/sections/home/Who-is-this-for';
 import HomeProjects from '@/sections/home/projects';
 import Testimonials from '@/sections/home/testimonials';
 import { HomeAbout } from '@/sections/home/about';
@@ -15,17 +12,10 @@ export default function Home() {
   return (
     <>
       <HomeHero />
-      <HeroTags /> 
       <HomeEntryPoints />
+      <HomeServicesAccordion />
       <HomeMiniProduct />
-      {/*
-      <HomeStrategicPartnership />
-      <HomeMVPExecution />
-      */}
       <HomeHowIWork />
-      {/*
-      <HomeWhoIsThisFor />
-      */}
       <HomeProjects />
       <Testimonials />
       <HomeAbout />

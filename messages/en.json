@@ -9,11 +9,13 @@
     },
     "nav": {
       "whenTeamsReachOut": "When teams reach out",
+      "services": "Services",
       "uxFeedback": "UX feedback",
       "howIWork": "How I work",
       "selectedWork": "Selected work",
       "clientFeedback": "Client feedback",
-      "about": "About"
+      "about": "About",
+      "contact": "Contact"
     }
   },
   "home": {
@@ -30,67 +32,52 @@
       "cta": "Get feedback on your product"
     },
     "entryPoints": {
-      "badge": "Entry points",
-      "title": "Most teams <brand>reach me</brand> in one of two moments",
       "subtitle": "Different stages, same goal: clarity before complexity.",
-      "cards": {
-        "existing": {
-          "kicker": "Something already exists",
-          "heading": "Improve an active product",
-          "tag": "Live or in build",
-          "intro": "Your product or MVP is live, or actively being built. Things work, but the UX starts to feel fragile.",
-          "listTitle": "Common signals",
-          "bullets": {
-            "uxInconsistent": "UX feels inconsistent",
-            "decisionsSlow": "Decisions slow the team down",
-            "featuresFriction": "Adding features creates friction"
-          },
-          "outro": "This is where I usually step in, bringing structure, clarity, and better UX decisions into an existing system."
+      "title": "There are three key moments when I typically",
+      "titleHighlight": "step in",
+      "stages": {
+        "before": {
+          "label": "Before anything",
+          "heading": "Consult before you commit",
+          "body": "You have an idea or a problem, but you’re not sure what kind of help you actually need. Before jumping into design or development, it helps to talk it through."
         },
-        "building": {
-          "kicker": "You’re about to build",
+        "early": {
+          "label": "Early stage",
           "heading": "Define before you design",
-          "tag": "Early stage",
-          "intro": "You’re early, but serious. The goal is to make the product clear enough that development can move fast without chaos.",
-          "listTitle": "What teams want",
-          "bullets": {
-            "defineClearly": "Define the product clearly before development",
-            "avoidMistakes": "Avoid costly UX mistakes later",
-            "moveFast": "Move fast without losing clarity"
-          },
-          "outro": "In these cases, the focus is not on screens yet. It is on defining the product properly from the start."
+          "body": "You’re early, but serious. The goal is to make the product clear enough that development can move fast without chaos."
+        },
+        "live": {
+          "label": "Live or in build",
+          "heading": "Improve an active product",
+          "body": "Your product or MVP is live, or actively being built. Things work, but the UX starts to feel fragile."
         }
       }
     },
     "miniProduct": {
-      "badge": "UX feedback",
-      "title": "A quick UX perspective on your product or idea",
-      "subtitle": "Before committing to anything, send me what you have and I’ll reply with 3–4 focused UX observations.",
+      "title": "A full UX perspective on your product or idea –",
+      "titleHighlight": "in 48 hours",
       "step1": {
-        "kicker": "Step 1",
         "title": "What to send",
-        "tag": "1–3 items",
-        "items": {
-          "link": "A link to your live product (or a prototype)",
-          "screens": "Screenshots or early designs of the key flow",
-          "note": "A short note: who it’s for, and what users should achieve"
-        },
-        "footnote": "No deck needed. No polishing. Just enough to understand the problem."
+        "item1Strong": "A link or screenshots",
+        "item1Rest": "of your product/prototype.",
+        "item2Strong": "A brief context",
+        "item2Rest": "of who it’s for and the main goal.",
+        "item3Strong": "Zero prep needed.",
+        "item3Rest": "No decks or polished designs required."
       },
       "step2": {
-        "kicker": "Step 2",
         "title": "What you get",
-        "tag": "Clear next steps",
-        "items": {
-          "observations": "3–4 focused UX observations",
-          "risks": "What feels unclear or risky",
-          "simplify": "What I’d simplify or rethink first"
-        },
-        "calloutTitle": "No sales pitch.",
-        "calloutText": "Just useful feedback you can act on."
+        "item1Strong": "3–4 focused UX observations",
+        "item1Rest": "delivered within 48 hours.",
+        "item2Strong": "Risk assessment:",
+        "item2Rest": "Identification of unclear or fragile areas.",
+        "item3Strong": "Actionable next steps:",
+        "item3Rest": "What to simplify or rethink first."
       },
-      "footerText": "This feedback often helps decide whether refining, rebuilding, or building an MVP makes sense.",
-      "cta": "Send your product or idea"
+      "sideText": "Send me what you have, and I’ll reply with strategic UX insights. No sales pitch, just value.",
+      "authorName": "Amir Shalev",
+      "authorRole": "Founder & Senior UX/UI Designer",
+      "cta": "Send your product for review"
     },
     "strategyPartnership": {
       "badge": "Product direction",
@@ -175,8 +162,8 @@
     "testimonials": {
       "kicker": "CLIENT FEEDBACK",
       "title": {
-        "main": "Trusted by founders and product teams",
-        "highlight": "Real Results."
+        "main": "Trusted by founders and product teams.",
+        "highlight": "I guarantee next success is yours."
       },
       "items": {
         "keren": {
@@ -188,6 +175,11 @@
           "quote": "Amir’s ability to communicate ideas visually is truly remarkable. His work is both technically proficient and creatively vibrant.",
           "name": "Adi Nudel",
           "role": "CEO, Financial Cat"
+        },
+        "ariel": {
+          "quote": "Working with Amir fundamentally changed how our team thinks about UX. The clarity he brought to our product decisions was invaluable.",
+          "name": "Ariel Ben-David",
+          "role": "Co-founder, Nabovers"
         }
       }
     },
@@ -197,24 +189,93 @@
       "body1": "I enjoy working with products in motion – sometimes improving what already exists, sometimes helping teams move from idea to working MVP.",
       "body2": "Based in Berlin. Working internationally."
     },
+    "services": {
+      "heading": "From startup to enterprise.",
+      "subheading": "Grow your business with fast and creative designs!",
+      "items": {
+        "ai": {
+          "title": "AI Consulting & Implementation",
+          "body": "Identifying where AI genuinely improves your product — from scoping the right use case to practical integration that users actually notice."
+        },
+        "uxui": {
+          "title": "UX/UI Design & Prototyping",
+          "body": "High-fidelity designs and interactive prototypes that communicate intent clearly to developers, stakeholders, and users."
+        },
+        "designSystem": {
+          "title": "Design System Architecture",
+          "body": "Building the component foundation that keeps your product consistent at scale — from token definitions to full component libraries."
+        },
+        "audit": {
+          "title": "Product Audit & Optimization",
+          "body": "A structured review of your product’s UX — identifying friction, inconsistency, and missed opportunities with clear, actionable recommendations."
+        },
+        "wireframing": {
+          "title": "Wireframing & Information Architecture",
+          "body": "Defining structure before polish. Making sure the product logic is sound before any visual design work begins."
+        }
+      }
+    },
     "finalCta": {
-      "title": "Not sure where your product stands?",
-      "line1": "Send what you have.",
-      "line2": "We’ll figure out the right next step together.",
-      "button": "Send your product or idea"
+      "heading": "Does your product have a clear next step?",
+      "headingHighlight": "Let’s talk!",
+      "location": "Berlin, Germany",
+      "instagram": "@redigma",
+      "servicesLabel": "How can I help you?",
+      "services": {
+        "s1": "UX/UI Design & Prototyping",
+        "s2": "Product Audit & Optimization",
+        "s3": "Design System Architecture",
+        "s4": "Wireframing & IA",
+        "s5": "AI Consulting & Implementation"
+      }
     }
   },
   "footer": {
-    "copyright": "Redigma. Amir Shalev.",
-    "links": {
-      "feedback": "Get feedback",
-      "impressum": "Impressum",
-      "email": "Email"
-    }
+    "brand": {
+      "tagline": "UX/UI Design & Product Thinking. Based in Berlin."
+    },
+    "services": {
+      "label": "Services",
+      "uxui": "UX/UI Design",
+      "designSystems": "Design Systems",
+      "productAudit": "Product Audit",
+      "aiConsulting": "AI Consulting"
+    },
+    "caseStudies": {
+      "label": "Case Studies"
+    },
+    "contact": {
+      "label": "Contact",
+      "getFeedback": "Get feedback",
+      "impressum": "Impressum"
+    },
+    "tagline": "Think. Design. Develop. Launch.",
+    "wordmark": "redigma"
   },
   "feedback": {
     "title": "Send your product or idea",
     "intro": "Share what you have and I will reply with 3-4 focused UX observations. No decks. No sales pitch. Just useful feedback.",
+    "eyebrow": "UX Feedback",
+    "trustLine": "No commitment required. If there's a fit, we'll know after this.",
+    "stats": {
+      "responseTime": { "number": "48h", "label": "Response time" },
+      "observations": { "number": "3–4", "label": "UX observations" },
+      "salesPitch": { "number": "£0", "label": "No sales pitch" }
+    },
+    "valuePoints": {
+      "trust": {
+        "title": "Spot what's breaking trust",
+        "body": "I'll flag the exact moments where users lose confidence — before they drop off."
+      },
+      "clarity": {
+        "title": "Clarity you can act on",
+        "body": "No vague suggestions. Each observation comes with a clear direction on what to fix first."
+      },
+      "perspective": {
+        "title": "An outside perspective",
+        "body": "Fresh eyes on your product — the kind your team can't give because you're too close to it."
+      }
+    },
     "fields": {
       "name": {
         "label": "Name",

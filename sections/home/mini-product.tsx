@@ -1,149 +1,94 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
-import { Kicker } from '@/components/ui/kicker';
 import { Button } from '@/components/ui/button';
 
-function splitFirstSentence(text: string): { strong: string; rest: string } {
-  const trimmed = (text ?? '').trim();
-  if (!trimmed) return { strong: '', rest: '' };
-
-  const idx = trimmed.indexOf('.');
-  if (idx === -1) return { strong: trimmed, rest: '' };
-
-  const strong = trimmed.slice(0, idx + 1).trim();
-  const rest = trimmed.slice(idx + 1).trim();
-  return { strong, rest };
+function StepCard({ number, title, items }: {
+  number: string;
+  title: string;
+  items: { strong: string; rest: string }[];
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+      <div className="flex items-center gap-3 mb-5">
+        <span className="text-[#732fff] font-semibold text-base">{number}</span>
+        <h3 className="text-white font-semibold text-lg">{title}</h3>
+      </div>
+      <ul className="space-y-3">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-2 text-sm leading-relaxed">
+            <span className="mt-[3px] shrink-0 text-white/40">•</span>
+            <span>
+              <strong className="font-semibold text-white">{item.strong}</strong>
+              {item.rest && <span className="text-white/50"> {item.rest}</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export function HomeMiniProduct() {
   const t = useTranslations('home.miniProduct');
   const locale = useLocale();
 
-  // Keep both cards the same height (use the taller one).
-  const card1Ref = useRef<HTMLDivElement | null>(null);
-  const card2Ref = useRef<HTMLDivElement | null>(null);
-  const [equalCardHeight, setEqualCardHeight] = useState<number | null>(null);
+  const step1Items = [
+    { strong: t('step1.item1Strong'), rest: t('step1.item1Rest') },
+    { strong: t('step1.item2Strong'), rest: t('step1.item2Rest') },
+    { strong: t('step1.item3Strong'), rest: t('step1.item3Rest') },
+  ];
 
-  useEffect(() => {
-    const measure = () => {
-      const h1 = card1Ref.current?.getBoundingClientRect().height ?? 0;
-      const h2 = card2Ref.current?.getBoundingClientRect().height ?? 0;
-      const next = Math.max(Math.round(h1), Math.round(h2));
-      if (next > 0) setEqualCardHeight(next);
-    };
-
-    // measure after paint
-    const id = window.requestAnimationFrame(measure);
-    window.addEventListener('resize', measure);
-    return () => {
-      window.cancelAnimationFrame(id);
-      window.removeEventListener('resize', measure);
-    };
-  }, []);
-
-  const step1Footnote = splitFirstSentence(t('step1.footnote'));
-  const step2Callout = splitFirstSentence(t('step2.calloutText'));
-
-  // Square number style (like the Figma)
-  const numberClasses =
-    'inline-flex h-9 w-9 items-center justify-center border border-[var(--mini-product-border)] bg-[var(--background)] text-[var(--text-brand)] font-semibold text-sm';
-
-  // STEP label (kicker-like)
-  const stepLabelClasses =
-    'inline-flex items-center px-2 py-1 text-[10px] font-bold uppercase tracking-[0.2em] bg-[var(--kicker-bg)] text-[var(--kicker-text)]';
-
-  const cardStyle = equalCardHeight ? ({ minHeight: equalCardHeight } as React.CSSProperties) : undefined;
+  const step2Items = [
+    { strong: t('step2.item1Strong'), rest: t('step2.item1Rest') },
+    { strong: t('step2.item2Strong'), rest: t('step2.item2Rest') },
+    { strong: t('step2.item3Strong'), rest: t('step2.item3Rest') },
+  ];
 
   return (
-    <section className="mini-product-section">
-      <div className="mx-auto max-w-[1440px] px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 flex justify-center">
-            <Kicker>{t('badge')}</Kicker>
+    <section id="mini-product" className="bg-[#0a0a0a] py-20 lg:py-28 scroll-mt-[var(--spacing-12)]">
+      <div className="mx-auto max-w-[1360px] px-6">
+
+        {/* Title */}
+        <h2 className="mb-14 text-center text-3xl font-bold text-white lg:text-4xl xl:text-5xl leading-tight">
+          {t('title')}{' '}
+          <span className="text-white/40">{t('titleHighlight')}</span>
+        </h2>
+
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_320px] lg:gap-16 lg:items-start">
+
+          {/* Left: stacked cards */}
+          <div className="flex flex-col gap-4">
+            <StepCard number="1" title={t('step1.title')} items={step1Items} />
+            <StepCard number="2" title={t('step2.title')} items={step2Items} />
           </div>
 
-          {/* Title should be 48px -> use type-section-title (mapped to 48px in typography.css) */}
-          <h2 className="type-section-title text-[var(--foreground)]">{t('title')}</h2>
-
-          {/* Subtitle should be 16px -> use type-body (16px) */}
-          <p className="mt-3 type-body text-[var(--text-secondary)]">{t('subtitle')}</p>
-        </div>
-
-        {/* Always render as a normal vertical stack for now (desktop + mobile) */}
-        <div className="mx-auto mt-10 max-w-[544px]">
+          {/* Right: author + CTA */}
           <div className="flex flex-col gap-6">
-            {/* CARD 1 */}
-            <div ref={card1Ref} className="mini-product-card p-8" style={cardStyle}>
-              <span className={stepLabelClasses}>{t('step1.kicker')}</span>
-              <h3 className="mt-3 type-card-title text-[var(--text-primary)]">{t('step1.title')}</h3>
-
-              <ul className="mt-6 space-y-4 type-body text-[var(--text-secondary)]">
-                <li className="flex items-center gap-4">
-                  <span className={numberClasses}>01</span>
-                  <span>{t('step1.items.link')}</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className={numberClasses}>02</span>
-                  <span>{t('step1.items.screens')}</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className={numberClasses}>03</span>
-                  <span>{t('step1.items.note')}</span>
-                </li>
-              </ul>
-
-              {/* Bottom copy (no extra border / box) */}
-              <div className="mt-8">
-                {step1Footnote.strong ? (
-                  <p className="type-body font-medium text-[var(--text-primary)]">{step1Footnote.strong}</p>
-                ) : null}
-                {step1Footnote.rest ? (
-                  <p className="mt-2 type-body text-[var(--text-secondary)]">{step1Footnote.rest}</p>
-                ) : null}
+            <p className="text-white/60 text-base leading-relaxed">
+              {t('sideText')}
+            </p>
+            <hr className="border-white/10" />
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/home/amir-shalev.png"
+                alt={t('authorName')}
+                width={44}
+                height={44}
+                className="rounded-full object-cover shrink-0"
+              />
+              <div>
+                <p className="text-white font-medium text-sm">{t('authorName')}</p>
+                <p className="text-white/50 text-xs mt-0.5">{t('authorRole')}</p>
               </div>
             </div>
-
-            {/* CARD 2 */}
-            <div ref={card2Ref} className="mini-product-card p-8" style={cardStyle}>
-              <span className={stepLabelClasses}>{t('step2.kicker')}</span>
-              <h3 className="mt-3 type-card-title text-[var(--text-primary)]">{t('step2.title')}</h3>
-
-              <ul className="mt-6 space-y-4 type-body text-[var(--text-secondary)]">
-                <li className="flex items-center gap-4">
-                  <span className={numberClasses}>01</span>
-                  <span>{t('step2.items.observations')}</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className={numberClasses}>02</span>
-                  <span>{t('step2.items.risks')}</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className={numberClasses}>03</span>
-                  <span>{t('step2.items.simplify')}</span>
-                </li>
-              </ul>
-
-              {/* Bottom copy (no extra border / box) */}
-              <div className="mt-8">
-                <p className="type-body font-medium text-[var(--text-primary)]">{t('step2.calloutTitle')}</p>
-                {step2Callout.strong ? (
-                  <p className="mt-2 type-body text-[var(--text-secondary)]">{step2Callout.strong}</p>
-                ) : null}
-                {step2Callout.rest ? (
-                  <p className="mt-2 type-body text-[var(--text-secondary)]">{step2Callout.rest}</p>
-                ) : null}
-              </div>
-            </div>
-
-            {/* CTA (alone, centered) */}
-            <div className="mt-2 flex justify-center">
-              <Button href={`/${locale}/feedback`} variant="primary">
-                {t('cta')}
-              </Button>
-            </div>
+            <Button href={`/${locale}/feedback`} variant="primary">
+              {t('cta')}
+            </Button>
           </div>
+
         </div>
       </div>
     </section>

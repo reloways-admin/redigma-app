@@ -11,8 +11,11 @@ export function HomeAbout() {
 
   return (
     /* Unified section padding and top border for consistency */
-    <section className="testimonials-section py-24 lg:py-32 border-t border-[var(--border-subtle)]">
-      <div className="mx-auto max-w-[1440px] px-6">
+    <section
+      id="about"
+      className="testimonials-section scroll-mt-[var(--spacing-12)] py-24 lg:py-32 border-t border-[var(--border-subtle)]"
+    >
+      <div className="mx-auto max-w-[1360px] px-6">
         
         {/* 2-Column Grid with vertical centering */}
         <div className="grid items-center gap-16 lg:grid-cols-2">

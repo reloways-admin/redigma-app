@@ -6,7 +6,7 @@
 --grey-500: #717173;
 --grey-400: #ccccd1;
 --grey-300: #eaeaea;
---grey-200: #fafafa;
+--grey-200: #F9F9F9;
 --grey-100: #ffffff;
 
 /* Primary Palettes (solid) */
@@ -85,6 +85,7 @@
 --radius-2: 16px;
 --radius-3: 24px;
 --radius-4: 32px;
+--radius-full: 9999px;
 
 /* Typography Scale (px)*/
 --font-size-1: 12px;  
