@@ -1,0 +1,207 @@
+'use client';
+
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+
+type CardKey = 'uxui' | 'designSystem' | 'audit' | 'wireframing' | 'ai';
+
+type Tile = {
+  src: string;
+  rowSpan?: 2;
+};
+
+type CardConfig = {
+  key: CardKey;
+  bg: string;
+  panelBg: string;
+  textPrimary: string;
+  textSecondary: string;
+  bullets: string[];
+  tiles: Tile[];
+};
+
+const CARDS: CardConfig[] = [
+  {
+    key: 'uxui',
+    bg: '#3B3FE4',
+    panelBg: '#f5f5f7',
+    textPrimary: '#ffffff',
+    textSecondary: 'rgba(255,255,255,0.72)',
+    bullets: ['UX Research', 'UX Audit', 'Wireframing', 'UI UX Design', 'Usability Testing', 'Design System Audit'],
+    tiles: [
+      { src: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg', rowSpan: 2 },
+      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+      { src: '/illustrations/projects/icons/Figma-Dark logo.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-define.svg' },
+    ],
+  },
+  {
+    key: 'designSystem',
+    bg: '#ffffff',
+    panelBg: '#f0f0f5',
+    textPrimary: '#0a0a0a',
+    textSecondary: '#555566',
+    bullets: ['Token Architecture', 'Component Libraries', 'Figma Systems', 'Documentation', 'Dev Handoff', 'Design Tokens'],
+    tiles: [
+      { src: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg', rowSpan: 2 },
+      { src: '/illustrations/projects/icons/Figma-Dark logo.svg' },
+      { src: '/illustrations/projects/icons/cursor logo.svg' },
+      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-define.svg' },
+    ],
+  },
+  {
+    key: 'audit',
+    bg: '#1c1c1e',
+    panelBg: '#2a2a2c',
+    textPrimary: '#ffffff',
+    textSecondary: 'rgba(255,255,255,0.55)',
+    bullets: ['Heuristic Review', 'Redesign Roadmap', 'UX Friction Report', 'User Interviews', 'Competitor Analysis', 'Accessibility Audit'],
+    tiles: [
+      { src: '/illustrations/entry-point/sketch-define.svg', rowSpan: 2 },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg' },
+      { src: '/illustrations/projects/icons/Figma-Dark logo.svg' },
+      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg' },
+    ],
+  },
+  {
+    key: 'wireframing',
+    bg: '#FBCA2A',
+    panelBg: '#f5f5f7',
+    textPrimary: '#0a0a0a',
+    textSecondary: 'rgba(0,0,0,0.55)',
+    bullets: ['Information Architecture', 'User Flows', 'Low-fi Wireframes', 'Content Mapping', 'Navigation Structure', 'Prototype Flows'],
+    tiles: [
+      { src: '/illustrations/how-i-work/sketch-how-i-work-define.svg', rowSpan: 2 },
+      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+      { src: '/illustrations/projects/icons/Figma-Dark logo.svg' },
+      { src: '/illustrations/entry-point/sketch-define.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg' },
+    ],
+  },
+  {
+    key: 'ai',
+    bg: '#F05A28',
+    panelBg: '#f5f5f7',
+    textPrimary: '#ffffff',
+    textSecondary: 'rgba(255,255,255,0.75)',
+    bullets: ['Use Case Scoping', 'Prompt UX Design', 'AI Feature Design', 'Integration Planning', 'AI Audit', 'User Testing'],
+    tiles: [
+      { src: '/illustrations/entry-point/sketch-live.svg', rowSpan: 2 },
+      { src: '/illustrations/projects/icons/cursor logo.svg' },
+      { src: '/illustrations/projects/icons/AWS-Dark logo.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg' },
+      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+    ],
+  },
+];
+
+function TileGrid({ tiles, panelBg }: { tiles: Tile[]; panelBg: string }) {
+  return (
+    <div
+      className="p-3 grid gap-2 shrink-0"
+      style={{
+        background: panelBg,
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateRows: 'repeat(2, 1fr)',
+        aspectRatio: '3 / 4',
+        minHeight: '300px',
+        height: '100%',
+      }}
+    >
+      {tiles.map((tile, i) => (
+        <div
+          key={i}
+          className="bg-white rounded-2xl overflow-hidden relative"
+          style={{ gridRow: tile.rowSpan === 2 ? 'span 2' : undefined }}
+        >
+          <Image
+            src={tile.src}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 33vw, 20vw"
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ServiceCard({
+  card,
+  t,
+}: {
+  card: CardConfig;
+  t: ReturnType<typeof useTranslations<'home.services'>>;
+}) {
+  return (
+    <div className="overflow-hidden rounded-3xl flex flex-col lg:flex-row lg:h-[460px]">
+      {/* Top (mobile) / Left (desktop): colored content */}
+      <div
+        className="flex flex-col justify-start p-8 pt-10 lg:p-14 lg:pt-14 flex-1"
+        style={{ background: card.bg, minHeight: '320px' }}
+      >
+        <h3
+          className="text-3xl font-bold mb-4 lg:text-4xl leading-tight"
+          style={{ color: card.textPrimary }}
+        >
+          {t(`items.${card.key}.title`)}
+        </h3>
+        <p
+          className="text-base leading-relaxed max-w-sm mb-8"
+          style={{ color: card.textSecondary }}
+        >
+          {t(`items.${card.key}.body`)}
+        </p>
+
+        {/* 2-column bullets */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+          {card.bullets.map((b) => (
+            <span key={b} className="flex items-center gap-2 text-sm" style={{ color: card.textSecondary }}>
+              <span className="text-base leading-none" style={{ color: card.textPrimary }}>•</span>
+              {b}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom (mobile) / Right (desktop): tile grid */}
+      <TileGrid tiles={card.tiles} panelBg={card.panelBg} />
+    </div>
+  );
+}
+
+
+export function HomeServicesStacked() {
+  const t = useTranslations('home.services');
+
+  return (
+    <section id="services">
+      {/* Dark heading band */}
+      <div className="bg-[#0a0a0a] pt-20 pb-10">
+        <div className="mx-auto max-w-[1360px] px-6">
+          <h2 className="text-3xl font-bold text-white lg:text-4xl">{t('heading')}</h2>
+          <p className="mt-2 text-2xl text-white/40 lg:text-3xl">{t('subheading')}</p>
+        </div>
+      </div>
+
+      {/* Stacked cards */}
+      <div className="bg-[#0a0a0a] px-6 pb-40">
+        <div className="mx-auto max-w-[1360px]">
+          {CARDS.map((card, i) => (
+            <div
+              key={card.key}
+              className="sticky mb-4"
+              style={{ top: '104px', zIndex: 10 + i }}
+            >
+              <ServiceCard card={card} t={t} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

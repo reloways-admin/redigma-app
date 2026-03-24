@@ -45,6 +45,14 @@
 }
 
 /* 4. Base Global Styles */
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);

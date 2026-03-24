@@ -64,15 +64,15 @@ function MobileCarousel({ items }: { items: TestimonialItem[] }) {
   return (
     <>
       {/* Mobile carousel */}
-      <div className="md:hidden">
+      <div className="md:hidden -mx-6">
         <div
           ref={trackRef}
           onScroll={onScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide -mx-6 px-6"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 px-6"
           style={{ scrollbarWidth: 'none' }}
         >
           {items.map((item, i) => (
-            <div key={i} className="snap-start shrink-0 w-[85vw]">
+            <div key={i} className="snap-start shrink-0 w-[82vw] last:pr-6">
               <TestimonialCard {...item} />
             </div>
           ))}

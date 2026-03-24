@@ -203,7 +203,7 @@ export function Header() {
               </div>
 
               {/* Nav links */}
-              <nav className="flex flex-col flex-1 overflow-y-auto px-6 pt-10 gap-1">
+              <nav className="flex flex-col flex-1 overflow-y-auto px-6 pt-6 gap-0">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.id}
@@ -215,7 +215,7 @@ export function Header() {
                       <a
                         href={anchorHref(link.id)}
                         onClick={onAnchorClick(link.id)}
-                        className="block py-3 text-4xl font-bold text-[var(--text-primary)] hover:text-[#732fff] transition-colors leading-tight"
+                        className="block py-2.5 text-2xl font-bold text-[var(--text-primary)] hover:text-[#732fff] transition-colors leading-tight"
                       >
                         {link.label}
                       </a>
@@ -223,7 +223,7 @@ export function Header() {
                       <Link
                         href={href(`/#${link.id}`)}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-3 text-4xl font-bold text-[var(--text-primary)] hover:text-[#732fff] transition-colors leading-tight"
+                        className="block py-2.5 text-2xl font-bold text-[var(--text-primary)] hover:text-[#732fff] transition-colors leading-tight"
                       >
                         {link.label}
                       </Link>
