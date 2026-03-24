@@ -107,7 +107,7 @@ function TileGrid({ tiles, panelBg }: { tiles: Tile[]; panelBg: string }) {
         gridTemplateColumns: 'repeat(3, 1fr)',
         gridTemplateRows: 'repeat(2, 1fr)',
         aspectRatio: '3 / 4',
-        minHeight: '300px',
+        minHeight: '200px',
         height: '100%',
       }}
     >
@@ -138,11 +138,11 @@ function ServiceCard({
   t: ReturnType<typeof useTranslations<'home.services'>>;
 }) {
   return (
-    <div className="overflow-hidden rounded-3xl flex flex-col lg:flex-row lg:h-[460px]">
-      {/* Top (mobile) / Left (desktop): colored content */}
+    <div className="overflow-hidden rounded-3xl flex flex-col md:flex-row md:h-[420px]">
+      {/* Top (mobile) / Left (tablet+): colored content */}
       <div
-        className="flex flex-col justify-start p-8 pt-10 lg:p-14 lg:pt-14 flex-1"
-        style={{ background: card.bg, minHeight: '320px' }}
+        className="flex flex-col justify-start p-8 pt-10 md:p-14 md:pt-14 flex-1"
+        style={{ background: card.bg, minHeight: '220px' }}
       >
         <h3
           className="text-3xl font-bold mb-4 lg:text-4xl leading-tight"
@@ -194,8 +194,8 @@ export function HomeServicesStacked() {
           {CARDS.map((card, i) => (
             <div
               key={card.key}
-              className="sticky mb-4"
-              style={{ top: '104px', zIndex: 10 + i }}
+              className="sticky mb-4 top-4 xl:top-[104px]"
+              style={{ zIndex: 10 + i }}
             >
               <ServiceCard card={card} t={t} />
             </div>

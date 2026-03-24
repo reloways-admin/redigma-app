@@ -53,7 +53,7 @@ export function LanguageToggle() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 z-50 min-w-[130px] overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--header-bg)] shadow-lg">
+        <div className="absolute right-0 bottom-full mb-2 xl:bottom-auto xl:top-full xl:mt-2 xl:mb-0 z-50 min-w-[130px] overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--header-bg)] shadow-lg">
           {LANGUAGES.map((lang) => (
             <button
               key={lang.locale}

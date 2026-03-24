@@ -61,7 +61,7 @@ export default function HomeServicesAccordion() {
   const active = SERVICES.find((s) => s.id === openId) ?? SERVICES[0];
 
   return (
-    <section id="services" className="border-t border-[var(--border-subtle)] py-20 lg:py-28 bg-[var(--background)]">
+    <section className="border-t border-[var(--border-subtle)] py-20 lg:py-28 bg-[var(--background)]">
       <div className="mx-auto max-w-[1360px] px-6">
 
         {/* Heading */}

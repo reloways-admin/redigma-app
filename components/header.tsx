@@ -59,8 +59,9 @@ export function Header() {
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
     const el = document.getElementById(id);
     if (!el) return;
+    const isDesktop = window.innerWidth >= 1280;
     const headerEl = document.querySelector('header');
-    const headerOffset = headerEl ? headerEl.getBoundingClientRect().height : 0;
+    const headerOffset = isDesktop && headerEl ? headerEl.getBoundingClientRect().height : 0;
     const targetY = window.scrollY + el.getBoundingClientRect().top - headerOffset - 12;
     if (reduceMotion) { window.scrollTo({ top: targetY, behavior: 'auto' }); return; }
     const startY = window.scrollY;
@@ -82,8 +83,9 @@ export function Header() {
       e.preventDefault();
       setActiveId(id);
       clickedIdRef.current = id;
-      scrollToId(id);
       setIsMobileMenuOpen(false);
+      // Delay scroll until after menu closes and body overflow is restored
+      setTimeout(() => scrollToId(id), 50);
     },
     [scrollToId]
   );
@@ -100,19 +102,18 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[var(--header-bg)]">
+      <header className="fixed bottom-4 left-4 right-4 z-40 bg-[var(--header-bg)] rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.18)] xl:static xl:bottom-auto xl:left-0 xl:right-0 xl:rounded-none xl:shadow-none xl:sticky xl:top-0">
         <div className="relative">
           <div className="mx-auto max-w-[1360px] flex w-full items-center px-6 py-4">
 
             {/* Logo */}
             <div className="flex items-center gap-8 flex-1">
-              <Link
+              <a
                 href={href('/')}
                 className="text-lg font-semibold tracking-tight text-[var(--header-brand)] shrink-0"
-                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Redigma
-              </Link>
+              </a>
 
               {/* Desktop nav */}
               <nav className="hidden xl:flex items-center gap-6
@@ -186,13 +187,12 @@ export function Header() {
             >
               {/* Top bar */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-subtle)]">
-                <Link
+                <a
                   href={href('/')}
-                  onClick={() => setIsMobileMenuOpen(false)}
                   className="text-lg font-semibold tracking-tight text-[var(--header-brand)]"
                 >
                   Redigma
-                </Link>
+                </a>
                 <button
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
