@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-type CardKey = 'uxui' | 'designSystem' | 'audit' | 'wireframing' | 'ai';
+type CardKey = 'shape' | 'fix' | 'scale' | 'ai';
 
 type Tile = {
   src: string;
@@ -16,18 +16,16 @@ type CardConfig = {
   panelBg: string;
   textPrimary: string;
   textSecondary: string;
-  bullets: string[];
   tiles: Tile[];
 };
 
 const CARDS: CardConfig[] = [
   {
-    key: 'uxui',
+    key: 'shape',
     bg: '#3B3FE4',
     panelBg: '#f5f5f7',
     textPrimary: '#ffffff',
     textSecondary: 'rgba(255,255,255,0.72)',
-    bullets: ['UX Research', 'UX Audit', 'Wireframing', 'UI UX Design', 'Usability Testing', 'Design System Audit'],
     tiles: [
       { src: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg', rowSpan: 2 },
       { src: '/illustrations/hero/sketch-hero-grid.svg' },
@@ -37,27 +35,11 @@ const CARDS: CardConfig[] = [
     ],
   },
   {
-    key: 'designSystem',
-    bg: '#ffffff',
-    panelBg: '#f0f0f5',
-    textPrimary: '#0a0a0a',
-    textSecondary: '#555566',
-    bullets: ['Token Architecture', 'Component Libraries', 'Figma Systems', 'Documentation', 'Dev Handoff', 'Design Tokens'],
-    tiles: [
-      { src: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg', rowSpan: 2 },
-      { src: '/illustrations/projects/icons/Figma-Dark logo.svg' },
-      { src: '/illustrations/projects/icons/cursor logo.svg' },
-      { src: '/illustrations/hero/sketch-hero-grid.svg' },
-      { src: '/illustrations/how-i-work/sketch-how-i-work-define.svg' },
-    ],
-  },
-  {
-    key: 'audit',
+    key: 'fix',
     bg: '#1c1c1e',
     panelBg: '#2a2a2c',
     textPrimary: '#ffffff',
     textSecondary: 'rgba(255,255,255,0.55)',
-    bullets: ['Heuristic Review', 'Redesign Roadmap', 'UX Friction Report', 'User Interviews', 'Competitor Analysis', 'Accessibility Audit'],
     tiles: [
       { src: '/illustrations/entry-point/sketch-define.svg', rowSpan: 2 },
       { src: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg' },
@@ -67,18 +49,17 @@ const CARDS: CardConfig[] = [
     ],
   },
   {
-    key: 'wireframing',
-    bg: '#FBCA2A',
-    panelBg: '#f5f5f7',
+    key: 'scale',
+    bg: '#ffffff',
+    panelBg: '#f0f0f5',
     textPrimary: '#0a0a0a',
-    textSecondary: 'rgba(0,0,0,0.55)',
-    bullets: ['Information Architecture', 'User Flows', 'Low-fi Wireframes', 'Content Mapping', 'Navigation Structure', 'Prototype Flows'],
+    textSecondary: '#555566',
     tiles: [
-      { src: '/illustrations/how-i-work/sketch-how-i-work-define.svg', rowSpan: 2 },
-      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg', rowSpan: 2 },
       { src: '/illustrations/projects/icons/Figma-Dark logo.svg' },
-      { src: '/illustrations/entry-point/sketch-define.svg' },
-      { src: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg' },
+      { src: '/illustrations/projects/icons/cursor logo.svg' },
+      { src: '/illustrations/hero/sketch-hero-grid.svg' },
+      { src: '/illustrations/how-i-work/sketch-how-i-work-define.svg' },
     ],
   },
   {
@@ -87,7 +68,6 @@ const CARDS: CardConfig[] = [
     panelBg: '#f5f5f7',
     textPrimary: '#ffffff',
     textSecondary: 'rgba(255,255,255,0.75)',
-    bullets: ['Use Case Scoping', 'Prompt UX Design', 'AI Feature Design', 'Integration Planning', 'AI Audit', 'User Testing'],
     tiles: [
       { src: '/illustrations/entry-point/sketch-live.svg', rowSpan: 2 },
       { src: '/illustrations/projects/icons/cursor logo.svg' },
@@ -101,14 +81,11 @@ const CARDS: CardConfig[] = [
 function TileGrid({ tiles, panelBg }: { tiles: Tile[]; panelBg: string }) {
   return (
     <div
-      className="p-3 grid gap-2 shrink-0"
+      className="p-3 grid gap-2 shrink-0 w-full aspect-[560/509] md:w-[40%] md:aspect-auto self-stretch"
       style={{
         background: panelBg,
         gridTemplateColumns: 'repeat(3, 1fr)',
         gridTemplateRows: 'repeat(2, 1fr)',
-        aspectRatio: '3 / 4',
-        minHeight: '200px',
-        height: '100%',
       }}
     >
       {tiles.map((tile, i) => (
@@ -122,7 +99,7 @@ function TileGrid({ tiles, panelBg }: { tiles: Tile[]; panelBg: string }) {
             alt=""
             fill
             className="object-cover"
-            sizes="(max-width: 1024px) 33vw, 20vw"
+            sizes="(max-width: 768px) 33vw, 187px"
           />
         </div>
       ))}
@@ -138,7 +115,7 @@ function ServiceCard({
   t: ReturnType<typeof useTranslations<'home.services'>>;
 }) {
   return (
-    <div className="overflow-hidden rounded-3xl flex flex-col md:flex-row md:h-[420px]">
+    <div className="overflow-hidden rounded-3xl flex flex-col md:flex-row">
       {/* Top (mobile) / Left (tablet+): colored content */}
       <div
         className="flex flex-col justify-start p-8 pt-10 md:p-14 md:pt-14 flex-1"
@@ -159,7 +136,7 @@ function ServiceCard({
 
         {/* 2-column bullets */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-          {card.bullets.map((b) => (
+          {(t.raw(`items.${card.key}.bullets`) as string[]).map((b) => (
             <span key={b} className="flex items-center gap-2 text-sm" style={{ color: card.textSecondary }}>
               <span className="text-base leading-none" style={{ color: card.textPrimary }}>•</span>
               {b}
@@ -184,7 +161,6 @@ export function HomeServicesStacked() {
       <div className="bg-[#0a0a0a] pt-20 pb-10">
         <div className="mx-auto max-w-[1360px] px-6">
           <h2 className="text-3xl font-bold text-white lg:text-4xl">{t('heading')}</h2>
-          <p className="mt-2 text-2xl text-white/40 lg:text-3xl">{t('subheading')}</p>
         </div>
       </div>
 

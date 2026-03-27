@@ -1,13 +1,94 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-const STAGE_IDS = ['before', 'early', 'live'] as const;
-type StageId = typeof STAGE_IDS[number];
+// ─── 3-card layout (active version) ─────────────────────────────────────────
 
-const STAGE_META: Record<StageId, { shapeColor: string; shapePosition: { gridRow: number; gridCol: number } }> = {
+const CARDS = [
+  { id: 'live',   color: '#732FFF', illustration: '/illustrations/entry-point/sketch-live.svg' },
+  { id: 'early',  color: '#155DFC', illustration: '/illustrations/entry-point/sketch-define.svg' },
+  { id: 'before', color: '#0D9B3B', illustration: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg' },
+] as const;
+
+type StageId = 'live' | 'early' | 'before';
+
+export function HomeEntryPoints() {
+  const t = useTranslations('home.entryPoints');
+
+  return (
+    <section
+      id="entry-points"
+      className="bg-[var(--background)] py-24 lg:py-32 border-t border-[var(--border-subtle)]"
+    >
+      <div className="mx-auto max-w-[1360px] px-6">
+
+        {/* Heading */}
+        <div className="mb-16 text-center">
+          <h2 className="mx-auto max-w-2xl text-3xl font-bold text-[var(--foreground)] lg:text-4xl">
+            {t('title')}{' '}
+            <span className="text-[var(--text-secondary)]">{t('titleHighlight')}</span>
+          </h2>
+          <p className="mt-4 text-lg text-[var(--text-secondary)]">
+            {t('subtitle')}
+          </p>
+        </div>
+
+        {/* 3 Cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {CARDS.map(({ id, color, illustration }) => (
+            <div
+              key={id}
+              className="flex flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)]"
+            >
+              {/* Colored header bar */}
+              <div
+                className="px-6 py-3"
+                style={{ backgroundColor: color }}
+              >
+                <span className="text-sm font-medium text-white">
+                  {t(`stages.${id as StageId}.label`)}
+                </span>
+              </div>
+
+              {/* Illustration */}
+              <div className="relative aspect-video w-full bg-[var(--surface-2)]">
+                <Image
+                  src={illustration}
+                  alt=""
+                  fill
+                  className="object-contain p-8 opacity-80"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+
+              {/* Text */}
+              <div className="flex flex-1 flex-col gap-3 p-6">
+                <h3 className="text-lg font-semibold leading-snug text-[var(--text-primary)]">
+                  {t(`stages.${id as StageId}.heading`)}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                  {t(`stages.${id as StageId}.body`)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+// ─── Toggle version (kept for reference) ─────────────────────────────────────
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const STAGE_IDS = ['before', 'early', 'live'] as const;
+type ToggleStageId = typeof STAGE_IDS[number];
+
+const STAGE_META: Record<ToggleStageId, { shapeColor: string; shapePosition: { gridRow: number; gridCol: number } }> = {
   before: { shapeColor: '#22c55e', shapePosition: { gridRow: 3, gridCol: 4 } },
   early:  { shapeColor: '#3b82f6', shapePosition: { gridRow: 2, gridCol: 5 } },
   live:   { shapeColor: '#732fff', shapePosition: { gridRow: 3, gridCol: 5 } },
@@ -16,9 +97,9 @@ const STAGE_META: Record<StageId, { shapeColor: string; shapePosition: { gridRow
 const COLS = 9;
 const ROWS = 6;
 
-export function HomeEntryPoints() {
+export function HomeEntryPointsToggle() {
   const t = useTranslations('home.entryPoints');
-  const [activeId, setActiveId] = useState<StageId>('live');
+  const [activeId, setActiveId] = useState<ToggleStageId>('live');
 
   const meta = STAGE_META[activeId];
 

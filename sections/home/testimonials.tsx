@@ -18,7 +18,7 @@ function TestimonialCard({
   imageSrc: string;
 }) {
   return (
-    <div className="flex flex-col gap-6 rounded-2xl border border-[var(--border-subtle)] p-8">
+    <div className="flex flex-col gap-6 rounded-2xl border border-[var(--border-subtle)] p-8 bg-white">
       <p className="text-base font-bold text-[var(--text-primary)]">{company}</p>
 
       <blockquote className="flex-1 text-base text-[var(--text-primary)] leading-relaxed">
@@ -133,7 +133,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-20 lg:py-28 border-t border-[var(--border-subtle)] scroll-mt-[var(--spacing-12)] bg-[var(--background)]"
+      className="py-20 lg:py-28 border-t border-[var(--border-subtle)] scroll-mt-[var(--spacing-12)] bg-[#f0f0f5]"
     >
       <div className="mx-auto max-w-[1360px] px-6">
 

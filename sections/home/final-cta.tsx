@@ -1,16 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-
-const SERVICES = [
-  'Product & UX Audit',
-  'MVP Definition & Design',
-  'AI Experience Strategy',
-  'Design System Architecture',
-  'SaaS & Complex Dashboards',
-  'UX/UI Design',
-];
+import { useTranslations } from 'next-intl';
 
 const inputClass =
   'w-full rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-0)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] focus:outline-none focus:border-[#732fff] transition-colors';
@@ -25,12 +16,21 @@ function CheckIcon() {
 }
 
 export function HomeFinalCta() {
+  const t = useTranslations('home.finalCta');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [selected, setSelected] = useState<string[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const services = Object.values(t.raw('services') as Record<string, string>);
+
+  const guarantees = [
+    { label: t('guarantees.nda.label'), rest: t('guarantees.nda.rest') },
+    { label: t('guarantees.response.label'), rest: t('guarantees.response.rest') },
+    { label: t('guarantees.access.label'), rest: t('guarantees.access.rest') },
+  ];
 
   const toggleService = (s: string) =>
     setSelected((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
@@ -67,23 +67,19 @@ export function HomeFinalCta() {
           <div className="flex flex-col gap-8">
             <div>
               <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl leading-tight">
-                Does your product have a clear next step?
+                {t('heading')}
               </h2>
               <p className="text-3xl font-bold text-[var(--text-secondary)] lg:text-4xl leading-tight">
-                Let&apos;s talk!
+                {t('headingHighlight')}
               </p>
             </div>
 
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed max-w-sm">
-              Moving products from raw ideas to working MVPs, or optimizing what already exists for better performance.
+              {t('body')}
             </p>
 
             <ul className="flex flex-col gap-3">
-              {[
-                { label: 'NDA?', rest: 'Absolutely. Just ask.' },
-                { label: 'Response time', rest: 'Fast and focused feedback within 24 hours.' },
-                { label: 'Expertise', rest: 'Direct access to senior UX insights, with zero junior-level handoff.' },
-              ].map((item) => (
+              {guarantees.map((item) => (
                 <li key={item.label} className="flex items-start gap-3 text-sm text-[var(--text-secondary)]">
                   <CheckIcon />
                   <span>
@@ -94,28 +90,15 @@ export function HomeFinalCta() {
               ))}
             </ul>
 
-            <p className="text-sm text-[var(--text-secondary)]">Based in Berlin. Working internationally.</p>
-
-            <div>
-              <p className="text-sm text-[var(--text-secondary)] mb-4">Schedule a call:</p>
-              <div className="inline-flex items-center gap-3 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] px-4 py-3">
-                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl">
-                  <Image src="/images/home/amir-shalev.png" alt="Amir Shalev" fill className="object-cover" sizes="48px" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-[var(--text-primary)]">Amir Shalev</p>
-                  <p className="text-xs text-[var(--text-secondary)]">Founder</p>
-                </div>
-              </div>
-            </div>
+            <p className="text-sm text-[var(--text-secondary)]">{t('location')}</p>
           </div>
 
           {/* Right: form card */}
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-8">
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-white p-8">
             {status === 'success' ? (
               <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                <p className="text-lg font-semibold text-[var(--text-primary)]">Message sent!</p>
-                <p className="text-sm text-[var(--text-secondary)]">I&apos;ll get back to you within 24 hours.</p>
+                <p className="text-lg font-semibold text-[var(--text-primary)]">{t('form.successTitle')}</p>
+                <p className="text-sm text-[var(--text-secondary)]">{t('form.successBody')}</p>
               </div>
             ) : (
               <form onSubmit={onSubmit} className="flex flex-col gap-5">
@@ -123,7 +106,7 @@ export function HomeFinalCta() {
                   <input
                     type="email"
                     required
-                    placeholder="Email"
+                    placeholder={t('form.emailPlaceholder')}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className={inputClass}
@@ -131,7 +114,7 @@ export function HomeFinalCta() {
                   <input
                     type="text"
                     required
-                    placeholder="Full name"
+                    placeholder={t('form.namePlaceholder')}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className={inputClass}
@@ -140,16 +123,19 @@ export function HomeFinalCta() {
 
                 <textarea
                   rows={4}
-                  placeholder="Tell us about your product goals and the current challenges."
+                  placeholder={t('form.messagePlaceholder')}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className={inputClass + ' resize-none'}
                 />
 
                 <div>
-                  <p className="text-sm font-semibold text-[var(--text-primary)] mb-3">How can we help you?</p>
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <p className="text-sm font-semibold text-[var(--text-primary)]">{t('form.servicesLabel')}</p>
+                    <p className="text-xs text-[var(--text-secondary)]">{t('form.servicesHint')}</p>
+                  </div>
                   <div className="flex flex-wrap gap-2">
-                    {SERVICES.map((s) => {
+                    {services.map((s) => {
                       const active = selected.includes(s);
                       return (
                         <button
@@ -171,21 +157,21 @@ export function HomeFinalCta() {
                 </div>
 
                 {status === 'error' && (
-                  <p className="text-sm text-red-500">Something went wrong. Please try again.</p>
+                  <p className="text-sm text-red-500">{t('form.error')}</p>
                 )}
 
                 <div className="flex items-center justify-between gap-4 flex-wrap">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="rounded-full bg-[#732fff] hover:bg-[#5f22e0] text-white text-sm font-medium px-6 py-3 transition-colors disabled:opacity-60"
+                    className="w-full sm:w-auto rounded-full bg-[#732fff] hover:bg-[#5f22e0] text-white text-sm font-medium px-6 py-3 transition-colors disabled:opacity-60"
                   >
-                    {isSubmitting ? 'Sending…' : 'Get strategic feedback'}
+                    {isSubmitting ? t('form.submitting') : t('form.submit')}
                   </button>
                   <p className="text-sm text-[var(--text-secondary)] text-right">
-                    Prefer email?{' '}
-                    <a href="mailto:amir@redigma.com" className="font-semibold text-[var(--text-primary)] hover:underline">
-                      amir@redigma.com
+                    {t('form.emailLabel')}{' '}
+                    <a href={`mailto:${t('form.emailAddress')}`} className="font-semibold text-[var(--text-primary)] hover:underline">
+                      {t('form.emailAddress')}
                     </a>
                   </p>
                 </div>

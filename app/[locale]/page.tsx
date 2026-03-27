@@ -14,15 +14,17 @@ export default function Home() {
     <>
       <HomeHero />
       <HomeEntryPoints />
-      {/* Accordion hidden — stacked version active */}
-      <div className="hidden"><HomeServicesAccordion /></div>
-      <HomeServicesStacked />
-      <HomeHowIWork />
+      <HomeServicesAccordion />
       <HomeMiniProduct />
       <HomeProjects />
       <Testimonials />
       <HomeAbout />
       <HomeFinalCta />
+      {/* Hidden — kept for future use */}
+      <div className="hidden">
+        <HomeServicesStacked />
+        <HomeHowIWork />
+      </div>
     </>
   );
 }

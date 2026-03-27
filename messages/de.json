@@ -15,9 +15,9 @@
     },
     "about": {
       "title": "Über mich",
-      "intro": "Ich bin Amir, ein produktorientierter UX/UI Designer.",
-      "body1": "Ich arbeite gerne mit Produkten in Bewegung – manchmal verbessere ich bestehende Systeme, manchmal begleite ich Teams von der Idee bis zum funktionierenden MVP.",
-      "body2": "Ansässig in Berlin. International tätig."
+      "intro": "Ich bin Amir Shalev.",
+      "body1": "Ich gestalte digitale Produkte seit über 10 Jahren – hauptsächlich für Early-Stage-Startups, wo alles schnell geht und die Entscheidungen zählen.\n\nVor zwei Jahren bin ich von Tel Aviv nach Berlin gezogen. Neben der Arbeit mit Kunden baue ich Reloways – eine Plattform für Menschen, die in ein neues Land ziehen. Das hält mich ehrlich darüber, was es wirklich braucht, etwas zu launchen – nicht nur zu gestalten.",
+      "body2": "Ansässig in Berlin. Tätig weltweit."
     },
     "entryPoints": {
       "subtitle": "Unterschiedliche Phasen, gleiches Ziel: Klarheit vor Komplexität.",
@@ -148,50 +148,67 @@
       }
     },
     "services": {
-      "heading": "Vom Startup zum Unternehmen.",
-      "subheading": "Wachse mit schnellen und kreativen Designs!",
+      "heading": "Was ich wirklich tue.",
       "items": {
+        "shape": {
+          "title": "Produkt gestalten",
+          "body": "Struktur, Flows und Design – bevor eine einzige Zeile Code geschrieben wird. Für Teams, die Klarheit darüber brauchen, was sie bauen sollen – und warum – bevor die Entwicklung startet.",
+          "bullets": ["Nutzerforschung", "User Flows", "Wireframing", "UI Design", "Prototyping", "Dev Handoff"]
+        },
+        "fix": {
+          "title": "Fragiles beheben",
+          "body": "Ein klarer Blick auf das, was in deinem bestehenden Produkt Vertrauen kostet. Reibung, Inkonsistenz und verpasste Chancen – mit konkreten Empfehlungen, keinem Bericht, den du ignorierst.",
+          "bullets": ["UX-Audit", "Heuristische Prüfung", "Friction Report", "Redesign-Roadmap", "Nutzerinterviews", "Barrierefreiheit"]
+        },
+        "scale": {
+          "title": "Für Wachstum bauen",
+          "body": "Das Komponentenfundament, gegen das dein Team nicht ankämpft. Token-Architektur, Komponentenbibliotheken und Dokumentation, die tatsächlich genutzt wird.",
+          "bullets": ["Token-Architektur", "Komponentenbibliotheken", "Figma-Systeme", "Dokumentation", "Dev Handoff", "Design Tokens"]
+        },
         "ai": {
-          "title": "KI-Beratung & Implementierung",
-          "body": "Wo KI dein Produkt wirklich verbessert — vom richtigen Anwendungsfall bis zur praktischen Integration, die Nutzer tatsächlich wahrnehmen."
-        },
-        "uxui": {
-          "title": "UX/UI Design & Prototyping",
-          "body": "Hochwertige Designs und interaktive Prototypen, die Absichten klar an Entwickler, Stakeholder und Nutzer kommunizieren."
-        },
-        "designSystem": {
-          "title": "Design-System-Architektur",
-          "body": "Das Komponentenfundament, das dein Produkt in großem Maßstab konsistent hält — von Token-Definitionen bis zu vollständigen Komponentenbibliotheken."
-        },
-        "audit": {
-          "title": "Produkt-Audit & Optimierung",
-          "body": "Eine strukturierte Überprüfung der UX deines Produkts — mit klaren, umsetzbaren Empfehlungen zu Reibungspunkten und verpassten Chancen."
-        },
-        "wireframing": {
-          "title": "Wireframing & Informationsarchitektur",
-          "body": "Struktur vor Gestaltung. Die Produktlogik auf solide Füße stellen, bevor mit dem visuellen Design begonnen wird."
+          "title": "Intelligenz hinzufügen",
+          "body": "KI-Features konzipieren und gestalten, die Nutzer wirklich wahrnehmen. Nicht KI um der KI willen – sondern dort, wo sie das Erlebnis grundlegend verändert.",
+          "bullets": ["Use-Case-Analyse", "KI-Feature-Design", "Prompt UX", "Integrationsplanung", "KI-Audit", "Nutzertests"]
         }
       }
     },
     "finalCta": {
-      "heading": "Hat dein Produkt einen klaren nächsten Schritt?",
-      "headingHighlight": "Lass uns reden!",
+      "heading": "Braucht dein Produkt mehr Klarheit?",
+      "headingHighlight": "Genau das mache ich.",
+      "body": "Ich arbeite mit Gründern und Produktteams daran, was gebaut werden soll, wie es strukturiert wird und wo die UX Vertrauen kostet.",
+      "guarantees": {
+        "nda": { "label": "NDA?", "rest": "Selbstverständlich. Einfach fragen." },
+        "response": { "label": "Antwortzeit", "rest": "Schnelles, fokussiertes Feedback innerhalb von 24 Stunden." },
+        "access": { "label": "Direkter Zugang", "rest": "Du arbeitest mit mir. Nicht mit einem Team, das du nie kennengelernt hast." }
+      },
       "location": "Berlin, Deutschland",
-      "instagram": "@redigma",
-      "servicesLabel": "Wie kann ich helfen?",
+      "scheduleLabel": "Termin vereinbaren:",
+      "form": {
+        "emailPlaceholder": "E-Mail",
+        "namePlaceholder": "Vollständiger Name",
+        "messagePlaceholder": "Erzähl mir von deinem Produkt — was es ist, was nicht funktioniert und was du verbessern möchtest.",
+        "servicesLabel": "Was brauchst du?",
+        "servicesHint": "Du kannst auch mehrere auswählen.",
+        "submit": "Nachricht senden",
+        "submitting": "Wird gesendet…",
+        "successTitle": "Nachricht gesendet!",
+        "successBody": "Ich melde mich innerhalb von 24 Stunden bei dir.",
+        "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+        "emailLabel": "Lieber per E-Mail?",
+        "emailAddress": "amir@redigma.com"
+      },
       "services": {
-        "s1": "UX/UI Design & Prototyping",
-        "s2": "Produkt-Audit & Optimierung",
-        "s3": "Design-System-Architektur",
-        "s4": "Wireframing & Informationsarchitektur",
-        "s5": "KI-Beratung & Implementierung"
+        "s1": "Produkt gestalten",
+        "s2": "Fragiles beheben",
+        "s3": "Für Wachstum bauen",
+        "s4": "Intelligenz hinzufügen"
       }
     },
     "testimonials": {
       "kicker": "KUNDENFEEDBACK",
       "title": {
         "main": "Von Gründern und Produktteams geschätzt.",
-        "highlight": "Ich garantiere, dass auch dein nächstes Projekt ein Erfolg wird."
+        "highlight": ""
       },
       "items": {
         "keren": {
@@ -236,14 +253,14 @@
   }
   ,
   "feedback": {
-    "title": "Produkt oder Idee senden",
-    "intro": "Schick mir, was du hast, und ich antworte mit 3–4 fokussierten UX-Beobachtungen. Keine Decks. Kein Sales-Pitch. Nur hilfreiches Feedback.",
+    "title": "Schick dein Produkt. Hol dir Klarheit zurück.",
+    "intro": "Teile einen Link oder Screenshots. Innerhalb von 48 Stunden antworte ich mit 3–4 fokussierten UX-Beobachtungen — was Nutzer verwirrt, was Vertrauen kostet und was zuerst behoben werden sollte.",
     "eyebrow": "UX-Feedback",
-    "trustLine": "Keine Verpflichtung. Ob es passt, werden wir danach wissen.",
+    "trustLine": "Keine Verpflichtung. Ob es passt, werden wir danach beide wissen.",
     "stats": {
       "responseTime": { "number": "48h", "label": "Antwortzeit" },
       "observations": { "number": "3–4", "label": "UX-Beobachtungen" },
-      "salesPitch": { "number": "£0", "label": "Kein Sales-Pitch" }
+      "salesPitch": { "number": "1:1", "label": "Direkter Zugang" }
     },
     "valuePoints": {
       "trust": {
@@ -287,7 +304,7 @@
       "message": {
         "label": "Worauf soll ich achten?",
         "placeholder": "Beschreib kurz, worum es geht, was unklar ist und was du verbessern möchtest.",
-        "helper": "Dieses Feedback hilft oft bei der Entscheidung, ob ein Produkt verfeinert, neu aufgebaut oder als MVP umgesetzt werden sollte."
+        "helper": "Je konkreter du bist, desto nützlicher kann ich sein."
       }
     },
     "actions": {
@@ -295,7 +312,7 @@
       "sending": "Wird gesendet..."
     },
     "status": {
-      "success": "Gesendet. Ich melde mich bald bei dir.",
+      "success": "Gesendet. Ich antworte mit Beobachtungen innerhalb von 48 Stunden.",
       "errorFallback": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     }
   }
@@ -304,12 +321,11 @@
     "menu": "Menü",
     "cta": "Feedback erhalten",
     "nav": {
-      "whenTeamsReachOut": "Wann Teams auf mich zukommen",
-      "services": "Leistungen",
+      "whenTeamsReachOut": "Wann ich einsteige",
+      "services": "Was ich tue",
       "uxFeedback": "UX-Feedback",
-      "howIWork": "Arbeitsweise",
-      "selectedWork": "Ausgewählte Arbeiten",
-      "clientFeedback": "Kundenstimmen",
+      "selectedWork": "Arbeiten",
+      "clientFeedback": "Feedback",
       "about": "Über mich",
       "contact": "Kontakt"
     },

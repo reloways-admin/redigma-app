@@ -8,12 +8,11 @@
       "closeMenu": "Close menu"
     },
     "nav": {
-      "whenTeamsReachOut": "When teams reach out",
-      "services": "Services",
+      "whenTeamsReachOut": "When I step in",
+      "services": "What I do",
       "uxFeedback": "UX feedback",
-      "howIWork": "How I work",
-      "selectedWork": "Selected work",
-      "clientFeedback": "Client feedback",
+      "selectedWork": "Work",
+      "clientFeedback": "Feedback",
       "about": "About",
       "contact": "Contact"
     }
@@ -164,7 +163,7 @@
       "kicker": "CLIENT FEEDBACK",
       "title": {
         "main": "Trusted by founders and product teams.",
-        "highlight": "I guarantee next success is yours."
+        "highlight": ""
       },
       "items": {
         "keren": {
@@ -186,48 +185,65 @@
     },
     "about": {
       "title": "About",
-      "intro": "I’m Amir, a product-focused UX/UI designer.",
-      "body1": "I enjoy working with products in motion – sometimes improving what already exists, sometimes helping teams move from idea to working MVP.",
-      "body2": "Based in Berlin. Working internationally."
+      "intro": "I’m Amir Shalev.",
+      "body1": "I’ve spent over 10 years designing digital products — mostly with early-stage startups, where things move fast and the stakes are real.\n\nTwo years ago I moved from Tel Aviv to Berlin. Alongside client work, I’m building Reloways — a platform for people who relocate. It keeps me honest about what it actually takes to ship something, not just design it.",
+      "body2": "Based in Berlin. Working everywhere."
     },
     "services": {
-      "heading": "From startup to enterprise.",
-      "subheading": "Grow your business with fast and creative designs!",
+      "heading": "What I actually do.",
       "items": {
+        "shape": {
+          "title": "Shape the product",
+          "body": "Structure, flows, and design before a single line of code. For teams that need clarity on what to build — and why — before development moves.",
+          "bullets": ["User Research", "User Flows", "Wireframing", "UI Design", "Prototyping", "Dev Handoff"]
+        },
+        "fix": {
+          "title": "Fix what’s fragile",
+          "body": "A clear look at what’s breaking trust in your existing product. Friction, inconsistency, and missed opportunities — with specific recommendations, not a report you’ll ignore.",
+          "bullets": ["UX Audit", "Heuristic Review", "Friction Report", "Redesign Roadmap", "User Interviews", "Accessibility"]
+        },
+        "scale": {
+          "title": "Build for scale",
+          "body": "The component foundation your team won’t fight against. Token architecture, component libraries, and documentation that actually gets used.",
+          "bullets": ["Token Architecture", "Component Libraries", "Figma Systems", "Documentation", "Dev Handoff", "Design Tokens"]
+        },
         "ai": {
-          "title": "AI Consulting & Implementation",
-          "body": "Identifying where AI genuinely improves your product — from scoping the right use case to practical integration that users actually notice."
-        },
-        "uxui": {
-          "title": "UX/UI Design & Prototyping",
-          "body": "High-fidelity designs and interactive prototypes that communicate intent clearly to developers, stakeholders, and users."
-        },
-        "designSystem": {
-          "title": "Design System Architecture",
-          "body": "Building the component foundation that keeps your product consistent at scale — from token definitions to full component libraries."
-        },
-        "audit": {
-          "title": "Product Audit & Optimization",
-          "body": "A structured review of your product’s UX — identifying friction, inconsistency, and missed opportunities with clear, actionable recommendations."
-        },
-        "wireframing": {
-          "title": "Wireframing & Information Architecture",
-          "body": "Defining structure before polish. Making sure the product logic is sound before any visual design work begins."
+          "title": "Add intelligence",
+          "body": "Scoping and designing AI features that users actually notice. Not AI for the sake of it — AI where it genuinely changes the experience.",
+          "bullets": ["Use Case Scoping", "AI Feature Design", "Prompt UX", "Integration Planning", "AI Audit", "User Testing"]
         }
       }
     },
     "finalCta": {
-      "heading": "Does your product have a clear next step?",
-      "headingHighlight": "Let’s talk!",
+      "heading": "Have a product that needs clarity?",
+      "headingHighlight": "That’s what I do.",
+      "body": "I work with founders and product teams on what to build, how to structure it, and where the UX is costing them trust.",
+      "guarantees": {
+        "nda": { "label": "NDA?", "rest": "Absolutely. Just ask." },
+        "response": { "label": "Response time", "rest": "Fast and focused feedback within 24 hours." },
+        "access": { "label": "Direct access", "rest": "You work with me. Not a team you’ve never met." }
+      },
       "location": "Berlin, Germany",
-      "instagram": "@redigma",
-      "servicesLabel": "How can I help you?",
+      "scheduleLabel": "Schedule a call:",
+      "form": {
+        "emailPlaceholder": "Email",
+        "namePlaceholder": "Full name",
+        "messagePlaceholder": "Tell me about your product — what it is, what’s not working, and what you want to improve.",
+        "servicesLabel": "What do you need?",
+        "servicesHint": "You can choose more than one.",
+        "submit": "Get in touch",
+        "submitting": "Sending…",
+        "successTitle": "Message sent!",
+        "successBody": "I’ll get back to you within 24 hours.",
+        "error": "Something went wrong. Please try again.",
+        "emailLabel": "Prefer email?",
+        "emailAddress": "amir@redigma.com"
+      },
       "services": {
-        "s1": "UX/UI Design & Prototyping",
-        "s2": "Product Audit & Optimization",
-        "s3": "Design System Architecture",
-        "s4": "Wireframing & IA",
-        "s5": "AI Consulting & Implementation"
+        "s1": "Shape the product",
+        "s2": "Fix what’s fragile",
+        "s3": "Build for scale",
+        "s4": "Add intelligence"
       }
     }
   },
@@ -254,14 +270,14 @@
     "wordmark": "redigma"
   },
   "feedback": {
-    "title": "Send your product or idea",
-    "intro": "Share what you have and I will reply with 3-4 focused UX observations. No decks. No sales pitch. Just useful feedback.",
+    "title": "Send your product. Get clarity back.",
+    "intro": "Share a link or screenshots. Within 48 hours I'll reply with 3–4 focused UX observations — what's confusing users, what's breaking trust, and what to fix first.",
     "eyebrow": "UX Feedback",
-    "trustLine": "No commitment required. If there's a fit, we'll know after this.",
+    "trustLine": "No commitment. If there's a fit, we'll both know.",
     "stats": {
       "responseTime": { "number": "48h", "label": "Response time" },
       "observations": { "number": "3–4", "label": "UX observations" },
-      "salesPitch": { "number": "£0", "label": "No sales pitch" }
+      "salesPitch": { "number": "1:1", "label": "Direct access" }
     },
     "valuePoints": {
       "trust": {
@@ -304,8 +320,8 @@
       },
       "message": {
         "label": "What should I look at?",
-        "placeholder": "Tell me what it is, what is confusing, and what you want to improve.",
-        "helper": "This feedback often helps decide whether refining, rebuilding, or building an MVP makes sense."
+        "placeholder": "Tell me what it is, what feels unclear, and what you want to improve.",
+        "helper": "The more specific you are, the more useful I can be."
       }
     },
     "actions": {
@@ -313,7 +329,7 @@
       "sending": "Sending..."
     },
     "status": {
-      "success": "Sent. I will get back to you soon.",
+      "success": "Sent. I'll reply with observations within 48 hours.",
       "errorFallback": "Something went wrong. Please try again."
     }
   }

@@ -7,34 +7,24 @@ import { useTranslations } from 'next-intl';
 
 const SERVICES = [
   {
+    id: 'shape',
+    key: 'shape' as const,
+    imageSrc: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg',
+  },
+  {
+    id: 'fix',
+    key: 'fix' as const,
+    imageSrc: '/illustrations/entry-point/sketch-define.svg',
+  },
+  {
+    id: 'scale',
+    key: 'scale' as const,
+    imageSrc: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg',
+  },
+  {
     id: 'ai',
     key: 'ai' as const,
     imageSrc: '/illustrations/how-i-work/sketch-how-i-work-define.svg',
-    imageBg: '#0b2416',
-  },
-  {
-    id: 'uxui',
-    key: 'uxui' as const,
-    imageSrc: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg',
-    imageBg: '#0d1b2b',
-  },
-  {
-    id: 'design-system',
-    key: 'designSystem' as const,
-    imageSrc: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg',
-    imageBg: '#1a0a2e',
-  },
-  {
-    id: 'audit',
-    key: 'audit' as const,
-    imageSrc: '/illustrations/entry-point/sketch-define.svg',
-    imageBg: '#1a1208',
-  },
-  {
-    id: 'wireframing',
-    key: 'wireframing' as const,
-    imageSrc: '/illustrations/entry-point/sketch-live.svg',
-    imageBg: '#0f1a1a',
   },
 ];
 
@@ -61,7 +51,7 @@ export default function HomeServicesAccordion() {
   const active = SERVICES.find((s) => s.id === openId) ?? SERVICES[0];
 
   return (
-    <section className="border-t border-[var(--border-subtle)] py-20 lg:py-28 bg-[var(--background)]">
+    <section id="services" className="border-t border-[var(--border-subtle)] py-20 lg:py-28 bg-[var(--background)]">
       <div className="mx-auto max-w-[1360px] px-6">
 
         {/* Heading */}
@@ -69,9 +59,6 @@ export default function HomeServicesAccordion() {
           <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
             {t('heading')}
           </h2>
-          <p className="mt-1 text-2xl text-[var(--text-secondary)] lg:text-3xl">
-            {t('subheading')}
-          </p>
         </div>
 
         {/* Two-column layout */}
@@ -97,15 +84,30 @@ export default function HomeServicesAccordion() {
                       </span>
                       <AnimatePresence initial={false}>
                         {isOpen && (
-                          <motion.p
+                          <motion.div
                             initial={{ opacity: 0, height: 0, marginTop: 0 }}
                             animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
                             exit={{ opacity: 0, height: 0, marginTop: 0 }}
                             transition={{ duration: 0.22, ease: 'easeInOut' }}
-                            className="overflow-hidden type-body text-[var(--text-secondary)] leading-relaxed max-w-sm"
+                            className="overflow-hidden"
                           >
-                            {t(`items.${service.key}.body`)}
-                          </motion.p>
+                            <p className="type-body text-[var(--text-secondary)] leading-relaxed max-w-sm">
+                              {t(`items.${service.key}.body`)}
+                            </p>
+                            {/* Mobile image — shown inline below body, hidden on desktop */}
+                            <div
+                              className="lg:hidden mt-5 relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
+                              style={{ aspectRatio: '4 / 3' }}
+                            >
+                              <Image
+                                src={service.imageSrc}
+                                alt={t(`items.${service.key}.title`)}
+                                fill
+                                className="object-contain p-10 opacity-80"
+                                sizes="100vw"
+                              />
+                            </div>
+                          </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
@@ -121,9 +123,9 @@ export default function HomeServicesAccordion() {
             })}
           </div>
 
-          {/* Right: image panel — shows the last opened service */}
+          {/* Right: image panel — desktop only */}
           <div
-            className="relative overflow-hidden rounded-2xl"
+            className="hidden lg:block relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
             style={{ aspectRatio: '4 / 3' }}
           >
             <AnimatePresence mode="wait">
@@ -134,13 +136,12 @@ export default function HomeServicesAccordion() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className="absolute inset-0 flex items-center justify-center"
-                style={{ backgroundColor: active.imageBg }}
               >
                 <Image
                   src={active.imageSrc}
                   alt={t(`items.${active.key}.title`)}
                   fill
-                  className="object-contain p-12 opacity-60"
+                  className="object-contain p-12 opacity-80"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </motion.div>

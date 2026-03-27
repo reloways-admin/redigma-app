@@ -22,7 +22,6 @@ export function Header() {
       { id: 'entry-points', label: t('nav.whenTeamsReachOut') },
       { id: 'services', label: t('nav.services') },
       { id: 'mini-product', label: t('nav.uxFeedback') },
-      { id: 'how-i-work', label: t('nav.howIWork') },
       { id: 'projects', label: t('nav.selectedWork') },
       { id: 'testimonials', label: t('nav.clientFeedback') },
       { id: 'about', label: t('nav.about') },
