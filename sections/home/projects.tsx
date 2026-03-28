@@ -22,7 +22,7 @@ type Project = {
   accent: string;
 };
 
-const PROJECTS: Project[] = [
+export const PROJECTS: Project[] = [
   {
     index: '01',
     title: 'Reloways',
@@ -34,7 +34,7 @@ const PROJECTS: Project[] = [
       { action: 'Integrated', prep: 'with', name: 'AWS', icon: '/illustrations/projects/icons/AWS-Dark logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/reloways`,
-    images: ['/illustrations/projects/reloways/reloways.png'],
+    images: ['/images/home/projects/reloways_cover-1920x1080.png'],
     accent: '#0b2416',
   },
   {
@@ -73,7 +73,7 @@ const PROJECTS: Project[] = [
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/gomatchit`,
-    images: ['/illustrations/projects/reloways/reloways.png'],
+    images: ['/images/home/projects/gomatchit_cover_001-1-1920x1080.png'],
     accent: '#090f1f',
   },
 ];
@@ -94,7 +94,7 @@ function ArrowRight() {
   );
 }
 
-function ToolBadge({ tool }: { tool: Tool }) {
+export function ToolBadge({ tool }: { tool: Tool }) {
   return (
     <div className="flex items-center gap-2.5">
       <div className="h-9 w-9 shrink-0 rounded-xl overflow-hidden bg-[var(--surface-2)] flex items-center justify-center">
@@ -114,7 +114,7 @@ function ToolBadge({ tool }: { tool: Tool }) {
   );
 }
 
-function ProjectCard({ project, viewProject }: { project: Project; viewProject: string }) {
+export function ProjectCard({ project, viewProject }: { project: Project; viewProject: string }) {
   const locale = useLocale();
   const [idx, setIdx] = React.useState(0);
   const total = project.images.length;
@@ -123,7 +123,7 @@ function ProjectCard({ project, viewProject }: { project: Project; viewProject: 
   const next = () => setIdx((i) => (i + 1) % total);
 
   return (
-    <article className="grid grid-cols-1 gap-10 lg:grid-cols-[5fr_7fr] lg:gap-16 items-center py-16 border-t border-[var(--border-subtle)] first:border-t-0">
+    <article className="grid grid-cols-1 gap-8 lg:grid-cols-[5fr_7fr] lg:gap-12 items-center py-10 border-t border-[var(--border-subtle)] first:border-t-0">
 
       {/* LEFT: text */}
       <div className="flex flex-col gap-5">
@@ -153,7 +153,7 @@ function ProjectCard({ project, viewProject }: { project: Project; viewProject: 
       </div>
 
       {/* RIGHT: carousel */}
-      <div className="relative overflow-hidden rounded-3xl" style={{ aspectRatio: '4 / 3', backgroundColor: project.accent }}>
+      <div className="relative overflow-hidden rounded-3xl" style={{ aspectRatio: '16 / 9', backgroundColor: project.accent }}>
         <Image
           src={project.images[idx]}
           alt={project.title}
@@ -201,8 +201,13 @@ function ProjectCard({ project, viewProject }: { project: Project; viewProject: 
   );
 }
 
+const HOME_INDICES = ['01', '03', '04'];
+
 export default function HomeProjects() {
   const t = useTranslations('home.projects');
+  const locale = useLocale();
+
+  const homeProjects = PROJECTS.filter((p) => HOME_INDICES.includes(p.index));
 
   return (
     <section
@@ -211,20 +216,35 @@ export default function HomeProjects() {
     >
       <div className="mx-auto max-w-[1360px] px-6">
 
-        <div className="mb-4">
+        <div className="flex items-end justify-between mb-4">
           <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
             Selected work.
           </h2>
+          <Link
+            href={`/${locale}/projects`}
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+          >
+            {t('viewAll')} →
+          </Link>
         </div>
 
         <div>
-          {PROJECTS.map((project) => (
+          {homeProjects.map((project) => (
             <ProjectCard
               key={project.index}
               project={project}
               viewProject={t('viewCase')}
             />
           ))}
+        </div>
+
+        <div className="mt-10 sm:hidden">
+          <Link
+            href={`/${locale}/projects`}
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--border-subtle)] px-5 py-2.5 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--surface-1)] transition-colors"
+          >
+            {t('viewAll')} →
+          </Link>
         </div>
 
       </div>
