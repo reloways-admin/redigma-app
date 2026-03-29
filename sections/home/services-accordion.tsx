@@ -10,21 +10,25 @@ const SERVICES = [
     id: 'shape',
     key: 'shape' as const,
     imageSrc: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg',
+    color: '#9333EA',
   },
   {
     id: 'fix',
     key: 'fix' as const,
     imageSrc: '/illustrations/entry-point/sketch-define.svg',
+    color: '#0EA5E9',
   },
   {
     id: 'scale',
     key: 'scale' as const,
     imageSrc: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg',
+    color: '#10B981',
   },
   {
     id: 'ai',
     key: 'ai' as const,
     imageSrc: '/illustrations/how-i-work/sketch-how-i-work-define.svg',
+    color: '#F59E0B',
   },
 ];
 
@@ -125,8 +129,8 @@ export default function HomeServicesAccordion() {
 
           {/* Right: image panel — desktop only */}
           <div
-            className="hidden lg:block relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
-            style={{ aspectRatio: '4 / 3' }}
+            className="hidden lg:block relative overflow-hidden rounded-2xl"
+            style={{ aspectRatio: '4 / 3', border: `1.5px solid ${active.color}` }}
           >
             <AnimatePresence mode="wait">
               <motion.div

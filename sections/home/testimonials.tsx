@@ -15,7 +15,7 @@ function TestimonialCard({
   quote: string;
   author: string;
   role: string;
-  imageSrc: string;
+  imageSrc?: string;
 }) {
   return (
     <div className="flex flex-col gap-6 rounded-2xl border border-[var(--border-subtle)] p-8 bg-white">
@@ -26,9 +26,17 @@ function TestimonialCard({
       </blockquote>
 
       <div className="flex items-center gap-3">
-        <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
-          <Image src={imageSrc} alt={author} fill className="object-cover" sizes="44px" />
-        </div>
+        {imageSrc ? (
+          <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
+            <Image src={imageSrc} alt={author} fill className="object-cover" sizes="44px" />
+          </div>
+        ) : (
+          <div className="h-11 w-11 shrink-0 rounded-full bg-[#732fff]/10 flex items-center justify-center">
+            <span className="text-sm font-semibold text-[#732fff]">
+              {author.split(' ').map((n) => n[0]).join('').slice(0, 2)}
+            </span>
+          </div>
+        )}
         <div>
           <p className="text-sm font-medium text-[var(--text-primary)]">{author}</p>
           <p className="text-sm text-[var(--text-secondary)]">{role}</p>
@@ -38,7 +46,7 @@ function TestimonialCard({
   );
 }
 
-type TestimonialItem = { company: string; quote: string; author: string; role: string; imageSrc: string };
+type TestimonialItem = { company: string; quote: string; author: string; role: string; imageSrc?: string };
 
 function MobileCarousel({ items }: { items: TestimonialItem[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
