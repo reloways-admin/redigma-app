@@ -269,7 +269,14 @@
       "impressum": "Impressum"
     },
     "tagline": "Think. Design. Develop. Launch.",
-    "wordmark": "redigma"
+    "wordmark": "redigma",
+    "headline": "Think. Design.\nDevelop. Launch",
+    "subline": "Send what you have. We'll figure out the right next step together.",
+    "caseStudiesLabel": "Case studies",
+    "contactLabel": "Contact",
+    "getFeedback": "Get feedback",
+    "impressum": "Impressum",
+    "copyright": "Redigma. © 2026"
   },
   "feedback": {
     "title": "Send your product. Get clarity back.",

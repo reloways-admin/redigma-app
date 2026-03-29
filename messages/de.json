@@ -251,7 +251,14 @@
       "impressum": "Impressum"
     },
     "tagline": "Denken. Gestalten. Entwickeln. Launchen.",
-    "wordmark": "redigma"
+    "wordmark": "redigma",
+    "headline": "Denken. Gestalten.\nEntwickeln. Launchen",
+    "subline": "Schick, was du hast. Wir finden gemeinsam den richtigen nächsten Schritt.",
+    "caseStudiesLabel": "Fallstudien",
+    "contactLabel": "Kontakt",
+    "getFeedback": "Feedback erhalten",
+    "impressum": "Impressum",
+    "copyright": "Redigma. © 2026"
   }
   ,
   "feedback": {
