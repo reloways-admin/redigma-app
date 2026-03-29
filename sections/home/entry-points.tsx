@@ -6,9 +6,9 @@ import { useTranslations } from 'next-intl';
 // ─── 3-card layout (active version) ─────────────────────────────────────────
 
 const CARDS = [
-  { id: 'live',   color: '#732FFF', illustration: '/illustrations/entry-point/sketch-live.svg' },
-  { id: 'early',  color: '#155DFC', illustration: '/illustrations/entry-point/sketch-define.svg' },
   { id: 'before', color: '#0D9B3B', illustration: '/illustrations/how-i-work/sketch-how-i-work-stepping.svg' },
+  { id: 'early',  color: '#155DFC', illustration: '/illustrations/entry-point/sketch-live.svg' },
+  { id: 'live',   color: '#732FFF', illustration: '/illustrations/entry-point/sketch-define.svg' },
 ] as const;
 
 type StageId = 'live' | 'early' | 'before';
@@ -58,7 +58,7 @@ export function HomeEntryPoints() {
                   src={illustration}
                   alt=""
                   fill
-                  className="object-contain p-8 opacity-80"
+                  className="object-contain p-8"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>

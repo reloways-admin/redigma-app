@@ -9,14 +9,14 @@ const SERVICES = [
   {
     id: 'shape',
     key: 'shape' as const,
-    imageSrc: '/illustrations/how-i-work/sketch-how-i-work-guiding.svg',
-    color: '#9333EA',
+    imageSrc: '/illustrations/how-i-work/sketch-wireframes-and-product-design.svg',
+    color: '#1C83FB',
   },
   {
     id: 'fix',
     key: 'fix' as const,
-    imageSrc: '/illustrations/entry-point/sketch-define.svg',
-    color: '#0EA5E9',
+    imageSrc: '/illustrations/how-i-work/sketch-ux-audit-and-redesign.svg',
+    color: '#E52225',
   },
   {
     id: 'scale',
@@ -27,8 +27,8 @@ const SERVICES = [
   {
     id: 'ai',
     key: 'ai' as const,
-    imageSrc: '/illustrations/how-i-work/sketch-how-i-work-define.svg',
-    color: '#F59E0B',
+    imageSrc: '/illustrations/how-i-work/sketch-ai.svg',
+    color: '#E76F4D',
   },
 ];
 
@@ -107,7 +107,7 @@ export default function HomeServicesAccordion() {
                                 src={service.imageSrc}
                                 alt={t(`items.${service.key}.title`)}
                                 fill
-                                className="object-contain p-10 opacity-80"
+                                className="object-contain p-10 "
                                 sizes="100vw"
                               />
                             </div>
@@ -129,8 +129,8 @@ export default function HomeServicesAccordion() {
 
           {/* Right: image panel — desktop only */}
           <div
-            className="hidden lg:block relative overflow-hidden rounded-2xl"
-            style={{ aspectRatio: '4 / 3', border: `1.5px solid ${active.color}` }}
+            className="hidden lg:block relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
+            style={{ aspectRatio: '4 / 3' }}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -145,7 +145,7 @@ export default function HomeServicesAccordion() {
                   src={active.imageSrc}
                   alt={t(`items.${active.key}.title`)}
                   fill
-                  className="object-contain p-12 opacity-80"
+                  className="object-contain p-12 "
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </motion.div>
