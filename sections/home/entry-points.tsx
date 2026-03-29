@@ -27,9 +27,9 @@ export function HomeEntryPoints() {
         <div className="mb-16 text-center">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold text-[var(--foreground)] lg:text-4xl">
             {t('title')}{' '}
-            <span className="text-[var(--text-secondary)]">{t('titleHighlight')}</span>
+            <span className="text-[#732fff]">{t('titleHighlight')}</span>
           </h2>
-          <p className="mt-4 text-lg text-[var(--text-secondary)]">
+          <p className="mt-4 text-xl text-[var(--text-secondary)] lg:text-2xl">
             {t('subtitle')}
           </p>
         </div>
@@ -65,10 +65,10 @@ export function HomeEntryPoints() {
 
               {/* Text */}
               <div className="flex flex-1 flex-col gap-3 p-6">
-                <h3 className="text-lg font-semibold leading-snug text-[var(--text-primary)]">
+                <h3 className="text-xl font-semibold leading-snug text-[var(--text-primary)]">
                   {t(`stages.${id as StageId}.heading`)}
                 </h3>
-                <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                <p className="text-base leading-relaxed text-[var(--text-secondary)]">
                   {t(`stages.${id as StageId}.body`)}
                 </p>
               </div>
@@ -115,9 +115,9 @@ export function HomeEntryPointsToggle() {
         <div className="mb-10 text-center">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold text-[var(--foreground)] lg:text-4xl">
             {t('title')}{' '}
-            <span className="text-[var(--text-secondary)]">{t('titleHighlight')}</span>
+            <span className="text-[#732fff]">{t('titleHighlight')}</span>
           </h2>
-          <p className="mt-4 text-lg text-[var(--text-secondary)]">
+          <p className="mt-4 text-xl text-[var(--text-secondary)] lg:text-2xl">
             {t('subtitle')}
           </p>
         </div>

@@ -98,19 +98,6 @@ export default function HomeServicesAccordion() {
                             <p className="type-body text-[var(--text-secondary)] leading-relaxed max-w-sm">
                               {t(`items.${service.key}.body`)}
                             </p>
-                            {/* Mobile image — shown inline below body, hidden on desktop */}
-                            <div
-                              className="lg:hidden mt-5 relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
-                              style={{ aspectRatio: '4 / 3' }}
-                            >
-                              <Image
-                                src={service.imageSrc}
-                                alt={t(`items.${service.key}.title`)}
-                                fill
-                                className="object-contain p-10 "
-                                sizes="100vw"
-                              />
-                            </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -122,6 +109,29 @@ export default function HomeServicesAccordion() {
                       {isOpen ? <MinusIcon /> : <PlusIcon />}
                     </span>
                   </div>
+                  {/* Mobile image — full width, outside flex row */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: 'auto', marginTop: 20 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.22, ease: 'easeInOut' }}
+                        className="lg:hidden overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
+                        style={{ aspectRatio: '16 / 9' }}
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={service.imageSrc}
+                            alt={t(`items.${service.key}.title`)}
+                            fill
+                            className="object-contain"
+                            sizes="100vw"
+                          />
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
@@ -135,10 +145,10 @@ export default function HomeServicesAccordion() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                initial={{ opacity: 0, y: 20, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -12, scale: 0.96 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
                 className="absolute inset-0 flex items-center justify-center"
               >
                 <Image

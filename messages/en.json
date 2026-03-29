@@ -59,24 +59,24 @@
       "title": "A full UX perspective on your product or idea –",
       "titleHighlight": "in 48 hours",
       "step1": {
-        "title": "What to send",
-        "item1Strong": "A link or screenshots",
-        "item1Rest": "of your product/prototype.",
-        "item2Strong": "A brief context",
-        "item2Rest": "of who it’s for and the main goal.",
-        "item3Strong": "Zero prep needed.",
-        "item3Rest": "No decks or polished designs required."
+        "title": "Send this",
+        "item1Strong": "Your product URL",
+        "item1Rest": "or a few screenshots.",
+        "item2Strong": "One line of context —",
+        "item2Rest": "what it is and who it’s for.",
+        "item3Strong": "Zero prep.",
+        "item3Rest": "No decks, no polished designs."
       },
       "step2": {
-        "title": "What you get",
-        "item1Strong": "3–4 focused UX observations",
+        "title": "You get back",
+        "item1Strong": "3–4 UX observations",
         "item1Rest": "delivered within 48 hours.",
-        "item2Strong": "Risk assessment:",
-        "item2Rest": "Identification of unclear or fragile areas.",
-        "item3Strong": "Actionable next steps:",
-        "item3Rest": "What to simplify or rethink first."
+        "item2Strong": "What’s working against you",
+        "item2Rest": "— the friction you stopped seeing.",
+        "item3Strong": "What to fix first",
+        "item3Rest": "and why it matters."
       },
-      "sideText": "Send me what you have, and I’ll reply with strategic UX insights. No sales pitch, just value.",
+      "sideText": "Send me your link. I read every one.",
       "authorName": "Amir Shalev",
       "authorRole": "Founder & Senior UX/UI Designer",
       "cta": "Send your product for review"
@@ -196,22 +196,22 @@
       "items": {
         "shape": {
           "title": "Wireframes & product design",
-          "body": "You walk away with a clear, buildable product — flows mapped, screens designed, and everything your developer needs to start without guessing.",
+          "body": "You start with a concept and end with a Figma file your developer can build directly from — user flows mapped, screens designed, components defined. No ambiguity, no back-and-forth.",
           "bullets": ["User flows & information architecture", "Wireframes & UI screens", "Interactive prototype", "Component spec & dev handoff", "Figma file, ready to build"]
         },
         "fix": {
           "title": "UX audit & redesign",
-          "body": "You get a focused list of what’s costing you users — with prioritized fixes, not a 40-page report. Specific enough to act on the same week.",
+          "body": "You get a clear picture of what’s driving users away and where they lose trust — fixes ranked by impact, not a 40-page report. Concrete enough to act on the same week.",
           "bullets": ["UX audit with annotated findings", "Friction & drop-off report", "Prioritized fix list", "Redesign of the highest-impact screens", "Accessibility notes"]
         },
         "scale": {
           "title": "Design system & components",
-          "body": "Your team stops rebuilding the same button. You get a shared design language — tokens, components, and documentation — that works in Figma and in code.",
+          "body": "You get a single source of truth your whole team builds from — tokens, components, and documentation that stays consistent from Figma to production.",
           "bullets": ["Design token system", "Component library in Figma", "Interaction & state definitions", "Dev-ready documentation", "Handoff guide for engineers"]
         },
         "ai": {
           "title": "AI feature design",
-          "body": "You get AI features that actually make sense in your product — scoped, designed, and handed off so your team knows exactly what to build and why.",
+          "body": "You get AI features that fit naturally into your product and make sense to your users — defined, designed, and documented so your team can build without guessing.",
           "bullets": ["AI use case scoping", "Prompt UX & interaction design", "Feature flows & edge case mapping", "UI for AI states (loading, error, empty)", "Handoff documentation"]
         }
       }
