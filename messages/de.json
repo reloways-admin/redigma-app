@@ -2,8 +2,10 @@
   "home": {
     "hero": {
       "status": "Bereit für neue Projekte",
-      "titleStatic": "Klarheit schaffen für",
-      "cyclingWords": ["digitale Produkte", "Produktteams", "komplexe Flows", "User Journeys", "SaaS-Produkte", "jede Entscheidung", "frühe MVPs"],
+      "titlePre": "Wir schaffen",
+      "titleHighlight1": "Klarheit",
+      "titleMid": "für",
+      "titleHighlight2": "digitale Produkte.",
       "subtitle": "Ich unterstütze Gründer und Produktteams dabei, klare und nutzbare Produkte zu entwickeln – von der frühen Definition bis zur Verbesserung bestehender Systeme.",
       "viewSelectedWork": "Ausgewählte Arbeiten ansehen",
       "labels": {
@@ -151,24 +153,24 @@
       "heading": "Was ich wirklich tue.",
       "items": {
         "shape": {
-          "title": "Produkt gestalten",
-          "body": "Struktur, Flows und Design – bevor eine einzige Zeile Code geschrieben wird. Für Teams, die Klarheit darüber brauchen, was sie bauen sollen – und warum – bevor die Entwicklung startet.",
-          "bullets": ["Nutzerforschung", "User Flows", "Wireframing", "UI Design", "Prototyping", "Dev Handoff"]
+          "title": "Wireframes & Produktdesign",
+          "body": "Du bekommst ein klares, baufertiges Produkt – gemappte Flows, fertige Screens und alles, was dein Entwickler braucht, um ohne Raten loszulegen.",
+          "bullets": ["User Flows & Informationsarchitektur", "Wireframes & UI-Screens", "Interaktiver Prototyp", "Komponentenspezifikation & Dev Handoff", "Figma-Datei, bereit zum Bauen"]
         },
         "fix": {
-          "title": "Fragiles beheben",
-          "body": "Ein klarer Blick auf das, was in deinem bestehenden Produkt Vertrauen kostet. Reibung, Inkonsistenz und verpasste Chancen – mit konkreten Empfehlungen, keinem Bericht, den du ignorierst.",
-          "bullets": ["UX-Audit", "Heuristische Prüfung", "Friction Report", "Redesign-Roadmap", "Nutzerinterviews", "Barrierefreiheit"]
+          "title": "UX-Audit & Redesign",
+          "body": "Du bekommst eine fokussierte Liste dessen, was dir Nutzer kostet – mit priorisierten Fixes, keinem 40-seitigen Bericht. Konkret genug, um noch in derselben Woche zu handeln.",
+          "bullets": ["UX-Audit mit kommentierten Befunden", "Friction & Absprung-Analyse", "Priorisierte Fixliste", "Redesign der wirkungsstärksten Screens", "Barrierefreiheitshinweise"]
         },
         "scale": {
-          "title": "Für Wachstum bauen",
-          "body": "Das Komponentenfundament, gegen das dein Team nicht ankämpft. Token-Architektur, Komponentenbibliotheken und Dokumentation, die tatsächlich genutzt wird.",
-          "bullets": ["Token-Architektur", "Komponentenbibliotheken", "Figma-Systeme", "Dokumentation", "Dev Handoff", "Design Tokens"]
+          "title": "Design System & Komponenten",
+          "body": "Dein Team hört auf, denselben Button neu zu bauen. Du bekommst eine gemeinsame Designsprache – Tokens, Komponenten und Dokumentation – die in Figma und im Code funktioniert.",
+          "bullets": ["Design-Token-System", "Komponentenbibliothek in Figma", "Interaktions- & Zustandsdefinitionen", "Entwicklerfertige Dokumentation", "Übergabeleitfaden für Entwickler"]
         },
         "ai": {
-          "title": "Intelligenz hinzufügen",
-          "body": "KI-Features konzipieren und gestalten, die Nutzer wirklich wahrnehmen. Nicht KI um der KI willen – sondern dort, wo sie das Erlebnis grundlegend verändert.",
-          "bullets": ["Use-Case-Analyse", "KI-Feature-Design", "Prompt UX", "Integrationsplanung", "KI-Audit", "Nutzertests"]
+          "title": "KI-Feature-Design",
+          "body": "Du bekommst KI-Features, die in deinem Produkt wirklich Sinn ergeben – konzipiert, gestaltet und übergeben, damit dein Team genau weiß, was zu bauen ist und warum.",
+          "bullets": ["KI-Use-Case-Analyse", "Prompt UX & Interaktionsdesign", "Feature-Flows & Edge-Case-Mapping", "UI für KI-Zustände (laden, Fehler, leer)", "Übergabedokumentation"]
         }
       }
     },
@@ -198,10 +200,10 @@
         "emailAddress": "amir@redigma.com"
       },
       "services": {
-        "s1": "Produkt gestalten",
-        "s2": "Fragiles beheben",
-        "s3": "Für Wachstum bauen",
-        "s4": "Intelligenz hinzufügen"
+        "s1": "Wireframes & Produktdesign",
+        "s2": "UX-Audit & Redesign",
+        "s3": "Design System & Komponenten",
+        "s4": "KI-Feature-Design"
       }
     },
     "testimonials": {

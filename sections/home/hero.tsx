@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 
@@ -13,53 +13,18 @@ const SLIDES = [
   '/illustrations/hero/sketch-hero-grid.svg',
 ];
 
-const WORD_INTERVAL = 3800;
 const SLIDE_INTERVAL = 4000;
 
-const GRADIENTS = [
-  'from-[#732fff] to-[#f472b6]',   // purple → pink
-  'from-[#06b6d4] to-[#6366f1]',   // cyan → indigo
-  'from-[#f97316] to-[#ec4899]',   // orange → pink
-  'from-[#10b981] to-[#06b6d4]',   // emerald → cyan
-  'from-[#a855f7] to-[#3b82f6]',   // violet → blue
-  'from-[#f43f5e] to-[#fb923c]',   // rose → orange
-  'from-[#8b5cf6] to-[#10b981]',   // purple → green
-];
-
-function CyclingWord({ words }: { words: string[] }) {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setIndex((i) => (i + 1) % words.length), WORD_INTERVAL);
-    return () => clearInterval(t);
-  }, [words.length]);
-
-  const gradient = GRADIENTS[index % GRADIENTS.length];
-
-  return (
-    <span className="relative inline-block overflow-hidden" style={{ verticalAlign: 'bottom' }}>
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={index}
-          initial={{ y: '100%', opacity: 0 }}
-          animate={{ y: '0%', opacity: 1 }}
-          exit={{ y: '-100%', opacity: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className={`inline-block bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}
-        >
-          {words[index]}.
-        </motion.span>
-      </AnimatePresence>
-    </span>
-  );
-}
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay },
+});
 
 export function HomeHero() {
   const t = useTranslations('home.hero');
   const locale = useLocale();
   const [current, setCurrent] = useState(0);
-
-  const cyclingWords = t.raw('cyclingWords') as string[];
 
   // Auto-advance slides
   useEffect(() => {
@@ -85,8 +50,14 @@ export function HomeHero() {
               </span>
             </div>
             <h1 className="mb-8 text-hero-title tracking-tight text-[var(--text-primary)] max-w-2xl leading-tight">
-              {t('titleStatic')}{' '}
-              <CyclingWord words={cyclingWords} />
+              {t('titlePre')}{' '}
+              <motion.span className="text-[#732fff]" {...fadeUp(0.15)}>
+                {t('titleHighlight1')}
+              </motion.span>
+              {' '}{t('titleMid')}{' '}
+              <motion.span className="text-[#732fff]" {...fadeUp(0.3)}>
+                {t('titleHighlight2')}
+              </motion.span>
             </h1>
 
             <p className="mb-10 max-w-xl text-hero-subtitle text-[var(--text-secondary)]">

@@ -10,18 +10,18 @@ function StepCard({ number, title, items }: {
   items: { strong: string; rest: string }[];
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#1c1c1c] p-8">
+    <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-8">
       <div className="flex items-center gap-3 mb-6">
         <span className="text-[#732fff] font-semibold text-base">{number}</span>
-        <h3 className="text-white font-semibold text-xl">{title}</h3>
+        <h3 className="text-[var(--text-primary)] font-semibold text-xl">{title}</h3>
       </div>
       <ul className="space-y-4">
         {items.map((item, i) => (
           <li key={i} className="flex items-start gap-2 text-base leading-relaxed">
-            <span className="mt-[5px] shrink-0 text-white/40">•</span>
+            <span className="mt-[5px] shrink-0 text-[var(--text-secondary)]">•</span>
             <span>
-              <strong className="font-semibold text-white">{item.strong}</strong>
-              {item.rest && <span className="text-white/65"> {item.rest}</span>}
+              <strong className="font-semibold text-[var(--text-primary)]">{item.strong}</strong>
+              {item.rest && <span className="text-[var(--text-secondary)]"> {item.rest}</span>}
             </span>
           </li>
         ))}
@@ -47,16 +47,16 @@ export function HomeMiniProduct() {
   ];
 
   return (
-    <section id="mini-product" className="bg-[#0a0a0a] py-20 lg:py-28 scroll-mt-[var(--spacing-12)]">
+    <section id="mini-product" className="bg-[#f0f0f5] border-t border-[var(--border-subtle)] py-20 lg:py-28 scroll-mt-[var(--spacing-12)]">
       <div className="mx-auto max-w-[1360px] px-6">
 
         {/* Heading */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-white lg:text-4xl leading-tight">
+          <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl leading-tight">
             {t('title')}{' '}
             <span className="text-[#732fff]">{t('titleHighlight')}</span>
           </h2>
-          <p className="mt-4 text-white/50 text-base leading-relaxed max-w-2xl">
+          <p className="mt-4 text-[var(--text-secondary)] text-base leading-relaxed max-w-2xl">
             {t('sideText')}
           </p>
         </div>
@@ -68,7 +68,7 @@ export function HomeMiniProduct() {
         </div>
 
         {/* Author + CTA */}
-        <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between border-t border-white/10 pt-8">
+        <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between border-t border-[var(--border-subtle)] pt-8">
           <div className="flex items-center gap-3">
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
               <Image
@@ -80,8 +80,8 @@ export function HomeMiniProduct() {
               />
             </div>
             <div>
-              <p className="text-white font-medium text-sm">{t('authorName')}</p>
-              <p className="text-white/50 text-xs mt-0.5">{t('authorRole')}</p>
+              <p className="text-[var(--text-primary)] font-medium text-sm">{t('authorName')}</p>
+              <p className="text-[var(--text-secondary)] text-xs mt-0.5">{t('authorRole')}</p>
             </div>
           </div>
           <Button href={`/${locale}/feedback`} variant="primary">

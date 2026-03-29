@@ -27,22 +27,8 @@ export function Footer() {
           </div>
 
           {/* Right: nav columns */}
-          <div className="grid grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-2 gap-12 lg:gap-16">
 
-            {/* Services */}
-            <div>
-              <p className="text-sm font-semibold text-white mb-5">Services</p>
-              <ul className="space-y-3">
-                <li><span className={linkClass}>UX UI Design</span></li>
-                <li><span className={linkClass}>Web Design</span></li>
-                <li><span className={linkClass}>UX Audit</span></li>
-                <li><span className={linkClass}>Product Design</span></li>
-                <li><span className={linkClass}>Mobile App</span></li>
-                <li><span className={linkClass}>SaaS Design</span></li>
-                <li><span className={linkClass}>Design System</span></li>
-                <li><span className={linkClass}>UX Research</span></li>
-              </ul>
-            </div>
 
             {/* Case studies */}
             <div>

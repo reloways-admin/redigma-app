@@ -20,6 +20,7 @@ type Project = {
   href: (locale: string) => string;
   images: string[];
   accent: string;
+  color: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -34,8 +35,13 @@ export const PROJECTS: Project[] = [
       { action: 'Integrated', prep: 'with', name: 'AWS', icon: '/illustrations/projects/icons/AWS-Dark logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/reloways`,
-    images: ['/images/home/projects/reloways_cover-1920x1080.png'],
+    images: [
+      '/images/home/projects/reloways_cover-1920x1080.png',
+      '/images/home/projects/reloways_cover-1920x1080.png',
+      '/images/home/projects/reloways_cover-1920x1080.png',
+    ],
     accent: '#0b2416',
+    color: '#0891B2',
   },
   {
     index: '02',
@@ -47,8 +53,13 @@ export const PROJECTS: Project[] = [
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/navonera`,
-    images: ['/illustrations/projects/reloways/reloways.png'],
+    images: [
+      '/illustrations/projects/reloways/reloways.png',
+      '/illustrations/projects/reloways/reloways.png',
+      '/illustrations/projects/reloways/reloways.png',
+    ],
     accent: '#1a0a08',
+    color: '#E85530',
   },
   {
     index: '03',
@@ -60,8 +71,13 @@ export const PROJECTS: Project[] = [
       { action: 'Developed', prep: 'by', name: 'Bit', icon: '/illustrations/projects/icons/bit-logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/bit`,
-    images: ['/illustrations/projects/bit/bit.png'],
+    images: [
+      '/illustrations/projects/bit/bit.png',
+      '/illustrations/projects/bit/bit.png',
+      '/illustrations/projects/bit/bit.png',
+    ],
     accent: '#0d0a1f',
+    color: '#E11D48',
   },
   {
     index: '04',
@@ -73,8 +89,13 @@ export const PROJECTS: Project[] = [
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/gomatchit`,
-    images: ['/images/home/projects/gomatchit_cover_001-1-1920x1080.png'],
+    images: [
+      '/images/home/projects/gomatchit_cover_001-1-1920x1080.png',
+      '/images/home/projects/gomatchit_cover_001-1-1920x1080.png',
+      '/images/home/projects/gomatchit_cover_001-1-1920x1080.png',
+    ],
     accent: '#090f1f',
+    color: '#D97706',
   },
 ];
 
@@ -153,14 +174,25 @@ export function ProjectCard({ project, viewProject }: { project: Project; viewPr
       </div>
 
       {/* RIGHT: carousel */}
-      <div className="relative overflow-hidden rounded-3xl" style={{ aspectRatio: '16 / 9', backgroundColor: project.accent }}>
-        <Image
-          src={project.images[idx]}
-          alt={project.title}
-          fill
-          className="object-cover transition-opacity duration-300"
-          sizes="(max-width: 1024px) 100vw, 58vw"
-        />
+      <div className="overflow-hidden rounded-3xl" style={{ backgroundColor: project.accent }}>
+        <div className="relative" style={{ aspectRatio: '16 / 9' }}>
+        {/* Sliding strip */}
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out"
+          style={{ width: `${total * 100}%`, transform: `translateX(-${(idx * 100) / total}%)` }}
+        >
+          {project.images.map((src, i) => (
+            <div key={i} className="relative h-full shrink-0" style={{ width: `${100 / total}%` }}>
+              <Image
+                src={src}
+                alt={`${project.title} ${i + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+              />
+            </div>
+          ))}
+        </div>
 
         {/* Arrows */}
         <button
@@ -195,6 +227,7 @@ export function ProjectCard({ project, viewProject }: { project: Project; viewPr
             ))}
           </div>
         )}
+        </div>
       </div>
 
     </article>

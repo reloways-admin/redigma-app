@@ -39,7 +39,8 @@ export function HomeEntryPoints() {
           {CARDS.map(({ id, color, illustration }) => (
             <div
               key={id}
-              className="flex flex-col overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)]"
+              className="flex flex-col overflow-hidden rounded-2xl bg-[var(--surface-1)]"
+              style={{ border: `1.5px solid ${color}` }}
             >
               {/* Colored header bar */}
               <div
