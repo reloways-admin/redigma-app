@@ -1,11 +1,14 @@
 // Generated from public/illustrations/hero/sketch-hero-grid.svg.
 //
-// Inlined as a string rather than loaded through next/image because an SVG
-// inside an <img> is sealed off from CSS, so none of its shapes could be
-// animated. The four coloured shapes are wrapped in <g class="board-shape--*">
-// so each moves together with its own outline path.
+// Inlined as a string rather than loaded through next/image, because an SVG
+// inside an <img> is sealed off from CSS and JS, so its shapes could be
+// neither animated nor dragged.
 //
-// Regenerate by re-running the grouping script if the source SVG changes.
+// Each shape gets two nested groups on purpose:
+//   .board-item   outer, moved by the drag handler
+//   .board-shape  inner, carries the CSS drift animation
+// Splitting them stops the drag transform and the animation transform from
+// overwriting one another.
 
 export const HERO_BOARD_SVG = `<svg aria-hidden="true" focusable="false" class="board-svg" viewBox="0 0 1393 346" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="1392" height="302.5" transform="translate(0.5 42.2759)" fill="white"/>
@@ -124,21 +127,29 @@ export const HERO_BOARD_SVG = `<svg aria-hidden="true" focusable="false" class="
 <path d="M1271 284.276H1210.5V344.776H1271V284.276Z" stroke="#D4D4D4"/>
 <path d="M1331.5 284.276H1271V344.776H1331.5V284.276Z" stroke="#D4D4D4"/>
 <path d="M1392 284.276H1331.5V344.776H1384C1388.42 344.776 1392 341.194 1392 336.776V284.276Z" stroke="#D4D4D4"/>
+<g class="board-item" data-shape="square">
 <g class="board-shape board-shape--square">
 <path d="M174.5 103.276H69.5C65.0817 103.276 61.5 106.858 61.5 111.276V216.276C61.5 220.694 65.0817 224.276 69.5 224.276H174.5C178.918 224.276 182.5 220.694 182.5 216.276V111.276C182.5 106.858 178.918 103.276 174.5 103.276Z" fill="#974EF6"/>
 <path d="M69.5 104.276H174.5C178.366 104.276 181.5 107.41 181.5 111.276V216.276C181.5 220.142 178.366 223.276 174.5 223.276H69.5C65.634 223.276 62.5 220.142 62.5 216.276V111.276C62.5 107.41 65.634 104.276 69.5 104.276Z" stroke="black" stroke-opacity="0.3" stroke-width="2"/>
 </g>
+</g>
+<g class="board-item" data-shape="rect">
 <g class="board-shape board-shape--rect">
 <path d="M537.5 163.276H432.5C428.082 163.276 424.5 166.858 424.5 171.276V216.276C424.5 220.694 428.082 224.276 432.5 224.276H537.5C541.918 224.276 545.5 220.694 545.5 216.276V171.276C545.5 166.858 541.918 163.276 537.5 163.276Z" fill="#155DFC"/>
 <path d="M432.5 164.276H537.5C541.366 164.276 544.5 167.41 544.5 171.276V216.276C544.5 220.142 541.366 223.276 537.5 223.276H432.5C428.634 223.276 425.5 220.142 425.5 216.276V171.276C425.5 167.41 428.634 164.276 432.5 164.276Z" stroke="black" stroke-opacity="0.3" stroke-width="2"/>
 </g>
+</g>
+<g class="board-item" data-shape="triangle">
 <g class="board-shape board-shape--triangle">
 <path d="M787 164.276L733.34 110.172C730.825 107.637 726.5 109.418 726.5 112.989V220.276C726.5 222.485 728.291 224.276 730.5 224.276H837.786C841.358 224.276 843.139 219.951 840.603 217.436L787 164.276Z" fill="#F0D84C"/>
 <path d="M727.5 112.989C727.5 110.31 730.744 108.975 732.63 110.876L786.29 164.98L786.296 164.986L839.898 218.146C841.8 220.032 840.465 223.276 837.786 223.276H730.5C728.843 223.276 727.5 221.933 727.5 220.276V112.989Z" stroke="black" stroke-opacity="0.5" stroke-width="2"/>
 </g>
+</g>
+<g class="board-item" data-shape="window">
 <g class="board-shape board-shape--window">
 <path d="M1263.5 1.68408H1037.5C1033.08 1.68408 1029.5 5.2658 1029.5 9.68408V216.39C1029.5 220.808 1033.08 224.39 1037.5 224.39H1263.5C1267.92 224.39 1271.5 220.808 1271.5 216.39V9.68408C1271.5 5.2658 1267.92 1.68408 1263.5 1.68408Z" fill="white" stroke="#080818" stroke-width="3.3075"/>
 <path d="M1263.25 0.275879H1037.5C1033.08 0.275879 1029.5 3.85761 1029.5 8.27589V26.2174H1271.25V8.27588C1271.25 3.8576 1267.67 0.275879 1263.25 0.275879Z" fill="#080818" stroke="#080818" stroke-width="0.551949"/>
+</g>
 </g>
 </svg>
 `;

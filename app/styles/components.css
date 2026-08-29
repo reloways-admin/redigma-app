@@ -313,13 +313,18 @@ text-decoration-color: var(--border-subtle);
 }
 /* ── Hero sketch board ───────────────────────────────────────────────────────
    The SVG is inlined (components/hero-board.tsx) so its shapes can be reached
-   by CSS. Each coloured shape is wrapped in a <g class="board-shape--*">
-   together with its outline path, so the pair moves as one.
+   by CSS and JS. Each shape has two nested groups:
+
+     .board-item   moved by the drag handler
+     .board-shape  carries the idle drift
+
+   Keeping them separate means the drag transform and the animation transform
+   never overwrite each other.
 
    The drift is slow and small on purpose: the board sits directly under the
    headline, so it should read as quietly alive rather than pull attention off
-   the copy. Durations are deliberately mismatched and offset so the shapes
-   never fall into a visible common rhythm.                                   */
+   the copy. Durations are mismatched so the shapes never fall into a visible
+   shared rhythm.                                                             */
 
 .board-svg {
   display: block;
@@ -328,10 +333,39 @@ text-decoration-color: var(--border-subtle);
   overflow: visible;
 }
 
+.board-item {
+  cursor: grab;
+  /* Stop a drag on the shape from scrolling the page on touch. */
+  touch-action: none;
+  transition: filter 200ms ease;
+}
+
 .board-shape {
   transform-box: fill-box;
   transform-origin: center;
   will-change: transform;
+  transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover: lift and shadow, so it reads as a loose object you could pick up. */
+.board-item:hover {
+  filter: drop-shadow(0 6px 10px rgb(8 8 24 / 0.18));
+}
+
+.board-item:hover .board-shape {
+  transform: scale(1.06);
+}
+
+/* While held: pause the drift so the shape tracks the cursor exactly, and
+   deepen the shadow so it reads as lifted off the board. */
+.board-item.is-dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 14px 20px rgb(8 8 24 / 0.26));
+}
+
+.board-item.is-dragging .board-shape {
+  animation-play-state: paused;
+  transform: scale(1.1);
 }
 
 @keyframes board-drift-a {
@@ -360,7 +394,9 @@ text-decoration-color: var(--border-subtle);
 .board-shape--window   { animation: board-drift-window 9s ease-in-out infinite 0.4s; }
 
 @media (prefers-reduced-motion: reduce) {
+  /* Idle motion goes; dragging stays, since the user asked for that one. */
   .board-shape {
     animation: none;
+    transition: none;
   }
 }
