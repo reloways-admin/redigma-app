@@ -71,6 +71,9 @@ export function Footer() {
             <Link href={href('/impressum')} className="text-sm text-white/50 hover:text-white transition-colors">
               {t('impressum')}
             </Link>
+            <Link href={href('/datenschutz')} className="text-sm text-white/50 hover:text-white transition-colors">
+              {t('privacy')}
+            </Link>
           </div>
         </div>
 

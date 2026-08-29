@@ -11,15 +11,17 @@ function TestimonialCard({
   role,
   imageSrc,
 }: {
-  company: string;
+  company?: string;
   quote: string;
   author: string;
-  role: string;
+  role?: string;
   imageSrc?: string;
 }) {
   return (
     <div className="flex flex-col gap-6 rounded-2xl border border-[var(--border-subtle)] p-8 bg-white">
-      <p className="text-base font-bold text-[var(--text-primary)]">{company}</p>
+      {company ? (
+        <p className="text-base font-bold text-[var(--text-primary)]">{company}</p>
+      ) : null}
 
       <blockquote className="flex-1 text-base text-[var(--text-primary)] leading-relaxed">
         &ldquo;{quote}&rdquo;
@@ -39,14 +41,16 @@ function TestimonialCard({
         )}
         <div>
           <p className="text-sm font-medium text-[var(--text-primary)]">{author}</p>
-          <p className="text-sm text-[var(--text-secondary)]">{role}</p>
+          {role ? (
+            <p className="text-sm text-[var(--text-secondary)]">{role}</p>
+          ) : null}
         </div>
       </div>
     </div>
   );
 }
 
-type TestimonialItem = { company: string; quote: string; author: string; role: string; imageSrc?: string };
+type TestimonialItem = { company?: string; quote: string; author: string; role?: string; imageSrc?: string };
 
 function MobileCarousel({ items }: { items: TestimonialItem[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -102,7 +106,7 @@ function MobileCarousel({ items }: { items: TestimonialItem[] }) {
       </div>
 
       {/* Desktop grid */}
-      <div className="hidden md:grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="hidden md:grid gap-4 md:grid-cols-2">
         {items.map((item, i) => (
           <TestimonialCard key={i} {...item} />
         ))}
@@ -120,21 +124,33 @@ export default function Testimonials() {
       quote: t('items.keren.quote'),
       author: t('items.keren.name'),
       role: 'Owner',
-      imageSrc: '/images/home/keren.png',
+      imageSrc: '/images/home/keren.jpg',
     },
     {
       company: 'Financial Cat',
       quote: t('items.adi.quote'),
       author: t('items.adi.name'),
       role: 'CEO',
-      imageSrc: '/images/home/adi.png',
+      imageSrc: '/images/home/adi.jpg',
     },
     {
       company: 'Navonera',
       quote: t('items.ariel.quote'),
       author: t('items.ariel.name'),
       role: 'Co-founder',
-      imageSrc: '/images/home/ariel.png',
+      // No photo on file yet, so the card falls back to initials rather than
+      // requesting a missing image. Add imageSrc back once we have one.
+    },
+    {
+      // Eyal works under his own name rather than a company, so his site
+      // stands in for the company line the other cards use.
+      company: 'eyallahav.com',
+      quote: t('items.eyal.quote'),
+      author: t('items.eyal.name'),
+      imageSrc: '/images/home/eyal.jpg',
+      // No photo on file yet, so the card falls back to initials rather than
+      // requesting a missing image. Add imageSrc back once we have one.
+
     },
   ];
 

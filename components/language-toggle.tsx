@@ -5,11 +5,12 @@ import { useLocale } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
-type Locale = 'en' | 'de';
+type Locale = 'en' | 'de' | 'he';
 
 const LANGUAGES = [
   { locale: 'en' as Locale, label: 'English', flag: '/icons/language/ic-us.svg' },
   { locale: 'de' as Locale, label: 'Deutsch', flag: '/icons/language/ic-de.svg' },
+  { locale: 'he' as Locale, label: 'עברית', flag: '/icons/language/ic-il.svg' },
 ];
 
 export function LanguageToggle() {
@@ -31,7 +32,7 @@ export function LanguageToggle() {
 
   function switchLanguage(next: Locale) {
     if (next === locale) { setOpen(false); return; }
-    const nextPathname = pathname.replace(/^\/(en|de)(?=\/|$)/, `/${next}`);
+    const nextPathname = pathname.replace(/^\/(en|de|he)(?=\/|$)/, `/${next}`);
     const query = searchParams?.toString();
     const hash = typeof window !== 'undefined' ? window.location.hash : '';
     router.replace(`${nextPathname}${query ? `?${query}` : ''}${hash}`, { scroll: false });
@@ -53,7 +54,7 @@ export function LanguageToggle() {
       </button>
 
       {open && (
-        <div className="absolute right-0 bottom-full mb-2 xl:bottom-auto xl:top-full xl:mt-2 xl:mb-0 z-50 min-w-[130px] overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--header-bg)] shadow-lg">
+        <div className="absolute end-0 bottom-full mb-2 xl:bottom-auto xl:top-full xl:mt-2 xl:mb-0 z-50 min-w-[130px] overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--header-bg)] shadow-lg">
           {LANGUAGES.map((lang) => (
             <button
               key={lang.locale}

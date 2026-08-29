@@ -8,7 +8,7 @@
 
 /* 2. Theme Configuration */
 @theme inline {
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui;
+  --font-sans: var(--font-google-sans), ui-sans-serif, system-ui;
   --spacing-hero-gap: var(--spacing-9);
 }
 
@@ -30,6 +30,11 @@
 }
 
 /* Hero tags marquee animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes hero-tags-marquee {
   from {
     transform: translateX(0);

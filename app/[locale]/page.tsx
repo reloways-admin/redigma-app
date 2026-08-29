@@ -1,4 +1,5 @@
 import { HomeHero } from '@/sections/home/hero';
+import HomeCompanyLogos from '@/sections/home/company-logos';
 import { HomeEntryPoints } from '@/sections/home/entry-points';
 import HomeServicesAccordion from '@/sections/home/services-accordion';
 import { HomeServicesStacked } from '@/sections/home/services-stacked';
@@ -13,10 +14,13 @@ export default function Home() {
   return (
     <>
       <HomeHero />
+      {/* Proof immediately after the promise */}
+      <HomeCompanyLogos />
       <HomeEntryPoints />
+      {/* Work sits before the explaining sections: proof first, detail after */}
+      <HomeProjects />
       <HomeServicesAccordion />
       <HomeMiniProduct />
-      <HomeProjects />
       <Testimonials />
       <HomeAbout />
       <HomeFinalCta />

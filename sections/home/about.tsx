@@ -20,7 +20,7 @@ export function HomeAbout() {
         <div className="grid items-center gap-16 lg:grid-cols-2">
           
           {/* Content Column */}
-          <div className="flex flex-col items-start text-left">
+          <div className="flex flex-col items-start text-start">
             {/* Semantic typography for the heading */}
             <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-8 max-w-lg lg:text-4xl">
               {t('intro')}
@@ -39,10 +39,10 @@ export function HomeAbout() {
             <div className="flex flex-wrap items-center gap-6">
               <div className="status-pill">
                 <span className="status-indicator" />
-                Berlin Based
+                {t('basedPill')}
               </div>
               <div className="text-xs font-medium text-[var(--text-secondary)]">
-                • Working internationally
+                • {t('intlPill')}
               </div>
             </div>
           </div>
@@ -55,11 +55,12 @@ export function HomeAbout() {
             {/* Square image container with architectural border */}
             <div className="about-image-wrapper">
                 <Image
-                  src="/images/home/amir.svg"
+                  src="/images/home/amir-about-v3.jpg"
                   alt="Amir Shalev"
                   fill
-                  /* Changed from object-cover to object-contain */
-                  className="object-contain"
+                  /* Cropped 4:5 at source to match the container, so cover
+                     makes no further crop of its own */
+                  className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 500px"
                   priority
                 />
