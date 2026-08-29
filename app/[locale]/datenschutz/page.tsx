@@ -6,14 +6,19 @@
 
 import type { Metadata } from "next";
 
-// ── FILL THESE IN ────────────────────────────────────────────────────────────
-// The hosting provider that actually serves this site, and where. If it is
-// Vercel, this is "Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA".
+// ── HOSTING ──────────────────────────────────────────────────────────────────
+// Confirmed from the live response headers: `server: Vercel` and a
+// `x-vercel-id` of `fra1`, Vercel's Frankfurt region.
+// TWO THINGS TO CONFIRM: that this address is Vercel's current registered one,
+// and that fra1 is the project's configured region rather than just where a
+// request happened to land. Both are visible in the Vercel dashboard.
 const HOSTING = {
-  name: "[HOSTING PROVIDER]",
-  address: "[PROVIDER ADDRESS]",
-  region: "[SERVER REGION]",
+  name: "Vercel Inc.",
+  address: "340 S Lemon Ave #4133, Walnut, CA 91789, USA",
+  region: "Frankfurt, Deutschland (fra1)",
 };
+// Set to true once the AVV / DPA with Vercel is signed and filed.
+const VERCEL_DPA = false;
 // Set to true once the AVV / DPA with Resend is actually signed and filed.
 const RESEND_DPA = false;
 // ─────────────────────────────────────────────────────────────────────────────
@@ -71,6 +76,24 @@ export default function DatenschutzPage() {
           Interesse liegt im technisch fehlerfreien Betrieb und in der Sicherheit
           der Website. Diese Daten werden nicht mit anderen Datenquellen
           zusammengeführt und nach kurzer Zeit gelöscht.
+        </p>
+        <p className="mb-4">
+          Die Auslieferung erfolgt aus dem Rechenzentrumsstandort{" "}
+          {HOSTING.region}. {HOSTING.name} ist ein US-amerikanisches Unternehmen,
+          sodass ein Zugriff aus den USA nicht ausgeschlossen werden kann.
+          {VERCEL_DPA ? (
+            <>
+              {" "}
+              Es besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO; die
+              Übermittlung erfolgt auf Grundlage der EU-Standardvertragsklauseln.
+            </>
+          ) : (
+            <>
+              {" "}
+              [HINWEIS: Auftragsverarbeitungsvertrag nach Art. 28 DSGVO mit dem
+              Hoster vor Veröffentlichung bestätigen.]
+            </>
+          )}
         </p>
 
         <h3 className="mb-2 mt-8 font-medium">3. Kontakt- und Feedbackformular</h3>
@@ -197,6 +220,23 @@ export default function DatenschutzPage() {
           The legal basis is Art. 6(1)(f) GDPR. The legitimate interest is the
           technically sound and secure operation of the website. This data is not
           combined with other sources and is deleted after a short period.
+        </p>
+        <p className="mb-4">
+          The site is served from {HOSTING.region}. {HOSTING.name} is a US
+          company, so access from the USA cannot be ruled out.
+          {VERCEL_DPA ? (
+            <>
+              {" "}
+              A data processing agreement under Art. 28 GDPR is in place and the
+              transfer relies on the EU Standard Contractual Clauses.
+            </>
+          ) : (
+            <>
+              {" "}
+              [NOTE: confirm the Art. 28 GDPR data processing agreement with the
+              host before publishing.]
+            </>
+          )}
         </p>
 
         <h3 className="mb-2 mt-8 font-medium">3. Contact and feedback form</h3>
