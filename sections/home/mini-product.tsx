@@ -72,7 +72,7 @@ export function HomeMiniProduct() {
             <div className="flex items-center gap-3">
               <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full">
                 <Image
-                  src="/images/home/amir-shalev.png"
+                  src="/images/home/amir-avatar.jpg"
                   alt={t('authorName')}
                   fill
                   className="object-cover"

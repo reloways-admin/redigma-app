@@ -13,13 +13,42 @@
         "structure": "Struktur",
         "productThinking": "Produktdenken"
       },
-      "cta": "Feedback zu deinem Produkt erhalten"
+      "cta": "Feedback zu deinem Produkt erhalten",
+      "testimonials": {
+        "items": {
+          "keren": {
+            "quote": "Ich war so beeindruckt von Amirs originellem Ansatz, seiner Kreativität und seiner Art, dass ich ihn sogar an meiner eigenen Marke arbeiten ließ. Auch nach dem Projekt habe ich mich weiter mit ihm beraten, meine Zufriedenheit hatte für ihn klar Priorität.",
+            "author": "Keren Rightler",
+            "role": "Inhaberin, Method Queen"
+          },
+          "eyal": {
+            "quote": "Ich kam wegen einer Website zu Amir und merkte schnell, dass wir nicht nur an einer Website arbeiten. Gemeinsam haben wir meine ganze visuelle Sprache neu aufgebaut, und was ich am meisten geschätzt habe: Er hat nicht sofort gestaltet. Er hat gefragt, zugehört und versucht zu verstehen, wer ich bin. Heute habe ich eine Sprache und ein Branding, die sich viel mehr nach mir anfühlen.",
+            "author": "Eyal Lahav",
+            "role": "Unternehmer und Manager"
+          },
+          "adi": {
+            "quote": "Amirs Fähigkeit, Ideen visuell zu vermitteln, ist wirklich bemerkenswert. Seine Arbeit ist technisch präzise und zugleich kreativ lebendig.",
+            "author": "Adi Nudel",
+            "role": "CEO, Financial Cat"
+          }
+        },
+        "aria": {
+          "prev": "Vorherige Stimme",
+          "next": "Nächste Stimme",
+          "go": "Stimme anzeigen"
+        }
+      }
+    },
+    "companies": {
+      "title": "Unternehmen und Produkte, mit denen ich gearbeitet habe"
     },
     "about": {
       "title": "Über mich",
       "intro": "Ich bin Amir Shalev.",
       "body1": "Ich gestalte digitale Produkte seit über 10 Jahren – hauptsächlich für Early-Stage-Startups, wo alles schnell geht und die Entscheidungen zählen.\n\nVor zwei Jahren bin ich von Tel Aviv nach Berlin gezogen. Neben der Arbeit mit Kunden baue ich Reloways – eine Plattform für Menschen, die in ein neues Land ziehen. Das hält mich ehrlich darüber, was es wirklich braucht, etwas zu launchen – nicht nur zu gestalten.",
-      "body2": "Ansässig in Berlin. Tätig weltweit."
+      "body2": "Ansässig in Berlin. Tätig weltweit.",
+      "basedPill": "Sitz in Berlin",
+      "intlPill": "Weltweit tätig"
     },
     "entryPoints": {
       "subtitle": "Unterschiedliche Phasen, gleiches Ziel: Klarheit vor Komplexität.",
@@ -50,7 +79,7 @@
         "title": "Das schickst du",
         "item1Strong": "Dein Produkt-Link",
         "item1Rest": "oder ein paar Screenshots.",
-        "item2Strong": "Ein Satz Kontext —",
+        "item2Strong": "Ein Satz Kontext:",
         "item2Rest": "was es ist und für wen.",
         "item3Strong": "Null Vorbereitung.",
         "item3Rest": "Kein Deck, kein Feinschliff."
@@ -59,8 +88,8 @@
         "title": "Das bekommst du",
         "item1Strong": "3–4 UX-Beobachtungen",
         "item1Rest": "innerhalb von 48 Stunden.",
-        "item2Strong": "Was gegen dich arbeitet",
-        "item2Rest": "— die Reibung, die du nicht mehr siehst.",
+        "item2Strong": "Was gegen dich arbeitet:",
+        "item2Rest": "die Reibung, die du nicht mehr siehst.",
         "item3Strong": "Was zuerst zu fixen ist",
         "item3Rest": "und warum es wichtig ist."
       },
@@ -147,6 +176,20 @@
         "title": "Noch unsicher, was du brauchst?",
         "subtitle": "Schick mir, was du hast, und ich antworte mit 3–4 fokussierten UX-Beobachtungen.",
         "button": "Produkt oder Idee senden"
+      },
+      "items": {
+        "reloways": {
+          "summary": "Produkt-UX, Flows und Komponentenstruktur für eine Relocation-Plattform. Auf schnelles Arbeiten mit einem Entwickler ausgelegt, ohne das System inkonsistent werden zu lassen."
+        },
+        "navonera": {
+          "summary": "Eine Plattform zur Nachbarschaftssuche, die Menschen vor Ort mit passenden Diensten und Erlebnissen verbindet."
+        },
+        "bit": {
+          "summary": "Mehr Klarheit und Usability in zentralen Produktbereichen, mit Fokus auf Struktur, Entscheidungspunkte und weniger Reibung für Nutzer."
+        },
+        "gomatchit": {
+          "summary": "Ein dreimonatiger Design-Sprint, um einen nutzbaren und skalierbaren B2B-Marktplatz-MVP zu launchen."
+        }
       }
     },
     "services": {
@@ -155,22 +198,46 @@
         "shape": {
           "title": "Wireframes & Produktdesign",
           "body": "Du startest mit einem Konzept und endest mit einer Figma-Datei, aus der dein Entwickler direkt bauen kann – User Flows, Screens und Komponenten klar definiert. Keine Unklarheiten, kein Hin-und-Her.",
-          "bullets": ["User Flows & Informationsarchitektur", "Wireframes & UI-Screens", "Interaktiver Prototyp", "Komponentenspezifikation & Dev Handoff", "Figma-Datei, bereit zum Bauen"]
+          "bullets": [
+            "User Flows & Informationsarchitektur",
+            "Wireframes & UI-Screens",
+            "Interaktiver Prototyp",
+            "Komponentenspezifikation & Dev Handoff",
+            "Figma-Datei, bereit zum Bauen"
+          ]
         },
         "fix": {
           "title": "UX-Audit & Redesign",
           "body": "Du bekommst ein klares Bild davon, was Nutzer abschreckt und wo sie das Vertrauen verlieren – Fixes nach Wirkung priorisiert, kein 40-seitiger Bericht. Konkret genug, um noch in derselben Woche zu handeln.",
-          "bullets": ["UX-Audit mit kommentierten Befunden", "Friction & Absprung-Analyse", "Priorisierte Fixliste", "Redesign der wirkungsstärksten Screens", "Barrierefreiheitshinweise"]
+          "bullets": [
+            "UX-Audit mit kommentierten Befunden",
+            "Friction & Absprung-Analyse",
+            "Priorisierte Fixliste",
+            "Redesign der wirkungsstärksten Screens",
+            "Barrierefreiheitshinweise"
+          ]
         },
         "scale": {
           "title": "Design System & Komponenten",
           "body": "Du bekommst eine einzige verlässliche Quelle, aus der dein gesamtes Team baut – Tokens, Komponenten und Dokumentation, die von Figma bis zur Produktion konsistent bleiben.",
-          "bullets": ["Design-Token-System", "Komponentenbibliothek in Figma", "Interaktions- & Zustandsdefinitionen", "Entwicklerfertige Dokumentation", "Übergabeleitfaden für Entwickler"]
+          "bullets": [
+            "Design-Token-System",
+            "Komponentenbibliothek in Figma",
+            "Interaktions- & Zustandsdefinitionen",
+            "Entwicklerfertige Dokumentation",
+            "Übergabeleitfaden für Entwickler"
+          ]
         },
         "ai": {
           "title": "KI-Feature-Design",
           "body": "Du bekommst KI-Features, die sich natürlich in dein Produkt einfügen und für deine Nutzer Sinn ergeben – definiert, gestaltet und dokumentiert, damit dein Team ohne Raten bauen kann.",
-          "bullets": ["KI-Use-Case-Analyse", "Prompt UX & Interaktionsdesign", "Feature-Flows & Edge-Case-Mapping", "UI für KI-Zustände (laden, Fehler, leer)", "Übergabedokumentation"]
+          "bullets": [
+            "KI-Use-Case-Analyse",
+            "Prompt UX & Interaktionsdesign",
+            "Feature-Flows & Edge-Case-Mapping",
+            "UI für KI-Zustände (laden, Fehler, leer)",
+            "Übergabedokumentation"
+          ]
         }
       }
     },
@@ -179,16 +246,25 @@
       "headingHighlight": "Genau das mache ich.",
       "body": "Ich arbeite mit Gründern und Produktteams daran, was gebaut werden soll, wie es strukturiert wird und wo die UX Vertrauen kostet.",
       "guarantees": {
-        "nda": { "label": "NDA?", "rest": "Selbstverständlich. Einfach fragen." },
-        "response": { "label": "Antwortzeit", "rest": "Schnelles, fokussiertes Feedback innerhalb von 24 Stunden." },
-        "access": { "label": "Direkter Zugang", "rest": "Du arbeitest mit mir. Nicht mit einem Team, das du nie kennengelernt hast." }
+        "nda": {
+          "label": "NDA?",
+          "rest": "Selbstverständlich. Einfach fragen."
+        },
+        "response": {
+          "label": "Antwortzeit",
+          "rest": "Schnelles, fokussiertes Feedback innerhalb von 24 Stunden."
+        },
+        "access": {
+          "label": "Direkter Zugang",
+          "rest": "Du arbeitest mit mir. Nicht mit einem Team, das du nie kennengelernt hast."
+        }
       },
       "location": "Berlin, Deutschland",
       "scheduleLabel": "Termin vereinbaren:",
       "form": {
         "emailPlaceholder": "E-Mail",
         "namePlaceholder": "Vollständiger Name",
-        "messagePlaceholder": "Erzähl mir von deinem Produkt — was es ist, was nicht funktioniert und was du verbessern möchtest.",
+        "messagePlaceholder": "Erzähl mir von deinem Produkt: was es ist, was nicht funktioniert und was du verbessern möchtest.",
         "servicesLabel": "Was brauchst du?",
         "servicesHint": "Du kannst auch mehrere auswählen.",
         "submit": "Nachricht senden",
@@ -227,6 +303,11 @@
           "quote": "Die Zusammenarbeit mit Amir hat grundlegend verändert, wie unser Team über UX denkt. Die Klarheit, die er in unsere Produktentscheidungen gebracht hat, war unschätzbar wertvoll.",
           "name": "Ariel Ben-David",
           "role": "Mitgründer, Nabovers"
+        },
+        "eyal": {
+          "quote": "Ich kam wegen einer Website zu Amir und merkte schnell, dass wir an etwas Größerem arbeiten. Er hat nicht sofort gestaltet. Er hat gefragt, zugehört und versucht zu verstehen, wer ich bin. Heute habe ich eine Sprache und ein Branding, die sich viel mehr nach mir anfühlen.",
+          "name": "Eyal Lahav",
+          "role": "Unternehmer und Manager"
         }
       }
     }
@@ -258,18 +339,27 @@
     "contactLabel": "Kontakt",
     "getFeedback": "Feedback erhalten",
     "impressum": "Impressum",
+    "privacy": "Datenschutz",
     "copyright": "Redigma. © 2026"
-  }
-  ,
+  },
   "feedback": {
     "title": "Schick dein Produkt. Hol dir Klarheit zurück.",
-    "intro": "Teile einen Link oder Screenshots. Innerhalb von 48 Stunden antworte ich mit 3–4 fokussierten UX-Beobachtungen — was Nutzer verwirrt, was Vertrauen kostet und was zuerst behoben werden sollte.",
+    "intro": "Teile einen Link oder Screenshots. Innerhalb von 48 Stunden antworte ich mit 3–4 fokussierten UX-Beobachtungen: was Nutzer verwirrt, was Vertrauen kostet und was zuerst behoben werden sollte.",
     "eyebrow": "UX-Feedback",
     "trustLine": "Keine Verpflichtung. Ob es passt, werden wir danach beide wissen.",
     "stats": {
-      "responseTime": { "number": "48h", "label": "Antwortzeit" },
-      "observations": { "number": "3–4", "label": "UX-Beobachtungen" },
-      "salesPitch": { "number": "1:1", "label": "Direkter Zugang" }
+      "responseTime": {
+        "number": "48h",
+        "label": "Antwortzeit"
+      },
+      "observations": {
+        "number": "3–4",
+        "label": "UX-Beobachtungen"
+      },
+      "salesPitch": {
+        "number": "1:1",
+        "label": "Direkter Zugang"
+      }
     },
     "valuePoints": {
       "trust": {
@@ -324,8 +414,7 @@
       "success": "Gesendet. Ich antworte mit Beobachtungen innerhalb von 48 Stunden.",
       "errorFallback": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     }
-  }
-  ,
+  },
   "header": {
     "menu": "Menü",
     "cta": "Feedback erhalten",

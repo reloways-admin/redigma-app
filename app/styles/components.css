@@ -307,7 +307,7 @@ text-decoration-color: var(--border-subtle);
 }
 
 @utility about-image-wrapper {
-  @apply relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden;
+  @apply relative aspect-[4/5] w-full max-w-[500px] mx-auto overflow-hidden;
   border-color: var(--border-subtle);
   background-color: var(--surface-0);
 }

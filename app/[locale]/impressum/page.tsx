@@ -8,7 +8,7 @@ export default function ImpressumPage() {
       <section className="mb-12">
         <h2 className="mb-4 text-xl font-medium">Deutsch</h2>
 
-        <p className="mb-4">Angaben gemäß § 5 TMG</p>
+        <p className="mb-4">Angaben gemäß § 5 DDG</p>
 
         <p className="mb-4">
           <strong>Redigma</strong><br />
@@ -29,7 +29,7 @@ export default function ImpressumPage() {
         </p>
 
         <p className="mb-4">
-          Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br />
+          Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br />
           Amir Shalev, Siegfriedstraße 15, 12051 Berlin
         </p>
       </section>
@@ -56,7 +56,7 @@ export default function ImpressumPage() {
         </p>
 
         <p className="mb-4">
-          Person responsible for editorial content (per § 55(2) RStV):<br />
+          Person responsible for editorial content (per § 18(2) MStV):<br />
           Amir Shalev, Siegfriedstraße 15, 12051 Berlin
         </p>
       </section>

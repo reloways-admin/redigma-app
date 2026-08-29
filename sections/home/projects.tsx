@@ -15,6 +15,8 @@ type Tool = {
 type Project = {
   index: string;
   title: string;
+  /** Message key under home.projects.items.* */
+  key: string;
   summary: string;
   tools: Tool[];
   href: (locale: string) => string;
@@ -27,6 +29,7 @@ export const PROJECTS: Project[] = [
   {
     index: '01',
     title: 'Reloways',
+    key: 'reloways',
     summary:
       'Product UX, flows, and component structure for a relocation platform. Designed to move fast with a developer while keeping the system consistent.',
     tools: [
@@ -46,6 +49,7 @@ export const PROJECTS: Project[] = [
   {
     index: '02',
     title: 'Navonera',
+    key: 'navonera',
     summary:
       'A neighborhood discovery platform connecting locals with hyper-relevant services and experiences.',
     tools: [
@@ -64,6 +68,7 @@ export const PROJECTS: Project[] = [
   {
     index: '03',
     title: 'Bit',
+    key: 'bit',
     summary:
       'Improved clarity and usability across key product areas, with a focus on structure, decision points, and reducing friction for users.',
     tools: [
@@ -82,6 +87,7 @@ export const PROJECTS: Project[] = [
   {
     index: '04',
     title: 'GoMatchIt',
+    key: 'gomatchit',
     summary:
       'A 3-month design sprint to launch a usable and scalable B2B marketplace MVP.',
     tools: [
@@ -137,6 +143,7 @@ export function ToolBadge({ tool }: { tool: Tool }) {
 
 export function ProjectCard({ project, viewProject }: { project: Project; viewProject: string }) {
   const locale = useLocale();
+  const t = useTranslations('home.projects');
   const [idx, setIdx] = React.useState(0);
   const total = project.images.length;
 
@@ -151,7 +158,7 @@ export function ProjectCard({ project, viewProject }: { project: Project; viewPr
         <div>
           <p className="text-2xl font-bold text-[var(--text-secondary)] leading-snug lg:text-3xl mb-0">{project.title}.</p>
           <p className="text-2xl font-bold text-[var(--text-primary)] leading-snug lg:text-3xl">
-            {project.summary}
+            {t(`items.${project.key}.summary`)}
           </p>
         </div>
 

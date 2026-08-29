@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
+import { HeroTestimonials } from '@/components/hero-testimonials';
 
 const SLIDES = [
   '/illustrations/hero/sketch-hero-grid.svg',
@@ -14,12 +14,6 @@ const SLIDES = [
 ];
 
 const SLIDE_INTERVAL = 4000;
-
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const, delay },
-});
 
 export function HomeHero() {
   const t = useTranslations('home.hero');
@@ -49,15 +43,13 @@ export function HomeHero() {
                 {t('status')}
               </span>
             </div>
+            {/* No entrance animation: the h1 is the page's main content and
+                should be readable on first paint, never blank or half-blank. */}
             <h1 className="mb-8 text-hero-title tracking-tight text-[var(--text-primary)] max-w-2xl leading-tight">
               {t('titlePre')}{' '}
-              <motion.span className="text-[#732fff]" {...fadeUp(0.15)}>
-                {t('titleHighlight1')}
-              </motion.span>
+              <span className="text-[#732fff]">{t('titleHighlight1')}</span>
               {' '}{t('titleMid')}{' '}
-              <motion.span className="text-[#732fff]" {...fadeUp(0.3)}>
-                {t('titleHighlight2')}
-              </motion.span>
+              <span className="text-[#732fff]">{t('titleHighlight2')}</span>
             </h1>
 
             <p className="mb-10 max-w-xl text-hero-subtitle text-[var(--text-secondary)]">
@@ -68,36 +60,16 @@ export function HomeHero() {
               <Button href={`/${locale}/feedback`} variant="primary">
                 {t('cta')}
               </Button>
-              <span className="hidden sm:inline-flex">
-                <Button href="#projects" variant="outline">
-                  {t('viewSelectedWork')}
-                </Button>
-              </span>
+              <Button href="#projects" variant="outline">
+                {t('viewSelectedWork')}
+              </Button>
             </div>
           </div>
 
-          {/* Right: testimonial (no card) — hidden on mobile/tablet */}
-          <div className="hidden lg:block lg:w-2/5 lg:self-center">
-            <p className="type-body text-[var(--text-primary)] leading-relaxed mb-6">
-              &ldquo;I was so impressed with Amir&apos;s original approach, creativity, and manners, that I even had him work on my own brand.&rdquo;
-            </p>
-            <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                <Image
-                  src="/images/home/keren.png"
-                  alt="Keren Rightler"
-                  fill
-                  className="object-cover"
-                  sizes="40px"
-                />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-[var(--text-primary)]">Keren Rightler</p>
-                <p className="text-xs text-[var(--text-secondary)]">Owner, Method Queen</p>
-              </div>
-            </div>
+          {/* Right column on desktop, stacked under the CTAs on phone and tablet */}
+          <div className="lg:w-2/5 lg:self-center">
+            <HeroTestimonials />
           </div>
-
         </div>
 
         {/* ── Carousel ── */}

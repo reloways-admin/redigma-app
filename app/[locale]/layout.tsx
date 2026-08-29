@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono, Google_Sans } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 
 import { Header } from "@/components/header";
@@ -11,18 +10,6 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 
 // Import globals at the bottom to ensure variables are available
 import "../globals.css";
-
-const poppins = localFont({
-  src: [
-    { path: "../../public/fonts/Poppins-Regular.ttf",  weight: "400", style: "normal" },
-    { path: "../../public/fonts/Poppins-Italic.ttf",   weight: "400", style: "italic" },
-    { path: "../../public/fonts/Poppins-Medium.ttf",   weight: "500", style: "normal" },
-    { path: "../../public/fonts/Poppins-SemiBold.ttf", weight: "600", style: "normal" },
-    { path: "../../public/fonts/Poppins-Bold.ttf",     weight: "700", style: "normal" },
-  ],
-  variable: "--font-poppins",
-  display: "swap",
-});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,15 +21,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// One typeface for all three locales. Google Sans is OFL licensed and covers
+// Latin and Hebrew, so Hebrew no longer needs a separate face. next/font
+// downloads it at build time and serves it from our own origin, so no request
+// ever reaches Google from a visitor's browser.
+const googleSans = Google_Sans({
+  variable: "--font-google-sans",
+  subsets: ["latin", "hebrew"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Redigma",
   description: "Building clarity into digital products",
 };
 
-type Locale = "en" | "de";
+type Locale = "en" | "de" | "he";
+
+const LOCALES: Locale[] = ["en", "de", "he"];
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "de" }];
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 export default async function RootLayout({
@@ -54,7 +53,7 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
 
-  if (locale !== "en" && locale !== "de") {
+  if (!LOCALES.includes(locale as Locale)) {
     notFound();
   }
 
@@ -62,10 +61,18 @@ export default async function RootLayout({
   setRequestLocale(safeLocale);
   const messages = await getMessages({ locale: safeLocale });
 
+  const isRtl = safeLocale === "he";
+
   return (
-    <html lang={safeLocale}>
+    /* Font variables must live on <html>: --font-sans is declared at :root and
+       references them, so declaring them on <body> leaves it unresolvable. */
+    <html
+      lang={safeLocale}
+      dir={isRtl ? "rtl" : "ltr"}
+      className={`${geistSans.variable} ${geistMono.variable} ${googleSans.variable}`}
+    >
       <body
-        className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} antialiased min-h-screen font-sans`}
+        className="antialiased min-h-screen font-sans"
       >
         <NextIntlClientProvider locale={safeLocale} messages={messages}>
           <div className="flex min-h-screen flex-col">

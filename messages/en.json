@@ -24,14 +24,41 @@
       "titleHighlight1": "clarity",
       "titleMid": "into",
       "titleHighlight2": "digital products.",
-      "subtitle": "I help founders and product teams shape clear, usable products — from early definition to improving existing systems.",
+      "subtitle": "I help founders and product teams shape clear, usable products, from early definition to improving existing systems.",
       "viewSelectedWork": "View selected work",
       "labels": {
         "productUx": "Product UX",
         "structure": "Structure",
         "productThinking": "Product thinking"
       },
-      "cta": "Get feedback on your product"
+      "cta": "Get feedback on your product",
+      "testimonials": {
+        "items": {
+          "keren": {
+            "quote": "I was so impressed with Amir’s original approach, creativity, and manners, that I even had him work on my own brand. Even after our project was done, I still consulted with Amir, my satisfaction was clearly his priority.",
+            "author": "Keren Rightler",
+            "role": "Owner, Method Queen"
+          },
+          "eyal": {
+            "quote": "I came to Amir for a website and quickly realised we were not only working on a website. Together we rebuilt my whole visual language, and what I valued most is that he did not rush to design. He asked, he listened, and he tried to understand who I am. Today I have a language and a brand that feel much more like me.",
+            "author": "Eyal Lahav",
+            "role": "Entrepreneur and manager"
+          },
+          "adi": {
+            "quote": "Amir’s ability to communicate ideas visually is truly remarkable. His work is both technically proficient and creatively vibrant.",
+            "author": "Adi Nudel",
+            "role": "CEO, Financial Cat"
+          }
+        },
+        "aria": {
+          "prev": "Previous testimonial",
+          "next": "Next testimonial",
+          "go": "Show testimonial"
+        }
+      }
+    },
+    "companies": {
+      "title": "Companies and products I have worked with"
     },
     "entryPoints": {
       "subtitle": "Different stages, same goal: clarity before complexity.",
@@ -62,7 +89,7 @@
         "title": "Send this",
         "item1Strong": "Your product URL",
         "item1Rest": "or a few screenshots.",
-        "item2Strong": "One line of context —",
+        "item2Strong": "One line of context:",
         "item2Rest": "what it is and who it’s for.",
         "item3Strong": "Zero prep.",
         "item3Rest": "No decks, no polished designs."
@@ -71,8 +98,8 @@
         "title": "You get back",
         "item1Strong": "3–4 UX observations",
         "item1Rest": "delivered within 48 hours.",
-        "item2Strong": "What’s working against you",
-        "item2Rest": "— the friction you stopped seeing.",
+        "item2Strong": "What’s working against you:",
+        "item2Rest": "the friction you stopped seeing.",
         "item3Strong": "What to fix first",
         "item3Rest": "and why it matters."
       },
@@ -159,6 +186,20 @@
         "title": "Not sure what you need yet?",
         "subtitle": "Send what you have and I will reply with 3-4 focused UX observations.",
         "button": "Send your product or idea"
+      },
+      "items": {
+        "reloways": {
+          "summary": "Product UX, flows, and component structure for a relocation platform. Designed to move fast with a developer while keeping the system consistent."
+        },
+        "navonera": {
+          "summary": "A neighborhood discovery platform connecting locals with hyper-relevant services and experiences."
+        },
+        "bit": {
+          "summary": "Improved clarity and usability across key product areas, with a focus on structure, decision points, and reducing friction for users."
+        },
+        "gomatchit": {
+          "summary": "A 3-month design sprint to launch a usable and scalable B2B marketplace MVP."
+        }
       }
     },
     "testimonials": {
@@ -182,37 +223,68 @@
           "quote": "Working with Amir fundamentally changed how our team thinks about UX. The clarity he brought to our product decisions was invaluable.",
           "name": "Ariel Ben-David",
           "role": "Co-founder, Nabovers"
+        },
+        "eyal": {
+          "quote": "I came to Amir for a website and quickly realised we were building something bigger. He did not rush to design. He asked, he listened, and he tried to understand who I am. Today I have a language and a brand that feel much more like me.",
+          "name": "Eyal Lahav",
+          "role": "Entrepreneur and manager"
         }
       }
     },
     "about": {
       "title": "About",
       "intro": "I’m Amir Shalev.",
-      "body1": "I’ve spent over 10 years designing digital products — mostly with early-stage startups, where things move fast and the stakes are real.\n\nTwo years ago I moved from Tel Aviv to Berlin. Alongside client work, I’m building Reloways — a platform for people who relocate. It keeps me honest about what it actually takes to ship something, not just design it.",
-      "body2": "Based in Berlin. Working everywhere."
+      "body1": "I’ve spent over 10 years designing digital products, mostly with early-stage startups, where things move fast and the stakes are real.\n\nTwo years ago I moved from Tel Aviv to Berlin. Alongside client work, I’m building Reloways, a platform for people who relocate. It keeps me honest about what it actually takes to ship something, not just design it.",
+      "body2": "Based in Berlin. Working everywhere.",
+      "basedPill": "Berlin Based",
+      "intlPill": "Working internationally"
     },
     "services": {
       "heading": "What I actually do.",
       "items": {
         "shape": {
           "title": "Wireframes & product design",
-          "body": "You start with a concept and end with a Figma file your developer can build directly from — user flows mapped, screens designed, components defined. No ambiguity, no back-and-forth.",
-          "bullets": ["User flows & information architecture", "Wireframes & UI screens", "Interactive prototype", "Component spec & dev handoff", "Figma file, ready to build"]
+          "body": "You start with a concept and end with a Figma file your developer can build directly from: user flows mapped, screens designed, components defined. No ambiguity, no back-and-forth.",
+          "bullets": [
+            "User flows & information architecture",
+            "Wireframes & UI screens",
+            "Interactive prototype",
+            "Component spec & dev handoff",
+            "Figma file, ready to build"
+          ]
         },
         "fix": {
           "title": "UX audit & redesign",
-          "body": "You get a clear picture of what’s driving users away and where they lose trust — fixes ranked by impact, not a 40-page report. Concrete enough to act on the same week.",
-          "bullets": ["UX audit with annotated findings", "Friction & drop-off report", "Prioritized fix list", "Redesign of the highest-impact screens", "Accessibility notes"]
+          "body": "You get a clear picture of what’s driving users away and where they lose trust, with fixes ranked by impact, not a 40-page report. Concrete enough to act on the same week.",
+          "bullets": [
+            "UX audit with annotated findings",
+            "Friction & drop-off report",
+            "Prioritized fix list",
+            "Redesign of the highest-impact screens",
+            "Accessibility notes"
+          ]
         },
         "scale": {
           "title": "Design system & components",
-          "body": "You get a single source of truth your whole team builds from — tokens, components, and documentation that stays consistent from Figma to production.",
-          "bullets": ["Design token system", "Component library in Figma", "Interaction & state definitions", "Dev-ready documentation", "Handoff guide for engineers"]
+          "body": "You get a single source of truth your whole team builds from: tokens, components, and documentation that stays consistent from Figma to production.",
+          "bullets": [
+            "Design token system",
+            "Component library in Figma",
+            "Interaction & state definitions",
+            "Dev-ready documentation",
+            "Handoff guide for engineers"
+          ]
         },
         "ai": {
           "title": "AI feature design",
-          "body": "You get AI features that fit naturally into your product and make sense to your users — defined, designed, and documented so your team can build without guessing.",
-          "bullets": ["AI use case scoping", "Prompt UX & interaction design", "Feature flows & edge case mapping", "UI for AI states (loading, error, empty)", "Handoff documentation"]
+          "body": "You get AI features that fit naturally into your product and make sense to your users, defined, designed, and documented so your team can build without guessing.",
+          "bullets": [
+            "AI use case scoping",
+            "Prompt UX & interaction design",
+            "Feature flows & edge case mapping",
+            "UI for AI states (loading, error, empty)",
+            "Handoff documentation"
+          ]
         }
       }
     },
@@ -221,16 +293,25 @@
       "headingHighlight": "That’s what I do.",
       "body": "I work with founders and product teams on what to build, how to structure it, and where the UX is costing them trust.",
       "guarantees": {
-        "nda": { "label": "NDA?", "rest": "Absolutely. Just ask." },
-        "response": { "label": "Response time", "rest": "Fast and focused feedback within 24 hours." },
-        "access": { "label": "Direct access", "rest": "You work with me. Not a team you’ve never met." }
+        "nda": {
+          "label": "NDA?",
+          "rest": "Absolutely. Just ask."
+        },
+        "response": {
+          "label": "Response time",
+          "rest": "Fast and focused feedback within 24 hours."
+        },
+        "access": {
+          "label": "Direct access",
+          "rest": "You work with me. Not a team you’ve never met."
+        }
       },
       "location": "Berlin, Germany",
       "scheduleLabel": "Schedule a call:",
       "form": {
         "emailPlaceholder": "Email",
         "namePlaceholder": "Full name",
-        "messagePlaceholder": "Tell me about your product — what it is, what’s not working, and what you want to improve.",
+        "messagePlaceholder": "Tell me about your product: what it is, what’s not working, and what you want to improve.",
         "servicesLabel": "What do you need?",
         "servicesHint": "You can choose more than one.",
         "submit": "Get in touch",
@@ -276,22 +357,32 @@
     "contactLabel": "Contact",
     "getFeedback": "Get feedback",
     "impressum": "Impressum",
+    "privacy": "Privacy",
     "copyright": "Redigma. © 2026"
   },
   "feedback": {
     "title": "Send your product. Get clarity back.",
-    "intro": "Share a link or screenshots. Within 48 hours I'll reply with 3–4 focused UX observations — what's confusing users, what's breaking trust, and what to fix first.",
+    "intro": "Share a link or screenshots. Within 48 hours I'll reply with 3–4 focused UX observations: what's confusing users, what's breaking trust, and what to fix first.",
     "eyebrow": "UX Feedback",
     "trustLine": "No commitment. If there's a fit, we'll both know.",
     "stats": {
-      "responseTime": { "number": "48h", "label": "Response time" },
-      "observations": { "number": "3–4", "label": "UX observations" },
-      "salesPitch": { "number": "1:1", "label": "Direct access" }
+      "responseTime": {
+        "number": "48h",
+        "label": "Response time"
+      },
+      "observations": {
+        "number": "3–4",
+        "label": "UX observations"
+      },
+      "salesPitch": {
+        "number": "1:1",
+        "label": "Direct access"
+      }
     },
     "valuePoints": {
       "trust": {
         "title": "Spot what's breaking trust",
-        "body": "I'll flag the exact moments where users lose confidence — before they drop off."
+        "body": "I'll flag the exact moments where users lose confidence, before they drop off."
       },
       "clarity": {
         "title": "Clarity you can act on",
@@ -299,7 +390,7 @@
       },
       "perspective": {
         "title": "An outside perspective",
-        "body": "Fresh eyes on your product — the kind your team can't give because you're too close to it."
+        "body": "Fresh eyes on your product, the kind your team can't give because you're too close to it."
       }
     },
     "fields": {
