@@ -1,32 +1,13 @@
 'use client';
 
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
+import { HeroBoard } from '@/components/hero-board';
 import { HeroTestimonials } from '@/components/hero-testimonials';
-
-const SLIDES = [
-  '/illustrations/hero/sketch-hero-grid.svg',
-  '/illustrations/hero/sketch-hero-grid.svg',
-  '/illustrations/hero/sketch-hero-grid.svg',
-  '/illustrations/hero/sketch-hero-grid.svg',
-];
-
-const SLIDE_INTERVAL = 4000;
 
 export function HomeHero() {
   const t = useTranslations('home.hero');
   const locale = useLocale();
-  const [current, setCurrent] = useState(0);
-
-  // Auto-advance slides
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((c) => (c + 1) % SLIDES.length);
-    }, SLIDE_INTERVAL);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <section className="relative w-full bg-[var(--grey-200)]">
@@ -72,30 +53,9 @@ export function HomeHero() {
           </div>
         </div>
 
-        {/* ── Carousel ── */}
+        {/* The sketch board. Inlined so its shapes can animate. */}
         <div className="relative mt-16 w-full">
-
-          {/* Slide track */}
-          <div className="relative w-full">
-            {SLIDES.map((src, i) => (
-              <div
-                key={i}
-                className="transition-opacity duration-500"
-                style={{ opacity: i === current ? 1 : 0, position: i === current ? 'relative' : 'absolute', inset: 0 }}
-              >
-                <Image
-                  src={src}
-                  alt={`Hero slide ${i + 1}`}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  priority={i === 0}
-                  className="w-full h-auto"
-                />
-              </div>
-            ))}
-          </div>
-
+          <HeroBoard />
         </div>
 
       </div>

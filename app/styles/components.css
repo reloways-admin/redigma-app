@@ -311,3 +311,56 @@ text-decoration-color: var(--border-subtle);
   border-color: var(--border-subtle);
   background-color: var(--surface-0);
 }
+/* ── Hero sketch board ───────────────────────────────────────────────────────
+   The SVG is inlined (components/hero-board.tsx) so its shapes can be reached
+   by CSS. Each coloured shape is wrapped in a <g class="board-shape--*">
+   together with its outline path, so the pair moves as one.
+
+   The drift is slow and small on purpose: the board sits directly under the
+   headline, so it should read as quietly alive rather than pull attention off
+   the copy. Durations are deliberately mismatched and offset so the shapes
+   never fall into a visible common rhythm.                                   */
+
+.board-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.board-shape {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@keyframes board-drift-a {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-7px) }
+}
+
+@keyframes board-drift-b {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(5px) }
+}
+
+@keyframes board-drift-tilt {
+  0%, 100% { transform: translateY(0) rotate(0deg) }
+  50%      { transform: translateY(-6px) rotate(2.5deg) }
+}
+
+@keyframes board-drift-window {
+  0%, 100% { transform: translateY(0) }
+  50%      { transform: translateY(-4px) }
+}
+
+.board-shape--square   { animation: board-drift-a 7s ease-in-out infinite; }
+.board-shape--rect     { animation: board-drift-b 6.2s ease-in-out infinite 0.8s; }
+.board-shape--triangle { animation: board-drift-tilt 8.4s ease-in-out infinite 1.6s; }
+.board-shape--window   { animation: board-drift-window 9s ease-in-out infinite 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .board-shape {
+    animation: none;
+  }
+}

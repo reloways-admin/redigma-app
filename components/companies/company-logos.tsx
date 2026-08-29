@@ -31,8 +31,9 @@ export function CompanyLogos({
     <section
       id={id}
       className={[
-        // Same section treatment as the other home sections
-        'bg-[var(--background)] py-24 lg:py-32 border-t border-[var(--border-subtle)]',
+        // Pure white, so the logo strip reads as its own clean band rather
+        // than blending into the off-white the surrounding sections use.
+        'bg-white py-24 lg:py-32 border-t border-[var(--border-subtle)]',
         className,
       ]
         .filter(Boolean)
