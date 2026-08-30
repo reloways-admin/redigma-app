@@ -130,16 +130,16 @@ export default function GoMatchItPage() {
         <div className="space-y-6">
           <SectionHeading title="Overview" />
           <p>
-            Go Match It is a tool for matching companies specializing in complex business processes. It is powered by AI to better match the right partners, investors, and service providers — and to ensure each placement is filling its potential for both sides.
+            Go Match It is a tool for matching companies specializing in complex business processes. It is powered by AI to better match the right partners, investors, and service providers, and to ensure each placement is filling its potential for both sides.
           </p>
           <p>
-            <strong className="font-semibold text-[var(--text-primary)]">The goal was:</strong> We engaged with the team at GoMatchIt with the key pillars to success: good branding, strong UX/UI, and crisp visuals. I worked closely with the founder and developer to build a solid technical foundation — working with the visual language and the user experience of the product from day one.
+            <strong className="font-semibold text-[var(--text-primary)]">The goal was:</strong> We engaged with the team at GoMatchIt with the key pillars to success: good branding, strong UX/UI, and crisp visuals. I worked closely with the founder and developer to build a solid technical foundation: working with the visual language and the user experience of the product from day one.
           </p>
           <p>
             Throughout this process, I developed a complete design system: typography, color palette, layouts, interface elements, defining screen states, a component library, and how to best use these as the tool was built.
           </p>
           <p>
-            <strong className="font-semibold text-[var(--text-primary)]">The result: published, intuitive, and technically sound MVP</strong> — with two more ideas already on the roadmap for later this year.
+            <strong className="font-semibold text-[var(--text-primary)]">The result: published, intuitive, and technically sound MVP</strong>: with two more ideas already on the roadmap for later this year.
           </p>
 
           {/* Key outcomes */}
@@ -161,15 +161,15 @@ export default function GoMatchItPage() {
             I joined the GoMatchIt project when the product was still in its early stages. Back then, the founder had already begun developing a basic version of the product.
           </p>
           <p>
-            <strong className="font-semibold text-[var(--text-primary)]">My goal</strong> was to take the existing structure and build a new design — in terms of visual elements, UX, and overall consistency.
+            <strong className="font-semibold text-[var(--text-primary)]">My goal</strong> was to take the existing structure and build a new design: in terms of visual elements, UX, and overall consistency.
           </p>
           <p>
             First, the most reasonable path was clear: amplify the way the product looks and feels, make the visual representation meaningful, and ensure the story it tells is coherent for the user.
           </p>
           <p>
-            Canvas is a unique element — one where you still need to learn what to change and what to keep, building a common domain language based on a shared set of principles.
+            Canvas is a unique element: one where you still need to learn what to change and what to keep, building a common domain language based on a shared set of principles.
           </p>
-          <ImagePlaceholder label="Starting point — early product state" />
+          <ImagePlaceholder label="Starting point: early product state" />
         </div>
 
         {/* How We Worked */}
@@ -179,7 +179,7 @@ export default function GoMatchItPage() {
             I worked closely with the founders and developer throughout this project.
           </p>
           <p>
-            <strong className="font-semibold text-[var(--text-primary)]">The pace was fast</strong> — every design decision was implemented almost simultaneously. The success criteria was simple: a product that delivers clear value quickly to stakeholders, and a product design that has real value quickly with the end customer.
+            <strong className="font-semibold text-[var(--text-primary)]">The pace was fast</strong>: every design decision was implemented almost simultaneously. The success criteria was simple: a product that delivers clear value quickly to stakeholders, and a product design that has real value quickly with the end customer.
           </p>
           <p>
             We focused on consistent design, real data quality, and clear outcomes for all parties involved.
@@ -192,27 +192,27 @@ export default function GoMatchItPage() {
 
           <ChallengeBlock number="1" title="Keeping an Intuitive Request Flow">
             <p>
-              The primary challenge was creating a simple flow that instantly guides the user through creating and submitting a matching request. Below these elements, the forms would be combined — and we needed to make sure the correct areas were always visible and actionable.
+              The primary challenge was creating a simple flow that instantly guides the user through creating and submitting a matching request. Below these elements, the forms would be combined, and we needed to make sure the correct areas were always visible and actionable.
             </p>
             <p>
-              The Request "Maker" had to follow a unified mental model — on the first try, the user could click through without getting lost. When a form said something was a "Request", it had to look right, feel right, and make the flow obvious.
+              The Request "Maker" had to follow a unified mental model: on the first try, the user could click through without getting lost. When a form said something was a "Request", it had to look right, feel right, and make the flow obvious.
             </p>
             <ImagePlaceholder label="Request flow screens" />
           </ChallengeBlock>
 
           <ChallengeBlock number="2" title="Navigating the Menu">
             <p>
-              The biggest design and UX issue was around the navigation — specifically on the canvas platform, with its different levels and contexts. With this approach, we designed a clear filtering tool where multiple factors could drive a cross-segment result.
+              The biggest design and UX issue was around the navigation: specifically on the canvas platform, with its different levels and contexts. With this approach, we designed a clear filtering tool where multiple factors could drive a cross-segment result.
             </p>
             <p>
-              We introduced a secondary menu — a standard approach that, when combined with a clear link menu and visible entries, resolved the navigation complexity without overloading the interface.
+              We introduced a secondary menu: a standard approach that, when combined with a clear link menu and visible entries, resolved the navigation complexity without overloading the interface.
             </p>
             <ImagePlaceholder label="Menu navigation design" />
           </ChallengeBlock>
 
           <ChallengeBlock number="3" title="Designing Within Technical Constraints">
             <p>
-              The development environment introduced a set of real constraints — not every design pattern was achievable in the given timeline. This meant making smart tradeoffs: prioritizing interactions that would have the highest impact on usability while deferring more complex patterns to later iterations.
+              The development environment introduced a set of real constraints, not every design pattern was achievable in the given timeline. This meant making smart tradeoffs: prioritizing interactions that would have the highest impact on usability while deferring more complex patterns to later iterations.
             </p>
             <p>
               Every component was designed with the developer's workflow in mind, ensuring that what was designed could be built accurately and quickly.
@@ -222,13 +222,13 @@ export default function GoMatchItPage() {
 
           <ChallengeBlock number="4" title="Navigating the Status">
             <p>
-              Status visibility was critical. Users needed to understand at a glance where their requests stood — pending, matched, in review, or complete. We designed a clear status system with consistent color coding and iconography across all surfaces.
+              Status visibility was critical. Users needed to understand at a glance where their requests stood: pending, matched, in review, or complete. We designed a clear status system with consistent color coding and iconography across all surfaces.
             </p>
           </ChallengeBlock>
 
           <ChallengeBlock number="5" title="Consistency Across the Entire Application">
             <p>
-              With multiple surfaces — the canvas, the dashboard, the request flow, and settings — maintaining visual and interaction consistency was an ongoing challenge. The design system was the solution: every component defined once, reused everywhere.
+              With multiple surfaces, the canvas, the dashboard, the request flow, and settings, maintaining visual and interaction consistency was an ongoing challenge. The design system was the solution: every component defined once, reused everywhere.
             </p>
             <ImagePlaceholder label="Consistency across surfaces" />
           </ChallengeBlock>
@@ -238,30 +238,30 @@ export default function GoMatchItPage() {
         <div className="space-y-6">
           <SectionHeading title="The Heart of the Product: The Canvas" />
           <p>
-            The Canvas is the core of GoMatchIt — an infinite workspace where users create and explore business matches. The discovery canvas worked with a grid type, with labeled canvas areas — at the top level, a clearly visible grid of all relevant nodes was always accessible.
+            The Canvas is the core of GoMatchIt: an infinite workspace where users create and explore business matches. The discovery canvas worked with a grid type, with labeled canvas areas: at the top level, a clearly visible grid of all relevant nodes was always accessible.
           </p>
           <p>
-            We created <strong className="font-semibold text-[var(--text-primary)]">Match Groups</strong> displayed at the top column of the canvas, organized by category — either a small grid panel or a specific matching tag was used for relevant filtering.
+            We created <strong className="font-semibold text-[var(--text-primary)]">Match Groups</strong> displayed at the top column of the canvas, organized by category: either a small grid panel or a specific matching tag was used for relevant filtering.
           </p>
           <p>
-            The defined interaction model for all canvas components — including layout, color, interaction states, and user data points — all contributed to making the canvas feel powerful yet approachable.
+            The defined interaction model for all canvas components: including layout, color, interaction states, and user data points: all contributed to making the canvas feel powerful yet approachable.
           </p>
-          <ImagePlaceholder label="Canvas — main view" aspect="4/3" />
+          <ImagePlaceholder label="Canvas: main view" aspect="4/3" />
         </div>
 
         {/* The Dashboard */}
         <div className="space-y-6">
           <SectionHeading title="A Fun Challenge: The Dashboard" />
           <p>
-            Unlike the Canvas, the Dashboard was a much more detail-populated overview across all components being used in the platform. It needed to support a launching experience across the platform — requiring notifications, data sets, connections, active tasks, and status updates all in one place.
+            Unlike the Canvas, the Dashboard was a much more detail-populated overview across all components being used in the platform. It needed to support a launching experience across the platform: requiring notifications, data sets, connections, active tasks, and status updates all in one place.
           </p>
           <p>
-            The Dashboard was designed around the user's daily workflow — surfacing what matters most, in the right order, with enough detail to act without overwhelming.
+            The Dashboard was designed around the user's daily workflow: surfacing what matters most, in the right order, with enough detail to act without overwhelming.
           </p>
           <p>
             We made it work through consistent design language, consistent iconography, standard labels, and a well-structured layout that could scale as new features were added.
           </p>
-          <ImagePlaceholder label="Dashboard — overview" aspect="4/3" />
+          <ImagePlaceholder label="Dashboard: overview" aspect="4/3" />
         </div>
 
         {/* Design Components */}
@@ -272,21 +272,21 @@ export default function GoMatchItPage() {
             <div>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Typography</h3>
               <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                We chose a clean, readable modern typeface that performs well for both large headings and small interface text. Type hierarchy was defined across five levels — from hero titles down to captions — ensuring clarity and consistency at every scale.
+                We chose a clean, readable modern typeface that performs well for both large headings and small interface text. Type hierarchy was defined across five levels, from hero titles down to captions, ensuring clarity and consistency at every scale.
               </p>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Color System</h3>
               <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                The color system was built around a core palette with semantic usage rules — primary actions, status indicators, surface levels, and text roles each had their own defined color. This made the UI predictable and easy for the developer to implement.
+                The color system was built around a core palette with semantic usage rules: primary actions, status indicators, surface levels, and text roles each had their own defined color. This made the UI predictable and easy for the developer to implement.
               </p>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Design Tokens</h3>
               <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                Our design tokens established component-level definitions — including token colors, spacing, typography scale, border radii, and shadow values — all contributing to the consistency of the entire product experience.
+                Our design tokens established component-level definitions: including token colors, spacing, typography scale, border radii, and shadow values: all contributing to the consistency of the entire product experience.
               </p>
             </div>
 
@@ -298,10 +298,10 @@ export default function GoMatchItPage() {
         <div className="space-y-6">
           <SectionHeading title="Final Thoughts" />
           <p>
-            GoMatchIt was a great example of how product thinking and UX work best when combined from day one — not as sequential steps, but as an ongoing conversation. Starting from an early-stage product and moving quickly to a polished, shippable MVP required constant prioritization and clear communication.
+            GoMatchIt was a great example of how product thinking and UX work best when combined from day one, not as sequential steps, but as an ongoing conversation. Starting from an early-stage product and moving quickly to a polished, shippable MVP required constant prioritization and clear communication.
           </p>
           <p>
-            The design system we built became the product's backbone — and the foundation for everything that comes next. The two upcoming features already on the roadmap will build directly on top of what we created here.
+            The design system we built became the product's backbone, and the foundation for everything that comes next. The two upcoming features already on the roadmap will build directly on top of what we created here.
           </p>
           <p>
             What made this project work was trust: the founder trusted the process, the developer trusted the designs, and together we moved faster than any of us expected.
