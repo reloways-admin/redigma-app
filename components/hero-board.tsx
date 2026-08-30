@@ -6,10 +6,10 @@ import { HERO_BOARD_SVG } from './hero-board-markup';
 type Offset = { x: number; y: number };
 
 /** Beat before the drop, so the board is first seen composed. */
-const SETTLE_DELAY = 700;
+const SETTLE_DELAY = 350;
 /** Gap between each shape starting to fall. */
-const STAGGER = 110;
-const FALL_MS = 900;
+const STAGGER = 60;
+const FALL_MS = 450;
 /** Gap left under the shapes when they land. */
 const FLOOR_MARGIN = 10;
 
