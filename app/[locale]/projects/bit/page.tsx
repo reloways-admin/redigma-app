@@ -59,7 +59,7 @@ export default function BitPage() {
                 Eight Years Building the Design Language of an Open-Source Platform
               </h1>
               <p className="text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                Bit is a component-driven development platform used by hundreds of thousands of developers worldwide. As Head of Design, I've shaped the product's visual language, UX architecture, design system, and AI-powered features — from day-to-day UI decisions to long-term product thinking.
+                Bit is a component-driven development platform used by hundreds of thousands of developers worldwide. As Head of Design, I've shaped the product's visual language, UX architecture, design system, and AI-powered features: from day-to-day UI decisions to long-term product thinking.
               </p>
             </div>
 
@@ -112,7 +112,7 @@ export default function BitPage() {
 
       {/* ── Hero image ── */}
       <div className="mx-auto max-w-[1360px] px-6 py-12">
-        <ImagePlaceholder label="Bit platform — overview" aspect="16/7" />
+        <ImagePlaceholder label="Bit platform: overview" aspect="16/7" />
       </div>
 
       {/* ── Content ── */}
@@ -122,7 +122,7 @@ export default function BitPage() {
         <div className="space-y-6">
           <SectionHeading title="The Long Game" />
           <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            Most design work happens in sprints. Eight years at one company is something different — it means building the design culture, not just the screens. At Bit, I've been involved in every meaningful product decision: what to build, how to structure it, what to cut. The two case studies below are recent examples — but they reflect a much longer design story.
+            Most design work happens in sprints. Eight years at one company is something different: it means building the design culture, not just the screens. At Bit, I've been involved in every meaningful product decision: what to build, how to structure it, what to cut. The two case studies below are recent examples, but they reflect a much longer design story.
           </p>
           <p className="text-base text-[var(--text-secondary)] leading-relaxed">
             Today the work includes AI-powered features that help developers compose and understand components faster. The challenge is the same as it's always been: make something technically complex feel obvious to use.
@@ -152,10 +152,10 @@ export default function BitPage() {
           </div>
 
           <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            The purpose of data tables is to organize and display data efficiently. Data tables can be customized with additional functionality based on the needs of users' products. The goal was to design and develop a basic table for Bit's open-source design system — something simple enough to ship fast, yet structured enough to grow.
+            The purpose of data tables is to organize and display data efficiently. Data tables can be customized with additional functionality based on the needs of users' products. The goal was to design and develop a basic table for Bit's open-source design system: something simple enough to ship fast, yet structured enough to grow.
           </p>
 
-          <ImagePlaceholder label="Data table — component overview" aspect="16/9" />
+          <ImagePlaceholder label="Data table: component overview" aspect="16/9" />
 
           <div className="space-y-8">
             <TwoColSection
@@ -165,7 +165,7 @@ export default function BitPage() {
               right={
                 <>
                   <p>
-                    The challenge was to design a basic table component — a basic design and basic functionality. This table is basic because it is part of the open-source design system we are building in the company. The table is customizable: developers can add and remove parts from it.
+                    The challenge was to design a basic table component: a basic design and basic functionality. This table is basic because it is part of the open-source design system we are building in the company. The table is customizable: developers can add and remove parts from it.
                   </p>
                   <p>
                     The difficulty was balancing flexibility with consistency. A component that's too rigid gets abandoned; one that's too loose creates chaos across the product.
@@ -206,7 +206,7 @@ export default function BitPage() {
                 <p className="text-base text-[var(--text-secondary)] leading-relaxed">
                   A basic table emphasizes clarity, ease of navigation, and accessibility to ensure users can efficiently comprehend and interact with the data. By building a basic table, you can build a more complex one.
                 </p>
-                <ImagePlaceholder label="Basic table — component" aspect="16/7" />
+                <ImagePlaceholder label="Basic table: component" aspect="16/7" />
               </div>
 
               <div className="space-y-4">
@@ -222,13 +222,13 @@ export default function BitPage() {
                 <p className="text-base text-[var(--text-secondary)] leading-relaxed">
                   An active search is a way of searching an application on data set. After each character is entered, live search runs and results are displayed immediately. Active search is a way of filtering a dataset using keywords. The pagination toolbar is in disabled mode as the search is run actively and the user has not deleted the data in the search field. We implemented it to hide the toolbar while the search field is active.
                 </p>
-                <ImagePlaceholder label="Active search — component" aspect="16/7" />
+                <ImagePlaceholder label="Active search: component" aspect="16/7" />
               </div>
 
               <div className="space-y-4">
                 <h4 className="text-base font-semibold text-[var(--text-primary)]">Table docs</h4>
                 <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                  A detailed documentation document explains both the design and development sides of the component, attached to the table so users can better understand it. Key behaviors documented: Pagination, Sorting, Toolbar, Row Selection, Add/remove columns, Row expansion — each defined with edge cases and interaction states.
+                  A detailed documentation document explains both the design and development sides of the component. It is attached to the table so users can better understand it. Key behaviors documented: Pagination, Sorting, Toolbar, Row Selection, Add/remove columns, Row expansion: each defined with edge cases and interaction states.
                 </p>
                 <ImagePlaceholder label="Table documentation" aspect="4/3" />
               </div>
@@ -266,10 +266,10 @@ export default function BitPage() {
           </div>
 
           <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            CLI — or Command Line Interface — commands are instructions given to a computer or software through a text-based interface. Users interact with the system by typing commands into a terminal or command prompt. The goal: displaying and browsing various commands in a comfortable way.
+            CLI, or Command Line Interface, commands are instructions given to a computer or software through a text-based interface. Users interact with the system by typing commands into a terminal or command prompt. The goal: displaying and browsing various commands in a comfortable way.
           </p>
 
-          <ImagePlaceholder label="CLI Reference — main view" aspect="16/9" />
+          <ImagePlaceholder label="CLI Reference: main view" aspect="16/9" />
 
           <div className="space-y-8">
             <TwoColSection
@@ -289,7 +289,7 @@ export default function BitPage() {
               }
               right={
                 <p>
-                  In this way, users can clearly understand the areas of the product and see which commands are linked to which areas of the product. The following commands have been categorized — some commands belong to more than one category.
+                  In this way, users can clearly understand the areas of the product and see which commands are linked to which areas of the product. The following commands have been categorized: some commands belong to more than one category.
                 </p>
               }
             />
@@ -301,19 +301,19 @@ export default function BitPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <p className="text-xs text-[var(--text-secondary)] font-medium">Version 1</p>
-                <ImagePlaceholder label="CLI Reference — Version 1" aspect="4/3" />
+                <ImagePlaceholder label="CLI Reference: Version 1" aspect="4/3" />
               </div>
               <div className="space-y-2">
                 <p className="text-xs text-[var(--text-secondary)] font-medium">Version 2</p>
-                <ImagePlaceholder label="CLI Reference — Version 2" aspect="4/3" />
+                <ImagePlaceholder label="CLI Reference: Version 2" aspect="4/3" />
               </div>
               <div className="space-y-2">
                 <p className="text-xs text-[var(--text-secondary)] font-medium">Version 3</p>
-                <ImagePlaceholder label="CLI Reference — Version 3" aspect="4/3" />
+                <ImagePlaceholder label="CLI Reference: Version 3" aspect="4/3" />
               </div>
               <div className="space-y-2">
                 <p className="text-xs text-[var(--text-secondary)] font-medium">Version 4</p>
-                <ImagePlaceholder label="CLI Reference — Version 4" aspect="4/3" />
+                <ImagePlaceholder label="CLI Reference: Version 4" aspect="4/3" />
               </div>
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function BitPage() {
             }
           />
 
-          <ImagePlaceholder label="75 CLI icons — icon library" aspect="16/9" />
+          <ImagePlaceholder label="75 CLI icons: icon library" aspect="16/9" />
 
           <TwoColSection
             left={
@@ -342,12 +342,12 @@ export default function BitPage() {
             }
           />
 
-          <ImagePlaceholder label="Command inner page — ws-config" aspect="16/9" />
+          <ImagePlaceholder label="Command inner page: ws-config" aspect="16/9" />
 
           <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6 space-y-3">
             <p className="text-sm font-semibold text-[var(--text-primary)]">Summary</p>
             <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-              It took one month to develop 75 new icons and design new experiences. It was a fast-paced project that heavily focused on UX Strategy, collaborative design, and product design. The result was a navigation system that made Bit's CLI feel approachable — not just functional.
+              It took one month to develop 75 new icons and design new experiences. It was a fast-paced project that heavily focused on UX Strategy, collaborative design, and product design. The result was a navigation system that made Bit's CLI feel approachable, not just functional.
             </p>
           </div>
         </div>

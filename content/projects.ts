@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
       { type: 'headline', title: 'Overview', subtitle: 'Building a relocation platform from the ground up.' },
       { type: 'text', title: 'The challenge', body: 'Reloways needed a UX foundation that could support rapid development without creating technical debt or a confusing user experience.' },
       { type: 'facts', items: [{ label: 'Timeline', value: '3 months' }, { label: 'Role', value: 'Lead UX/UI' }, { label: 'Industry', value: 'RelTech' }] },
-      { type: 'text', title: 'How we worked', body: 'Close collaboration with the developer. Every screen was designed with real data states in mind — empty, loading, error, and success.' },
+      { type: 'text', title: 'How we worked', body: 'Close collaboration with the developer. Every screen was designed with real data states in mind: empty, loading, error, and success.' },
     ],
   },
   {
@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     heroImage: { src: '/illustrations/projects/bit/bit.png', alt: 'Bit platform' },
     sections: [
       { type: 'headline', title: 'Overview', subtitle: 'Bringing clarity to a growing B2B SaaS product.' },
-      { type: 'text', title: 'The challenge', body: 'Bit had grown fast. The UX reflected that — inconsistent patterns, unclear decision points, and a growing list of user complaints about navigating complex workflows.' },
+      { type: 'text', title: 'The challenge', body: 'Bit had grown fast. The UX reflected that: inconsistent patterns, unclear decision points, and a growing list of user complaints about navigating complex workflows.' },
       { type: 'facts', items: [{ label: 'Timeline', value: '6 weeks' }, { label: 'Role', value: 'UX Lead' }, { label: 'Industry', value: 'B2B SaaS' }] },
       { type: 'text', title: 'How we worked', body: 'A structured UX audit followed by targeted redesigns of the highest-friction areas. Every change was validated against the existing user mental models.' },
     ],
@@ -61,13 +61,13 @@ export const PROJECTS: Project[] = [
     heroImage: { src: '/illustrations/projects/gomatchit/gomatchit.png', alt: 'GoMatchIt platform' },
     sections: [
       { type: 'headline', title: 'Overview', subtitle: 'Designing the matching layer between businesses and service providers.' },
-      { type: 'text', title: 'The challenge', body: 'GoMatchIt needed a product that felt trustworthy to both sides of the marketplace — companies looking for services, and providers wanting qualified leads.' },
+      { type: 'text', title: 'The challenge', body: 'GoMatchIt needed a product that felt trustworthy to both sides of the marketplace: companies looking for services, and providers wanting qualified leads.' },
       { type: 'facts', items: [{ label: 'Timeline', value: '4 months' }, { label: 'Role', value: 'Lead Product Designer' }, { label: 'Industry', value: 'B2B Marketplace' }] },
       { type: 'text', title: 'Starting point', body: 'The product started as a spreadsheet matching process. My job was to turn that manual process into a product experience that scaled.' },
       { type: 'text', title: 'How we worked', body: 'Weekly design sprints with the founding team. We moved from rough concept to high-fidelity flows in 6 weeks, then refined based on early user testing.' },
       { type: 'text', title: 'Key challenges', body: 'The dual-sided nature of the marketplace meant every screen needed to serve two very different mental models simultaneously. We solved this with a clear role-based onboarding and distinct dashboard views.' },
       { type: 'text', title: 'The canvas', body: 'The heart of the product was a matching canvas where companies could see ranked providers with explainable match scores. Getting the information density right was the central design challenge.' },
-      { type: 'text', title: 'Final thoughts', body: 'This project was a good example of how product thinking and UX work best when combined from day one — not as sequential steps but as an ongoing conversation.' },
+      { type: 'text', title: 'Final thoughts', body: 'This project was a good example of how product thinking and UX work best when combined from day one, not as sequential steps but as an ongoing conversation.' },
     ],
   },
 ];
