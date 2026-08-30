@@ -84,17 +84,28 @@ export function HeroBoard({ className }: { className?: string }) {
             { duration: FALL_MS, easing: 'linear', fill: 'forwards' },
           );
           running.set(key, anim);
-          anim.finished
-            .then(() => {
-              // Hand the position back to inline style so dragging can take
-              // over cleanly; a filled animation would otherwise win.
-              anim.cancel();
-              running.delete(key);
-              land();
-            })
-            .catch(() => {
-              /* cancelled because the user grabbed it mid-fall */
-            });
+
+          const settle = () => {
+            // Hand the position back to inline style so dragging can take over
+            // cleanly; a filled animation would otherwise win.
+            anim.cancel();
+            running.delete(key);
+            land();
+          };
+
+          anim.finished.then(settle).catch(() => {
+            /* cancelled because the user grabbed it mid-fall */
+          });
+
+          // Safety net. Browsers throttle or pause animations in background
+          // tabs, so `finished` can be a long time coming or never arrive. Land
+          // it anyway once the fall should have ended, otherwise the object
+          // would hang in mid-air and never invite a grab.
+          timers.push(
+            window.setTimeout(() => {
+              if (running.has(key)) settle();
+            }, FALL_MS + 200),
+          );
         }, SETTLE_DELAY + i * STAGGER),
       );
     });
