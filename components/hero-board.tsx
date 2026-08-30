@@ -5,19 +5,28 @@ import { HERO_BOARD_SVG } from './hero-board-markup';
 
 type Offset = { x: number; y: number };
 
+/** Beat before the drop, so the board is first seen composed. */
+const SETTLE_DELAY = 700;
+/** Gap between each shape starting to fall. */
+const STAGGER = 110;
+const FALL_MS = 900;
+/** Gap left under the shapes when they land. */
+const FLOOR_MARGIN = 10;
+
 /**
  * The sketch board under the hero.
  *
- * The shapes can be picked up and moved, which is the point: the hero claims
- * to bring clarity to products, and a board you can actually rearrange makes
- * that concrete rather than decorative.
+ * The shapes start arranged, drop to the bottom of the board, and wait there
+ * to be picked up and placed back on the canvas. It fits what the hero claims:
+ * the page says it brings clarity to products, and a board you actually
+ * arrange yourself makes that concrete rather than decorative.
  *
- * The markup is inlined (see hero-board-markup.ts) because an SVG inside an
- * <img> is unreachable from both CSS and JS.
+ * The markup is inlined (hero-board-markup.ts) because an SVG inside an <img>
+ * is unreachable from both CSS and JS.
  */
 export function HeroBoard({ className }: { className?: string }) {
   const rootRef = useRef<HTMLDivElement>(null);
-  // Where each shape has been dragged to, in SVG user units.
+  /** Where each shape currently sits, in SVG user units. */
   const offsets = useRef(new Map<string, Offset>());
 
   const apply = useCallback((item: SVGGElement, o: Offset) => {
@@ -31,12 +40,69 @@ export function HeroBoard({ className }: { className?: string }) {
     if (!svg) return;
 
     const items = Array.from(root.querySelectorAll<SVGGElement>('.board-item'));
+    const floor = svg.viewBox.baseVal.height - FLOOR_MARGIN;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // The pointer moves in screen pixels; the shapes live in viewBox units.
+    // ── The drop ────────────────────────────────────────────────────────────
+    const timers: number[] = [];
+    const running = new Map<string, Animation>();
+
+    items.forEach((item, i) => {
+      const key = item.dataset.shape ?? '';
+      const bbox = item.getBBox();
+      const landing = { x: 0, y: floor - (bbox.y + bbox.height) };
+
+      // Never lift a shape that already sits below the floor line.
+      if (landing.y <= 0) {
+        offsets.current.set(key, { x: 0, y: 0 });
+        item.classList.add('has-landed');
+        return;
+      }
+
+      const land = () => {
+        offsets.current.set(key, landing);
+        apply(item, landing);
+        item.classList.add('has-landed');
+      };
+
+      if (reduced) {
+        land();
+        return;
+      }
+
+      timers.push(
+        window.setTimeout(() => {
+          const anim = item.animate(
+            [
+              { transform: 'translate(0px, 0px)' },
+              // Accelerate on the way down, like something dropping.
+              { transform: `translate(0px, ${landing.y}px)`, offset: 0.72, easing: 'cubic-bezier(0.45, 0, 0.9, 0.35)' },
+              // Small hop, then settle, so the landing has some weight.
+              { transform: `translate(0px, ${landing.y - 12}px)`, offset: 0.86 },
+              { transform: `translate(0px, ${landing.y}px)` },
+            ],
+            { duration: FALL_MS, easing: 'linear', fill: 'forwards' },
+          );
+          running.set(key, anim);
+          anim.finished
+            .then(() => {
+              // Hand the position back to inline style so dragging can take
+              // over cleanly; a filled animation would otherwise win.
+              anim.cancel();
+              running.delete(key);
+              land();
+            })
+            .catch(() => {
+              /* cancelled because the user grabbed it mid-fall */
+            });
+        }, SETTLE_DELAY + i * STAGGER),
+      );
+    });
+
+    // ── Dragging ────────────────────────────────────────────────────────────
     const scale = () => {
-      const box = svg.viewBox.baseVal;
       const rect = svg.getBoundingClientRect();
-      return rect.width > 0 ? box.width / rect.width : 1;
+      return rect.width > 0 ? svg.viewBox.baseVal.width / rect.width : 1;
     };
 
     const cleanups: Array<() => void> = [];
@@ -46,8 +112,19 @@ export function HeroBoard({ className }: { className?: string }) {
       let start: { px: number; py: number; ox: number; oy: number } | null = null;
 
       const onPointerDown = (e: PointerEvent) => {
-        // Left button / touch / pen only.
         if (e.button !== 0) return;
+
+        // Grabbing mid-fall: freeze it where it is and take over from there.
+        const anim = running.get(key);
+        if (anim) {
+          const m = new DOMMatrixReadOnly(getComputedStyle(item).transform);
+          offsets.current.set(key, { x: m.e, y: m.f });
+          anim.cancel();
+          running.delete(key);
+          apply(item, { x: m.e, y: m.f });
+          item.classList.add('has-landed');
+        }
+
         const current = offsets.current.get(key) ?? { x: 0, y: 0 };
         start = { px: e.clientX, py: e.clientY, ox: current.x, oy: current.y };
         item.classList.add('is-dragging');
@@ -86,7 +163,11 @@ export function HeroBoard({ className }: { className?: string }) {
       });
     }
 
-    return () => cleanups.forEach((fn) => fn());
+    return () => {
+      timers.forEach(clearTimeout);
+      running.forEach((a) => a.cancel());
+      cleanups.forEach((fn) => fn());
+    };
   }, [apply]);
 
   return (

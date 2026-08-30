@@ -315,16 +315,13 @@ text-decoration-color: var(--border-subtle);
    The SVG is inlined (components/hero-board.tsx) so its shapes can be reached
    by CSS and JS. Each shape has two nested groups:
 
-     .board-item   moved by the drag handler
-     .board-shape  carries the idle drift
+     .board-item   moved by the drop animation and the drag handler
+     .board-shape  carries the hover lift, kept separate so the two transforms
+                   never overwrite each other
 
-   Keeping them separate means the drag transform and the animation transform
-   never overwrite each other.
-
-   The drift is slow and small on purpose: the board sits directly under the
-   headline, so it should read as quietly alive rather than pull attention off
-   the copy. Durations are mismatched so the shapes never fall into a visible
-   shared rhythm.                                                             */
+   The shapes are first seen arranged, then drop to the bottom of the board and
+   wait to be picked up. There is no idle drift: the interaction is the life
+   here, and shapes that have come to rest should look at rest.               */
 
 .board-svg {
   display: block;
@@ -335,7 +332,7 @@ text-decoration-color: var(--border-subtle);
 
 .board-item {
   cursor: grab;
-  /* Stop a drag on the shape from scrolling the page on touch. */
+  /* Stop a drag on a shape from scrolling the page on touch. */
   touch-action: none;
   transition: filter 200ms ease;
 }
@@ -347,56 +344,27 @@ text-decoration-color: var(--border-subtle);
   transition: transform 250ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Hover: lift and shadow, so it reads as a loose object you could pick up. */
-.board-item:hover {
+/* Only invite a grab once the shape has come to rest. */
+.board-item.has-landed:hover {
   filter: drop-shadow(0 6px 10px rgb(8 8 24 / 0.18));
 }
 
-.board-item:hover .board-shape {
+.board-item.has-landed:hover .board-shape {
   transform: scale(1.06);
 }
 
-/* While held: pause the drift so the shape tracks the cursor exactly, and
-   deepen the shadow so it reads as lifted off the board. */
 .board-item.is-dragging {
   cursor: grabbing;
   filter: drop-shadow(0 14px 20px rgb(8 8 24 / 0.26));
 }
 
 .board-item.is-dragging .board-shape {
-  animation-play-state: paused;
   transform: scale(1.1);
 }
 
-@keyframes board-drift-a {
-  0%, 100% { transform: translateY(0) }
-  50%      { transform: translateY(-7px) }
-}
-
-@keyframes board-drift-b {
-  0%, 100% { transform: translateY(0) }
-  50%      { transform: translateY(5px) }
-}
-
-@keyframes board-drift-tilt {
-  0%, 100% { transform: translateY(0) rotate(0deg) }
-  50%      { transform: translateY(-6px) rotate(2.5deg) }
-}
-
-@keyframes board-drift-window {
-  0%, 100% { transform: translateY(0) }
-  50%      { transform: translateY(-4px) }
-}
-
-.board-shape--square   { animation: board-drift-a 7s ease-in-out infinite; }
-.board-shape--rect     { animation: board-drift-b 6.2s ease-in-out infinite 0.8s; }
-.board-shape--triangle { animation: board-drift-tilt 8.4s ease-in-out infinite 1.6s; }
-.board-shape--window   { animation: board-drift-window 9s ease-in-out infinite 0.4s; }
-
 @media (prefers-reduced-motion: reduce) {
-  /* Idle motion goes; dragging stays, since the user asked for that one. */
+  /* The drop is skipped in JS; shapes are placed at the floor directly. */
   .board-shape {
-    animation: none;
     transition: none;
   }
 }
