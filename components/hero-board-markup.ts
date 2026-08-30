@@ -1,12 +1,16 @@
-// Hero board artwork, assembled at build time from three sources:
+// Hero board artwork, assembled at build time from four sources:
 //   the faint grid  illustrations/hero/sketch-hero-grid.svg
 //   design objects  illustrations/entry-point/sketch-define.svg
 //   documents       illustrations/how-i-work/sketch-ux-audit-and-redesign.svg
 //   cursor arrow    illustrations/how-i-work/sketch-ai.svg
 //
-// The curved arrows from the documents artwork are deliberately left out; only
-// the three papers are taken. The papers keep their original overlap and move
-// as a single stack, which also keeps them from crowding the strip.
+// Two things are deliberately left out: the curved arrows that come with the
+// documents artwork, and the loose purple dots from the design objects, which
+// read as stray marks rather than as something you would pick up.
+//
+// The three documents are separate objects rather than one stack, so each is
+// dragged on its own. UI and UX keep a small overlap so they still read as a
+// pile before anyone touches them.
 //
 // Inlined as a string rather than loaded through next/image, because an SVG
 // inside an <img> is sealed off from both CSS and JS, so its parts could be
@@ -143,13 +147,6 @@ export const HERO_BOARD_SVG = `<svg aria-hidden="true" focusable="false" class="
 <path d="M548 161H390" stroke="#080818" stroke-width="6"/>
 <path d="M548 200H390" stroke="#080818" stroke-width="6"/>
 </g></g></g>
-<g class="board-item" data-shape="dots">
-<g class="board-shape">
-<g transform="translate(392.52 42.28) scale(0.42)">
-<circle cx="509.5" cy="318.5" r="15.5" fill="#974AF4" stroke="#080818" stroke-width="6"/>
-<circle cx="745.5" cy="81.5" r="15.5" fill="#974AF4" stroke="#080818" stroke-width="6"/>
-<circle cx="666.5" cy="81.5" r="15.5" fill="#974AF4" stroke="#080818" stroke-width="6"/>
-</g></g></g>
 <g class="board-item" data-shape="swatches">
 <g class="board-shape">
 <g transform="translate(98.94 -67.16) scale(0.42)">
@@ -157,9 +154,9 @@ export const HERO_BOARD_SVG = `<svg aria-hidden="true" focusable="false" class="
 <rect x="350" y="398" width="157" height="157" fill="#974EF6" stroke="#080818" stroke-width="6"/>
 <rect x="193" y="398" width="157" height="157" fill="#5D11E4" stroke="#080818" stroke-width="6"/>
 </g></g></g>
-<g class="board-item" data-shape="papers">
+<g class="board-item" data-shape="paper-ui">
 <g class="board-shape">
-<g transform="translate(323.56 36.76) scale(0.28)">
+<g transform="translate(324.02 33.4) scale(0.26)">
 <rect x="273" y="160" width="316" height="394" fill="white" stroke="#080818" stroke-width="6"/>
 <path d="M537 287L362 287" stroke="#E52225" stroke-width="6"/>
 <path d="M323 285L331 292.5L348.5 277" stroke="#E52225" stroke-width="6"/>
@@ -174,6 +171,10 @@ export const HERO_BOARD_SVG = `<svg aria-hidden="true" focusable="false" class="
 <path d="M323 451L343 470M343 451L323 470" stroke="#080818" stroke-width="6"/>
 <path d="M323 494L343 513M343 494L323 513" stroke="#080818" stroke-width="6"/>
 <path d="M330.88 197.688V221.208C330.88 223.56 331.459 225.371 332.616 226.64C333.773 227.909 335.472 228.544 337.712 228.544C339.952 228.544 341.669 227.909 342.864 226.64C344.059 225.371 344.656 223.56 344.656 221.208V197.688H354.232V221.152C354.232 224.661 353.485 227.629 351.992 230.056C350.499 232.483 348.483 234.312 345.944 235.544C343.443 236.776 340.643 237.392 337.544 237.392C334.445 237.392 331.664 236.795 329.2 235.6C326.773 234.368 324.851 232.539 323.432 230.112C322.013 227.648 321.304 224.661 321.304 221.152V197.688H330.88ZM370.532 197.688V237H360.956V197.688H370.532Z" fill="black"/>
+</g></g></g>
+<g class="board-item" data-shape="paper-ux">
+<g class="board-shape">
+<g transform="translate(347.94 27.06) scale(0.26)">
 <rect x="431" y="319" width="316" height="394" fill="white" stroke="#080818" stroke-width="6"/>
 <path d="M695 446L520 446" stroke="#E52225" stroke-width="6"/>
 <path d="M481 444L489 451.5L506.5 436" stroke="#E52225" stroke-width="6"/>
@@ -188,6 +189,10 @@ export const HERO_BOARD_SVG = `<svg aria-hidden="true" focusable="false" class="
 <path d="M481 515L501 534M501 515L481 534" stroke="#080818" stroke-width="6"/>
 <path d="M481 558L501 577M501 558L481 577" stroke="#080818" stroke-width="6"/>
 <path d="M488.88 356.688V380.208C488.88 382.56 489.459 384.371 490.616 385.64C491.773 386.909 493.472 387.544 495.712 387.544C497.952 387.544 499.669 386.909 500.864 385.64C502.059 384.371 502.656 382.56 502.656 380.208V356.688H512.232V380.152C512.232 383.661 511.485 386.629 509.992 389.056C508.499 391.483 506.483 393.312 503.944 394.544C501.443 395.776 498.643 396.392 495.544 396.392C492.445 396.392 489.664 395.795 487.2 394.6C484.773 393.368 482.851 391.539 481.432 389.112C480.013 386.648 479.304 383.661 479.304 380.152V356.688H488.88ZM543.036 396L535.028 383.96L527.972 396H517.108L529.708 376.008L516.828 356.688H527.972L535.868 368.56L542.812 356.688H553.676L541.188 376.512L554.18 396H543.036Z" fill="black"/>
+</g></g></g>
+<g class="board-item" data-shape="paper-specs">
+<g class="board-shape">
+<g transform="translate(330.24 38.42) scale(0.26)">
 <rect x="826" y="83" width="316" height="394" fill="white" stroke="#080818" stroke-width="6"/>
 <path d="M1090 210L915 210" stroke="#E52225" stroke-width="6"/>
 <path d="M876 208L884 215.5L901.5 200" stroke="#E52225" stroke-width="6"/>
