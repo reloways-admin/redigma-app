@@ -1,8 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import { PROJECTS, ToolBadge } from '@/sections/home/projects';
 import { HomeFinalCta } from '@/sections/home/final-cta';
+import { getCopy } from './copy';
 
 function CaseFigure({
   src,
@@ -58,24 +60,9 @@ function SectionHeading({ number, title }: { number: string; title: string }) {
   );
 }
 
-const META = [
-  { label: 'Type', value: 'Product Design + Full-Stack Build' },
-  { label: 'My Role', value: 'Sole designer and co-developer' },
-  { label: 'Platform', value: 'Web · Hebrew / English' },
-  { label: 'Status', value: 'MVP, live in development' },
-];
-
-const ROLES = [
-  'Product strategy and definition: what it is, what it is not, and what ships first',
-  'Research: conversations with people who had already made the move, which is where the ordering came from. A large part of it now runs through the podcast, a marketing arm of Reloways that doubles as a standing source of first-hand accounts',
-  'Information architecture: the task model, its dependencies, and the content structure beneath it',
-  'User flows, UX and UI, and the design system that keeps them consistent',
-  'Prototyping, then the frontend build, including a Hebrew and English interface that mirrors properly rather than reading as a translation',
-  'Working with the developer day to day, so decisions were made against what could actually be built',
-];
-
 export default function RelowaysShortPage() {
   const project = PROJECTS.find((p) => p.index === '01')!;
+  const t = getCopy(useLocale());
 
   return (
     <div className="bg-[var(--background)]">
@@ -84,24 +71,24 @@ export default function RelowaysShortPage() {
       <section className="border-b border-[var(--border-subtle)] py-16 lg:py-20">
         <div className="mx-auto max-w-[1360px] px-6">
 
-          <p className="type-kicker text-[#732fff] mb-6">Case study</p>
+          <p className="type-kicker text-[#732fff] mb-6">{t.kicker}</p>
 
           <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6">
-            Designing a Relocation Platform from the Ground Up, While Relocating Myself
+            {t.title}
           </h1>
           <p className="case-lead">
-            Reloways began as a personal response to moving country myself. I designed and built a platform that brings practical knowledge, trusted local services, and community into one place, while living the problem it solves.
+            {t.lead}
           </p>
 
           <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-4 lg:grid-cols-5">
-            {META.map((item) => (
+            {t.meta.map((item) => (
               <div key={item.label}>
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">{item.label}</p>
                 <p className="text-sm text-[var(--text-primary)] font-medium">{item.value}</p>
               </div>
             ))}
             <div className="col-span-2 sm:col-span-4 lg:col-span-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-3">Tools</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-3">{t.toolsLabel}</p>
               <div className="flex flex-wrap gap-x-8 gap-y-4">
                 {project.tools.map((tool) => (
                   <ToolBadge key={tool.name} tool={tool} />
@@ -117,7 +104,7 @@ export default function RelowaysShortPage() {
         <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/9' }}>
           <Image
             src="/images/home/projects/reloways-hero-laptop.jpg"
-            alt="The Reloways homepage open on a laptop in a Berlin cafe"
+            alt={t.heroAlt}
             fill
             className="object-cover"
             sizes="(max-width: 1360px) 100vw, 1360px"
@@ -131,104 +118,88 @@ export default function RelowaysShortPage() {
 
         {/* 01 */}
         <div className="case-section space-y-6">
-          <SectionHeading number="01" title="The Problem" />
+          <SectionHeading number={t.problem.number} title={t.problem.title} />
           <p>
-            Relocation is not one problem. It is dozens of small ones that arrive at different times and in an order nobody tells you: registering your address, a flat, health insurance, a bank account, a doctor, tax, and the ordinary local services you need from people you have no way to vet.
+            {t.problem.p1}
           </p>
           <p>
-            None of that information is missing. It sits across Google, Facebook groups, WhatsApp threads, and government sites written in German, and every piece of it assumes you already know which piece you need. It is findable. What does not exist is one place that holds it together, including the part that matters most: the live conversation inside those groups, where people going through the move right now tell each other what is actually true this month.
+            {t.problem.p2}
           </p>
           <blockquote className="case-quote">
             <p>
-              The real problem was not a lack of information. It was knowing what to do, when to do it, and who to trust.
+              {t.problem.quote}
             </p>
           </blockquote>
 
           <CaseFigure
             src="/images/projects/reloways/reloways-before-state.png"
-            alt="A collage of real questions from Israeli expat groups in Berlin about permits, apartments, licences, and finding Hebrew-speaking professionals"
+            alt={t.problem.figureAlt}
             aspect="2915/1820"
-            caption="Where people looked before. Same questions, every week, answers scattered across a dozen threads."
+            caption={t.problem.figureCaption}
           />
         </div>
 
         {/* 02 */}
         <div className="case-section space-y-6">
-          <SectionHeading number="02" title="Who It Is For" />
+          <SectionHeading number={t.audience.number} title={t.audience.title} />
           <p>
-            Reloways is for people working out how to live in a city they have just arrived in, in the first months when nothing is familiar and every decision carries a risk they cannot size. I started with Israelis moving to Berlin because that was the move I was making and the community I could reach, but the architecture was built for any nationality and city pair from the start. The first audience is a starting point, not the definition of the product.
+            {t.audience.p1}
           </p>
 
           <CaseFigure
             src="/images/projects/reloways/reloways-personas.png"
-            alt="Six Reloways personas, three service seekers and three service providers, each with bio, goals, frustrations, and needs"
+            alt={t.audience.figureAlt}
             aspect="2842/1521"
-            caption="Six personas: the people arriving, and the people already there who can help them."
+            caption={t.audience.figureCaption}
           />
         </div>
 
         {/* 03 */}
         <div className="case-section space-y-8">
-          <SectionHeading number="03" title="What I Built" />
+          <SectionHeading number={t.built.number} title={t.built.title} />
           <p>
-            Three decisions carry the product. Each one came out of the problem above rather than from a feature list.
+            {t.built.intro}
           </p>
 
-          <div className="space-y-4">
-            <h3 className="case-subheading">A platform that understands where you are</h3>
-            <p>
-              Most relocation sites open on a directory and leave you to work out which part applies to you. Reloways starts by learning about you instead, so it can put the right content and the right route in front of your particular move. It opens with where you are, what your situation is, and whether you have landed yet, and what it learns shapes everything after it. Someone with a visa appointment in three days and someone still weighing up whether to move do not get the same product. The system routes you: it shows you the path and what to do next.
-            </p>
-            <PlaceholderFigure label="Onboarding wizard, two or three real steps" />
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="case-subheading">A checklist that knows what comes next</h3>
-            <p>
-              A relocation contains hundreds of tasks and almost none of them matter at the same moment. The checklist is personalised and ordered: grouped by when a thing happens, ranked by how urgent it is, and aware of which task blocks which. Registering your address sits under almost everything else, so it is never something you scroll past. The complexity stays inside the system instead of landing on the user.
-            </p>
-            <PlaceholderFigure label="The task checklist, showing phases and urgency" />
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="case-subheading">Knowledge connected to action</h3>
-            <p>
-              A guide that only explains leaves you to act somewhere else. Every article carries its task inside it, at the point in the text where you would actually do the thing. Reading and doing happen in one place, which is what turns a pile of content into a product.
-            </p>
-            <PlaceholderFigure label="An article with an inline task card" aspect="4/3" />
-          </div>
+          {t.built.blocks.map((block, i) => (
+            <div key={block.heading} className="space-y-4">
+              <h3 className="case-subheading">{block.heading}</h3>
+              <p>{block.body}</p>
+              <PlaceholderFigure label={block.figure} aspect={i === 2 ? '4/3' : '16/9'} />
+            </div>
+          ))}
 
           <p>
-            Alongside these sits a directory of local businesses, services, and the people behind them. It is the part that answers the third question, the one about who to trust, and it is the reason the product is more than a set of instructions.
+            {t.built.closing}
           </p>
         </div>
 
         {/* 04 */}
         <div className="case-section space-y-6">
-          <SectionHeading number="04" title="My Role" />
+          <SectionHeading number={t.role.number} title={t.role.title} />
           <p>
-            I designed Reloways from the ground up: from defining what the product should be and how its information is structured, through the UX, the visual language, and the interaction patterns, to writing a good deal of the code.
+            {t.role.intro}
           </p>
           <ul>
-            {ROLES.map((r) => <li key={r}>{r}</li>)}
+            {t.role.items.map((r) => <li key={r}>{r}</li>)}
           </ul>
           <p>
-            Two things have been hard. Establishing the real order of German bureaucracy accurately enough to encode it, and then making something that layered feel obvious to use. The second one is not finished and probably never is. I am still talking to users and listening for where the real needs and the real friction sit.
+            {t.role.closing}
           </p>
         </div>
 
         {/* 05 */}
         <div className="case-section space-y-6">
-          <SectionHeading number="05" title="Where It Stands" />
+          <SectionHeading number={t.status.number} title={t.status.title} />
           <p>
-            Reloways is live and still being built. Onboarding, the task system, the knowledge centre, and the directory of local businesses and services all work, and the library of articles and podcast episodes grows every week. What began as a personal response to one move has grown into a platform holding practical knowledge, local services, and the community around both.
+            {t.status.p1}
           </p>
           <p>
-            The current work is hardening the product and shipping features lean and fast against what the Israeli community in Berlin is actually asking for, which is the audience it is being proven on before it extends. It is a product still in motion rather than a finished piece of work, and it gets a little larger every day.
+            {t.status.p2}
           </p>
 
           <PlaceholderFigure
-            label="The live product on a phone. Two or three real screens, not a mockup."
+            label={t.status.figure}
             aspect="16/9"
           />
         </div>
