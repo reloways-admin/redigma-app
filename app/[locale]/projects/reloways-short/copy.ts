@@ -14,7 +14,8 @@ export type CaseCopy = {
     figureAlt: string; figureCaption: string;
   };
   audience: {
-    number: string; title: string; p1: string;
+    number: string; title: string;
+    p1: string; p2: string; p3: string; p4: string;
     figureAlt: string; figureCaption: string;
   };
   built: {
@@ -59,7 +60,10 @@ const en: CaseCopy = {
   audience: {
     number: '02',
     title: 'Who It Is For',
-    p1: 'Reloways is for people working out how to live in a city they have just arrived in, in the first months when nothing is familiar and every decision carries a risk they cannot size. I started with Israelis moving to Berlin because that was the move I was making and the community I could reach, but the architecture was built for any nationality and city pair from the start. The first audience is a starting point, not the definition of the product.',
+    p1: 'Reloways is for people trying to build a life somewhere new, and particularly for the first months, when nothing is familiar yet and every decision comes with uncertainty.',
+    p2: 'I started with Israelis moving to Berlin, because that was the move I was making myself and the community I had access to. It let me start from an audience I know well, understand what it needs, and test the product in a real setting.',
+    p3: 'But the product was not built around that community alone. From the start I planned the architecture so it could fit different communities, and different combinations of city and language.',
+    p4: 'The first audience is a starting point, not a definition of the product.',
     figureAlt: 'Six Reloways personas, three service seekers and three service providers, each with bio, goals, frustrations, and needs',
     figureCaption: 'Six personas: the people arriving, and the people already there who can help them.',
   },
@@ -136,7 +140,10 @@ const he: CaseCopy = {
   audience: {
     number: '02',
     title: 'למי זה',
-    p1: 'Reloways מיועד לאנשים שמנסים להבין איך חיים בעיר שהם בדיוק הגיעו אליה, בחודשים הראשונים שבהם שום דבר לא מוכר וכל החלטה נושאת סיכון שהם לא יודעים להעריך את גודלו. התחלתי עם ישראלים שעוברים לברלין כי זה היה המעבר שאני עשיתי והקהילה שהייתה לי גישה אליה, אבל הארכיטקטורה נבנתה מההתחלה לכל צירוף של לאום ועיר. הקהל הראשון הוא נקודת התחלה, לא ההגדרה של המוצר.',
+    p1: 'Reloways מיועד לאנשים שמנסים לבנות חיים במקום חדש, במיוחד בחודשים הראשונים, כשהכול עדיין לא מוכר וכל החלטה מגיעה עם חוסר ודאות.',
+    p2: 'התחלתי עם ישראלים שעוברים לברלין, כי זה היה המעבר שאני עצמי עברתי והקהילה שהייתה לי גישה אליה. זה אפשר לי להתחיל מקהל שאני מכיר היטב, להבין את הצרכים שלו ולבחון את המוצר בסביבה אמיתית.',
+    p3: 'אבל המוצר לא נבנה סביב הקהילה הזאת בלבד. מההתחלה תכננתי את הארכיטקטורה כך שתוכל להתאים לקהילות שונות ולשילובים שונים של עיר ושפה.',
+    p4: 'הקהל הראשון הוא נקודת התחלה, לא הגדרה של המוצר.',
     figureAlt: 'שש פרסונות של Reloways, שלושה מחפשי שירות ושלושה נותני שירות, לכל אחת ביוגרפיה, מטרות, תסכולים וצרכים',
     figureCaption: 'שש פרסונות: האנשים שמגיעים, והאנשים שכבר שם ויכולים לעזור להם.',
   },

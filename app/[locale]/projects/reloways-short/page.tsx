@@ -154,6 +154,15 @@ export default function RelowaysShortPage() {
           <p>
             {t.audience.p1}
           </p>
+          <p>
+            {t.audience.p2}
+          </p>
+          <p>
+            {t.audience.p3}
+          </p>
+          <p>
+            {t.audience.p4}
+          </p>
 
           <CaseFigure
             src="/images/projects/reloways/reloways-personas.png"
