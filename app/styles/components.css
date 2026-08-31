@@ -368,3 +368,84 @@ text-decoration-color: var(--border-subtle);
     transition: none;
   }
 }
+
+/* ── Case study long form ────────────────────────────────────────────────────
+   These pages run 1,200 to 1,800 words, which is reading rather than scanning,
+   and they were set like interface copy: 16px on a 1.5 line height across a
+   752px column, roughly 94 characters a line. Comfortable reading sits between
+   60 and 75.
+
+   Three changes do most of the work: a narrower column, a taller line, and
+   body text one step lighter than the headings so the hierarchy reads without
+   needing size alone to carry it.
+
+   Bare paragraphs are targeted with :not([class]) on purpose. The page also
+   contains designed blocks whose own Tailwind classes must keep winning.     */
+
+.case-prose {
+  max-width: 42.5rem; /* 680px, about 68 characters at the body size below */
+}
+
+.case-prose p:not([class]),
+.case-prose li:not([class]) {
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.case-prose p:not([class]) + p:not([class]) {
+  margin-block-start: 1.25em;
+}
+
+/* Emphasis inside long form should darken rather than only embolden. */
+.case-prose strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.case-prose ul:not([class]) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+}
+
+.case-prose ul:not([class]) li::marker {
+  color: var(--text-secondary);
+}
+
+/* A heading belongs to the text beneath it, so the space above is larger than
+   the space below. Without this the two read as equally distant. */
+.case-heading {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (min-width: 1024px) {
+  .case-heading { font-size: 2rem; }
+}
+
+.case-subheading {
+  font-size: 1.3125rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* The standfirst under the title carries the summary, so it sits between the
+   title and the body in weight as well as size. */
+.case-lead {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 36rem;
+}
+
+@media (min-width: 1024px) {
+  .case-lead { font-size: 1.3125rem; }
+}
