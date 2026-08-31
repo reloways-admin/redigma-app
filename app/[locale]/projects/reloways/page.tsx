@@ -191,9 +191,11 @@ export default function RelowaysPage() {
             </p>
           </blockquote>
 
-          <ImagePlaceholder
-            label="The before state: a screenshot collage of where people actually look today. A German PDF, a Reddit thread, a Facebook group question repeated three times. This is the strongest opening image the page can have."
-            aspect="16/9"
+          <CaseFigure
+            src="/images/projects/reloways/reloways-before-state.png"
+            alt="A collage of real questions from Israeli expat groups in Berlin, asking about driving licences, apartment renovations, residence permits, and finding a Hebrew-speaking electrician"
+            aspect="2915/1820"
+            caption="Where people actually look today. The same questions, asked again every week, with the answers scattered across a dozen threads."
           />
         </div>
 
