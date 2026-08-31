@@ -383,24 +383,25 @@ text-decoration-color: var(--border-subtle);
    contains designed blocks whose own Tailwind classes must keep winning.     */
 
 .case-prose {
-  max-width: 42.5rem; /* 680px, about 68 characters at the body size below */
+  max-width: 46rem; /* 736px, about 70 characters at the body size below */
 }
 
 .case-prose p:not([class]),
 .case-prose li:not([class]) {
-  font-size: 1.0625rem; /* 17px */
-  line-height: 1.75;
-  color: var(--text-secondary);
+  font-size: 1.3125rem; /* 21px */
+  line-height: 1.7;
+  color: var(--text-primary);
 }
 
 .case-prose p:not([class]) + p:not([class]) {
   margin-block-start: 1.25em;
 }
 
-/* Emphasis inside long form should darken rather than only embolden. */
+/* Body copy is now near-black, so emphasis can no longer work by darkening.
+   It carries on weight alone, which needs a full step to stay visible. */
 .case-prose strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .case-prose ul:not([class]) {
@@ -412,13 +413,13 @@ text-decoration-color: var(--border-subtle);
 }
 
 .case-prose ul:not([class]) li::marker {
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 /* A heading belongs to the text beneath it, so the space above is larger than
    the space below. Without this the two read as equally distant. */
 .case-heading {
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   line-height: 1.25;
   letter-spacing: -0.015em;
   font-weight: 700;
@@ -426,11 +427,11 @@ text-decoration-color: var(--border-subtle);
 }
 
 @media (min-width: 1024px) {
-  .case-heading { font-size: 2rem; }
+  .case-heading { font-size: 2.5rem; }
 }
 
 .case-subheading {
-  font-size: 1.3125rem;
+  font-size: 1.625rem;
   line-height: 1.35;
   letter-spacing: -0.01em;
   font-weight: 700;
@@ -440,14 +441,14 @@ text-decoration-color: var(--border-subtle);
 /* The standfirst under the title carries the summary, so it sits between the
    title and the body in weight as well as size. */
 .case-lead {
-  font-size: 1.1875rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  max-width: 36rem;
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  max-width: 44rem;
 }
 
 @media (min-width: 1024px) {
-  .case-lead { font-size: 1.3125rem; }
+  .case-lead { font-size: 1.75rem; }
 }
 
 
@@ -461,11 +462,11 @@ text-decoration-color: var(--border-subtle);
    alternation is what gives a long read a sense of pace.                     */
 
 .case-shell {
-  max-width: 60rem; /* 960px, the width figures are allowed to use */
+  max-width: 66rem; /* 1056px, the width figures are allowed to use */
 }
 
 .case-col {
-  max-width: 42.5rem; /* 680px, the reading width */
+  max-width: 46rem; /* 736px, the reading width */
   margin-inline: auto;
 }
 
@@ -479,13 +480,13 @@ text-decoration-color: var(--border-subtle);
   margin-block: 3.5rem;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1140px) {
   .case-figure {
-    /* Half of 60rem minus the prose *content* width (42.5rem less the 3rem
+    /* Half of 66rem minus the prose *content* width (46rem less the 3rem
        of horizontal padding), so a figure centres on the text column rather
        than sitting a padding-width to one side of it. */
-    margin-inline: -10.25rem;
-    width: 60rem;
+    margin-inline: -11.5rem;
+    width: 66rem;
     max-width: none;
   }
 }
@@ -520,7 +521,7 @@ text-decoration-color: var(--border-subtle);
 }
 
 .case-quote p {
-  font-size: 1.375rem;
+  font-size: 1.75rem;
   line-height: 1.5;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -528,13 +529,13 @@ text-decoration-color: var(--border-subtle);
 }
 
 @media (min-width: 1024px) {
-  .case-quote p { font-size: 1.5rem; }
+  .case-quote p { font-size: 1.875rem; }
 }
 
 /* Caption under a figure, kept clearly subordinate to the body. */
 .case-caption {
-  margin-block-start: 0.875rem;
-  font-size: 0.875rem;
+  margin-block-start: 1rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: var(--text-secondary);
   text-align: center;

@@ -13,10 +13,40 @@ function ImagePlaceholder({ label = 'Image coming soon', aspect = '16/9' }: { la
         className="flex w-full items-center justify-center rounded-2xl border border-dashed border-[var(--border-subtle)] bg-[var(--surface-1)]"
         style={{ aspectRatio: aspect }}
       >
-        <p className="max-w-lg px-8 text-center text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+        <p className="max-w-lg px-8 text-center text-[1.125rem] leading-relaxed text-[var(--text-secondary)]">
           {label}
         </p>
       </div>
+    </figure>
+  );
+}
+
+function CaseFigure({
+  src,
+  alt,
+  caption,
+  aspect = '16/9',
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  aspect?: string;
+}) {
+  return (
+    <figure className="case-figure">
+      <div
+        className="relative w-full overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-white"
+        style={{ aspectRatio: aspect }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          sizes="(max-width: 1140px) 100vw, 1056px"
+        />
+      </div>
+      {caption ? <figcaption className="case-caption">{caption}</figcaption> : null}
     </figure>
   );
 }
@@ -43,7 +73,7 @@ function FeatureBlock({ number, title, children }: { number: string; title: stri
         <span className="text-sm font-bold text-[#732fff]">{number}</span>
         <h3 className="case-subheading">{title}</h3>
       </div>
-      <div className="space-y-4 text-[1.0625rem] leading-[1.75] text-[var(--text-secondary)]">
+      <div className="space-y-4 text-[1.3125rem] leading-[1.7] text-[var(--text-primary)]">
         {children}
       </div>
     </div>
@@ -57,8 +87,8 @@ function DecisionItem({ number, title, body }: { number: number; title: string; 
         {number}
       </span>
       <div>
-        <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-1">{title}</p>
-        <p className="text-[1.0625rem] leading-[1.7] text-[var(--text-secondary)]">{body}</p>
+        <p className="text-[1.3125rem] font-semibold text-[var(--text-primary)] mb-1">{title}</p>
+        <p className="text-[1.3125rem] leading-[1.7] text-[var(--text-primary)]">{body}</p>
       </div>
     </div>
   );
@@ -78,7 +108,7 @@ export default function RelowaysPage() {
           <p className="type-kicker text-[#732fff] mb-6">Case study</p>
 
           <div>
-              <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
+              <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6">
                 Designing a Relocation Platform from the Ground Up, While Relocating Myself
               </h1>
               <p className="case-lead">
@@ -175,7 +205,7 @@ export default function RelowaysPage() {
           </p>
 
           <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
-            <table className="w-full text-sm">
+            <table className="w-full text-base">
               <thead>
                 <tr className="border-b border-[var(--border-subtle)] bg-[var(--surface-1)]">
                   <th className="px-5 py-3 text-left text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">Archetype</th>
@@ -192,13 +222,20 @@ export default function RelowaysPage() {
                 ].map((row) => (
                   <tr key={row.archetype} className="bg-white">
                     <td className="px-5 py-3 font-semibold text-[var(--text-primary)]">{row.archetype}</td>
-                    <td className="px-5 py-3 text-[0.9375rem] text-[var(--text-secondary)]">{row.profile}</td>
-                    <td className="px-5 py-3 text-[0.9375rem] text-[var(--text-secondary)]">{row.need}</td>
+                    <td className="px-5 py-3 text-[1.125rem] text-[var(--text-primary)]">{row.profile}</td>
+                    <td className="px-5 py-3 text-[1.125rem] text-[var(--text-primary)]">{row.need}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+
+          <CaseFigure
+            src="/images/projects/reloways/reloways-personas.png"
+            alt="Six Reloways personas, three service seekers and three service providers, each with bio, goals, frustrations, and needs"
+            aspect="2842/1521"
+            caption="The four archetypes written out as six personas, split across the two sides of the marketplace."
+          />
 
           <p>
             The primary audience at launch is <strong className="font-semibold text-[var(--text-primary)]">Israelis</strong>, hence the bilingual Hebrew/English experience with full RTL support. But the architecture was designed to extend to any nationality + city combination.
@@ -289,7 +326,7 @@ export default function RelowaysPage() {
           />
 
           <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
-            <table className="w-full text-sm">
+            <table className="w-full text-base">
               <thead>
                 <tr className="border-b border-[var(--border-subtle)] bg-[var(--surface-1)]">
                   <th className="px-5 py-3 text-left text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">Layer</th>
@@ -306,8 +343,8 @@ export default function RelowaysPage() {
                 ].map((row) => (
                   <tr key={row.layer} className="bg-white">
                     <td className="px-5 py-3 font-semibold text-[var(--text-primary)]">{row.layer}</td>
-                    <td className="px-5 py-3 text-[var(--text-secondary)] font-mono text-xs">{row.tool}</td>
-                    <td className="px-5 py-3 text-[0.9375rem] text-[var(--text-secondary)]">{row.why}</td>
+                    <td className="px-5 py-3 text-[var(--text-primary)] font-mono text-sm">{row.tool}</td>
+                    <td className="px-5 py-3 text-[1.125rem] text-[var(--text-primary)]">{row.why}</td>
                   </tr>
                 ))}
               </tbody>
@@ -328,15 +365,15 @@ export default function RelowaysPage() {
             <SubHeading title="What Was Hard" />
             <div className="space-y-6">
               <div>
-                <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-2">The bilingual RTL problem.</p>
+                <p className="text-[1.3125rem] font-semibold text-[var(--text-primary)] mb-2">The bilingual RTL problem.</p>
                 <p>Hebrew reads right-to-left. Every layout decision (navigation, card grids, arrow icons, text alignment, breadcrumbs) had to work in both directions. This wasn't just <code className="text-xs bg-[var(--surface-1)] border border-[var(--border-subtle)] rounded px-1.5 py-0.5">direction: rtl</code>; it required thinking about information hierarchy differently depending on reading direction. I built a custom hook that detects locale and flips directional UI tokens accordingly.</p>
               </div>
               <div>
-                <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-2">Designing for uncertainty.</p>
+                <p className="text-[1.3125rem] font-semibold text-[var(--text-primary)] mb-2">Designing for uncertainty.</p>
                 <p>Users arrive with wildly different situations: a freelancer who landed last week, a student with a visa appointment in 3 days, a parent who needs Kita for a 2-year-old. The challenge was building one interface that serves all of them without overwhelming anyone. The archetype + audience-tag system was the solution: tasks only surface if they're relevant to your situation.</p>
               </div>
               <div>
-                <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-2">The content architecture problem.</p>
+                <p className="text-[1.3125rem] font-semibold text-[var(--text-primary)] mb-2">The content architecture problem.</p>
                 <p>Relocation guides usually fail because they're written as flat lists. A real relocation has a graph structure, where tasks unlock other tasks. Designing the dependency system required deep research into German bureaucracy, interviews with people who'd moved, and mapping the actual causal relationships. The Anmeldung insight, that it's the absolute Day 1 blocker without which nothing else works, shaped the entire information hierarchy.</p>
               </div>
             </div>
@@ -399,8 +436,8 @@ export default function RelowaysPage() {
               { role: 'Content Architect', desc: 'Bilingual editorial system, article templates, task taxonomy' },
             ].map((item) => (
               <div key={item.role} className="rounded-xl border border-[var(--border-subtle)] bg-white p-4">
-                <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-1">{item.role}</p>
-                <p className="text-[0.9375rem] leading-[1.65] text-[var(--text-secondary)]">{item.desc}</p>
+                <p className="text-[1.3125rem] font-semibold text-[var(--text-primary)] mb-1">{item.role}</p>
+                <p className="text-[1.125rem] leading-[1.65] text-[var(--text-primary)]">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -425,7 +462,7 @@ export default function RelowaysPage() {
             ].map((item) => (
               <div key={item.label} className="flex gap-4 items-baseline border-b border-[var(--border-subtle)] pb-3 last:border-b-0 last:pb-0">
                 <p className="w-44 shrink-0 text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)]">{item.label}</p>
-                <p className="text-[1.0625rem] leading-[1.7] text-[var(--text-primary)]">{item.value}</p>
+                <p className="text-[1.3125rem] leading-[1.7] text-[var(--text-primary)]">{item.value}</p>
               </div>
             ))}
           </div>
@@ -447,7 +484,7 @@ export default function RelowaysPage() {
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
                 <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#732fff]" />
-                <span className="text-[1.0625rem] leading-[1.7] text-[var(--text-secondary)]">{item}</span>
+                <span className="text-[1.3125rem] leading-[1.7] text-[var(--text-primary)]">{item}</span>
               </li>
             ))}
           </ul>

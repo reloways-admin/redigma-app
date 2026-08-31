@@ -80,7 +80,7 @@ export default function BitPage() {
           <p className="type-kicker text-[#732fff] mb-6">Case study</p>
 
           <div>
-            <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
+            <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6">
               Building Blocks: Crafting a Versatile Data Table Component
             </h1>
             <p className="case-lead">
@@ -219,7 +219,7 @@ export default function BitPage() {
           </p>
 
           <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
-            <table className="w-full text-sm">
+            <table className="w-full text-base">
               <thead>
                 <tr className="border-b border-[var(--border-subtle)] bg-[var(--surface-1)]">
                   <th className="px-5 py-3 text-left text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">Behaviour</th>
@@ -230,7 +230,7 @@ export default function BitPage() {
                 {BEHAVIOURS.map((row) => (
                   <tr key={row.name} className="bg-white">
                     <td className="px-5 py-3 font-semibold text-[var(--text-primary)] align-top whitespace-nowrap">{row.name}</td>
-                    <td className="px-5 py-3 text-[0.9375rem] leading-[1.6] text-[var(--text-secondary)]">{row.note}</td>
+                    <td className="px-5 py-3 text-[1.125rem] leading-[1.6] text-[var(--text-primary)]">{row.note}</td>
                   </tr>
                 ))}
               </tbody>

@@ -54,7 +54,7 @@ function ChallengeBlock({ number, title, children }: { number: string; title: st
         <span className="text-sm font-bold text-[#732fff]">{number}</span>
         <h3 className="case-subheading">{title}</h3>
       </div>
-      <div className="space-y-4 text-[1.0625rem] leading-[1.75] text-[var(--text-secondary)]">
+      <div className="space-y-4 text-[1.3125rem] leading-[1.7] text-[var(--text-primary)]">
         {children}
       </div>
     </div>
@@ -88,7 +88,7 @@ export default function GoMatchItPage() {
           <p className="type-kicker text-[#732fff] mb-6">Case study</p>
 
           <div>
-            <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
+            <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6">
               A 3-Month Design Sprint to Launch a Usable and Scalable MVP
             </h1>
             <p className="case-lead">
@@ -163,7 +163,7 @@ export default function GoMatchItPage() {
                       <path d="M2 5l2.5 2.5 3.5-4" stroke="#732fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="text-[1.0625rem] leading-[1.7] text-[var(--text-secondary)]">{item}</span>
+                  <span className="text-[1.3125rem] leading-[1.7] text-[var(--text-primary)]">{item}</span>
                 </li>
               ))}
             </ul>
