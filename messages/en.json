@@ -62,8 +62,8 @@
     },
     "entryPoints": {
       "subtitle": "Different stages, same goal: clarity before complexity.",
-      "title": "There are three key moments when I typically",
-      "titleHighlight": "step in",
+      "title": "Wherever you are,",
+      "titleHighlight": "I can step in",
       "stages": {
         "before": {
           "label": "Before anything",
@@ -314,7 +314,7 @@
         "messagePlaceholder": "Tell me about your product: what it is, what’s not working, and what you want to improve.",
         "servicesLabel": "What do you need?",
         "servicesHint": "You can choose more than one.",
-        "submit": "Get in touch",
+        "submit": "Let's figure it out",
         "submitting": "Sending…",
         "successTitle": "Message sent!",
         "successBody": "I’ll get back to you within 24 hours.",
