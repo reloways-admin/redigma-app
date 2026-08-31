@@ -52,8 +52,8 @@
     },
     "entryPoints": {
       "subtitle": "Unterschiedliche Phasen, gleiches Ziel: Klarheit vor Komplexität.",
-      "title": "Es gibt drei entscheidende Momente, in denen ich typischerweise",
-      "titleHighlight": "einsteige",
+      "title": "Egal, wo Sie gerade stehen,",
+      "titleHighlight": "ich steige ein",
       "stages": {
         "before": {
           "label": "Vor allem anderen",
@@ -267,7 +267,7 @@
         "messagePlaceholder": "Erzähl mir von deinem Produkt: was es ist, was nicht funktioniert und was du verbessern möchtest.",
         "servicesLabel": "Was brauchst du?",
         "servicesHint": "Du kannst auch mehrere auswählen.",
-        "submit": "Nachricht senden",
+        "submit": "Finden wir es heraus",
         "submitting": "Wird gesendet…",
         "successTitle": "Nachricht gesendet!",
         "successBody": "Ich melde mich innerhalb von 24 Stunden bei dir.",
