@@ -10,7 +10,7 @@ export type CaseCopy = {
   heroAlt: string;
   problem: {
     number: string; title: string;
-    p1: string; p2: string; p3: string; quote: string;
+    p1: string; p2: string; p3: string; p4: string; p5: string; quote: string;
     figureAlt: string; figureCaption: string;
   };
   audience: {
@@ -47,12 +47,14 @@ const en: CaseCopy = {
   problem: {
     number: '01',
     title: 'The Problem',
-    p1: 'Relocation is not one problem. It is dozens of small ones that arrive at different times and in an order nobody tells you: registering with the city, finding a flat, working out which insurance you need, a bank account, a doctor, a tax adviser, a language teacher, a tradesperson you can actually trust.',
-    p2: 'None of that information is missing. It sits across Google, Facebook groups, WhatsApp threads, and government sites written in German, and every piece of it assumes you already know which piece you need. It is findable. What does not exist is one place that holds it together, including the part that matters most: the live conversation inside those groups, where people going through the move right now tell each other what is actually true this month.',
-    p3: 'Moving to Berlin myself, I kept looking up the same things over and over. The question a search result could never answer was not where the information was. It was what I had to do now, and what came after it.',
-    quote: 'The real problem was not a lack of information. It was knowing what to do, when to do it, and who to trust.',
+    p1: 'Relocation is not one problem. It is dozens of small ones that arrive at different times, in an order nobody really tells you about: registering with the city, finding a flat, working out which insurance you need, opening a bank account, finding a doctor, a tax adviser, a language teacher, or a tradesperson you can actually trust.',
+    p2: 'The information exists. It is spread across Google, Facebook groups, WhatsApp threads, and government websites, often in German. Every source hands you a different piece of the picture, and assumes you already know which piece you are looking for.',
+    p3: 'Going through it myself, what I wanted was one place that answered plainly in my own language, helped me find services and people worth trusting, and told me what I had to do now and what came after it.',
+    p4: 'Something else was missing too: the knowledge that never reaches a guide. The answers from people going through the same thing right now. What has changed recently, who they recommend, what worked for them, and what is worth knowing before you start.',
+    p5: 'Moving to Berlin myself, I kept looking up the same things over and over, jumping between sources to assemble the picture on my own.',
+    quote: 'The real problem was not a lack of information. It was that no single place connected the information, the people, and the services, and helped you work out what to do, when to do it, and who to trust.',
     figureAlt: 'A collage of real questions from Israeli expat groups in Berlin about permits, apartments, licences, and finding Hebrew-speaking professionals',
-    figureCaption: 'Where people looked before. Same questions, every week, answers scattered across a dozen threads.',
+    figureCaption: 'Where people looked before. "Anyone know a Hebrew-speaking accountant?" "How long does the residence permit take?" "Looking for a plumber, any recommendations?" The same questions come round every week, and the answers stay buried in the thread they were asked in.',
   },
   audience: {
     number: '02',
@@ -122,12 +124,14 @@ const he: CaseCopy = {
   problem: {
     number: '01',
     title: 'הבעיה',
-    p1: 'רילוקיישן הוא לא בעיה אחת. הוא עשרות בעיות קטנות שמגיעות בזמנים שונים ובסדר שאף אחד לא מספר לך: רישום בעירייה, מציאת דירה, להבין איזה ביטוח צריך, חשבון בנק, רופא, יועץ מס, מורה לשפה, ובעל מקצוע שאפשר באמת לסמוך עליו.',
-    p2: 'שום פיסת מידע כזאת לא חסרה. היא יושבת בגוגל, בקבוצות פייסבוק, בשרשורי וואטסאפ ובאתרים ממשלתיים בגרמנית, וכל פיסה מניחה שאתה כבר יודע איזו פיסה אתה צריך. אפשר למצוא את הכל. מה שלא קיים הוא מקום אחד שמחזיק את זה יחד, וכולל גם את החלק שהכי חשוב: השיחה החיה בתוך הקבוצות, שבה אנשים שעוברים את המעבר ממש עכשיו מספרים זה לזה מה נכון החודש.',
-    p3: 'בזמן המעבר שלי לברלין מצאתי את עצמי מחפש שוב ושוב את אותם דברים. השאלה שתוצאת חיפוש אף פעם לא ענתה עליה לא הייתה איפה המידע נמצא. היא הייתה מה אני צריך לעשות עכשיו, ומה בא אחר כך.',
-    quote: 'הבעיה האמיתית לא הייתה חוסר במידע. היא הייתה לדעת מה לעשות, מתי לעשות את זה, ובמי לבטוח.',
+    p1: 'רילוקיישן הוא לא בעיה אחת. הוא עשרות בעיות קטנות שמגיעות בזמנים שונים ובסדר שאף אחד לא באמת מספר לך עליו: להירשם בעירייה, למצוא דירה, להבין איזה ביטוח צריך, לפתוח חשבון בנק, למצוא רופא, יועץ מס, מורה לשפה או בעל מקצוע שאפשר באמת לסמוך עליו.',
+    p2: 'המידע קיים. הוא מפוזר בין Google, קבוצות Facebook, שרשורי WhatsApp ואתרים ממשלתיים, לעיתים קרובות בגרמנית. וכל מקור נותן לך חתיכה אחרת מהתמונה, ומניח שאתה כבר יודע מה אתה מחפש.',
+    p3: 'כמי שעבר את התהליך בעצמי, חיפשתי מקום אחד שייתן לי תשובות פשוטות בעברית, יעזור לי למצוא שירותים ואנשים שאפשר לסמוך עליהם, ויגיד לי מה אני צריך לעשות עכשיו ומה יבוא אחר כך.',
+    p4: 'אבל היה חסר עוד משהו: הידע שלא נמצא במדריכים. התשובות של אנשים שעוברים את אותו הדבר ממש עכשיו: מה השתנה לאחרונה, על מי הם ממליצים, מה עבד להם ומה כדאי לדעת לפני שמתחילים.',
+    p5: 'בזמן המעבר שלי לברלין מצאתי את עצמי מחפש שוב ושוב את אותם הדברים, וקופץ בין מקורות שונים כדי לחבר בעצמי את התמונה.',
+    quote: 'הבעיה האמיתית לא הייתה חוסר במידע. היא הייתה שאין מקום אחד שמחבר בין המידע, האנשים והשירותים, ועוזר להבין מה לעשות, מתי לעשות את זה, ובמי אפשר לבטוח.',
     figureAlt: 'קולאזְ של שאלות אמיתיות מקבוצות ישראלים בברלין על אישורים, דירות, רישיונות ומציאת בעלי מקצוע דוברי עברית',
-    figureCaption: 'איפה אנשים חיפשו קודם. אותן שאלות, כל שבוע, כשהתשובות מפוזרות על פני תריסר שרשורים.',
+    figureCaption: 'איפה אנשים חיפשו קודם. "מישהו מכיר רואה חשבון דובר עברית?" "כמה זמן לוקח לקבל אישור שהייה?" "מחפש אינסטלטור, יש לכם המלצות?" אותן שאלות חוזרות כל שבוע, והתשובות נשארות קבורות בשרשור שבו נשאלו.',
   },
   audience: {
     number: '02',

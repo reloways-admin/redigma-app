@@ -128,6 +128,12 @@ export default function RelowaysShortPage() {
           <p>
             {t.problem.p3}
           </p>
+          <p>
+            {t.problem.p4}
+          </p>
+          <p>
+            {t.problem.p5}
+          </p>
           <blockquote className="case-quote">
             <p>
               {t.problem.quote}
