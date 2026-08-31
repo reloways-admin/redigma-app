@@ -36,21 +36,6 @@ function CaseFigure({
   );
 }
 
-function PlaceholderFigure({ label, aspect = '16/9' }: { label: string; aspect?: string }) {
-  return (
-    <figure className="case-figure">
-      <div
-        className="flex w-full items-center justify-center rounded-2xl border border-dashed border-[var(--border-subtle)] bg-[var(--surface-1)]"
-        style={{ aspectRatio: aspect }}
-      >
-        <p className="max-w-lg px-8 text-center text-[1.125rem] leading-relaxed text-[var(--text-secondary)]">
-          {label}
-        </p>
-      </div>
-    </figure>
-  );
-}
-
 function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
     <header>
@@ -59,6 +44,13 @@ function SectionHeading({ number, title }: { number: string; title: string }) {
     </header>
   );
 }
+
+/* One figure per build block, in order. */
+const BLOCK_FIGURES = [
+  { src: '/images/projects/reloways/reloways-onboarding.png', aspect: '4020/1568' },
+  { src: '/images/projects/reloways/reloways-journey.png', aspect: '3840/2614' },
+  { src: '/images/projects/reloways/reloways-next-step.png', aspect: '2080/1320' },
+];
 
 export default function RelowaysShortPage() {
   const project = PROJECTS.find((p) => p.index === '01')!;
@@ -204,16 +196,12 @@ export default function RelowaysShortPage() {
               </div>
 
               {block.body.map((para) => <p key={para}>{para}</p>)}
-              {i === 2 ? (
-                <CaseFigure
-                  src="/images/projects/reloways/reloways-knowledge-centre.png"
-                  alt={block.figureAlt!}
-                  aspect="2880/2000"
-                  caption={block.figureCaption}
-                />
-              ) : (
-                <PlaceholderFigure label={block.figure} />
-              )}
+              <CaseFigure
+                src={BLOCK_FIGURES[i].src}
+                alt={block.figureAlt!}
+                aspect={BLOCK_FIGURES[i].aspect}
+                caption={block.figureCaption}
+              />
             </div>
           ))}
 
