@@ -8,18 +8,25 @@ import { HomeFinalCta } from '@/sections/home/final-cta';
 
 function ImagePlaceholder({ label = 'Image coming soon', aspect = '16/9' }: { label?: string; aspect?: string }) {
   return (
-    <div
-      className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] flex items-center justify-center"
-      style={{ aspectRatio: aspect }}
-    >
-      <p className="text-[0.9375rem] text-[var(--text-secondary)]">{label}</p>
-    </div>
+    <figure className="case-figure">
+      <div
+        className="flex w-full items-center justify-center rounded-2xl border border-dashed border-[var(--border-subtle)] bg-[var(--surface-1)]"
+        style={{ aspectRatio: aspect }}
+      >
+        <p className="max-w-lg px-8 text-center text-[0.9375rem] leading-relaxed text-[var(--text-secondary)]">
+          {label}
+        </p>
+      </div>
+    </figure>
   );
 }
 
-function SectionHeading({ title }: { title: string }) {
+function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
-    <h2 className="case-heading">{title}</h2>
+    <header>
+      <span className="case-number">{number}</span>
+      <h2 className="case-heading">{title}</h2>
+    </header>
   );
 }
 
@@ -144,24 +151,29 @@ export default function RelowaysPage() {
       <div className="case-prose mx-auto px-6 pb-24 space-y-20">
 
         {/* The Problem */}
-        <div className="space-y-6">
-          <SectionHeading title="The Problem" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="01" title="The Problem" />
           <p>
             Moving to a new country is one of the most stressful, document-heavy experiences a person can go through. For Israelis relocating to Berlin specifically, the gap is enormous: German bureaucracy is notoriously complex and unforgiving — you can't open a bank account without first registering your address (Anmeldung). You can't get a residence permit without the bank account. Every step has a prerequisite.
           </p>
           <p>
             Yet the available resources look like a 2009 expat forum. Fragmented Reddit threads, PDFs in German, Facebook groups where the same questions get asked every week. Nobody has mapped the actual dependency chain of tasks, told you what to do <em>first</em>, or packaged this into a language you actually read.
           </p>
-          <div className="rounded-2xl border border-[#732fff]/20 bg-[#732fff]/5 px-6 py-5">
-            <p className="text-[1.1875rem] font-semibold text-[var(--text-primary)] leading-[1.6]">
+          <blockquote className="case-quote">
+            <p>
               The core pain point: people don't know what order to do things in, and one mistake can set them back weeks.
             </p>
-          </div>
+          </blockquote>
+
+          <ImagePlaceholder
+            label="The before state: a screenshot collage of where people actually look today. A German PDF, a Reddit thread, a Facebook group question repeated three times. This is the strongest opening image the page can have."
+            aspect="16/9"
+          />
         </div>
 
         {/* Who It's For */}
-        <div className="space-y-6">
-          <SectionHeading title="Who It's For" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="02" title="Who It's For" />
           <p>
             Reloways was designed for four distinct user types, which the product calls <em>archetypes</em>. The archetype drives everything — which tasks surface, in what order, and which articles are recommended.
           </p>
@@ -199,8 +211,8 @@ export default function RelowaysPage() {
         </div>
 
         {/* What the Product Does */}
-        <div className="space-y-8">
-          <SectionHeading title="What the Product Does" />
+        <div className="case-section space-y-8">
+          <SectionHeading number="03" title="What the Product Does" />
 
           <FeatureBlock number="1" title="Personalized Onboarding Wizard">
             <p>
@@ -272,8 +284,14 @@ export default function RelowaysPage() {
         </div>
 
         {/* Tech Stack */}
-        <div className="space-y-6">
-          <SectionHeading title="The Tech Stack" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="04" title="The Tech Stack" />
+
+          <ImagePlaceholder
+            label="Architecture diagram. Next.js front end, Strapi content layer, AWS, and the Obsidian to Strapi import path. A simple boxes and arrows drawing is enough, it does not need to be pretty."
+            aspect="16/9"
+          />
+
           <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
             <table className="w-full text-sm">
               <thead>
@@ -302,8 +320,13 @@ export default function RelowaysPage() {
         </div>
 
         {/* The Design Story */}
-        <div className="space-y-10">
-          <SectionHeading title="The Design Story" />
+        <div className="case-section space-y-10">
+          <SectionHeading number="05" title="The Design Story" />
+
+          <ImagePlaceholder
+            label="The RTL problem, shown rather than explained. One screen in Hebrew beside the same screen in English, with the mirrored elements marked. Icons, arrows, progress direction, form affordances."
+            aspect="16/9"
+          />
 
           <div className="space-y-6">
             <SubHeading title="What Was Hard" />
@@ -368,8 +391,8 @@ export default function RelowaysPage() {
         </div>
 
         {/* My Role */}
-        <div className="space-y-6">
-          <SectionHeading title="My Role" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="06" title="My Role" />
           <p>I designed and built this product solo, acting as:</p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {[
@@ -388,8 +411,14 @@ export default function RelowaysPage() {
         </div>
 
         {/* Where It Is Today */}
-        <div className="space-y-6">
-          <SectionHeading title="Where It Is Today" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="07" title="Where It Is Today" />
+
+          <ImagePlaceholder
+            label="The live product as it stands. Two or three real screens on a phone, not a mockup. This is the proof shot, and it is the one a visitor scrolls to the bottom looking for."
+            aspect="16/9"
+          />
+
           <div className="rounded-2xl border border-[var(--border-subtle)] bg-white p-6 space-y-3">
             {[
               { label: 'System architecture', value: '~95% complete' },
@@ -410,8 +439,8 @@ export default function RelowaysPage() {
         </div>
 
         {/* What's Next */}
-        <div className="space-y-6">
-          <SectionHeading title="What's Next" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="08" title="What's Next" />
           <ul className="space-y-3">
             {[
               'Complete Sprint 1: 7 ARRIVE-phase articles — Anmeldung, banking, health insurance, residence permit, freelancer registration, visa, blocked account',

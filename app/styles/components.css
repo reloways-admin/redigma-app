@@ -449,3 +449,90 @@ text-decoration-color: var(--border-subtle);
 @media (min-width: 1024px) {
   .case-lead { font-size: 1.3125rem; }
 }
+
+
+/* ── Case study layout ───────────────────────────────────────────────────────
+   Fixing the measure made the page readable. It did not make it designed: it
+   was still one column of uniform grey from top to bottom, with the images
+   trapped inside the text width so nothing ever opened up.
+
+   The rhythm now alternates. Prose stays at a reading width, figures break out
+   wider, and each section opens on a rule with its number in the margin. That
+   alternation is what gives a long read a sense of pace.                     */
+
+.case-shell {
+  max-width: 60rem; /* 960px, the width figures are allowed to use */
+}
+
+.case-col {
+  max-width: 42.5rem; /* 680px, the reading width */
+  margin-inline: auto;
+}
+
+/* Figures step outside the reading column. This is the main move: narrow text,
+   wide image, narrow text.
+
+   The negative inline margin is exactly half the difference between the
+   reading width and the shell, so a figure fills the shell without any
+   restructuring of the sections around it. */
+.case-figure {
+  margin-block: 3.5rem;
+}
+
+@media (min-width: 1100px) {
+  .case-figure {
+    margin-inline: -8.75rem; /* half of 60rem minus 42.5rem */
+    width: 60rem;
+    max-width: none;
+  }
+}
+
+.case-section {
+  border-block-start: 1px solid var(--border-subtle);
+  padding-block-start: 3.5rem;
+}
+
+.case-section:first-child {
+  border-block-start: 0;
+  padding-block-start: 0;
+}
+
+/* The number sits above the heading rather than inline, so the heading keeps
+   its own left edge and the sequence still reads. */
+.case-number {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-500, #732fff);
+  margin-block-end: 0.75rem;
+}
+
+/* A quote should be a moment in the page, not a tinted rectangle. */
+.case-quote {
+  border-inline-start: 3px solid var(--purple-500, #732fff);
+  padding-inline-start: 1.75rem;
+  margin-block: 2.5rem;
+}
+
+.case-quote p {
+  font-size: 1.375rem;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 1024px) {
+  .case-quote p { font-size: 1.5rem; }
+}
+
+/* Caption under a figure, kept clearly subordinate to the body. */
+.case-caption {
+  margin-block-start: 0.875rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
