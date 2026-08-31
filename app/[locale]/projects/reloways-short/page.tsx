@@ -45,16 +45,29 @@ function SectionHeading({ number, title }: { number: string; title: string }) {
   );
 }
 
-/* One figure per build block, in order. */
-const BLOCK_FIGURES = [
-  { src: '/images/projects/reloways/reloways-onboarding-mobile.png', aspect: '3260/2369' },
+/* One figure per build block, in order.
+
+   The onboarding image is a sequence of steps, so it has to be laid out in
+   the reading direction of the page: first step on the right in Hebrew, on
+   the left in English. Mirroring with CSS would flip the screenshots
+   themselves, so there are two files instead. */
+const blockFigures = (rtl: boolean) => [
+  {
+    src: rtl
+      ? '/images/projects/reloways/reloways-onboarding-rtl.png'
+      : '/images/projects/reloways/reloways-onboarding-ltr.png',
+    aspect: '3260/2369',
+  },
   { src: '/images/projects/reloways/reloways-journey.png', aspect: '3840/2614' },
   { src: '/images/projects/reloways/reloways-next-step.png', aspect: '2080/1320' },
 ];
 
 export default function RelowaysShortPage() {
   const project = PROJECTS.find((p) => p.index === '01')!;
-  const t = getCopy(useLocale());
+  const locale = useLocale();
+  const t = getCopy(locale);
+  const rtl = locale === 'he';
+  const BLOCK_FIGURES = blockFigures(rtl);
 
   return (
     <div className="bg-[var(--background)]">
@@ -267,9 +280,11 @@ export default function RelowaysShortPage() {
           </p>
 
           <CaseFigure
-            src="/images/projects/reloways/reloways-live-phones.png"
+            src={rtl
+              ? '/images/projects/reloways/reloways-live-phones-rtl.png'
+              : '/images/projects/reloways/reloways-live-phones-ltr.png'}
             alt={t.status.figureAlt!}
-            aspect="2740/1850"
+            aspect="2740/1780"
             caption={t.status.figureCaption}
           />
         </div>
