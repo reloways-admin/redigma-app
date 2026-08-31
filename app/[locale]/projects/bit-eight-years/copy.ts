@@ -1,72 +1,80 @@
-/* Bit case study copy. Both languages side by side, same as Reloways. */
+/* Bit case study copy. Both languages side by side, same as Reloways.
+   A figure with no `src` renders as a labelled placeholder. */
 
 export type Figure = { src?: string; placeholder?: string; aspect?: string; alt?: string; caption?: string };
 
 export type BitCopy = {
   kicker: string;
   title: string;
-  lead: string;
+  subtitle: string;
+  lead: string[];
   meta: { label: string; value: string; href?: string }[];
   toolsLabel: string;
-  heroAlt: string;
-  intro: { number: string; title: string; body: string[] };
-  areas: {
+  heroFigure: Figure;
+  sections: {
     number: string;
-    kicker: string;
+    kicker?: string;
     title: string;
     body: string[];
-    blocks: { heading: string; body: string[]; figure: Figure }[];
+    figure?: Figure;
+    blocks?: { heading: string; body: string[]; figure?: Figure }[];
   }[];
-  learned: { number: string; title: string; body: string[] };
-  selection: { title: string; body: string[] };
+  closing: { title: string; body: string[] };
 };
+
+const TABLE = '/images/projects/table';
 
 const en: BitCopy = {
   kicker: 'Case study',
   title: 'Eight Years of Designing Bit',
-  lead: 'Product design, systems, and interfaces across eight years of one product changing underneath me. This is a selection rather than a project: three areas that show how I work on things that are genuinely complicated.',
+  subtitle: 'From redesigning the product to the systems still holding it together today',
+  lead: [
+    'I joined Bit in 2018 as a freelancer, when the product was early and its design language looked nothing like it does now. What started as a few discrete projects turned into eight years working closely with the team and with engineering, involved in how the product developed at every level, from the structure of the interface to the systems underneath large parts of it.',
+    'Over those years we built a new visual language from scratch, developed a design system, and made components and systems complex enough that getting them from Figma into the product was its own piece of work.',
+    'It did not end at handoff. We could build, measure, test, run surveys and A/B tests, learn from users, and go back to the design. The system we built along the way is still running inside Bit today.',
+  ],
   meta: [
     { label: 'Type', value: 'Product design and design systems' },
     { label: 'Company', value: 'Bit (bit.dev)' },
     { label: 'My Role', value: 'Head of Design' },
-    { label: 'Duration', value: 'Eight years' },
+    { label: 'Duration', value: '2018 to today' },
     { label: 'Live at', value: 'bit.dev', href: 'https://bit.dev' },
   ],
   toolsLabel: 'Tools',
-  heroAlt: 'The Table documentation page in Bit’s design system, with the full behaviour index in the sidebar',
-  intro: {
-    number: '01',
-    title: 'A Product That Kept Moving',
-    body: [
-      'Bit was never a thing I designed once and handed on. Over eight years the product changed continuously: new capabilities, new kinds of user, new commercial pressure, new technical limits. Each of those produced new design problems rather than variations on old ones.',
-      'That meant working at several levels at the same time. Sometimes the job was a single interaction. Sometimes it was a whole flow. Sometimes it was the system sitting underneath dozens of different experiences at once, where the decision you make is not what something looks like but what it is allowed to do.',
-      'The three areas below are the ones that show that range most clearly.',
-    ],
+  heroFigure: {
+    placeholder: 'Bit in 2018 beside Bit today. One image carrying the whole transformation.',
+    aspect: '16/9',
   },
-  areas: [
+  sections: [
+    {
+      number: '01',
+      title: 'A Product That Kept Moving',
+      body: [
+        'Bit was never something I designed once and handed on. Over eight years it changed continuously, and my place in the work changed with it. Sometimes the job was one specific problem. Sometimes a whole experience. Sometimes a system that had to hold up underneath dozens of different experiences at once.',
+        'Being close to the team and to engineering let us work directly: raise an idea, build a prototype, put it in front of users, find out what worked, and change it before it set into the product.',
+        'That is what made it possible to be part of how the product changed, rather than only designing it.',
+      ],
+    },
     {
       number: '02',
       kicker: 'Developer experience',
-      title: 'Making Complexity Navigable',
+      title: 'Bit’s Command System',
       body: [
-        'Bit’s developer platform carried a growing number of commands, tools, and capabilities. The old reference put all of them on one long page, so finding the command you needed meant scrolling past every command you did not.',
-        'The fix was not to design a better page. It was to give the commands a structure: category, then group, then command. That hierarchy could grow with the platform instead of degrading as it grew, and it stopped being a filing decision and became part of the interface itself.',
+        'Bit grew into a platform with a large number of commands and capabilities, and the reference put all of them on one long page. Finding the command you needed meant scrolling past every command you did not.',
+        'Working with Eden, I looked at how developers actually find a command and how they build a picture of the way capabilities relate. Instead of leaving the commands as a long list of items, we gave them a hierarchy of categories, groups, and families, so commands with something in common appear together.',
       ],
+      figure: {
+        placeholder: 'The CLI reference, with the category structure and filtering',
+        aspect: '16/9',
+      },
       blocks: [
         {
-          heading: 'Icons that do work',
+          heading: 'A visual language for each category',
           body: [
-            'Each category got its own icon, drawn as a family rather than one at a time, with shared proportions and weight. Seventy-five of them in the end.',
-            'They are not decoration. On a dense reference page, an icon lets a developer tell one class of capability from another while scanning, before reading a single label.',
+            'To make that structure scannable, I designed dedicated icons for the categories and built a full icon family around them, drawn as a set rather than one at a time.',
+            'They are not there to give the system character. On a dense page an icon lets a developer tell one class of capability from another at a glance, before reading a label, which is what makes the hierarchy usable rather than merely correct.',
           ],
-          figure: { placeholder: 'The icon set, all seventy-five together', aspect: '16/9' },
-        },
-        {
-          heading: 'Documentation as part of the product',
-          body: [
-            'Developer documentation slides easily into a pile of pages someone else has to navigate. I treated it as product surface: its own hierarchy, navigation, categories, and visual language, so the system could be understood before any command was run.',
-          ],
-          figure: { placeholder: 'The CLI reference, with categories and filtering', aspect: '16/9' },
+          figure: { placeholder: 'The icon family, and the icons in use inside the product', aspect: '16/9' },
         },
       ],
     },
@@ -75,58 +83,44 @@ const en: BitCopy = {
       kicker: 'Design system',
       title: 'A Data Table That Could Grow',
       body: [
-        'A data table looks simple until it meets a real product. Different volumes of data, different column structures, nested columns, loading, empty states, pagination, search, and every screen size, each one a separate design problem.',
-        'So I approached it as a system rather than a component. It ships in Bit’s open-source design system, which means it is not the table for one screen. It is the table other people build their tables from.',
+        'A data table looks simple until it meets a real product. Different volumes of data, different column structures, nested columns, loading, empty states, search, pagination, and every screen size, each one a separate design problem.',
+        'So rather than design one table, I built a system that could handle a range of cases and keep growing with the product. It ships in Bit’s open-source design system, which means it is not the table for one screen. It is the table other people build their tables from.',
       ],
       blocks: [
         {
           heading: 'Start from the smallest thing that works',
           body: [
-            'The first job was the plainest useful version: header row, data rows, hover state, nothing to configure before it renders. Everything after that was added through real use cases rather than guessed at in advance.',
-            'That order matters. If the default is already opinionated, every team that adopts it starts by fighting it. Working outward from the minimum is also how you learn which patterns belong to the system and which belong to one context only.',
+            'The first job was the plainest useful version: header row, data rows, hover state, nothing to configure before it renders. From there we extended it through real use cases instead of trying to solve every possible scenario in advance.',
+            'That order is what tells you which patterns belong to the system itself and which are only needed in one context.',
           ],
           figure: {
-            src: '/images/projects/table/table_img_001.png',
+            src: `${TABLE}/table_img_001.png`,
             aspect: '1000/230',
             alt: 'The basic table variant: seven columns of contact data with a header row and a single hover state',
             caption: 'The default. Nothing to configure before it renders.',
           },
         },
         {
-          heading: 'Design the waiting, and the emptiness',
+          heading: 'Design the waiting too',
           body: [
-            'A table is not only what a user sees once the data is there. It spends a good deal of its life loading, partly loaded, or empty. Those states have to feel like the same component rather than something added afterwards.',
-            'Where load time is expected, the table uses a skeleton rather than a spinner. A spinner says something is happening. A skeleton says what is arriving and how much of it, and it holds the layout still so nothing jumps.',
-            'This is the one idea that recurs across everything below, so it is worth saying once and properly: the interesting half of a system is what it does when things are not going well.',
+            'A table is not only what the user sees once the data is ready. It spends a good deal of its life loading, partly loaded, or empty, and those states have to feel like the same experience rather than exceptions added afterwards.',
+            'Where load time is expected it uses a skeleton rather than a spinner. A spinner says something is happening. A skeleton says what is arriving and how much of it, and holds the layout still so nothing jumps.',
           ],
           figure: {
-            src: '/images/projects/table/table_img_003.png',
+            src: `${TABLE}/table_img_003.png`,
             aspect: '1000/360',
             alt: 'The table skeleton state: grey placeholder blocks matching the column structure of the loaded table',
             caption: 'The skeleton mirrors the real column widths, so the layout never shifts when data arrives.',
           },
         },
         {
-          heading: 'The toolbar problem',
-          body: [
-            'As capability accumulated around the table, the controls became their own design problem. Search, filters, actions, and pagination all competed for the same strip and the same attention.',
-            'Active search made the conflict concrete. While a query is running, the result set is no longer the full one, so pagination is describing something that is not on screen. It steps back for as long as the field holds a query, and returns when the field clears. Small rule, and the kind of edge case that decides whether a shared component is trusted.',
-          ],
-          figure: {
-            src: '/images/projects/table/table_img_006.png',
-            aspect: '1000/145',
-            alt: 'Active search in the table: a query in the search field, gender and country filters, and a reduced result set',
-            caption: 'Search, filters, and export in the toolbar. Pagination steps back while a query is active.',
-          },
-        },
-        {
           heading: 'A component is more than what the user sees',
           body: [
-            'For a component to survive being extended by other people, the design has to work for the people building with it. Every behaviour was written up with its edge cases and interaction states: pagination, sorting, the toolbar, row selection, column controls, row expansion, infinite scroll.',
+            'For a component to grow over time it has to work for the people building with it. I documented the states, the structures, and the parts, so developers could understand not only how it looks but when and how to use each piece.',
             'That document is the deliverable, not the appendix to it.',
           ],
           figure: {
-            src: '/images/projects/table/table_img_005.png',
+            src: `${TABLE}/table_img_005.png`,
             aspect: '1000/380',
             alt: 'The written specification cards for pagination, sorting, toolbar, row selection, row expansion, infinite scroll, and column controls',
             caption: 'Every behaviour written down before it was built.',
@@ -137,37 +131,64 @@ const en: BitCopy = {
     {
       number: '04',
       kicker: 'Authentication',
-      title: 'The Screen Is the Small Part',
+      title: 'Authentication as a System',
       body: [
-        'A login screen is one state inside an authentication system. The experience also has to hold sign-up, several ways in, verification, returning users, recovery, and the different contexts a person and an organisation can be in.',
-        'I designed those as one system rather than a set of separate screens, which is the only way the edges stay consistent.',
+        'At Bit I worked on authentication as a whole system rather than as a sign-in screen. It covers sign in and sign up, SSO, codes, recovery, and the states that appear along the way.',
+        'The aim was one consistent system that can handle several ways in and several situations without exposing the complexity sitting behind it.',
       ],
+      figure: {
+        placeholder: 'The authentication flow, with the main screens',
+        aspect: '4/3',
+      },
       blocks: [
         {
-          heading: 'Where it actually gets designed',
+          heading: 'And when it does not go to plan',
           body: [
-            'The easy flow to design is the one where everything works. The work starts at the wrong password, the expired session, the verification that fails, the person who has no idea what to do next.',
-            'The goal in each case is narrow and worth stating plainly: when the expected path breaks, the user should still understand what happened and what their next option is.',
+            'The easiest flow to design is the one where everything works. The harder work starts when something breaks: a code that fails, a wrong password, verification that never completes, a person with no idea what to do next.',
+            'I designed those states so that when the expected path breaks, the user still understands what happened and what their next option is.',
           ],
-          figure: { placeholder: 'The authentication map: sign in, sign up, SSO, verification, recovery', aspect: '4/3' },
+          figure: { placeholder: 'Error, code, and recovery states', aspect: '16/9' },
         },
       ],
     },
+    {
+      number: '05',
+      kicker: 'Visual language',
+      title: 'Building the Way Bit Looks',
+      body: [
+        'One of the most significant parts of the work was changing the visual language itself. When I arrived in 2018 the product looked different. With the team and with engineering we gradually built a new language, colour, typography, icons, panels, components, and interaction patterns, which became the basis of the product.',
+      ],
+      blocks: [
+        {
+          heading: 'A design system that grew out of the product',
+          body: [
+            'The design system was not a separate project running alongside the product. It grew out of the problems we actually hit.',
+            'Every component had to work inside real experiences, against real needs and real engineering limits. When a problem turned up in more than one place, the solution could become part of the system. That is how the library was built: something that supported the product rather than documenting it.',
+          ],
+          figure: { placeholder: 'The design system: components, panels, tokens', aspect: '16/9' },
+        },
+      ],
+    },
+    {
+      number: '06',
+      title: 'Working Together, Not Handing Over',
+      body: [
+        'One of the things that defined the work at Bit was the daily contact with the team and with engineering. We could raise an idea, build a prototype, see it running, test it with users, and come back to the design.',
+        'We used research, surveys, and A/B testing to find out what actually worked instead of relying on our assumptions. Being close to engineering mattered just as much: design decisions were made against what could really be built, and getting from thought to implementation quickly meant we could try things and change direction without turning every decision into a project of its own.',
+        'That is also how I worked on billing, an area where UX, business logic, and actions that carry real consequences for the user all meet. Plans, subscriptions, permissions, and changes to an account had to become flows a person could understand and act through.',
+      ],
+      figure: {
+        placeholder: 'Prototype beside the shipped product, or a piece of work with engineering',
+        aspect: '16/9',
+      },
+    },
   ],
-  learned: {
-    number: '05',
-    title: 'What Eight Years Taught Me',
+  closing: {
+    title: 'Eight Years Inside One Product',
     body: [
-      'Designing one product for eight years changed how I think about the job. The hard part is often not designing the interface. It is deciding what the interface should represent: which states matter, how the parts relate, what happens when something breaks, and how the system can keep growing without getting harder to use.',
-      'It also taught me to move between levels of abstraction. A single icon or button, a whole flow, and the system sitting under dozens of experiences are three different kinds of thinking, and the work needs all three in the same week.',
-      'Moving between the small detail and the whole system has become the most useful thing about how I work.',
-    ],
-  },
-  selection: {
-    title: 'A Selection, Not a Summary',
-    body: [
-      'Eight years is a great deal of product. Plenty of what I worked on is not here, including billing and the wider visual language, and much of what is here kept changing after the moments shown on this page.',
-      'These are simply the pieces that best describe the designer I became while working on Bit: someone who enjoys complicated products, thinks in systems, works closely with engineering, and still cares about the small details that make a complex product feel simple.',
+      'Looking back at the work at Bit, the thing I value most is not a particular screen. It was the chance to be part of a product over time: to watch it change, to change it alongside, and to build systems that stay after the specific project ends.',
+      'I arrived in 2018 as a freelancer, at a product that looked different. Eight years on, the language, the systems, and the way of working we built are still inside it.',
+      'The work taught me to move between the smallest detail and the whole system, and to know which of the two a problem is asking for.',
     ],
   },
 };
@@ -175,49 +196,54 @@ const en: BitCopy = {
 const he: BitCopy = {
   kicker: 'קייס סטדי',
   title: 'שמונה שנים של עיצוב Bit',
-  lead: 'עיצוב מוצר, מערכות וממשקים לאורך שמונה שנים שבהן המוצר השתנה מתחתיי. זו בחירה ולא פרויקט: שלושה תחומים שמראים איך אני עובד על דברים מורכבים באמת.',
+  subtitle: 'מעיצוב מחדש של המוצר ועד למערכות שעדיין מחזיקות אותו היום',
+  lead: [
+    'ב־2018 הצטרפתי ל־Bit כפרילנסר, כשהמוצר עדיין היה בתחילת הדרך והשפה העיצובית שלו נראתה אחרת לגמרי. מה שהתחיל כעבודה על פרויקטים נקודתיים הפך לשמונה שנים של עבודה צמודה עם הצוות והפיתוח, שבהן הייתי מעורב בהתפתחות של המוצר ברמות שונות, מהחוויה והמבנה של הממשק ועד למערכות שמחזיקות חלקים גדולים ממנו.',
+    'במהלך השנים בנינו שפה גרפית חדשה מאפס, פיתחנו Design System, ויצרנו קומפוננטות ומערכות מורכבות שהמעבר שלהן מפיגמה למוצר אמיתי היה עבודה בפני עצמה.',
+    'העבודה לא הסתיימה במסירה לפיתוח. יכולנו לבנות, למדוד, לבדוק, להריץ סקרים ו־A/B Testing, ללמוד מהמשתמשים ולחזור שוב לעיצוב. המערכת שנבנתה לאורך הדרך עדיין חיה בתוך Bit היום.',
+  ],
   meta: [
     { label: 'סוג', value: 'עיצוב מוצר ומערכות עיצוב' },
     { label: 'חברה', value: 'Bit (bit.dev)' },
     { label: 'התפקיד שלי', value: 'ראש עיצוב' },
-    { label: 'משך', value: 'שמונה שנים' },
+    { label: 'משך', value: '2018 ועד היום' },
     { label: 'לצפייה', value: 'bit.dev', href: 'https://bit.dev' },
   ],
   toolsLabel: 'כלים',
-  heroAlt: 'עמוד התיעוד של הטבלה בדיזיין סיסטם של Bit, עם אינדקס ההתנהגויות המלא בצד',
-  intro: {
-    number: '01',
-    title: 'מוצר שלא הפסיק לזוז',
-    body: [
-      'Bit לא היה מוצר שעיצבתי פעם אחת והעברתי הלאה. במשך שמונה שנים הוא השתנה כל הזמן: יכולות חדשות, סוגי משתמשים חדשים, לחצים עסקיים חדשים ומגבלות טכנולוגיות חדשות. כל אחד מאלה ייצר בעיות עיצוב חדשות, ולא וריאציות על ישנות.',
-      'זה דרש לעבוד בכמה רמות במקביל. לפעמים המשימה הייתה אינטראקציה אחת. לפעמים פלואו שלם. ולפעמים המערכת שיושבת מתחת לעשרות חוויות בבת אחת, שבה ההחלטה היא לא איך משהו נראה אלא מה מותר לו לעשות.',
-      'שלושת התחומים שלמטה הם אלה שמראים את הטווח הזה הכי בבירור.',
-    ],
+  heroFigure: {
+    placeholder: 'Bit ב־2018 מול Bit היום. תמונה אחת שנושאת את כל סיפור השינוי.',
+    aspect: '16/9',
   },
-  areas: [
+  sections: [
+    {
+      number: '01',
+      title: 'מוצר שמשתנה לאורך זמן',
+      body: [
+        'Bit לא היה מוצר שעיצבתי פעם אחת והעברתי הלאה. במשך שמונה שנים הוא השתנה כל הזמן, והמקום שלי בתוך העבודה השתנה יחד איתו. לפעמים פתרתי בעיה נקודתית, לפעמים עיצבתי חוויה שלמה, ולפעמים בניתי מערכת שהייתה צריכה להחזיק מתחת לעשרות חוויות שונות בבת אחת.',
+        'הקרבה לצוות ולפיתוח אפשרה לנו לעבוד בצורה מאוד ישירה: להעלות רעיון, לבנות פרוטוטייפ, לבדוק אותו מול משתמשים, להבין מה עובד ומה לא, ולשנות אותו לפני שהוא מתקבע במוצר.',
+        'זה מה שאפשר לי להיות חלק מהאופן שבו המוצר עצמו השתנה, ולא רק לעצב אותו.',
+      ],
+    },
     {
       number: '02',
       kicker: 'חוויית מפתחים',
-      title: 'להפוך מורכבות למשהו שאפשר לנווט בו',
+      title: 'מערכת הפקודות של Bit',
       body: [
-        'פלטפורמת המפתחים של Bit כללה מספר הולך וגדל של פקודות, כלים ויכולות. הספרייה הישנה הציגה את כולן בעמוד ארוך אחד, כך שכדי למצוא פקודה היית צריך לגלול על פני כל הפקודות שלא חיפשת.',
-        'הפתרון לא היה לעצב עמוד טוב יותר. הוא היה לתת לפקודות מבנה: קטגוריה, ואז קבוצה, ואז פקודה. ההיררכיה הזאת יכולה לגדול יחד עם הפלטפורמה במקום להישבר ככל שהיא גדלה, והיא הפסיקה להיות החלטת תיוק והפכה לחלק מהממשק עצמו.',
+        'Bit התפתח לפלטפורמה עם מספר גדול של פקודות ויכולות, והספרייה הציגה את כולן בעמוד ארוך אחד. כדי למצוא פקודה היית צריך לגלול על פני כל הפקודות שלא חיפשת.',
+        'יחד עם עדן בחנתי איך מפתחים באמת מוצאים פקודה ואיך הם בונים תמונה של הקשר בין היכולות השונות. במקום להשאיר את הפקודות כאוסף ארוך של פריטים, בנינו היררכיה של קטגוריות, קבוצות ומשפחות, כך שפקודות שיש ביניהן קשר מופיעות יחד.',
       ],
+      figure: {
+        placeholder: 'ספריית הפקודות, עם מבנה הקטגוריות והסינון',
+        aspect: '16/9',
+      },
       blocks: [
         {
-          heading: 'אייקונים שעושים עבודה',
+          heading: 'שפה ויזואלית לכל קטגוריה',
           body: [
-            'כל קטגוריה קיבלה אייקון משלה, מצויר כמשפחה ולא אחד־אחד, עם פרופורציות ומשקל משותפים. שבעים וחמישה בסך הכול.',
-            'הם לא קישוט. בעמוד ספרייה צפוף, אייקון מאפשר למפתח להבדיל בין סוגי יכולות תוך כדי סריקה, לפני שהוא קרא תווית אחת.',
+            'כדי להפוך את המבנה הזה למשהו שקל לסרוק, עיצבתי אייקונים ייעודיים לקטגוריות ובניתי סביבם משפחת אייקונים שלמה, מצוירת כמערכת ולא אחד־אחד.',
+            'הם לא נועדו לתת למערכת אופי. בעמוד צפוף, אייקון מאפשר למפתח להבדיל בין סוגי יכולות במבט, לפני שקרא תווית, וזה מה שהופך את ההיררכיה לשימושית ולא רק לנכונה.',
           ],
-          figure: { placeholder: 'סט האייקונים, כל שבעים וחמישה יחד', aspect: '16/9' },
-        },
-        {
-          heading: 'התיעוד הוא חלק מהמוצר',
-          body: [
-            'תיעוד למפתחים גולש בקלות לערימת עמודים שמישהו אחר צריך לנווט בהם. התייחסתי אליו כאל שטח מוצר: היררכיה, ניווט, קטגוריות ושפה ויזואלית משלו, כדי שאפשר יהיה להבין את המערכת עוד לפני שהריצו פקודה אחת.',
-          ],
-          figure: { placeholder: 'ספריית הפקודות, עם קטגוריות וסינון', aspect: '16/9' },
+          figure: { placeholder: 'משפחת האייקונים, והאייקונים בשימוש בתוך המוצר', aspect: '16/9' },
         },
       ],
     },
@@ -226,58 +252,44 @@ const he: BitCopy = {
       kicker: 'דיזיין סיסטם',
       title: 'טבלת נתונים שיכולה לגדול',
       body: [
-        'טבלת נתונים נראית פשוטה עד שהיא פוגשת מוצר אמיתי. כמויות שונות של מידע, מבני עמודות שונים, עמודות מקוננות, טעינה, מצבים ריקים, פייג׳ינציה, חיפוש וכל גודל מסך, כל אחד מהם בעיית עיצוב נפרדת.',
-        'לכן ניגשתי אליה כמערכת ולא כקומפוננטה. היא נשלחת בדיזיין סיסטם בקוד פתוח של Bit, כלומר היא לא הטבלה של מסך אחד. היא הטבלה שאחרים בונים ממנה את הטבלאות שלהם.',
+        'טבלת נתונים נראית פשוטה עד שהיא פוגשת מוצר אמיתי. כמויות שונות של מידע, מבני עמודות שונים, מידע מקונן, מצבי טעינה, מצבים ריקים, חיפוש, פייג׳ינציה וגדלי מסך שונים, כל אחד מהם בעיית עיצוב אחרת.',
+        'לכן במקום לעצב טבלה אחת, בניתי מערכת שיכולה להתמודד עם מגוון תרחישים ולהמשיך לגדול יחד עם המוצר. היא נשלחת בדיזיין סיסטם בקוד פתוח של Bit, כלומר היא לא הטבלה של מסך אחד. היא הטבלה שאחרים בונים ממנה את הטבלאות שלהם.',
       ],
       blocks: [
         {
           heading: 'מתחילים מהדבר הקטן ביותר שעובד',
           body: [
-            'המשימה הראשונה הייתה הגרסה הפשוטה והשימושית ביותר: שורת כותרת, שורות מידע, מצב ריחוף, ושום דבר שצריך להגדיר לפני שהיא נטענת. כל מה שבא אחרי נוסף דרך מקרי שימוש אמיתיים ולא נוחש מראש.',
-            'הסדר הזה חשוב. אם ברירת המחדל כבר דעתנית, כל צוות שמאמץ אותה מתחיל במאבק בה. עבודה החוצה מהמינימום היא גם הדרך ללמוד אילו דפוסים שייכים למערכת ואילו שייכים להקשר אחד בלבד.',
+            'השלב הראשון היה הגרסה הפשוטה והשימושית ביותר: שורת כותרת, שורות מידע, מצב ריחוף, ושום דבר שצריך להגדיר לפני שהיא נטענת. משם הרחבנו אותה דרך מקרי שימוש אמיתיים, במקום לנסות לפתור מראש כל תרחיש אפשרי.',
+            'הסדר הזה הוא מה שמלמד אילו דפוסים שייכים למערכת עצמה ואילו נדרשים רק בהקשר אחד.',
           ],
           figure: {
-            src: '/images/projects/table/table_img_001.png',
+            src: `${TABLE}/table_img_001.png`,
             aspect: '1000/230',
             alt: 'הטבלה הבסיסית: שבע עמודות של פרטי קשר עם שורת כותרת ומצב ריחוף אחד',
             caption: 'ברירת המחדל. שום דבר להגדיר לפני שהיא נטענת.',
           },
         },
         {
-          heading: 'מעצבים גם את ההמתנה, וגם את הריקנות',
+          heading: 'מעצבים גם את זמן ההמתנה',
           body: [
-            'טבלה היא לא רק מה שרואים כשהמידע כבר שם. חלק לא קטן מחייה היא נטענת, טעונה חלקית או ריקה. המצבים האלה צריכים להרגיש כמו אותה קומפוננטה ולא כמו משהו שהוסיפו אחר כך.',
-            'כשצפוי זמן טעינה, הטבלה משתמשת בשלד ולא בספינר. ספינר אומר שמשהו קורה. שלד אומר מה עומד להגיע וכמה ממנו, והוא מחזיק את הפריסה יציבה כך ששום דבר לא קופץ.',
-            'זו התובנה שחוזרת בכל מה שלמטה, אז שווה לומר אותה פעם אחת וכמו שצריך: החצי המעניין של מערכת הוא מה שהיא עושה כשלא הכול הולך טוב.',
+            'טבלה היא לא רק מה שהמשתמש רואה כשהמידע מוכן. חלק לא קטן מחייה היא נטענת, זמינה חלקית או ריקה, והמצבים האלה צריכים להרגיש כמו חלק מאותה חוויה ולא כמו חריגים שהוספנו אחר כך.',
+            'כשצפוי זמן טעינה היא משתמשת בשלד ולא בספינר. ספינר אומר שמשהו קורה. שלד אומר מה עומד להגיע וכמה ממנו, ומחזיק את הפריסה יציבה כך ששום דבר לא קופץ.',
           ],
           figure: {
-            src: '/images/projects/table/table_img_003.png',
+            src: `${TABLE}/table_img_003.png`,
             aspect: '1000/360',
             alt: 'מצב השלד של הטבלה: בלוקים אפורים שתואמים את מבנה העמודות של הטבלה הטעונה',
             caption: 'השלד משקף את רוחבי העמודות האמיתיים, כך שהפריסה לא זזה כשהמידע מגיע.',
           },
         },
         {
-          heading: 'בעיית ה־Toolbar',
+          heading: 'הקומפוננטה היא יותר ממה שהמשתמש רואה',
           body: [
-            'ככל שהצטברו יכולות סביב הטבלה, הפקדים עצמם הפכו לבעיית עיצוב. חיפוש, סינון, פעולות ופייג׳ינציה התחרו כולם על אותה רצועה ועל אותה תשומת לב.',
-            'החיפוש הפעיל הפך את ההתנגשות למוחשית. בזמן שאילתה רצה, קבוצת התוצאות כבר אינה המלאה, אז הפייג׳ינציה מתארת משהו שלא נמצא על המסך. היא נסוגה כל עוד שדה החיפוש מחזיק שאילתה, וחוזרת כשהוא מתנקה. חוק קטן, ובדיוק סוג מקרה הקצה שקובע אם סומכים על קומפוננטה משותפת.',
-          ],
-          figure: {
-            src: '/images/projects/table/table_img_006.png',
-            aspect: '1000/145',
-            alt: 'חיפוש פעיל בטבלה: שאילתה בשדה החיפוש, מסננים וקבוצת תוצאות מצומצמת',
-            caption: 'חיפוש, סינון וייצוא ב־Toolbar. הפייג׳ינציה נסוגה כל עוד השאילתה פעילה.',
-          },
-        },
-        {
-          heading: 'קומפוננטה היא יותר ממה שהמשתמש רואה',
-          body: [
-            'כדי שקומפוננטה תשרוד הרחבה בידי אנשים אחרים, העיצוב צריך לעבוד גם עבור מי שבונה איתה. כל התנהגות תועדה עם מקרי הקצה ומצבי האינטראקציה שלה: פייג׳ינציה, מיון, ה־Toolbar, בחירת שורות, שליטה בעמודות, הרחבת שורה וגלילה אינסופית.',
+            'כדי שקומפוננטה תוכל לגדול לאורך זמן, היא צריכה לעבוד גם עבור האנשים שבונים איתה. תיעדתי את המצבים, המבנים והחלקים השונים, כך שמפתחים יוכלו להבין לא רק איך היא נראית, אלא גם מתי ואיך להשתמש בכל חלק.',
             'המסמך הזה הוא התוצר, לא הנספח לו.',
           ],
           figure: {
-            src: '/images/projects/table/table_img_005.png',
+            src: `${TABLE}/table_img_005.png`,
             aspect: '1000/380',
             alt: 'כרטיסי המפרט הכתוב לפייג׳ינציה, מיון, Toolbar, בחירת שורות, הרחבת שורה, גלילה אינסופית ושליטה בעמודות',
             caption: 'כל התנהגות נכתבה לפני שנבנתה.',
@@ -288,37 +300,64 @@ const he: BitCopy = {
     {
       number: '04',
       kicker: 'Authentication',
-      title: 'המסך הוא החלק הקטן',
+      title: 'Authentication כמערכת',
       body: [
-        'מסך התחברות הוא מצב אחד בתוך מערכת Authentication שלמה. החוויה צריכה להחזיק גם הרשמה, כמה דרכי כניסה, אימות, משתמשים חוזרים, שחזור גישה, וההקשרים השונים שאדם וארגון יכולים להיות בהם.',
-        'עיצבתי את אלה כמערכת אחת ולא כאוסף מסכים נפרדים, כי זו הדרך היחידה שהקצוות נשארים עקביים.',
+        'ב־Bit עבדתי על חוויית ה־Authentication כמערכת שלמה ולא רק על מסך הכניסה. העבודה כללה כניסה והרשמה, SSO, קודים, שחזור גישה והמצבים השונים שמופיעים לאורך התהליך.',
+        'המטרה הייתה מערכת אחת עקבית שיכולה להתמודד עם דרכי כניסה שונות ועם מצבים שונים, בלי לחשוף למשתמש את המורכבות שנמצאת מאחוריה.',
       ],
+      figure: {
+        placeholder: 'ה־Authentication Flow, עם המסכים המרכזיים',
+        aspect: '4/3',
+      },
       blocks: [
         {
-          heading: 'איפה זה באמת נעשה',
+          heading: 'וגם כשהכול לא הולך לפי התוכנית',
           body: [
-            'הפלואו הקל לעיצוב הוא זה שבו הכול עובד. העבודה מתחילה בסיסמה שגויה, בסשן שפג, באימות שנכשל, ובאדם שאין לו מושג מה לעשות עכשיו.',
-            'המטרה בכל אחד מהמקרים צרה ושווה לומר אותה בפשטות: כשהמסלול הצפוי נשבר, המשתמש עדיין צריך להבין מה קרה ומה האפשרות הבאה שלו.',
+            'הפלואו הכי קל לעיצוב הוא זה שבו הכול עובד. העבודה המורכבת יותר מתחילה כשמשהו משתבש: קוד שלא עובד, סיסמה שגויה, תהליך אימות שלא הושלם, או משתמש שלא יודע מה לעשות עכשיו.',
+            'עיצבתי את המצבים האלה כדי שגם כשהמסלול הצפוי נשבר, המשתמש עדיין יבין מה קרה ומה האפשרות הבאה שלו.',
           ],
-          figure: { placeholder: 'מפת ה־Authentication: כניסה, הרשמה, SSO, אימות ושחזור', aspect: '4/3' },
+          figure: { placeholder: 'מצבי שגיאה, קוד ושחזור', aspect: '16/9' },
         },
       ],
     },
+    {
+      number: '05',
+      kicker: 'שפה ויזואלית',
+      title: 'בניית השפה העיצובית של Bit',
+      body: [
+        'אחד החלקים המשמעותיים ביותר בעבודה לאורך השנים היה השינוי של השפה העיצובית עצמה. כשהגעתי ב־2018 המוצר נראה אחרת. יחד עם הצוות והפיתוח בנינו בהדרגה שפה חדשה, צבעים, טיפוגרפיה, אייקונים, פאנלים, קומפוננטות ודפוסי אינטראקציה, שהפכה לבסיס של המוצר.',
+      ],
+      blocks: [
+        {
+          heading: 'דיזיין סיסטם שנבנה מתוך המוצר',
+          body: [
+            'הדיזיין סיסטם לא נבנה כפרויקט נפרד שהתקיים לצד המוצר. הוא צמח מתוך הבעיות האמיתיות שבהן נתקלנו.',
+            'כל קומפוננטה הייתה צריכה לעבוד בתוך חוויות אמיתיות, מול צרכים שונים ומול מגבלות של פיתוח. כשבעיה חזרה ביותר ממקום אחד, הפתרון יכול היה להפוך לחלק מהמערכת. כך נבנתה בהדרגה ספרייה שתומכת במוצר במקום רק לתעד אותו.',
+          ],
+          figure: { placeholder: 'הדיזיין סיסטם: קומפוננטות, פאנלים וטוקנים', aspect: '16/9' },
+        },
+      ],
+    },
+    {
+      number: '06',
+      title: 'עבודה משותפת, לא מסירה לפיתוח',
+      body: [
+        'אחד הדברים שהגדירו את העבודה ב־Bit היה הקשר היומיומי עם הצוות והפיתוח. יכולנו להעלות רעיון, לבנות פרוטוטייפ, לראות אותו עובד, לבדוק אותו עם משתמשים ולחזור לשולחן העיצוב.',
+        'עשינו שימוש במחקר, סקרים ו־A/B Testing כדי להבין מה באמת עובד ולא להסתמך רק על ההנחות שלנו. הקרבה לפיתוח הייתה חשובה לא פחות: החלטות עיצוביות התקבלו מול מה שאפשר באמת לבנות, והיכולת להגיע מהר ממחשבה למימוש אפשרה לנו להתנסות ולשנות כיוון בלי להפוך כל החלטה לפרויקט בפני עצמו.',
+        'ככה עבדתי גם על Billing, אזור שבו UX, לוגיקה עסקית ופעולות בעלות משמעות אמיתית עבור המשתמש נפגשים. תוכניות, מנויים, הרשאות ושינויים בחשבון היו צריכים להפוך לפלואו שאדם יכול להבין ולפעול דרכו.',
+      ],
+      figure: {
+        placeholder: 'פרוטוטייפ מול המוצר שנשלח, או רגע של עבודה משותפת עם הפיתוח',
+        aspect: '16/9',
+      },
+    },
   ],
-  learned: {
-    number: '05',
-    title: 'מה שמונה שנים לימדו אותי',
+  closing: {
+    title: 'שמונה שנים בתוך מוצר אחד',
     body: [
-      'לעצב מוצר אחד במשך שמונה שנים שינה את הדרך שבה אני חושב על העבודה. החלק הקשה הוא לרוב לא לעצב את הממשק. הוא להחליט מה הממשק צריך לייצג: אילו מצבים חשובים, איך החלקים קשורים זה לזה, מה קורה כשמשהו נשבר, ואיך המערכת יכולה להמשיך לגדול בלי להיות קשה יותר לשימוש.',
-      'זה גם לימד אותי לנוע בין רמות הפשטה. אייקון או כפתור בודד, פלואו שלם, והמערכת שמתחת לעשרות חוויות הם שלושה סוגי חשיבה שונים, והעבודה דורשת את שלושתם באותו שבוע.',
-      'התנועה הזאת בין הפרט הקטן למערכת כולה הפכה לדבר הכי שימושי באופן שבו אני עובד.',
-    ],
-  },
-  selection: {
-    title: 'בחירה, לא סיכום',
-    body: [
-      'שמונה שנים הן המון מוצר. הרבה ממה שעבדתי עליו לא נמצא כאן, כולל Billing והשפה הוויזואלית הרחבה, והרבה ממה שכן נמצא כאן המשיך להשתנות אחרי הרגעים שמוצגים בעמוד.',
-      'אלה פשוט החלקים שמתארים הכי טוב את המעצב שהפכתי להיות תוך כדי העבודה על Bit: מי שנהנה ממוצרים מורכבים, חושב במערכות, עובד צמוד לפיתוח, ועדיין אכפת לו מהפרטים הקטנים שהופכים מוצר מורכב לפשוט.',
+      'כשאני מסתכל אחורה על העבודה ב־Bit, הדבר שאני הכי מעריך הוא לא מסך מסוים. זו הייתה האפשרות להיות חלק ממוצר לאורך זמן: לראות אותו משתנה, לשנות אותו יחד איתו, ולבנות מערכות שנשארות גם אחרי שהפרויקט הספציפי נגמר.',
+      'הגעתי ב־2018 כפרילנסר, למוצר שנראה אחרת. שמונה שנים אחר כך, השפה, המערכות ודרך העבודה שבנינו עדיין נמצאות בתוכו.',
+      'העבודה הזו לימדה אותי לעבור בין הפרט הקטן ביותר לבין המערכת כולה, ולדעת מה מבין השניים הבעיה מבקשת.',
     ],
   },
 };

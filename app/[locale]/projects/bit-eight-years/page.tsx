@@ -66,7 +66,12 @@ export default function BitEightYearsPage() {
           <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6 whitespace-pre-line">
             {t.title}
           </h1>
-          <p className="case-lead">{t.lead}</p>
+          <p className="type-kicker text-[var(--text-secondary)] mb-6 normal-case tracking-normal text-base">
+            {t.subtitle}
+          </p>
+          <div className="space-y-5">
+            {t.lead.map((p) => <p key={p} className="case-lead">{p}</p>)}
+          </div>
 
           <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-3 lg:grid-cols-5">
             {t.meta.map((item) => (
@@ -103,51 +108,53 @@ export default function BitEightYearsPage() {
 
       {/* ── Hero image ── */}
       <div className="mx-auto max-w-[1360px] px-6 py-12">
-        <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/9' }}>
-          <Image
-            src="/images/projects/table/table_cover_001.png"
-            alt={t.heroAlt}
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 1360px) 100vw, 1360px"
-            priority
-          />
-        </div>
+        {t.heroFigure.src ? (
+          <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: t.heroFigure.aspect }}>
+            <Image
+              src={t.heroFigure.src}
+              alt={t.heroFigure.alt ?? ''}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 1360px) 100vw, 1360px"
+              priority
+            />
+          </div>
+        ) : (
+          <div
+            className="flex w-full items-center justify-center rounded-2xl border border-dashed border-[var(--border-subtle)] bg-[var(--surface-1)]"
+            style={{ aspectRatio: t.heroFigure.aspect }}
+          >
+            <p className="max-w-lg px-8 text-center text-[1.125rem] leading-relaxed text-[var(--text-secondary)]">
+              {t.heroFigure.placeholder}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* ── Content ── */}
       <div className="case-prose mx-auto px-6 pb-24 space-y-20">
 
-        <div className="case-section space-y-6">
-          <SectionHeading number={t.intro.number} title={t.intro.title} />
-          {t.intro.body.map((p) => <p key={p}>{p}</p>)}
-        </div>
-
-        {t.areas.map((area) => (
-          <div key={area.number} className="case-section space-y-8">
-            <SectionHeading number={area.number} kicker={area.kicker} title={area.title} />
+        {t.sections.map((section) => (
+          <div key={section.number} className="case-section space-y-8">
+            <SectionHeading number={section.number} kicker={section.kicker} title={section.title} />
             <div className="space-y-6">
-              {area.body.map((p) => <p key={p}>{p}</p>)}
+              {section.body.map((p) => <p key={p}>{p}</p>)}
             </div>
+            {section.figure ? <CaseFigure figure={section.figure} /> : null}
 
-            {area.blocks.map((block) => (
+            {section.blocks?.map((block) => (
               <div key={block.heading} className="space-y-5 pt-4">
                 <h3 className="case-subheading">{block.heading}</h3>
                 {block.body.map((p) => <p key={p}>{p}</p>)}
-                <CaseFigure figure={block.figure} />
+                {block.figure ? <CaseFigure figure={block.figure} /> : null}
               </div>
             ))}
           </div>
         ))}
 
         <div className="case-section space-y-6">
-          <SectionHeading number={t.learned.number} title={t.learned.title} />
-          {t.learned.body.map((p) => <p key={p}>{p}</p>)}
-        </div>
-
-        <div className="case-section space-y-6">
-          <h2 className="case-subheading">{t.selection.title}</h2>
-          {t.selection.body.map((p) => <p key={p}>{p}</p>)}
+          <h2 className="case-heading">{t.closing.title}</h2>
+          {t.closing.body.map((p) => <p key={p}>{p}</p>)}
         </div>
 
       </div>
