@@ -236,7 +236,7 @@ export default function RelowaysPage() {
             src="/images/projects/reloways/reloways-personas.png"
             alt="Six Reloways personas, three service seekers and three service providers, each with bio, goals, frustrations, and needs"
             aspect="2842/1521"
-            caption="The four archetypes written out as six personas, split across the two sides of the marketplace."
+            caption="The four archetypes written out as six personas, across the people arriving and the people already there."
           />
 
           <p>

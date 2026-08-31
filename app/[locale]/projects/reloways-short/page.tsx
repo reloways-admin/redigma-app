@@ -163,7 +163,7 @@ export default function RelowaysShortPage() {
             src="/images/projects/reloways/reloways-personas.png"
             alt="Six Reloways personas, three service seekers and three service providers, each with bio, goals, frustrations, and needs"
             aspect="2842/1521"
-            caption="Six personas across the two sides of the marketplace."
+            caption="Six personas: the people arriving, and the people already there who can help them."
           />
         </div>
 
@@ -197,6 +197,10 @@ export default function RelowaysShortPage() {
             </p>
             <PlaceholderFigure label="An article with an inline task card" aspect="4/3" />
           </div>
+
+          <p>
+            Alongside these sits a directory of local businesses, services, and the people behind them. It is the part that answers the third question, the one about who to trust, and it is the reason the product is more than a set of instructions.
+          </p>
         </div>
 
         {/* 04 */}
@@ -217,10 +221,10 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="05" title="Where It Stands" />
           <p>
-            Reloways is live and still being built. Onboarding, the task system, and the knowledge centre all work, with 32 tasks mapped across the full journey, 129 articles written, and 20 podcast episodes published. What began as a personal response to one move has grown into a platform connecting people with local businesses, practical knowledge, and the community around both.
+            Reloways is live and still being built. Onboarding, the task system, the knowledge centre, and the directory of local businesses and services all work, and the library of articles and podcast episodes grows every week. What began as a personal response to one move has grown into a platform holding practical knowledge, local services, and the community around both.
           </p>
           <p>
-            The user base grows week by week. The current work is hardening the product and shipping features lean and fast against what the Israeli community in Berlin is actually asking for, which is the audience the product is being proven on before it extends. It is a product still in motion rather than a finished piece of work.
+            The current work is hardening the product and shipping features lean and fast against what the Israeli community in Berlin is actually asking for, which is the audience it is being proven on before it extends. It is a product still in motion rather than a finished piece of work, and it gets a little larger every day.
           </p>
 
           <PlaceholderFigure
