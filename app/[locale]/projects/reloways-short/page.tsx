@@ -76,7 +76,21 @@ export default function RelowaysShortPage() {
             {t.meta.map((item) => (
               <div key={item.label}>
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">{item.label}</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">{item.value}</p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[#732fff] underline underline-offset-4 hover:no-underline"
+                  >
+                    {item.value}
+                    <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M5 3h6v6M11 3L3.5 10.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </a>
+                ) : (
+                  <p className="text-sm text-[var(--text-primary)] font-medium">{item.value}</p>
+                )}
               </div>
             ))}
             <div className="col-span-2 sm:col-span-4 lg:col-span-5">

@@ -5,7 +5,7 @@ export type CaseCopy = {
   kicker: string;
   title: string;
   lead: string;
-  meta: { label: string; value: string }[];
+  meta: { label: string; value: string; href?: string }[];
   toolsLabel: string;
   heroAlt: string;
   problem: {
@@ -55,6 +55,7 @@ const en: CaseCopy = {
     { label: 'My Role', value: 'Sole designer and co-developer' },
     { label: 'Platform', value: 'Web · Hebrew / English' },
     { label: 'Status', value: 'MVP, live in development' },
+    { label: 'Live at', value: 'reloways.com', href: 'https://reloways.com/en' },
   ],
   toolsLabel: 'Tools',
   heroAlt: 'The Reloways homepage open on a laptop in a Berlin cafe',
@@ -178,6 +179,7 @@ const he: CaseCopy = {
     { label: 'התפקיד שלי', value: 'מעצב יחיד ושותף לפיתוח' },
     { label: 'פלטפורמה', value: 'ווב · עברית / אנגלית' },
     { label: 'סטטוס', value: 'MVP, חי ובפיתוח' },
+    { label: 'לצפייה', value: 'reloways.com', href: 'https://reloways.com/he' },
   ],
   toolsLabel: 'כלים',
   heroAlt: 'דף הבית של Reloways פתוח על מחשב נייד בבית קפה בברלין',
