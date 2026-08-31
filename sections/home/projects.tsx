@@ -36,6 +36,8 @@ export const PROJECTS: Project[] = [
       { action: 'Developed', prep: 'with', name: 'Cursor', icon: '/illustrations/projects/icons/cursor logo.svg' },
       { action: 'Developed', prep: 'with', name: 'Claude', icon: '/illustrations/projects/icons/claude-logo.svg' },
       { action: 'Integrated', prep: 'with', name: 'AWS', icon: '/illustrations/projects/icons/AWS-Dark logo.svg' },
+      { action: 'Content', prep: 'in', name: 'Strapi', icon: '/illustrations/projects/icons/strapi-logo.svg' },
+      { action: 'Versioned', prep: 'on', name: 'GitHub', icon: '/illustrations/projects/icons/github-logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/reloways`,
     image: '/images/home/projects/reloways_cover-1920x1080.png',
