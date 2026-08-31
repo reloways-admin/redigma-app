@@ -67,7 +67,7 @@ const META = [
 
 const ROLES = [
   'Product strategy and definition: what it is, what it is not, and what ships first',
-  'Research: talking to people who had already made the move, which is where the ordering came from',
+  'Research: conversations with people who had already made the move, which is where the ordering came from. A large part of it now runs through the podcast, a marketing arm of Reloways that doubles as a standing source of first-hand accounts',
   'Information architecture: the task model, its dependencies, and the content structure beneath it',
   'User flows, UX and UI, and the design system that keeps them consistent',
   'Prototyping, then the frontend build, including a Hebrew and English interface that mirrors properly rather than reading as a translation',
@@ -136,7 +136,7 @@ export default function RelowaysShortPage() {
             Relocation is not one problem. It is dozens of small ones that arrive at different times and in an order nobody tells you: registering your address, a flat, health insurance, a bank account, a doctor, tax, and the ordinary local services you need from people you have no way to vet.
           </p>
           <p>
-            None of that information is missing. It is spread across Google, Facebook groups, Reddit, WhatsApp threads, and government sites written in German, and every piece of it assumes you already know which piece you need.
+            None of that information is missing. It sits across Google, Facebook groups, WhatsApp threads, and government sites written in German, and every piece of it assumes you already know which piece you need. It is findable. What does not exist is one place that holds it together, including the part that matters most: the live conversation inside those groups, where people going through the move right now tell each other what is actually true this month.
           </p>
           <blockquote className="case-quote">
             <p>
@@ -177,7 +177,7 @@ export default function RelowaysShortPage() {
           <div className="space-y-4">
             <h3 className="case-subheading">A platform that understands where you are</h3>
             <p>
-              Most relocation sites open on a directory and leave you to work out which part applies to you. Reloways opens by asking instead: where you are, what your situation is, whether you have landed yet. What it learns shapes everything after it, so someone with a visa appointment in three days and someone still deciding whether to move do not get the same product.
+              Most relocation sites open on a directory and leave you to work out which part applies to you. Reloways starts by learning about you instead, so it can put the right content and the right route in front of your particular move. It opens with where you are, what your situation is, and whether you have landed yet, and what it learns shapes everything after it. Someone with a visa appointment in three days and someone still weighing up whether to move do not get the same product. The system routes you: it shows you the path and what to do next.
             </p>
             <PlaceholderFigure label="Onboarding wizard, two or three real steps" />
           </div>
@@ -209,7 +209,7 @@ export default function RelowaysShortPage() {
             {ROLES.map((r) => <li key={r}>{r}</li>)}
           </ul>
           <p>
-            The hardest part was never the interface. It was establishing the real order of German bureaucracy accurately enough to encode it.
+            Two things have been hard. Establishing the real order of German bureaucracy accurately enough to encode it, and then making something that layered feel obvious to use. The second one is not finished and probably never is. I am still talking to users and listening for where the real needs and the real friction sit.
           </p>
         </div>
 
@@ -217,10 +217,10 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="05" title="Where It Stands" />
           <p>
-            Reloways is live and still being built. Onboarding, the task system, and the knowledge centre all work, with 32 tasks mapped across the full journey. What began as a personal response to one move has grown into a platform connecting people with local businesses, practical knowledge, and the community around both.
+            Reloways is live and still being built. Onboarding, the task system, and the knowledge centre all work, with 32 tasks mapped across the full journey, 129 articles written, and 20 podcast episodes published. What began as a personal response to one move has grown into a platform connecting people with local businesses, practical knowledge, and the community around both.
           </p>
           <p>
-            The writing is what remains. A knowledge centre earns trust by having enough in it, and that is the current work before opening it up publicly. It is a product still in motion rather than a finished piece of work.
+            The user base grows week by week. The current work is hardening the product and shipping features lean and fast against what the Israeli community in Berlin is actually asking for, which is the audience the product is being proven on before it extends. It is a product still in motion rather than a finished piece of work.
           </p>
 
           <PlaceholderFigure
