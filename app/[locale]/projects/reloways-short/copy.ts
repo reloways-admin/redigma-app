@@ -54,7 +54,7 @@ const en: CaseCopy = {
     p5: 'Moving to Berlin myself, I kept looking up the same things over and over, jumping between sources to assemble the picture on my own.',
     quote: 'The real problem was not a lack of information. It was that no single place connected the information, the people, and the services, and helped you work out what to do, when to do it, and who to trust.',
     figureAlt: 'A collage of real questions from Israeli expat groups in Berlin about permits, apartments, licences, and finding Hebrew-speaking professionals',
-    figureCaption: 'Where people looked before. "Anyone know a Hebrew-speaking accountant?" "How long does the residence permit take?" "Looking for a plumber, any recommendations?" The same questions come round every week, and the answers stay buried in the thread they were asked in.',
+    figureCaption: 'Where did people look before? “Anyone know a Hebrew-speaking accountant?” “How long does the residence permit take?” “Looking for a plumber, any recommendations?” The same questions come round again and again in the groups, but the answers stay buried in the thread they were asked in. The knowledge exists, it is just hard to find again at the moment you actually need it.',
   },
   audience: {
     number: '02',
@@ -131,7 +131,7 @@ const he: CaseCopy = {
     p5: 'בזמן המעבר שלי לברלין מצאתי את עצמי מחפש שוב ושוב את אותם הדברים, וקופץ בין מקורות שונים כדי לחבר בעצמי את התמונה.',
     quote: 'הבעיה האמיתית לא הייתה חוסר במידע. היא הייתה שאין מקום אחד שמחבר בין המידע, האנשים והשירותים, ועוזר להבין מה לעשות, מתי לעשות את זה, ובמי אפשר לבטוח.',
     figureAlt: 'קולאזְ של שאלות אמיתיות מקבוצות ישראלים בברלין על אישורים, דירות, רישיונות ומציאת בעלי מקצוע דוברי עברית',
-    figureCaption: 'איפה אנשים חיפשו קודם. "מישהו מכיר רואה חשבון דובר עברית?" "כמה זמן לוקח לקבל אישור שהייה?" "מחפש אינסטלטור, יש לכם המלצות?" אותן שאלות חוזרות כל שבוע, והתשובות נשארות קבורות בשרשור שבו נשאלו.',
+    figureCaption: 'איפה אנשים חיפשו קודם? “מישהו מכיר רואה חשבון דובר עברית?” “כמה זמן לוקח לקבל אישור שהייה?” “מחפש אינסטלטור, יש לכם המלצות?” אותן שאלות חוזרות שוב ושוב בקבוצות, אבל התשובות נשארות קבורות בשרשור שבו נשאלו. הידע קיים, פשוט קשה למצוא אותו שוב כשבאמת צריך אותו.',
   },
   audience: {
     number: '02',

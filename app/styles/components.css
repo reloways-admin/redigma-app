@@ -532,11 +532,18 @@ text-decoration-color: var(--border-subtle);
   .case-quote p { font-size: 1.875rem; }
 }
 
-/* Caption under a figure, kept clearly subordinate to the body. */
+/* Caption under a figure, kept clearly subordinate to the body.
+
+   Figures are wider than the reading column, so an unconstrained caption
+   inherits the figure's width and runs to twice a readable measure. It is
+   held to the reading width and centred under the image instead. */
 .case-caption {
   margin-block-start: 1rem;
+  max-width: 42rem;
+  margin-inline: auto;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-secondary);
   text-align: center;
+  text-wrap: pretty;
 }
