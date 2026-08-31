@@ -204,7 +204,16 @@ export default function RelowaysShortPage() {
               </div>
 
               {block.body.map((para) => <p key={para}>{para}</p>)}
-              <PlaceholderFigure label={block.figure} aspect={i === 2 ? '4/3' : '16/9'} />
+              {i === 2 ? (
+                <CaseFigure
+                  src="/images/projects/reloways/reloways-knowledge-centre.png"
+                  alt={block.figureAlt!}
+                  aspect="2880/2000"
+                  caption={block.figureCaption}
+                />
+              ) : (
+                <PlaceholderFigure label={block.figure} />
+              )}
             </div>
           ))}
 
@@ -237,9 +246,11 @@ export default function RelowaysShortPage() {
             {t.status.p2}
           </p>
 
-          <PlaceholderFigure
-            label={t.status.figure}
-            aspect="16/9"
+          <CaseFigure
+            src="/images/projects/reloways/reloways-live-phones.png"
+            alt={t.status.figureAlt!}
+            aspect="2740/1850"
+            caption={t.status.figureCaption}
           />
         </div>
 

@@ -29,6 +29,8 @@ export type CaseCopy = {
       decided: string;
       body: string[];
       figure: string;
+      figureAlt?: string;
+      figureCaption?: string;
     }[];
     closing: string;
   };
@@ -38,7 +40,7 @@ export type CaseCopy = {
   };
   status: {
     number: string; title: string;
-    p1: string; p2: string; figure: string;
+    p1: string; p2: string; figure: string; figureAlt?: string; figureCaption?: string;
   };
 };
 
@@ -114,6 +116,8 @@ const en: CaseCopy = {
           'A guide that only explains leaves you to act somewhere else. Every article carries its task inside it, at the point in the text where you would actually do the thing. Reading and doing happen in one place, which is what turns a pile of content into a product.',
         ],
         figure: 'An article with an inline task card',
+        figureAlt: 'The Reloways knowledge centre in Hebrew, with phase tabs, category filters, and article cards',
+        figureCaption: 'The knowledge centre. Articles sit under the phase of the move they belong to, not in one long list.',
       },
     ],
     closing: 'Alongside these sits a directory of local businesses, services, and the people behind them. It is the part that answers the third question, the one about who to trust, and it is the reason the product is more than a set of instructions.',
@@ -138,6 +142,8 @@ const en: CaseCopy = {
     p1: 'Reloways is live and still being built. Onboarding, the task system, the knowledge centre, and the directory of local businesses and services all work, and the library of articles and podcast episodes grows every week. What began as a personal response to one move has grown into a platform holding practical knowledge, local services, and the community around both.',
     p2: 'The current work is hardening the product and shipping features lean and fast against what the Israeli community in Berlin is actually asking for, which is the audience it is being proven on before it extends. It is a product still in motion rather than a finished piece of work, and it gets a little larger every day.',
     figure: 'The live product on a phone. Two or three real screens, not a mockup.',
+    figureAlt: 'Three Reloways screens on a phone: the home page, the knowledge centre, and an article',
+    figureCaption: 'The live product. Home, the knowledge centre, and an article, in Hebrew and right to left throughout.',
   },
 };
 
@@ -213,6 +219,8 @@ const he: CaseCopy = {
           'מדריך שרק מסביר משאיר אותך לפעול במקום אחר. כל מאמר נושא בתוכו את המשימה שלו, בנקודה בטקסט שבה באמת היית עושה את הדבר. קריאה ועשייה קורות במקום אחד, וזה מה שהופך ערימת תוכן למוצר.',
         ],
         figure: 'מאמר עם כרטיס משימה משובץ',
+        figureAlt: 'מרכז הידע של Reloways בעברית, עם טאבים לפי שלב, סינון לפי קטגוריה וכרטיסי מאמרים',
+        figureCaption: 'מרכז הידע. המאמרים יושבים תחת השלב במעבר שאליו הם שייכים, ולא ברשימה אחת ארוכה.',
       },
     ],
     closing: 'לצד שלושת אלה יושב אינדקס של עסקים מקומיים, שירותים והאנשים שמאחוריהם. זה החלק שעונה על השאלה השלישית, זו שעל מי אפשר לסמוך, וזו הסיבה שהמוצר הוא יותר מאוסף הוראות.',
@@ -237,6 +245,8 @@ const he: CaseCopy = {
     p1: 'Reloways חי ועדיין נבנה. האונבורדינג, מערכת המשימות, מרכז הידע והאינדקס של העסקים והשירותים המקומיים כולם עובדים, וספריית המאמרים ופרקי הפודקאסט גדלה מדי שבוע. מה שהתחיל כתגובה אישית למעבר אחד צמח לפלטפורמה שמחזיקה ידע מעשי, שירותים מקומיים והקהילה שסביב שניהם.',
     p2: 'העבודה עכשיו היא לחזק את המוצר ולשלוח פיצ׳רים בפיתוח רזה ומהיר, מול מה שהקהילה הישראלית בברלין באמת מבקשת. זה הקהל שעליו המוצר מוכיח את עצמו לפני שהוא מתרחב. זה מוצר שעדיין בתנועה ולא עבודה גמורה, והוא גדל קצת בכל יום.',
     figure: 'המוצר החי על טלפון. שניים שלושה מסכים אמיתיים, לא מוקאפ.',
+    figureAlt: 'שלושה מסכים של Reloways בטלפון: דף הבית, מרכז הידע, ומאמר',
+    figureCaption: 'המוצר החי. דף הבית, מרכז הידע ומאמר, בעברית ומימין לשמאל לכל אורכו.',
   },
 };
 
