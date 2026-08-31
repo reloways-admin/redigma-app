@@ -4,28 +4,47 @@ import Image from 'next/image';
 import { PROJECTS, ToolBadge } from '@/sections/home/projects';
 import { HomeFinalCta } from '@/sections/home/final-cta';
 
-function ImagePlaceholder({ label = 'Image coming soon', aspect = '16/9' }: { label?: string; aspect?: string }) {
+function CaseFigure({
+  src,
+  alt,
+  caption,
+  aspect = '16/9',
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  aspect?: string;
+}) {
   return (
-    <div
-      className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] flex items-center justify-center"
-      style={{ aspectRatio: aspect }}
-    >
-      <p className="text-sm text-[var(--text-secondary)]">{label}</p>
-    </div>
+    <figure className="case-figure">
+      <div
+        className="relative w-full overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)]"
+        style={{ aspectRatio: aspect }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          sizes="(max-width: 1100px) 100vw, 960px"
+        />
+      </div>
+      {caption ? <figcaption className="case-caption">{caption}</figcaption> : null}
+    </figure>
   );
 }
 
-function CheckItem({ children }: { children: React.ReactNode }) {
+function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
-    <li className="flex items-start gap-3">
-      <span className="mt-[3px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#732fff]/10">
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M2 5l2.5 2.5 3.5-4" stroke="#732fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </span>
-      <span className="text-base text-[var(--text-secondary)] leading-relaxed">{children}</span>
-    </li>
+    <header>
+      <span className="case-number">{number}</span>
+      <h2 className="case-heading">{title}</h2>
+    </header>
   );
+}
+
+function SubHeading({ title }: { title: string }) {
+  return <h3 className="case-subheading">{title}</h3>;
 }
 
 function ChallengeBlock({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
@@ -33,23 +52,31 @@ function ChallengeBlock({ number, title, children }: { number: string; title: st
     <div className="pt-8 border-t border-[var(--border-subtle)]">
       <div className="flex items-baseline gap-3 mb-4">
         <span className="text-sm font-bold text-[#732fff]">{number}</span>
-        <h3 className="text-xl font-bold text-[var(--text-primary)]">{title}</h3>
+        <h3 className="case-subheading">{title}</h3>
       </div>
-      <div className="space-y-4 text-base text-[var(--text-secondary)] leading-relaxed">
+      <div className="space-y-4 text-[1.0625rem] leading-[1.75] text-[var(--text-secondary)]">
         {children}
       </div>
     </div>
   );
 }
 
-function SectionHeading({ title }: { title: string }) {
-  return (
-    <h2 className="text-2xl font-bold text-[var(--text-primary)] lg:text-3xl">{title}</h2>
-  );
-}
+const META = [
+  { label: 'Type', value: 'Product design sprint' },
+  { label: 'Client', value: 'GoMatchIt' },
+  { label: 'My Role', value: 'Lead Product Designer' },
+  { label: 'Timeline', value: '3 months to shipped MVP' },
+];
+
+const OUTCOMES = [
+  'A full visual language: typeface, type scale, colour roles, buttons, icons',
+  'A component library and the information architecture to reuse it against',
+  'A process canvas with a defined interaction model for every block state',
+  'A dashboard built on a single hierarchy that new features can extend',
+];
 
 export default function GoMatchItPage() {
-  const project = PROJECTS.find((p) => p.index === '04')!
+  const project = PROJECTS.find((p) => p.index === '04')!;
 
   return (
     <div className="bg-[var(--background)]">
@@ -60,45 +87,35 @@ export default function GoMatchItPage() {
 
           <p className="type-kicker text-[#732fff] mb-6">Case study</p>
 
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_280px] lg:gap-16 lg:items-start">
+          <div>
+            <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
+              A 3-Month Design Sprint to Launch a Usable and Scalable MVP
+            </h1>
+            <p className="case-lead">
+              GoMatchIt lets a company map a complex business process on a canvas and connect the software that runs it. I joined an early build and had three months to give it a visual language, an interaction model, and a design system the single developer could actually keep up with.
+            </p>
 
-            {/* Left: title */}
-            <div>
-              <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
-                A 3-Month Design Sprint to Launch a Usable and Scalable MVP
-              </h1>
-              <p className="text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                A 3-month design sprint for launching GoMatchIt, a business matchmaking platform, and the future vision for its AI-powered matching engine and data-backed insights tools.
-              </p>
-            </div>
-
-            {/* Right: meta */}
-            <div className="flex flex-col gap-5">
+            {/* Meta, sitting under the title rather than beside it */}
+            <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-3 lg:grid-cols-5">
+              {META.map((item) => (
+                <div key={item.label}>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">{item.label}</p>
+                  <p className="text-sm text-[var(--text-primary)] font-medium">{item.value}</p>
+                </div>
+              ))}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Industry</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Tech · B2B Strategy</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Focus</p>
                 <div className="flex flex-wrap gap-2">
-                  {['Design', 'Data', 'Visibility'].map((tag) => (
+                  {['B2B SaaS', 'Process Automation'].map((tag) => (
                     <span key={tag} className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface-1)] px-3 py-1 text-xs font-medium text-[var(--text-primary)]">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Role</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Lead Product Designer</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Timeline</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">3 months</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Tools</p>
-                <div className="flex flex-col gap-3">
+              <div className="col-span-2 sm:col-span-3 lg:col-span-5">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-3">Tools</p>
+                <div className="flex flex-wrap gap-x-8 gap-y-4">
                   {project.tools.map((tool) => (
                     <ToolBadge key={tool.name} tool={tool} />
                   ))}
@@ -111,10 +128,10 @@ export default function GoMatchItPage() {
 
       {/* ── Hero image ── */}
       <div className="mx-auto max-w-[1360px] px-6 py-12">
-        <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/7' }}>
+        <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/9' }}>
           <Image
-            src="/images/home/projects/gomatchit_cover_001-1-1920x1080.png"
-            alt="GoMatchIt platform overview"
+            src="/images/projects/gomatchit/gomatchit_cover_001-1.png"
+            alt="The GoMatchIt canvas with a customer record process mapped across colour-coded activity blocks"
             fill
             className="object-cover"
             sizes="(max-width: 1360px) 100vw, 1360px"
@@ -124,187 +141,182 @@ export default function GoMatchItPage() {
       </div>
 
       {/* ── Content ── */}
-      <div className="mx-auto max-w-[800px] px-6 pb-24 space-y-20">
+      <div className="case-prose mx-auto px-6 pb-24 space-y-20">
 
         {/* Overview */}
-        <div className="space-y-6">
-          <SectionHeading title="Overview" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="01" title="The Product" />
           <p>
-            Go Match It is a tool for matching companies specializing in complex business processes. It is powered by AI to better match the right partners, investors, and service providers — and to ensure each placement is filling its potential for both sides.
+            GoMatchIt is a tool for mapping the business processes a company runs across several pieces of software at once. A user lays a process out on a canvas as a chain of activity blocks, connects the tools each step depends on, and ends up with something the whole organisation can read.
           </p>
           <p>
-            <strong className="font-semibold text-[var(--text-primary)]">The goal was:</strong> We engaged with the team at GoMatchIt with the key pillars to success: good branding, strong UX/UI, and crisp visuals. I worked closely with the founder and developer to build a solid technical foundation — working with the visual language and the user experience of the product from day one.
-          </p>
-          <p>
-            Throughout this process, I developed a complete design system: typography, color palette, layouts, interface elements, defining screen states, a component library, and how to best use these as the tool was built.
-          </p>
-          <p>
-            <strong className="font-semibold text-[var(--text-primary)]">The result: published, intuitive, and technically sound MVP</strong> — with two more ideas already on the roadmap for later this year.
+            The founder had already built a working version. It functioned, and it looked like a prototype. My brief was the other three pillars: branding, UX, and the visual craft that decides whether a B2B tool feels credible in a sales call.
           </p>
 
-          {/* Key outcomes */}
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6 mt-4">
-            <p className="text-sm font-semibold text-[var(--text-primary)] mb-4">Key outcomes</p>
+          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6">
+            <p className="text-sm font-semibold text-[var(--text-primary)] mb-4">What shipped in three months</p>
             <ul className="space-y-3">
-              <CheckItem>Every interaction was carefully considered and designed to create a clear, intuitive flow</CheckItem>
-              <CheckItem>Full visual language: font, typography, colors, buttons, icons</CheckItem>
-              <CheckItem>Full design system for information architecture and component reuse</CheckItem>
-              <CheckItem>Dashboard built with strong hierarchy and systematic navigation</CheckItem>
+              {OUTCOMES.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="mt-[3px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#732fff]/10">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                      <path d="M2 5l2.5 2.5 3.5-4" stroke="#732fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="text-[1.0625rem] leading-[1.7] text-[var(--text-secondary)]">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Starting Point */}
-        <div className="space-y-6">
-          <SectionHeading title="Starting Point" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="02" title="The Starting Point" />
           <p>
-            I joined the GoMatchIt project when the product was still in its early stages. Back then, the founder had already begun developing a basic version of the product.
+            This is what the canvas looked like when I joined. Every idea in the product is already present: the grid, the swimlanes, the panel for adding a process, the zoom control. None of it tells you where to look.
           </p>
           <p>
-            <strong className="font-semibold text-[var(--text-primary)]">My goal</strong> was to take the existing structure and build a new design — in terms of visual elements, UX, and overall consistency.
+            That is the useful thing about inheriting a working prototype. The structural questions have been answered by someone who understands the domain, and the remaining problem is genuinely a design problem: hierarchy, weight, colour, and the order in which things ask for attention.
           </p>
-          <p>
-            First, the most reasonable path was clear: amplify the way the product looks and feels, make the visual representation meaningful, and ensure the story it tells is coherent for the user.
-          </p>
-          <p>
-            Canvas is a unique element — one where you still need to learn what to change and what to keep, building a common domain language based on a shared set of principles.
-          </p>
-          <ImagePlaceholder label="Starting point — early product state" />
-        </div>
 
-        {/* How We Worked */}
-        <div className="space-y-6">
-          <SectionHeading title="How We Worked" />
-          <p>
-            I worked closely with the founders and developer throughout this project.
-          </p>
-          <p>
-            <strong className="font-semibold text-[var(--text-primary)]">The pace was fast</strong> — every design decision was implemented almost simultaneously. The success criteria was simple: a product that delivers clear value quickly to stakeholders, and a product design that has real value quickly with the end customer.
-          </p>
-          <p>
-            We focused on consistent design, real data quality, and clear outcomes for all parties involved.
-          </p>
-        </div>
-
-        {/* Key Challenges */}
-        <div className="space-y-8">
-          <SectionHeading title="Key Challenges" />
-
-          <ChallengeBlock number="1" title="Keeping an Intuitive Request Flow">
-            <p>
-              The primary challenge was creating a simple flow that instantly guides the user through creating and submitting a matching request. Below these elements, the forms would be combined — and we needed to make sure the correct areas were always visible and actionable.
-            </p>
-            <p>
-              The Request "Maker" had to follow a unified mental model — on the first try, the user could click through without getting lost. When a form said something was a "Request", it had to look right, feel right, and make the flow obvious.
-            </p>
-            <ImagePlaceholder label="Request flow screens" />
-          </ChallengeBlock>
-
-          <ChallengeBlock number="2" title="Navigating the Menu">
-            <p>
-              The biggest design and UX issue was around the navigation — specifically on the canvas platform, with its different levels and contexts. With this approach, we designed a clear filtering tool where multiple factors could drive a cross-segment result.
-            </p>
-            <p>
-              We introduced a secondary menu — a standard approach that, when combined with a clear link menu and visible entries, resolved the navigation complexity without overloading the interface.
-            </p>
-            <ImagePlaceholder label="Menu navigation design" />
-          </ChallengeBlock>
-
-          <ChallengeBlock number="3" title="Designing Within Technical Constraints">
-            <p>
-              The development environment introduced a set of real constraints — not every design pattern was achievable in the given timeline. This meant making smart tradeoffs: prioritizing interactions that would have the highest impact on usability while deferring more complex patterns to later iterations.
-            </p>
-            <p>
-              Every component was designed with the developer's workflow in mind, ensuring that what was designed could be built accurately and quickly.
-            </p>
-            <ImagePlaceholder label="Component design and constraints" />
-          </ChallengeBlock>
-
-          <ChallengeBlock number="4" title="Navigating the Status">
-            <p>
-              Status visibility was critical. Users needed to understand at a glance where their requests stood — pending, matched, in review, or complete. We designed a clear status system with consistent color coding and iconography across all surfaces.
-            </p>
-          </ChallengeBlock>
-
-          <ChallengeBlock number="5" title="Consistency Across the Entire Application">
-            <p>
-              With multiple surfaces — the canvas, the dashboard, the request flow, and settings — maintaining visual and interaction consistency was an ongoing challenge. The design system was the solution: every component defined once, reused everywhere.
-            </p>
-            <ImagePlaceholder label="Consistency across surfaces" />
-          </ChallengeBlock>
+          <CaseFigure
+            src="/images/projects/gomatchit/gomatchit_canvas_img_001-1.png"
+            alt="The early GoMatchIt build: a grey grid canvas with an add-process panel and no visual hierarchy"
+            aspect="1000/510"
+            caption="The build I inherited. Everything is there, and nothing is louder than anything else."
+          />
         </div>
 
         {/* The Canvas */}
-        <div className="space-y-6">
-          <SectionHeading title="The Heart of the Product: The Canvas" />
+        <div className="case-section space-y-6">
+          <SectionHeading number="03" title="The Canvas, Which Is the Whole Product" />
           <p>
-            The Canvas is the core of GoMatchIt — an infinite workspace where users create and explore business matches. The discovery canvas worked with a grid type, with labeled canvas areas — at the top level, a clearly visible grid of all relevant nodes was always accessible.
+            The canvas carries the product, so it got the first and largest share of the work. A process is a chain of activity blocks, each one typed by what it does: create a record, move data, run a check. Type is carried by colour and by a label on the block header, so a process is legible from a distance before anyone reads a single word of it.
           </p>
           <p>
-            We created <strong className="font-semibold text-[var(--text-primary)]">Match Groups</strong> displayed at the top column of the canvas, organized by category — either a small grid panel or a specific matching tag was used for relevant filtering.
+            Each block also shows the software it touches. Seeing that a step runs through one tool and hands off to another is most of the value of drawing the process at all, so those marks sit inside the block rather than in a panel somewhere else.
           </p>
           <p>
-            The defined interaction model for all canvas components — including layout, color, interaction states, and user data points — all contributed to making the canvas feel powerful yet approachable.
+            Grouping came next. A process is boxed and titled on the canvas, which lets several processes share one workspace without turning into a single undifferentiated diagram.
           </p>
-          <ImagePlaceholder label="Canvas — main view" aspect="4/3" />
+
+          <CaseFigure
+            src="/images/projects/gomatchit/gomatchit_canvas_img_002-1.png"
+            alt="The redesigned canvas: a titled process group containing colour-coded activity blocks connected by flow lines"
+            aspect="1000/510"
+            caption="The same canvas after the design system. Colour carries block type, and the process is boxed and titled."
+          />
         </div>
 
-        {/* The Dashboard */}
-        <div className="space-y-6">
-          <SectionHeading title="A Fun Challenge: The Dashboard" />
-          <p>
-            Unlike the Canvas, the Dashboard was a much more detail-populated overview across all components being used in the platform. It needed to support a launching experience across the platform — requiring notifications, data sets, connections, active tasks, and status updates all in one place.
-          </p>
-          <p>
-            The Dashboard was designed around the user's daily workflow — surfacing what matters most, in the right order, with enough detail to act without overwhelming.
-          </p>
-          <p>
-            We made it work through consistent design language, consistent iconography, standard labels, and a well-structured layout that could scale as new features were added.
-          </p>
-          <ImagePlaceholder label="Dashboard — overview" aspect="4/3" />
+        {/* Challenges */}
+        <div className="case-section space-y-8">
+          <SectionHeading number="04" title="The Hard Parts" />
+
+          <ChallengeBlock number="1" title="Editing a block without leaving the canvas">
+            <p>
+              Configuring an activity block takes a lot of fields: the parent process, the activity category and type, the trigger, the performers, the entities, the method. Put that on its own page and the user loses the context that made the block make sense. Put it in a small popover and it does not fit.
+            </p>
+            <p>
+              The answer was a wide panel that opens over the canvas, with the fields grouped into four labelled columns and a live preview of the resulting block on the right. You configure the thing while looking at the thing.
+            </p>
+            <CaseFigure
+              src="/images/projects/gomatchit/gomatchit_canvas_img_highlight.png"
+              alt="The activity block editor open over the canvas, with grouped field columns, a live block preview, and the surrounding controls highlighted"
+              aspect="1000/510"
+              caption="The editor panel over the canvas, with the persistent controls marked. Live preview on the right."
+            />
+          </ChallengeBlock>
+
+          <ChallengeBlock number="2" title="Two menus that never compete">
+            <p>
+              The canvas needs controls at several levels at once: the workspace itself, the current process, the block you are editing, and the view. Stacking those into one navigation made everything feel equally important, which is another way of saying nothing did.
+            </p>
+            <p>
+              We split it. A persistent top bar for workspace and process, a secondary set of controls anchored to the canvas for creating blocks and switching to the text-to-diagram input, and the zoom pinned to the corner where it stays out of the way. Each one owns a fixed location, so the user learns where to look once.
+            </p>
+          </ChallengeBlock>
+
+          <ChallengeBlock number="3" title="Designing against a single developer's velocity">
+            <p>
+              One developer, three months, a real launch date. Not every pattern that would be right was going to be affordable, so every component was designed against what it would cost to build.
+            </p>
+            <p>
+              That constraint shaped the block design directly. The version comparison below is the moment it landed: an earlier variant with a heavy tinted header and a separate category strip, against the version we shipped, which drops the strip, puts the type in the block header, and gives the integration path the width instead.
+            </p>
+            <p>
+              The shipped version is simpler to build and easier to read. That is usually the deal when you design inside a real constraint rather than around it.
+            </p>
+            <CaseFigure
+              src="/images/projects/gomatchit/gomatchit_canvas_img_005.png"
+              alt="Two design versions of the activity block side by side, labelled Version 01 and Version 03"
+              aspect="1000/350"
+              caption="Version 01 against the version we shipped. Less chrome, more room for the integration path."
+            />
+          </ChallengeBlock>
+
+          <ChallengeBlock number="4" title="Status you can read without opening anything">
+            <p>
+              Processes live in states: draft, in review, published. Users needed to know where each one stood from the list view, without clicking into it.
+            </p>
+            <p>
+              Status became a single consistent chip, using the same colour vocabulary everywhere it appears. One rule, applied on the canvas, in the list, and in the detail panel.
+            </p>
+          </ChallengeBlock>
         </div>
 
-        {/* Design Components */}
-        <div className="space-y-8">
-          <SectionHeading title="Design Components" />
+        {/* Dashboard */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="05" title="The Dashboard" />
+          <p>
+            The canvas is where one process gets built. The dashboard is where an organisation keeps all of them, and it is a different problem: dense, tabular, and mostly about finding the right thing quickly.
+          </p>
+          <p>
+            The layout settles into three columns. Navigation on the leading edge splits processes from boards and cuts each by created, shared, and starred. The centre is a searchable, filterable list carrying owner, software, status, and both dates. The trailing panel previews whatever is selected, including a thumbnail of the process itself, so a user can confirm they have the right one without leaving the list.
+          </p>
+          <p>
+            Nothing here is novel, and that is deliberate. The canvas is where the product earns its distinctiveness. The dashboard should be boring, fast, and immediately familiar.
+          </p>
 
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Typography</h3>
-              <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                We chose a clean, readable modern typeface that performs well for both large headings and small interface text. Type hierarchy was defined across five levels — from hero titles down to captions — ensuring clarity and consistency at every scale.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Color System</h3>
-              <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                The color system was built around a core palette with semantic usage rules — primary actions, status indicators, surface levels, and text roles each had their own defined color. This made the UI predictable and easy for the developer to implement.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">Design Tokens</h3>
-              <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                Our design tokens established component-level definitions — including token colors, spacing, typography scale, border radii, and shadow values — all contributing to the consistency of the entire product experience.
-              </p>
-            </div>
-
-            <ImagePlaceholder label="Design system components" aspect="4/3" />
-          </div>
+          <CaseFigure
+            src="/images/projects/gomatchit/gomatchit_canvas_img_expermental.png"
+            alt="The GoMatchIt dashboard: navigation sidebar, a searchable process list with owner, software, and status columns, and a detail preview panel"
+            aspect="1000/510"
+            caption="Navigate, list, preview. The dashboard is deliberately the least surprising surface in the product."
+          />
         </div>
 
-        {/* Final Thoughts */}
-        <div className="space-y-6">
-          <SectionHeading title="Final Thoughts" />
+        {/* Design system */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="06" title="The System Underneath" />
+
+          <SubHeading title="Typography" />
           <p>
-            GoMatchIt was a great example of how product thinking and UX work best when combined from day one — not as sequential steps, but as an ongoing conversation. Starting from an early-stage product and moving quickly to a polished, shippable MVP required constant prioritization and clear communication.
+            One clean, modern typeface that holds up at both ends of the range, since this product needs a legible hero title and legible eight-pixel-tall metadata in the same view. Five levels, defined once, from page title down to caption.
+          </p>
+
+          <SubHeading title="Colour with rules attached" />
+          <p>
+            The palette exists to mean something rather than to decorate. Primary actions, status indicators, surface levels, block types, and text roles each hold their own defined colour. Because the usage rules are written down, the developer never has to guess which blue, and the interface stays predictable as it grows.
+          </p>
+
+          <SubHeading title="Tokens" />
+          <p>
+            Colour, spacing, type scale, radii, and shadows were all defined as tokens at component level. This is the part that made a three-month timeline survivable: once the tokens were agreed, most new screens were assembly rather than design.
+          </p>
+        </div>
+
+        {/* Final */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="07" title="What I Took From It" />
+          <p>
+            The reason this shipped in three months is not speed. It is that the design system arrived before the screens did. Every hour spent settling tokens and block anatomy in month one paid for itself several times over in months two and three, when new surfaces could be composed instead of invented.
           </p>
           <p>
-            The design system we built became the product's backbone — and the foundation for everything that comes next. The two upcoming features already on the roadmap will build directly on top of what we created here.
+            The other half was working distance. The founder, the developer, and I moved in one loop, with design decisions implemented almost as they were made. That only works on real trust, and it is the thing I would look for first before agreeing to a timeline this short again.
           </p>
           <p>
-            What made this project work was trust: the founder trusted the process, the developer trusted the designs, and together we moved faster than any of us expected.
+            The MVP is published, with two further ideas already scoped on top of the system we built for it.
           </p>
         </div>
 

@@ -77,20 +77,16 @@ export default function RelowaysPage() {
 
           <p className="type-kicker text-[#732fff] mb-6">Case study</p>
 
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_280px] lg:gap-16 lg:items-start">
-
-            {/* Left: title */}
-            <div>
+          <div>
               <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
                 Designing a Relocation Platform from the Ground Up — While Relocating Myself
               </h1>
               <p className="case-lead">
                 Reloways is a bilingual product (Hebrew/English) that helps Israelis navigate the dependency chain of German bureaucracy — from Anmeldung to long-term settlement. I designed it and built it.
               </p>
-            </div>
 
-            {/* Right: meta */}
-            <div className="flex flex-col gap-5">
+          {/* Meta, sitting under the title rather than beside it */}
+            <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-3 lg:grid-cols-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Type</p>
                 <p className="text-sm text-[var(--text-primary)] font-medium">Product Design + Full-Stack Build</p>
@@ -120,9 +116,9 @@ export default function RelowaysPage() {
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Tools</p>
-                <div className="flex flex-col gap-3">
+              <div className="col-span-2 sm:col-span-3 lg:col-span-5">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-3">Tools</p>
+                <div className="flex flex-wrap gap-x-8 gap-y-4">
                   {project.tools.map((tool) => (
                     <ToolBadge key={tool.name} tool={tool} />
                   ))}
@@ -135,10 +131,10 @@ export default function RelowaysPage() {
 
       {/* ── Hero image ── */}
       <div className="mx-auto max-w-[1360px] px-6 py-12">
-        <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/7' }}>
+        <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/9' }}>
           <Image
-            src="/images/home/projects/reloways_cover-1920x1080.png"
-            alt="Reloways platform overview"
+            src="/images/home/projects/reloways-hero-laptop.jpg"
+            alt="The Reloways homepage open on a laptop in a Berlin cafe"
             fill
             className="object-cover"
             sizes="(max-width: 1360px) 100vw, 1360px"

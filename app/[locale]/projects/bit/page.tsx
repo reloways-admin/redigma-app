@@ -4,40 +4,68 @@ import Image from 'next/image';
 import { PROJECTS, ToolBadge } from '@/sections/home/projects';
 import { HomeFinalCta } from '@/sections/home/final-cta';
 
-function ImagePlaceholder({ label = 'Image coming soon', aspect = '16/9' }: { label?: string; aspect?: string }) {
+function CaseFigure({
+  src,
+  alt,
+  caption,
+  aspect = '16/9',
+  priority = false,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  aspect?: string;
+  priority?: boolean;
+}) {
   return (
-    <div
-      className="w-full rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] flex items-center justify-center"
-      style={{ aspectRatio: aspect }}
-    >
-      <p className="text-sm text-[var(--text-secondary)]">{label}</p>
-    </div>
+    <figure className="case-figure">
+      <div
+        className="relative w-full overflow-hidden rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)]"
+        style={{ aspectRatio: aspect }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain"
+          sizes="(max-width: 1100px) 100vw, 960px"
+          priority={priority}
+        />
+      </div>
+      {caption ? <figcaption className="case-caption">{caption}</figcaption> : null}
+    </figure>
   );
 }
 
-function SectionHeading({ title }: { title: string }) {
+function SectionHeading({ number, title }: { number: string; title: string }) {
   return (
-    <h2 className="text-2xl font-bold text-[var(--text-primary)] lg:text-3xl">{title}</h2>
+    <header>
+      <span className="case-number">{number}</span>
+      <h2 className="case-heading">{title}</h2>
+    </header>
   );
 }
 
-function CaseStudyLabel({ number, title }: { number: string; title: string }) {
-  return (
-    <div className="flex items-baseline gap-3 mb-6">
-      <span className="text-sm font-bold text-[#732fff]">{number}</span>
-      <h3 className="text-xl font-bold text-[var(--text-primary)] lg:text-2xl">{title}</h3>
-    </div>
-  );
+function SubHeading({ title }: { title: string }) {
+  return <h3 className="case-subheading">{title}</h3>;
 }
 
-function TwoColSection({ left, right }: { left: React.ReactNode; right: React.ReactNode }) {
-  return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[2fr_3fr] lg:gap-16 items-start">
-      <div>{left}</div>
-      <div className="text-base text-[var(--text-secondary)] leading-relaxed space-y-4">{right}</div>
-    </div>
-  );
-}
+const META = [
+  { label: 'Type', value: 'Design system component' },
+  { label: 'Client', value: 'Bit (bit.dev)' },
+  { label: 'My Role', value: 'Head of Design' },
+  { label: 'Platform', value: 'Open-source component library' },
+];
+
+const BEHAVIOURS = [
+  { name: 'Pagination', note: 'Splits large data sets into pages instead of one overwhelming scroll.' },
+  { name: 'Sorting', note: 'Three states per column: unsorted, sorted-up, sorted-down. Icons appear on hover, and only the active column keeps one visible.' },
+  { name: 'Toolbar', note: 'Reserved for global actions: settings, complex filters, export, edit. Primary, ghost, and icon buttons only.' },
+  { name: 'Row selection', note: 'Checkboxes on the leading edge. Every table has a hover state whether or not rows are selectable.' },
+  { name: 'Add or remove columns', note: 'Lets users decide how much of the table they want to see at once.' },
+  { name: 'Row expansion', note: 'Reveals detail in place. The expand-all chevron is hidden by default so detail queries are postponed until asked for.' },
+  { name: 'Infinite scroll', note: 'An alternative to pagination for a continuous stream of content.' },
+];
 
 export default function BitPage() {
   const project = PROJECTS.find((p) => p.index === '03')!;
@@ -51,32 +79,22 @@ export default function BitPage() {
 
           <p className="type-kicker text-[#732fff] mb-6">Case study</p>
 
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_280px] lg:gap-16 lg:items-start">
+          <div>
+            <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
+              Building Blocks: Crafting a Versatile Data Table Component
+            </h1>
+            <p className="case-lead">
+              Bit is a component-driven development platform used by developers worldwide. This is one component out of eight years of work there: the data table at the centre of its open-source design system, designed to be simple enough to ship fast and structured enough to grow.
+            </p>
 
-            {/* Left: title */}
-            <div>
-              <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
-                Eight Years Building the Design Language of an Open-Source Platform
-              </h1>
-              <p className="text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-                Bit is a component-driven development platform used by hundreds of thousands of developers worldwide. As Head of Design, I've shaped the product's visual language, UX architecture, design system, and AI-powered features — from day-to-day UI decisions to long-term product thinking.
-              </p>
-            </div>
-
-            {/* Right: meta */}
-            <div className="flex flex-col gap-5">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Company</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Bit (bit.dev)</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Role</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Head of Design</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Duration</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">8 years (ongoing)</p>
-              </div>
+            {/* Meta, sitting under the title rather than beside it */}
+            <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-3 lg:grid-cols-5">
+              {META.map((item) => (
+                <div key={item.label}>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">{item.label}</p>
+                  <p className="text-sm text-[var(--text-primary)] font-medium">{item.value}</p>
+                </div>
+              ))}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Industry</p>
                 <div className="flex flex-wrap gap-2">
@@ -87,19 +105,9 @@ export default function BitPage() {
                   ))}
                 </div>
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Focus</p>
-                <div className="flex flex-wrap gap-2">
-                  {['UX Strategy', 'UI Design', 'Design System', 'AI Features'].map((tag) => (
-                    <span key={tag} className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-[var(--surface-1)] px-3 py-1 text-xs font-medium text-[var(--text-primary)]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Tools</p>
-                <div className="flex flex-col gap-3">
+              <div className="col-span-2 sm:col-span-3 lg:col-span-5">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-3">Tools</p>
+                <div className="flex flex-wrap gap-x-8 gap-y-4">
                   {project.tools.map((tool) => (
                     <ToolBadge key={tool.name} tool={tool} />
                   ))}
@@ -112,244 +120,152 @@ export default function BitPage() {
 
       {/* ── Hero image ── */}
       <div className="mx-auto max-w-[1360px] px-6 py-12">
-        <ImagePlaceholder label="Bit platform — overview" aspect="16/7" />
+        <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/9' }}>
+          <Image
+            src="/images/projects/table/table_cover_001.png"
+            alt="The Table documentation page in Bit's design system, with the full behaviour index in the sidebar"
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 1360px) 100vw, 1360px"
+            priority
+          />
+        </div>
       </div>
 
       {/* ── Content ── */}
-      <div className="mx-auto max-w-[800px] px-6 pb-24 space-y-24">
+      <div className="case-prose mx-auto px-6 pb-24 space-y-20">
 
-        {/* Context */}
-        <div className="space-y-6">
-          <SectionHeading title="The Long Game" />
-          <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            Most design work happens in sprints. Eight years at one company is something different — it means building the design culture, not just the screens. At Bit, I've been involved in every meaningful product decision: what to build, how to structure it, what to cut. The two case studies below are recent examples — but they reflect a much longer design story.
+        {/* The Problem */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="01" title="The Brief" />
+          <p>
+            The purpose of a data table is to organise and display data efficiently. That sounds like a solved problem until you have to build one component that every team in a product will use, for data nobody has described to you yet.
           </p>
-          <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            Today the work includes AI-powered features that help developers compose and understand components faster. The challenge is the same as it's always been: make something technically complex feel obvious to use.
+          <p>
+            The table had to be <strong className="font-semibold text-[var(--text-primary)]">basic on purpose</strong>. It is part of the open-source design system we build in the open at Bit, which means it is not a table for one screen. It is the table other people compose their tables from. Developers add parts to it and remove parts from it, and whatever they do, the result still has to look like it belongs to the product.
+          </p>
+          <blockquote className="case-quote">
+            <p>
+              A component that is too rigid gets abandoned. A component that is too loose creates chaos across the whole product.
+            </p>
+          </blockquote>
+          <p>
+            Everything below is an attempt to sit exactly between those two failures.
           </p>
         </div>
 
-        {/* ── Case Study 1: Data Table ── */}
-        <div className="space-y-10 pt-4 border-t border-[var(--border-subtle)]">
-
-          <CaseStudyLabel number="01" title="Building Blocks: Crafting a Versatile Data Table Component" />
-
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6">
-            <div className="grid grid-cols-3 gap-6 text-center">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1">Strategy</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">UX Strategy · UX/UI</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1">Client</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Bit</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1">Industry</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Hi-Tech</p>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            The purpose of data tables is to organize and display data efficiently. Data tables can be customized with additional functionality based on the needs of users' products. The goal was to design and develop a basic table for Bit's open-source design system — something simple enough to ship fast, yet structured enough to grow.
+        {/* The Basic Table */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="02" title="Start From the Smallest Thing That Works" />
+          <p>
+            The starting point is a table with nothing added to it: header row, data rows, hover state. Clarity, ease of navigation, and accessibility, and nothing that has to be configured before it renders.
+          </p>
+          <p>
+            This matters more than it looks. If the default state is already opinionated, every team that adopts the component starts by fighting it. If the default state is genuinely plain, the complex variants become additions rather than overrides.
           </p>
 
-          <ImagePlaceholder label="Data table — component overview" aspect="16/9" />
-
-          <div className="space-y-8">
-            <TwoColSection
-              left={
-                <h3 className="text-xl font-bold text-[var(--text-primary)]">The challenge</h3>
-              }
-              right={
-                <>
-                  <p>
-                    The challenge was to design a basic table component — a basic design and basic functionality. This table is basic because it is part of the open-source design system we are building in the company. The table is customizable: developers can add and remove parts from it.
-                  </p>
-                  <p>
-                    The difficulty was balancing flexibility with consistency. A component that's too rigid gets abandoned; one that's too loose creates chaos across the product.
-                  </p>
-                </>
-              }
-            />
-
-            <TwoColSection
-              left={
-                <h3 className="text-xl font-bold text-[var(--text-primary)]">The process</h3>
-              }
-              right={
-                <p>
-                  Collaboration with the development team was a crucial element in the process. The meetings were daily and included design feedback and development feedback. This process allowed us to work together quickly and build a quality basic table.
-                </p>
-              }
-            />
-
-            <TwoColSection
-              left={
-                <h3 className="text-xl font-bold text-[var(--text-primary)]">The features that were designed and developed</h3>
-              }
-              right={
-                <p>
-                  Collaboration with the development team was a crucial element in the process. The meetings were daily and included design feedback and development feedback. This process allowed us to work together quickly and build a quality basic table.
-                </p>
-              }
-            />
-          </div>
-
-          <div className="space-y-12">
-            <p className="text-lg font-semibold text-[var(--text-primary)] text-center">A few examples of the basic table</p>
-
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h4 className="text-base font-semibold text-[var(--text-primary)]">A basic table</h4>
-                <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                  A basic table emphasizes clarity, ease of navigation, and accessibility to ensure users can efficiently comprehend and interact with the data. By building a basic table, you can build a more complex one.
-                </p>
-                <ImagePlaceholder label="Basic table — component" aspect="16/7" />
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-base font-semibold text-[var(--text-primary)]">Skeleton</h4>
-                <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                  Use skeleton states instead of spinners if additional load time is expected. This keeps the layout stable and reduces perceived wait time.
-                </p>
-                <ImagePlaceholder label="Skeleton loading state" aspect="16/7" />
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-base font-semibold text-[var(--text-primary)]">Active search</h4>
-                <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                  An active search is a way of searching an application on data set. After each character is entered, live search runs and results are displayed immediately. Active search is a way of filtering a dataset using keywords. The pagination toolbar is in disabled mode as the search is run actively and the user has not deleted the data in the search field. We implemented it to hide the toolbar while the search field is active.
-                </p>
-                <ImagePlaceholder label="Active search — component" aspect="16/7" />
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="text-base font-semibold text-[var(--text-primary)]">Table docs</h4>
-                <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-                  A detailed documentation document explains both the design and development sides of the component, attached to the table so users can better understand it. Key behaviors documented: Pagination, Sorting, Toolbar, Row Selection, Add/remove columns, Row expansion — each defined with edge cases and interaction states.
-                </p>
-                <ImagePlaceholder label="Table documentation" aspect="4/3" />
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6 space-y-3">
-            <p className="text-sm font-semibold text-[var(--text-primary)]">Conclusion</p>
-            <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-              The goal was to design and develop a basic table for our open-source design system. The process included daily conversations with the development and product teams to design according to limitations and requests. In addition to the design, a detailed documentation document regarding the behavior of the component has been included.
-            </p>
-          </div>
+          <CaseFigure
+            src="/images/projects/table/table_img_001.png"
+            alt="The basic table variant: seven columns of contact data with a header row and a single hover state"
+            aspect="1000/230"
+            caption="The default. Seven columns, one hover state, nothing to configure before it renders."
+          />
         </div>
 
-        {/* ── Case Study 2: CLI Reference ── */}
-        <div className="space-y-10 pt-4 border-t border-[var(--border-subtle)]">
-
-          <CaseStudyLabel number="02" title="CLI Reference" />
-
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6">
-            <div className="grid grid-cols-3 gap-6 text-center">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1">Strategy</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">UX Strategy · UX/UI Design</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1">Client</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Bit</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1">Industry</p>
-                <p className="text-sm text-[var(--text-primary)] font-medium">Hi-Tech</p>
-              </div>
-            </div>
-          </div>
-
-          <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-            CLI — or Command Line Interface — commands are instructions given to a computer or software through a text-based interface. Users interact with the system by typing commands into a terminal or command prompt. The goal: displaying and browsing various commands in a comfortable way.
+        {/* Loading */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="03" title="Design the Waiting, Not Just the Result" />
+          <p>
+            Tables are almost always waiting for data. If additional load time is expected, the component uses a skeleton rather than a spinner.
+          </p>
+          <p>
+            A spinner tells you something is happening. A skeleton tells you what is about to arrive and how much of it there is, and it holds the layout still so nothing jumps when the data lands. The perceived wait is shorter even when the real wait is identical.
           </p>
 
-          <ImagePlaceholder label="CLI Reference — main view" aspect="16/9" />
-
-          <div className="space-y-8">
-            <TwoColSection
-              left={
-                <h3 className="text-xl font-bold text-[var(--text-primary)]">The challenge was to create a comfortable user experience for a large amount of commands</h3>
-              }
-              right={
-                <p>
-                  Developers write code using many commands that help them work faster. The commands library must be designed to make it easier for developers to browse the commands. The previous experience wasn't good enough because the user got all the commands in one long page, and as a result, it was painful to search quickly for the commands the user needs.
-                </p>
-              }
-            />
-
-            <TwoColSection
-              left={
-                <h3 className="text-xl font-bold text-[var(--text-primary)]">The decision was to group commands according to product areas and then create a clear and pleasant filter experience</h3>
-              }
-              right={
-                <p>
-                  In this way, users can clearly understand the areas of the product and see which commands are linked to which areas of the product. The following commands have been categorized — some commands belong to more than one category.
-                </p>
-              }
-            />
-          </div>
-
-          {/* 4 Versions grid */}
-          <div className="space-y-4">
-            <p className="text-sm font-semibold text-[var(--text-primary)]">Four design versions explored</p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <p className="text-xs text-[var(--text-secondary)] font-medium">Version 1</p>
-                <ImagePlaceholder label="CLI Reference — Version 1" aspect="4/3" />
-              </div>
-              <div className="space-y-2">
-                <p className="text-xs text-[var(--text-secondary)] font-medium">Version 2</p>
-                <ImagePlaceholder label="CLI Reference — Version 2" aspect="4/3" />
-              </div>
-              <div className="space-y-2">
-                <p className="text-xs text-[var(--text-secondary)] font-medium">Version 3</p>
-                <ImagePlaceholder label="CLI Reference — Version 3" aspect="4/3" />
-              </div>
-              <div className="space-y-2">
-                <p className="text-xs text-[var(--text-secondary)] font-medium">Version 4</p>
-                <ImagePlaceholder label="CLI Reference — Version 4" aspect="4/3" />
-              </div>
-            </div>
-          </div>
-
-          <TwoColSection
-            left={
-              <h3 className="text-xl font-bold text-[var(--text-primary)]">A comprehensive icon library of 75 new icons for CLI was designed</h3>
-            }
-            right={
-              <p>
-                We knew we needed a bunch of new icons. We worked closely and created 75 new icons to fix its small things on the commands' internal pages and to communicate the essence of the command in a simple, graphical way.
-              </p>
-            }
+          <CaseFigure
+            src="/images/projects/table/table_img_003.png"
+            alt="The table skeleton state: grey placeholder blocks matching the column structure of the loaded table"
+            aspect="1000/360"
+            caption="The skeleton mirrors the real column widths, so the layout never shifts when data arrives."
           />
+        </div>
 
-          <ImagePlaceholder label="75 CLI icons — icon library" aspect="16/9" />
+        {/* Search */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="04" title="Active Search, and the Toolbar Problem" />
+          <p>
+            Active search filters the data set as each character is typed, with results appearing immediately rather than on submit. Simple enough on its own. The interesting part was what it does to everything around it.
+          </p>
+          <p>
+            While a live search is running, the result set is no longer the full data set, so the pagination toolbar is describing something that is not on screen any more. Leaving it active would let a user page through a filtered view using controls built for an unfiltered one.
+          </p>
+          <p>
+            We disable the pagination toolbar for as long as the search field holds a query, and restore it the moment the field is cleared. It is a small rule, and it is the kind of edge case that decides whether a shared component is trustworthy.
+          </p>
 
-          <TwoColSection
-            left={
-              <h3 className="text-xl font-bold text-[var(--text-primary)]">On the go fixing for the inner pages of each command</h3>
-            }
-            right={
-              <p>
-                Each project involves fixing and improving pages related to the same feature. Our goal was to fix small things on the commands' internal pages that can enhance the look of the page.
-              </p>
-            }
+          <CaseFigure
+            src="/images/projects/table/table_img_006.png"
+            alt="Active search in the table: a query in the search field, gender and country filters, and a reduced result set"
+            aspect="1000/145"
+            caption="Search, filters, and export in the toolbar. Pagination steps back while a query is active."
           />
+        </div>
 
-          <ImagePlaceholder label="Command inner page — ws-config" aspect="16/9" />
+        {/* Docs */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="05" title="The Documentation Is Part of the Component" />
+          <p>
+            A shared component is only as good as the answer it gives to the next developer who opens it at midnight. Each behaviour was written up alongside the design, covering both the design side and the development side, with its edge cases and interaction states defined rather than implied.
+          </p>
 
-          <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6 space-y-3">
-            <p className="text-sm font-semibold text-[var(--text-primary)]">Summary</p>
-            <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-              It took one month to develop 75 new icons and design new experiences. It was a fast-paced project that heavily focused on UX Strategy, collaborative design, and product design. The result was a navigation system that made Bit's CLI feel approachable — not just functional.
-            </p>
+          <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-[var(--border-subtle)] bg-[var(--surface-1)]">
+                  <th className="px-5 py-3 text-left text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">Behaviour</th>
+                  <th className="px-5 py-3 text-left text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)]">What the docs pin down</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--border-subtle)]">
+                {BEHAVIOURS.map((row) => (
+                  <tr key={row.name} className="bg-white">
+                    <td className="px-5 py-3 font-semibold text-[var(--text-primary)] align-top whitespace-nowrap">{row.name}</td>
+                    <td className="px-5 py-3 text-[0.9375rem] leading-[1.6] text-[var(--text-secondary)]">{row.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
+          <CaseFigure
+            src="/images/projects/table/table_img_005.png"
+            alt="The written specification cards for pagination, sorting, toolbar, row selection, row expansion, infinite scroll, and column controls"
+            aspect="1000/380"
+            caption="Every behaviour written down before it was built. This is the deliverable, not the appendix to it."
+          />
+        </div>
+
+        {/* Process */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="06" title="How It Was Built" />
+          <SubHeading title="Daily, with the developers" />
+          <p>
+            Collaboration with the development team was the mechanism, not a nicety. Meetings were daily and carried feedback in both directions: design feedback on what had been built, development feedback on what had been designed and what it would actually cost.
+          </p>
+          <p>
+            Working that way meant constraints arrived while the design was still cheap to change, and the table was designed against what the system could really do rather than against a picture of it.
+          </p>
+        </div>
+
+        {/* Outcome */}
+        <div className="case-section space-y-6">
+          <SectionHeading number="07" title="What It Adds Up To" />
+          <p>
+            The result is a table that ships in Bit&rsquo;s open-source design system: plain by default, documented behaviour by behaviour, and composable enough that teams extend it instead of rebuilding it.
+          </p>
+          <p>
+            The wider lesson has held up across the rest of the eight years. On a shared component, the visible design is the smaller half of the job. The half that determines whether anyone adopts it is the set of decisions about edge cases, defaults, and what happens while you wait.
+          </p>
         </div>
 
       </div>

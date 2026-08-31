@@ -481,7 +481,10 @@ text-decoration-color: var(--border-subtle);
 
 @media (min-width: 1100px) {
   .case-figure {
-    margin-inline: -8.75rem; /* half of 60rem minus 42.5rem */
+    /* Half of 60rem minus the prose *content* width (42.5rem less the 3rem
+       of horizontal padding), so a figure centres on the text column rather
+       than sitting a padding-width to one side of it. */
+    margin-inline: -10.25rem;
     width: 60rem;
     max-width: none;
   }
