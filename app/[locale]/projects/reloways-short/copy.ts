@@ -36,7 +36,9 @@ export type CaseCopy = {
   };
   role: {
     number: string; title: string; intro: string;
-    items: string[]; closing: string;
+    items: { title: string; body: string }[];
+    hardTitle: string;
+    hard: string[];
   };
   status: {
     number: string; title: string;
@@ -125,16 +127,29 @@ const en: CaseCopy = {
   role: {
     number: '04',
     title: 'My Role',
-    intro: 'I designed Reloways from the ground up: from defining what the product should be and how its information is structured, through the UX, the visual language, and the interaction patterns, to writing a good deal of the code.',
+    intro: 'I designed Reloways from the ground up: from defining what the product should be, and what it should not be, and how its information is structured, through the UX, the visual language, and the interaction patterns, to writing a good deal of the code.',
     items: [
-      'Product strategy and definition: what it is, what it is not, and what ships first',
-      'Research: conversations with people who had already made the move, which is where the ordering came from. A large part of it now runs through the podcast, a marketing arm of Reloways that doubles as a standing source of first-hand accounts',
-      'Information architecture: the task model, its dependencies, and the content structure beneath it',
-      'User flows, UX and UI, and the design system that keeps them consistent',
-      'Prototyping, then the frontend build, including a Hebrew and English interface that mirrors properly rather than reading as a translation',
-      'Working with the developer day to day, so decisions were made against what could actually be built',
+      { title: 'Product strategy and definition',
+        body: 'What the product should be, what it is not, and what ships first.' },
+      { title: 'Research',
+        body: 'Conversations with people who had already made the move, which is where much of the task ordering came from. That research now continues through the podcast, a content and marketing arm of Reloways that doubles as a standing source of first-hand accounts.' },
+      { title: 'Information architecture',
+        body: 'The task model, the dependencies between tasks, and the content structure underneath it.' },
+      { title: 'Flows, UX, UI, and the design system',
+        body: 'From the user journey through to the interface, and the system that holds all of it consistent.' },
+      { title: 'Prototyping and frontend development',
+        body: 'Including a Hebrew and English interface that accounts for reading direction and for the nuances of each language, rather than feeling like a translation of the other.' },
+      { title: 'Working with development day to day',
+        body: 'So product and design decisions were made against what could actually be built, and not only against what looks good in Figma.' },
     ],
-    closing: 'Two things have been hard. Establishing the real order of German bureaucracy accurately enough to encode it, and then making something that layered feel obvious to use. The second one is not finished and probably never is. I am still talking to users and listening for where the real needs and the real friction sit.',
+    hardTitle: 'And what was hard?',
+    hard: [
+      'Two things in particular.',
+      'The first was establishing the real order of German bureaucracy precisely enough to encode it. Knowing what has to be done is not enough. You have to understand what depends on what, what can happen in parallel, and what has to come first.',
+      'The second was making something this layered feel obvious.',
+      'The first is a product problem you solve. The second probably never ends.',
+      'I am still talking to users and listening for what they need, where they get stuck, and where the real friction shows up.',
+    ],
   },
   status: {
     number: '05',
@@ -228,16 +243,29 @@ const he: CaseCopy = {
   role: {
     number: '04',
     title: 'התפקיד שלי',
-    intro: 'עיצבתי את Reloways מאפס: מהגדרה של מה המוצר צריך להיות ואיך המידע שלו בנוי, דרך ה־UX, השפה הוויזואלית ודפוסי האינטראקציה, ועד לכתיבה של חלק לא קטן מהקוד.',
+    intro: 'עיצבתי את Reloways מאפס: מהגדרת מה המוצר צריך להיות, ומה הוא לא, ואיך המידע שלו בנוי, דרך ה־UX, השפה הוויזואלית ודפוסי האינטראקציה, ועד לכתיבה של חלק לא קטן מהקוד.',
     items: [
-      'אסטרטגיה והגדרת מוצר: מה זה, מה זה לא, ומה יוצא ראשון',
-      'מחקר: שיחות עם אנשים שכבר עשו את המעבר, ומשם הגיע הסדר של המשימות. חלק גדול ממנו עובר היום דרך הפודקאסט, זרוע שיווקית של Reloways שמשמשת גם מקור קבוע לעדויות ממקור ראשון',
-      'ארכיטקטורת מידע: מודל המשימות, התלויות ביניהן, ומבנה התוכן שמתחת',
-      'פלואים, UX ו־UI, והדיזיין סיסטם ששומר עליהם עקביים',
-      'פרוטוטייפינג ואז בניית הפרונטאנד, כולל ממשק עברית ואנגלית שמתהפך נכון ולא נקרא כמו תרגום',
-      'עבודה יומיומית עם המפתח, כדי שההחלטות יתקבלו מול מה שבאמת אפשר לבנות',
+      { title: 'אסטרטגיה והגדרת מוצר',
+        body: 'מה המוצר צריך להיות, מה הוא לא, ומה יוצא ראשון.' },
+      { title: 'מחקר',
+        body: 'שיחות עם אנשים שכבר עשו את המעבר, שמהן גזרתי חלק גדול מסדר המשימות. היום המחקר ממשיך גם דרך הפודקאסט, זרוע תוכן ושיווק של Reloways, שמשמשת עבורי גם מקור קבוע לעדויות ולידע ממקור ראשון.' },
+      { title: 'ארכיטקטורת מידע',
+        body: 'מודל המשימות, התלויות ביניהן ומבנה התוכן שמתחתיו.' },
+      { title: 'Flows, UX, UI ו־Design System',
+        body: 'מהמסע של המשתמש ועד לממשק ולמערכת שמחזיקה הכול עקבי.' },
+      { title: 'פרוטוטייפינג ופיתוח Frontend',
+        body: 'כולל ממשק עברית ואנגלית שמתחשב בכיוון הקריאה ובניואנסים של כל שפה, ולא מרגיש כמו תרגום של אחת לשנייה.' },
+      { title: 'עבודה יומיומית עם הפיתוח',
+        body: 'כדי שהחלטות המוצר והעיצוב יתקבלו מול מה שבאמת אפשר לבנות, ולא רק מול מה שנראה טוב בפיגמה.' },
     ],
-    closing: 'שני דברים היו קשים. לבסס את הסדר האמיתי של הביורוקרטיה הגרמנית בדיוק מספיק כדי לקודד אותו, ואז לגרום למשהו כל כך רב שכבות להרגיש מובן מאליו. השני לא נגמר וכנראה לעולם לא ייגמר. אני עדיין מדבר עם משתמשים ומקשיב לאן הצרכים והחיכוך האמיתיים בורחים.',
+    hardTitle: 'ומה היה קשה?',
+    hard: [
+      'שני דברים היו קשים במיוחד.',
+      'הראשון היה לבסס את הסדר האמיתי של הביורוקרטיה הגרמנית בדיוק מספיק כדי שאפשר יהיה לקודד אותו. לא מספיק לדעת מה צריך לעשות; צריך להבין מה תלוי במה, מה אפשר לעשות במקביל ומה חייב לקרות קודם.',
+      'והשני היה לגרום למשהו כל כך רב־שכבתי להרגיש מובן מאליו.',
+      'הראשון הוא בעיית מוצר שצריך לפתור. השני כנראה לעולם לא נגמר.',
+      'אני עדיין מדבר עם משתמשים ומקשיב למה שהם צריכים, איפה הם נתקעים, ואיפה החיכוך האמיתי מופיע.',
+    ],
   },
   status: {
     number: '05',

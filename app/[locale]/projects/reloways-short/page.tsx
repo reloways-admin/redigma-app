@@ -228,12 +228,21 @@ export default function RelowaysShortPage() {
           <p>
             {t.role.intro}
           </p>
-          <ul>
-            {t.role.items.map((r) => <li key={r}>{r}</li>)}
-          </ul>
-          <p>
-            {t.role.closing}
-          </p>
+          {/* Titled entries rather than bullets: each one names a discipline
+              and then says what it actually meant on this project. */}
+          <div className="divide-y divide-[var(--border-subtle)] border-y border-[var(--border-subtle)]">
+            {t.role.items.map((item) => (
+              <div key={item.title} className="py-5">
+                <p className="text-[1.1875rem] font-bold text-[var(--text-primary)] mb-1.5">{item.title}</p>
+                <p className="text-[1.125rem] leading-[1.65] text-[var(--text-primary)]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-4 space-y-6">
+            <h3 className="case-subheading">{t.role.hardTitle}</h3>
+            {t.role.hard.map((para) => <p key={para}>{para}</p>)}
+          </div>
         </div>
 
         {/* 05 */}
