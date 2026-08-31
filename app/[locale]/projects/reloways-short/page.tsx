@@ -242,6 +242,15 @@ export default function RelowaysShortPage() {
           <p>
             {t.status.p2}
           </p>
+          <p>
+            {t.status.p3}
+          </p>
+          <p>
+            {t.status.p4}
+          </p>
+          <p>
+            {t.status.p5}
+          </p>
 
           <CaseFigure
             src="/images/projects/reloways/reloways-live-phones.png"

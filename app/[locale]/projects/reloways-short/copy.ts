@@ -42,7 +42,7 @@ export type CaseCopy = {
   };
   status: {
     number: string; title: string;
-    p1: string; p2: string; figure: string; figureAlt?: string; figureCaption?: string;
+    p1: string; p2: string; p3: string; p4: string; p5: string; figure: string; figureAlt?: string; figureCaption?: string;
   };
 };
 
@@ -158,8 +158,11 @@ const en: CaseCopy = {
   status: {
     number: '05',
     title: 'Where It Stands',
-    p1: 'Reloways is live and still being built. Onboarding, the task system, the knowledge centre, and the directory of local businesses and services all work, and the library of articles and podcast episodes grows every week. What began as a personal response to one move has grown into a platform holding practical knowledge, local services, and the community around both.',
-    p2: 'The current work is hardening the product and shipping features lean and fast against what the Israeli community in Berlin is actually asking for, which is the audience it is being proven on before it extends. It is a product still in motion rather than a finished piece of work, and it gets a little larger every day.',
+    p1: 'Reloways is live and still being built. Onboarding, the task system, the knowledge centre, and the directory of local businesses and services all work, and the library of articles and podcast episodes grows every week.',
+    p2: 'What began as a personal response to moving country has become a platform that connects practical knowledge, local services, and community, and I keep testing how it can be more useful to people standing exactly where I was standing.',
+    p3: 'The work now is not only adding more features. It is strengthening the product, shipping it, and learning what happens when it meets real users. I am still talking to people in the community, listening to what they need, and trying to work out where the real friction sits.',
+    p4: 'What has changed most along the way is my own understanding of what Reloways should be. I started out wanting to gather information in one place. Today I think of it more as a system that helps people understand where they are in the process, what they need now, and where to turn when they need help.',
+    p5: 'The product is live: in Hebrew, right to left, and built around the actual lives of people who have moved somewhere new.',
     figure: 'The live product on a phone. Two or three real screens, not a mockup.',
     figureAlt: 'Three Reloways screens on a phone: the home page, the knowledge centre, and an article',
     figureCaption: 'The live product. Home, the knowledge centre, and an article, in Hebrew and right to left throughout.',
@@ -278,8 +281,11 @@ const he: CaseCopy = {
   status: {
     number: '05',
     title: 'איפה זה עומד',
-    p1: 'Reloways חי ועדיין נבנה. האונבורדינג, מערכת המשימות, מרכז הידע והאינדקס של העסקים והשירותים המקומיים כולם עובדים, וספריית המאמרים ופרקי הפודקאסט גדלה מדי שבוע. מה שהתחיל כתגובה אישית למעבר אחד צמח לפלטפורמה שמחזיקה ידע מעשי, שירותים מקומיים והקהילה שסביב שניהם.',
-    p2: 'העבודה עכשיו היא לחזק את המוצר ולשלוח פיצ׳רים בפיתוח רזה ומהיר, מול מה שהקהילה הישראלית בברלין באמת מבקשת. זה הקהל שעליו המוצר מוכיח את עצמו לפני שהוא מתרחב. זה מוצר שעדיין בתנועה ולא עבודה גמורה, והוא גדל קצת בכל יום.',
+    p1: 'Reloways חי ועדיין נבנה. האונבורדינג, מערכת המשימות, מרכז הידע והאינדקס של העסקים והשירותים המקומיים כבר עובדים, וספריית המאמרים ופרקי הפודקאסט גדלה מדי שבוע.',
+    p2: 'מה שהתחיל כתגובה אישית למעבר למדינה חדשה הפך לפלטפורמה שמחברת בין ידע מעשי, שירותים מקומיים וקהילה, ואני ממשיך לבדוק איך היא יכולה להיות שימושית יותר לאנשים שנמצאים בדיוק במקום שבו אני הייתי.',
+    p3: 'העבודה עכשיו היא לא רק להוסיף עוד פיצ׳רים. היא להמשיך לחזק את המוצר, לשלוח אותו לפיתוח וללמוד מה קורה כשהוא פוגש משתמשים אמיתיים. אני עדיין מדבר עם אנשים מהקהילה, מקשיב למה שהם צריכים ומנסה להבין איפה החיכוך האמיתי נמצא.',
+    p4: 'הדבר שהכי השתנה בדרך הוא ההבנה שלי מה Reloways צריך להיות. התחלתי ממקום שרצה לרכז מידע, והיום אני חושב עליו יותר כמערכת שעוזרת לאנשים להבין איפה הם נמצאים בתהליך, מה הם צריכים עכשיו, ולאן לפנות כשהם צריכים עזרה.',
+    p5: 'המוצר חי: בעברית, מימין לשמאל, ובנוי סביב החיים האמיתיים של מי שעבר למקום חדש.',
     figure: 'המוצר החי על טלפון. שניים שלושה מסכים אמיתיים, לא מוקאפ.',
     figureAlt: 'שלושה מסכים של Reloways בטלפון: דף הבית, מרכז הידע, ומאמר',
     figureCaption: 'המוצר החי. דף הבית, מרכז הידע ומאמר, בעברית ומימין לשמאל לכל אורכו.',
