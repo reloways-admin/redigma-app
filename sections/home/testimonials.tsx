@@ -171,7 +171,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Cards — carousel on mobile, grid on md+ */}
+        {/* Cards: carousel on mobile, grid on md+ */}
         <MobileCarousel items={items} />
 
       </div>

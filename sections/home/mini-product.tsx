@@ -50,7 +50,7 @@ export function HomeMiniProduct() {
     <section id="mini-product" className="bg-[#f0f0f5] border-t border-[var(--border-subtle)] py-20 lg:py-28 scroll-mt-[var(--spacing-12)]">
       <div className="mx-auto max-w-[1360px] px-6">
 
-        {/* Heading — full width */}
+        {/* Heading, full width */}
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl leading-tight">
             {t('title')}{' '}

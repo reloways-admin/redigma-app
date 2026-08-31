@@ -368,3 +368,182 @@ text-decoration-color: var(--border-subtle);
     transition: none;
   }
 }
+
+/* ── Case study long form ────────────────────────────────────────────────────
+   These pages run 1,200 to 1,800 words, which is reading rather than scanning,
+   and they were set like interface copy: 16px on a 1.5 line height across a
+   752px column, roughly 94 characters a line. Comfortable reading sits between
+   60 and 75.
+
+   Three changes do most of the work: a narrower column, a taller line, and
+   body text one step lighter than the headings so the hierarchy reads without
+   needing size alone to carry it.
+
+   Bare paragraphs are targeted with :not([class]) on purpose. The page also
+   contains designed blocks whose own Tailwind classes must keep winning.     */
+
+.case-prose {
+  max-width: 46rem; /* 736px, about 70 characters at the body size below */
+}
+
+.case-prose p:not([class]),
+.case-prose li:not([class]) {
+  font-size: 1.3125rem; /* 21px */
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.case-prose p:not([class]) + p:not([class]) {
+  margin-block-start: 1.25em;
+}
+
+/* Body copy is now near-black, so emphasis can no longer work by darkening.
+   It carries on weight alone, which needs a full step to stay visible. */
+.case-prose strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.case-prose ul:not([class]) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+}
+
+.case-prose ul:not([class]) li::marker {
+  color: var(--text-primary);
+}
+
+/* A heading belongs to the text beneath it, so the space above is larger than
+   the space below. Without this the two read as equally distant. */
+.case-heading {
+  font-size: 2.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (min-width: 1024px) {
+  .case-heading { font-size: 2.5rem; }
+}
+
+.case-subheading {
+  font-size: 1.625rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* The standfirst under the title carries the summary, so it sits between the
+   title and the body in weight as well as size. */
+.case-lead {
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+  max-width: 44rem;
+}
+
+@media (min-width: 1024px) {
+  .case-lead { font-size: 1.75rem; }
+}
+
+
+/* ── Case study layout ───────────────────────────────────────────────────────
+   Fixing the measure made the page readable. It did not make it designed: it
+   was still one column of uniform grey from top to bottom, with the images
+   trapped inside the text width so nothing ever opened up.
+
+   The rhythm now alternates. Prose stays at a reading width, figures break out
+   wider, and each section opens on a rule with its number in the margin. That
+   alternation is what gives a long read a sense of pace.                     */
+
+.case-shell {
+  max-width: 66rem; /* 1056px, the width figures are allowed to use */
+}
+
+.case-col {
+  max-width: 46rem; /* 736px, the reading width */
+  margin-inline: auto;
+}
+
+/* Figures step outside the reading column. This is the main move: narrow text,
+   wide image, narrow text.
+
+   The negative inline margin is exactly half the difference between the
+   reading width and the shell, so a figure fills the shell without any
+   restructuring of the sections around it. */
+.case-figure {
+  margin-block: 3.5rem;
+}
+
+@media (min-width: 1140px) {
+  .case-figure {
+    /* Half of 66rem minus the prose *content* width (46rem less the 3rem
+       of horizontal padding), so a figure centres on the text column rather
+       than sitting a padding-width to one side of it. */
+    margin-inline: -11.5rem;
+    width: 66rem;
+    max-width: none;
+  }
+}
+
+.case-section {
+  border-block-start: 1px solid var(--border-subtle);
+  padding-block-start: 3.5rem;
+}
+
+.case-section:first-child {
+  border-block-start: 0;
+  padding-block-start: 0;
+}
+
+/* The number sits above the heading rather than inline, so the heading keeps
+   its own left edge and the sequence still reads. */
+.case-number {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-500, #732fff);
+  margin-block-end: 0.75rem;
+}
+
+/* A quote should be a moment in the page, not a tinted rectangle. */
+.case-quote {
+  border-inline-start: 3px solid var(--purple-500, #732fff);
+  padding-inline-start: 1.75rem;
+  margin-block: 2.5rem;
+}
+
+.case-quote p {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 1024px) {
+  .case-quote p { font-size: 1.875rem; }
+}
+
+/* Caption under a figure, kept clearly subordinate to the body.
+
+   Figures are wider than the reading column, so an unconstrained caption
+   inherits the figure's width and runs to twice a readable measure. It is
+   held to the reading width and centred under the image instead. */
+.case-caption {
+  margin-block-start: 1rem;
+  max-width: 42rem;
+  margin-inline: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: center;
+  text-wrap: pretty;
+}

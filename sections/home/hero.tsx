@@ -10,7 +10,7 @@ export function HomeHero() {
   const locale = useLocale();
 
   return (
-    <section className="relative w-full bg-[var(--grey-200)]">
+    <section className="relative w-full bg-[var(--background)]">
       <div className="mx-auto max-w-[1360px] px-6 pt-20 pb-20 lg:pt-32">
 
         {/* ── 2-column layout: left = content, right = testimonial ── */}

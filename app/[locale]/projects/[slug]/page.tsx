@@ -15,7 +15,7 @@ export default async function ProjectPage({ params }: PageProps) {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-[var(--grey-200)] pt-24 pb-16">
+      <section className="bg-[var(--background)] pt-24 pb-16">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="mb-6 inline-flex items-center gap-2 bg-[var(--grey-100)] px-3 py-1.5 text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)]">
             Case study

@@ -185,10 +185,10 @@
           "summary": "Eine Plattform zur Nachbarschaftssuche, die Menschen vor Ort mit passenden Diensten und Erlebnissen verbindet."
         },
         "bit": {
-          "summary": "Mehr Klarheit und Usability in zentralen Produktbereichen, mit Fokus auf Struktur, Entscheidungspunkte und weniger Reibung für Nutzer."
+          "summary": "Die Datentabelle im Zentrum eines Open-Source-Designsystems. Bewusst schlicht und Verhalten für Verhalten dokumentiert, damit Teams sie erweitern statt neu zu bauen."
         },
         "gomatchit": {
-          "summary": "Ein dreimonatiger Design-Sprint, um einen nutzbaren und skalierbaren B2B-Marktplatz-MVP zu launchen."
+          "summary": "Ein dreimonatiger Design-Sprint, der ein Canvas für Geschäftsprozesse vom funktionierenden Prototyp zum ausgelieferten MVP gebracht hat, Designsystem inklusive."
         }
       }
     },

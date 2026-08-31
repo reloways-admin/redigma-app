@@ -1,0 +1,300 @@
+/* Case study copy, kept out of the component so the two languages sit side by
+   side and can be read against each other. German falls back to English. */
+
+export type CaseCopy = {
+  kicker: string;
+  title: string;
+  lead: string;
+  meta: { label: string; value: string; href?: string }[];
+  toolsLabel: string;
+  heroAlt: string;
+  problem: {
+    number: string; title: string;
+    p1: string; p2: string; p3: string; p4: string; p5: string; quote: string;
+    figureAlt: string; figureCaption: string;
+  };
+  audience: {
+    number: string; title: string;
+    p1: string; p2: string; p3: string; p4: string;
+    figureAlt: string; figureCaption: string;
+  };
+  built: {
+    number: string; title: string; intro: string;
+    soughtLabel: string;
+    decidedLabel: string;
+    blocks: {
+      number: string;
+      heading: string;
+      sought: string;
+      decided: string;
+      body: string[];
+      figure: string;
+      figureAlt?: string;
+      figureCaption?: string;
+    }[];
+    closing: string;
+  };
+  role: {
+    number: string; title: string; intro: string;
+    items: { title: string; body: string }[];
+    hardTitle: string;
+    hard: string[];
+  };
+  status: {
+    number: string; title: string;
+    p1: string; p2: string; p3: string; p4: string; p5: string; figure: string; figureAlt?: string; figureCaption?: string;
+  };
+};
+
+const en: CaseCopy = {
+  kicker: 'Case study',
+  title: 'Designing a Relocation Platform from the Ground Up, While Relocating Myself',
+  lead: 'Reloways began as a personal response to moving country myself. I designed and built a platform that brings practical knowledge, trusted local services, and community into one place, while living the problem it solves.',
+  meta: [
+    { label: 'Type', value: 'Product Design + Full-Stack Build' },
+    { label: 'My Role', value: 'Sole designer and co-developer' },
+    { label: 'Platform', value: 'Web · Hebrew / English' },
+    { label: 'Status', value: 'MVP, live in development' },
+    { label: 'Live at', value: 'reloways.com', href: 'https://reloways.com/en' },
+  ],
+  toolsLabel: 'Tools',
+  heroAlt: 'The Reloways homepage open on a laptop in a Berlin cafe',
+  problem: {
+    number: '01',
+    title: 'The Problem',
+    p1: 'Relocation is not one problem. It is dozens of small ones that arrive at different times, in an order nobody really tells you about: registering with the city, finding a flat, working out which insurance you need, opening a bank account, finding a doctor, a tax adviser, a language teacher, or a tradesperson you can actually trust.',
+    p2: 'The information exists. It is spread across Google, Facebook groups, WhatsApp threads, and government websites, often in German. Every source hands you a different piece of the picture, and assumes you already know which piece you are looking for.',
+    p3: 'Going through it myself, what I wanted was one place that answered plainly in my own language, helped me find services and people worth trusting, and told me what I had to do now and what came after it.',
+    p4: 'Something else was missing too: the knowledge that never reaches a guide. The answers from people going through the same thing right now. What has changed recently, who they recommend, what worked for them, and what is worth knowing before you start.',
+    p5: 'Moving to Berlin myself, I kept looking up the same things over and over, jumping between sources to assemble the picture on my own.',
+    quote: 'The real problem was not a lack of information. It was that no single place connected the information, the people, and the services, and helped you work out what to do, when to do it, and who to trust.',
+    figureAlt: 'A collage of real questions from Israeli expat groups in Berlin about permits, apartments, licences, and finding Hebrew-speaking professionals',
+    figureCaption: 'Where did people look before? “Anyone know a Hebrew-speaking accountant?” “How long does the residence permit take?” “Looking for a plumber, any recommendations?” The same questions come round again and again in the groups, but the answers stay buried in the thread they were asked in. The knowledge exists, it is just hard to find again at the moment you actually need it.',
+  },
+  audience: {
+    number: '02',
+    title: 'Who It Is For',
+    p1: 'Reloways is for people trying to build a life somewhere new, and particularly for the first months, when nothing is familiar yet and every decision comes with uncertainty.',
+    p2: 'I started with Israelis moving to Berlin, because that was the move I was making myself and the community I had access to. It let me start from an audience I know well, understand what it needs, and test the product in a real setting.',
+    p3: 'But the product was not built around that community alone. From the start I planned the architecture so it could fit different communities, and different combinations of city and language.',
+    p4: 'The first audience is a starting point, not a definition of the product.',
+    figureAlt: 'Six Reloways personas, three service seekers and three service providers, each with bio, goals, frustrations, and needs',
+    figureCaption: 'Six personas: the people arriving, and the people already there who can help them.',
+  },
+  built: {
+    number: '03',
+    title: 'What I Built',
+    intro: 'Three decisions carry the product. Each one came out of the problem above rather than from a feature list.',
+    soughtLabel: 'What I wanted',
+    decidedLabel: 'What I decided',
+    blocks: [
+      {
+        number: '01',
+        heading: 'A platform that understands where you are',
+        sought: 'A place that started from my situation, instead of making me search for everything from scratch.',
+        decided: 'Adapt the experience to the person, and to where they are in the move.',
+        body: [
+          'When I was looking things up during my own move, I wanted the experience to start from me: the city I had moved to, my situation, and the things I had already done.',
+          'So I decided Reloways would not simply be somewhere you look information up, but a platform that adapts itself to the person using it. Early on you tell the system where you are and what is relevant to you, and the information and the tasks you see change accordingly.',
+          'Instead of opening with “what are you looking for?”, I wanted to open with “where are you right now?”',
+        ],
+        figure: 'Onboarding wizard, two or three real steps',
+        figureAlt: 'Three onboarding steps: where are you now, what is your employment situation, and what is most urgent',
+        figureCaption: 'Three of the seven onboarding steps. What the wizard learns here decides which tasks appear, and in what order.',
+      },
+      {
+        number: '02',
+        heading: 'A checklist that knows what comes next',
+        sought: 'Not just a list of tasks, but a way to understand what to do now and what comes after it.',
+        decided: 'Build a checklist that organises the relocation by order and by context.',
+        body: [
+          'A relocation contains hundreds of tasks and almost none of them matter at the same moment. The checklist is personalised and ordered: grouped by when a thing happens, ranked by how urgent it is, and aware of which task blocks which. Registering your address sits under almost everything else, so it is never something you scroll past. The complexity stays inside the system instead of landing on the user.',
+        ],
+        figure: 'The task checklist, showing phases and urgency',
+        figureAlt: 'The Reloways journey screen, showing progress, three locked phases, a highlighted next step, and completed tasks struck through',
+        figureCaption: 'The journey. Later phases stay locked, the next step is surfaced on its own, and finished tasks are struck through rather than hidden.',
+      },
+      {
+        number: '03',
+        heading: 'Knowledge connected to action',
+        sought: 'A clear answer that does not leave me thinking "fine, so what do I actually do now?"',
+        decided: 'Connect the guides to the tasks they help you carry out.',
+        body: [
+          'A guide that only explains leaves you to act somewhere else. Every article carries its task inside it, at the point in the text where you would actually do the thing. Reading and doing happen in one place, which is what turns a pile of content into a product.',
+        ],
+        figure: 'An article with an inline task card',
+        figureAlt: 'The end of an article, with a your-next-step block linking to related guides, a community thread, and a podcast episode',
+        figureCaption: 'The end of the Anmeldung guide. Reading finishes by handing you the next thing to do, rather than by running out of text.',
+      },
+    ],
+    closing: 'Alongside these sits a directory of local businesses, services, and the people behind them. It is the part that answers the third question, the one about who to trust, and it is the reason the product is more than a set of instructions.',
+  },
+  role: {
+    number: '04',
+    title: 'My Role',
+    intro: 'I designed Reloways from the ground up: from defining what the product should be, and what it should not be, and how its information is structured, through the UX, the visual language, and the interaction patterns, to writing a good deal of the code.',
+    items: [
+      { title: 'Product strategy and definition',
+        body: 'What the product should be, what it is not, and what ships first.' },
+      { title: 'Research',
+        body: 'Conversations with people who had already made the move, which is where much of the task ordering came from. That research now continues through the podcast, a content and marketing arm of Reloways that doubles as a standing source of first-hand accounts.' },
+      { title: 'Information architecture',
+        body: 'The task model, the dependencies between tasks, and the content structure underneath it.' },
+      { title: 'Flows, UX, UI, and the design system',
+        body: 'From the user journey through to the interface, and the system that holds all of it consistent.' },
+      { title: 'Prototyping and frontend development',
+        body: 'Including a Hebrew and English interface that accounts for reading direction and for the nuances of each language, rather than feeling like a translation of the other.' },
+      { title: 'Working with development day to day',
+        body: 'So product and design decisions were made against what could actually be built, and not only against what looks good in Figma.' },
+    ],
+    hardTitle: 'And what was hard?',
+    hard: [
+      'Two things in particular.',
+      'The first was establishing the real order of German bureaucracy precisely enough to encode it. Knowing what has to be done is not enough. You have to understand what depends on what, what can happen in parallel, and what has to come first.',
+      'The second was making something this layered feel obvious.',
+      'The first is a product problem you solve. The second probably never ends.',
+      'I am still talking to users and listening for what they need, where they get stuck, and where the real friction shows up.',
+    ],
+  },
+  status: {
+    number: '05',
+    title: 'Where It Stands',
+    p1: 'Reloways is live and still being built. Onboarding, the task system, the knowledge centre, and the directory of local businesses and services all work, and the library of articles and podcast episodes grows every week.',
+    p2: 'What began as a personal response to moving country has become a platform that connects practical knowledge, local services, and community, and I keep testing how it can be more useful to people standing exactly where I was standing.',
+    p3: 'The work now is not only adding more features. It is strengthening the product, shipping it, and learning what happens when it meets real users. I am still talking to people in the community, listening to what they need, and trying to work out where the real friction sits.',
+    p4: 'What has changed most along the way is my own understanding of what Reloways should be. I started out wanting to gather information in one place. Today I think of it more as a system that helps people understand where they are in the process, what they need now, and where to turn when they need help.',
+    p5: 'The product is live: in Hebrew, right to left, and built around the actual lives of people who have moved somewhere new.',
+    figure: 'The live product on a phone. Two or three real screens, not a mockup.',
+    figureAlt: 'Three Reloways screens on a phone: the home page, the knowledge centre, and an article',
+    figureCaption: 'The live product. Home, the knowledge centre, and an article, in Hebrew and right to left throughout.',
+  },
+};
+
+const he: CaseCopy = {
+  kicker: 'קייס סטדי',
+  title: 'איך עיצבתי פלטפורמת רילוקיישן מאפס,\nבזמן שחוויתי את הבעיה בעצמי',
+  lead: 'Reloways התחיל מתוך חוויית הרילוקיישן האישית שלי. בזמן שחוויתי בעצמי את האתגרים של מעבר למדינה חדשה, עיצבתי ובניתי פלטפורמה שמרכזת ידע מעשי, נותני שירות מקומיים שאפשר לסמוך עליהם וקהילה - כדי לעזור לאחרים לנווט את החיים במקום חדש.',
+  meta: [
+    { label: 'סוג', value: 'עיצוב מוצר ובנייה מלאה' },
+    { label: 'התפקיד שלי', value: 'מעצב יחיד ושותף לפיתוח' },
+    { label: 'פלטפורמה', value: 'ווב · עברית / אנגלית' },
+    { label: 'סטטוס', value: 'MVP, חי ובפיתוח' },
+    { label: 'לצפייה', value: 'reloways.com', href: 'https://reloways.com/he' },
+  ],
+  toolsLabel: 'כלים',
+  heroAlt: 'דף הבית של Reloways פתוח על מחשב נייד בבית קפה בברלין',
+  problem: {
+    number: '01',
+    title: 'הבעיה',
+    p1: 'רילוקיישן הוא לא בעיה אחת. הוא עשרות בעיות קטנות שמגיעות בזמנים שונים ובסדר שאף אחד לא באמת מספר לך עליו: להירשם בעירייה, למצוא דירה, להבין איזה ביטוח צריך, לפתוח חשבון בנק, למצוא רופא, יועץ מס, מורה לשפה או בעל מקצוע שאפשר באמת לסמוך עליו.',
+    p2: 'המידע קיים. הוא מפוזר בין Google, קבוצות Facebook, שרשורי WhatsApp ואתרים ממשלתיים, לעיתים קרובות בגרמנית. וכל מקור נותן לך חתיכה אחרת מהתמונה, ומניח שאתה כבר יודע מה אתה מחפש.',
+    p3: 'כמי שעבר את התהליך בעצמי, חיפשתי מקום אחד שייתן לי תשובות פשוטות בעברית, יעזור לי למצוא שירותים ואנשים שאפשר לסמוך עליהם, ויגיד לי מה אני צריך לעשות עכשיו ומה יבוא אחר כך.',
+    p4: 'אבל היה חסר עוד משהו: הידע שלא נמצא במדריכים. התשובות של אנשים שעוברים את אותו הדבר ממש עכשיו: מה השתנה לאחרונה, על מי הם ממליצים, מה עבד להם ומה כדאי לדעת לפני שמתחילים.',
+    p5: 'בזמן המעבר שלי לברלין מצאתי את עצמי מחפש שוב ושוב את אותם הדברים, וקופץ בין מקורות שונים כדי לחבר בעצמי את התמונה.',
+    quote: 'הבעיה האמיתית לא הייתה חוסר במידע. היא הייתה שאין מקום אחד שמחבר בין המידע, האנשים והשירותים, ועוזר להבין מה לעשות, מתי לעשות את זה, ובמי אפשר לבטוח.',
+    figureAlt: 'קולאזְ של שאלות אמיתיות מקבוצות ישראלים בברלין על אישורים, דירות, רישיונות ומציאת בעלי מקצוע דוברי עברית',
+    figureCaption: 'איפה אנשים חיפשו קודם? “מישהו מכיר רואה חשבון דובר עברית?” “כמה זמן לוקח לקבל אישור שהייה?” “מחפש אינסטלטור, יש לכם המלצות?” אותן שאלות חוזרות שוב ושוב בקבוצות, אבל התשובות נשארות קבורות בשרשור שבו נשאלו. הידע קיים, פשוט קשה למצוא אותו שוב כשבאמת צריך אותו.',
+  },
+  audience: {
+    number: '02',
+    title: 'למי זה',
+    p1: 'Reloways מיועד לאנשים שמנסים לבנות חיים במקום חדש, במיוחד בחודשים הראשונים, כשהכול עדיין לא מוכר וכל החלטה מגיעה עם חוסר ודאות.',
+    p2: 'התחלתי עם ישראלים שעוברים לברלין, כי זה היה המעבר שאני עצמי עברתי והקהילה שהייתה לי גישה אליה. זה אפשר לי להתחיל מקהל שאני מכיר היטב, להבין את הצרכים שלו ולבחון את המוצר בסביבה אמיתית.',
+    p3: 'אבל המוצר לא נבנה סביב הקהילה הזאת בלבד. מההתחלה תכננתי את הארכיטקטורה כך שתוכל להתאים לקהילות שונות ולשילובים שונים של עיר ושפה.',
+    p4: 'הקהל הראשון הוא נקודת התחלה, לא הגדרה של המוצר.',
+    figureAlt: 'שש פרסונות של Reloways, שלושה מחפשי שירות ושלושה נותני שירות, לכל אחת ביוגרפיה, מטרות, תסכולים וצרכים',
+    figureCaption: 'שש פרסונות: האנשים שמגיעים, והאנשים שכבר שם ויכולים לעזור להם.',
+  },
+  built: {
+    number: '03',
+    title: 'מה בניתי',
+    intro: 'שלוש החלטות נושאות את המוצר. כל אחת מהן נבעה מהבעיה שלמעלה ולא מרשימת פיצ׳רים.',
+    soughtLabel: 'מה חיפשתי',
+    decidedLabel: 'מה החלטתי',
+    blocks: [
+      {
+        number: '01',
+        heading: 'פלטפורמה שמבינה איפה אתה נמצא',
+        sought: 'מקום שיתחיל מהסיטואציה שלי ולא יגרום לי לחפש הכול מחדש.',
+        decided: 'להתאים את החוויה למשתמש ולמקום שבו הוא נמצא.',
+        body: [
+          'כשחיפשתי מידע במהלך המעבר שלי, רציתי שהחוויה תתחיל ממני: מהעיר שאליה עברתי, מהמצב שלי ומהדברים שכבר עשיתי.',
+          'לכן החלטתי ש-Reloways לא תהיה רק מקום שבו מחפשים מידע, אלא פלטפורמה שמתאימה את עצמה למשתמש. כבר בתחילת הדרך המשתמש מספר למערכת איפה הוא נמצא ומה רלוונטי עבורו, והמידע והמשימות שהוא רואה משתנים בהתאם.',
+          'במקום להתחיל בשאלה “מה אתה מחפש?”, רציתי להתחיל בשאלה “איפה אתה נמצא עכשיו?”',
+        ],
+        figure: 'אונבורדינג, שניים שלושה מסכים אמיתיים',
+        figureAlt: 'שלושה שלבי אונבורדינג: איפה אתה נמצא, מה מצב התעסוקה, ומה הכי דחוף',
+        figureCaption: 'שלושה מתוך שבעת שלבי האונבורדינג. מה שהמערכת לומדת כאן קובע אילו משימות יופיעו, ובאיזה סדר.',
+      },
+      {
+        number: '02',
+        heading: 'צ׳קליסט שיודע מה הצעד הבא',
+        sought: 'לא רק רשימה של משימות, אלא להבין מה לעשות עכשיו ומה אחר כך.',
+        decided: 'לבנות צ׳קליסט שמארגן את תהליך הרילוקיישן לפי סדר והקשר.',
+        body: [
+          'רילוקיישן מכיל מאות משימות וכמעט אף אחת מהן לא רלוונטית באותו רגע. הצ׳קליסט מותאם אישית ומסודר: מקובץ לפי מתי דבר קורה, מדורג לפי כמה הוא דחוף, ומודע לאיזו משימה חוסמת איזו. רישום הכתובת יושב מתחת כמעט לכל השאר, אז הוא אף פעם לא משהו שגוללים מעליו. המורכבות נשארת בתוך המערכת במקום לנחות על המשתמש.',
+        ],
+        figure: 'הצ׳קליסט, עם השלבים והדחיפות',
+        figureAlt: 'מסך המסע של Reloways, עם התקדמות, שלושה שלבים נעולים, הצעד הבא מודגש ומשימות שהושלמו מחוקות',
+        figureCaption: 'המסע. השלבים הבאים נשארים נעולים, הצעד הבא מוצג בנפרד, ומשימות שהושלמו נמחקות במקום להיעלם.',
+      },
+      {
+        number: '03',
+        heading: 'ידע שמוביל לפעולה',
+        sought: 'תשובה ברורה שלא משאירה אותי עם “אוקיי, אז מה אני עושה עכשיו?”',
+        decided: 'לחבר בין מדריכים לבין המשימות שהם עוזרים לבצע.',
+        body: [
+          'מדריך שרק מסביר משאיר אותך לפעול במקום אחר. כל מאמר נושא בתוכו את המשימה שלו, בנקודה בטקסט שבה באמת היית עושה את הדבר. קריאה ועשייה קורות במקום אחד, וזה מה שהופך ערימת תוכן למוצר.',
+        ],
+        figure: 'מאמר עם כרטיס משימה משובץ',
+        figureAlt: 'סוף מאמר, עם בלוק השלב הבא שלך שמקשר למדריכים קשורים, לשרשור מהקהילה ולפרק פודקאסט',
+        figureCaption: 'סוף המדריך על ה־Anmeldung. הקריאה נגמרת בכך שהיא מוסרת לך את הדבר הבא לעשות, ולא בכך שנגמר הטקסט.',
+      },
+    ],
+    closing: 'לצד שלושת אלה יושב אינדקס של עסקים מקומיים, שירותים והאנשים שמאחוריהם. זה החלק שעונה על השאלה השלישית, זו שעל מי אפשר לסמוך, וזו הסיבה שהמוצר הוא יותר מאוסף הוראות.',
+  },
+  role: {
+    number: '04',
+    title: 'התפקיד שלי',
+    intro: 'עיצבתי את Reloways מאפס: מהגדרת מה המוצר צריך להיות, ומה הוא לא, ואיך המידע שלו בנוי, דרך ה־UX, השפה הוויזואלית ודפוסי האינטראקציה, ועד לכתיבה של חלק לא קטן מהקוד.',
+    items: [
+      { title: 'אסטרטגיה והגדרת מוצר',
+        body: 'מה המוצר צריך להיות, מה הוא לא, ומה יוצא ראשון.' },
+      { title: 'מחקר',
+        body: 'שיחות עם אנשים שכבר עשו את המעבר, שמהן גזרתי חלק גדול מסדר המשימות. היום המחקר ממשיך גם דרך הפודקאסט, זרוע תוכן ושיווק של Reloways, שמשמשת עבורי גם מקור קבוע לעדויות ולידע ממקור ראשון.' },
+      { title: 'ארכיטקטורת מידע',
+        body: 'מודל המשימות, התלויות ביניהן ומבנה התוכן שמתחתיו.' },
+      { title: 'Flows, UX, UI ו־Design System',
+        body: 'מהמסע של המשתמש ועד לממשק ולמערכת שמחזיקה הכול עקבי.' },
+      { title: 'פרוטוטייפינג ופיתוח Frontend',
+        body: 'כולל ממשק עברית ואנגלית שמתחשב בכיוון הקריאה ובניואנסים של כל שפה, ולא מרגיש כמו תרגום של אחת לשנייה.' },
+      { title: 'עבודה יומיומית עם הפיתוח',
+        body: 'כדי שהחלטות המוצר והעיצוב יתקבלו מול מה שבאמת אפשר לבנות, ולא רק מול מה שנראה טוב בפיגמה.' },
+    ],
+    hardTitle: 'ומה היה קשה?',
+    hard: [
+      'שני דברים היו קשים במיוחד.',
+      'הראשון היה לבסס את הסדר האמיתי של הביורוקרטיה הגרמנית בדיוק מספיק כדי שאפשר יהיה לקודד אותו. לא מספיק לדעת מה צריך לעשות; צריך להבין מה תלוי במה, מה אפשר לעשות במקביל ומה חייב לקרות קודם.',
+      'והשני היה לגרום למשהו כל כך רב־שכבתי להרגיש מובן מאליו.',
+      'הראשון הוא בעיית מוצר שצריך לפתור. השני כנראה לעולם לא נגמר.',
+      'אני עדיין מדבר עם משתמשים ומקשיב למה שהם צריכים, איפה הם נתקעים, ואיפה החיכוך האמיתי מופיע.',
+    ],
+  },
+  status: {
+    number: '05',
+    title: 'איפה זה עומד',
+    p1: 'Reloways חי ועדיין נבנה. האונבורדינג, מערכת המשימות, מרכז הידע והאינדקס של העסקים והשירותים המקומיים כבר עובדים, וספריית המאמרים ופרקי הפודקאסט גדלה מדי שבוע.',
+    p2: 'מה שהתחיל כתגובה אישית למעבר למדינה חדשה הפך לפלטפורמה שמחברת בין ידע מעשי, שירותים מקומיים וקהילה, ואני ממשיך לבדוק איך היא יכולה להיות שימושית יותר לאנשים שנמצאים בדיוק במקום שבו אני הייתי.',
+    p3: 'העבודה עכשיו היא לא רק להוסיף עוד פיצ׳רים. היא להמשיך לחזק את המוצר, לשלוח אותו לפיתוח וללמוד מה קורה כשהוא פוגש משתמשים אמיתיים. אני עדיין מדבר עם אנשים מהקהילה, מקשיב למה שהם צריכים ומנסה להבין איפה החיכוך האמיתי נמצא.',
+    p4: 'הדבר שהכי השתנה בדרך הוא ההבנה שלי מה Reloways צריך להיות. התחלתי ממקום שרצה לרכז מידע, והיום אני חושב עליו יותר כמערכת שעוזרת לאנשים להבין איפה הם נמצאים בתהליך, מה הם צריכים עכשיו, ולאן לפנות כשהם צריכים עזרה.',
+    p5: 'המוצר חי: בעברית, מימין לשמאל, ובנוי סביב החיים האמיתיים של מי שעבר למקום חדש.',
+    figure: 'המוצר החי על טלפון. שניים שלושה מסכים אמיתיים, לא מוקאפ.',
+    figureAlt: 'שלושה מסכים של Reloways בטלפון: דף הבית, מרכז הידע, ומאמר',
+    figureCaption: 'המוצר החי. דף הבית, מרכז הידע ומאמר, בעברית ומימין לשמאל לכל אורכו.',
+  },
+};
+
+export const COPY: Record<string, CaseCopy> = { en, he };
+
+/** German has no translation of this case study yet, so it reads in English. */
+export const getCopy = (locale: string): CaseCopy => COPY[locale] ?? en;

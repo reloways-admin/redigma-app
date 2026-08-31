@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
@@ -20,7 +19,7 @@ type Project = {
   summary: string;
   tools: Tool[];
   href: (locale: string) => string;
-  images: string[];
+  image: string;
   accent: string;
   color: string;
 };
@@ -35,14 +34,13 @@ export const PROJECTS: Project[] = [
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Developed', prep: 'with', name: 'Cursor', icon: '/illustrations/projects/icons/cursor logo.svg' },
+      { action: 'Developed', prep: 'with', name: 'Claude', icon: '/illustrations/projects/icons/claude-logo.svg' },
       { action: 'Integrated', prep: 'with', name: 'AWS', icon: '/illustrations/projects/icons/AWS-Dark logo.svg' },
+      { action: 'Content', prep: 'in', name: 'Strapi', icon: '/illustrations/projects/icons/strapi-logo.svg' },
+      { action: 'Versioned', prep: 'on', name: 'GitHub', icon: '/illustrations/projects/icons/github-logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/reloways`,
-    images: [
-      '/images/home/projects/reloways_cover-1920x1080.png',
-      '/images/home/projects/reloways_cover-1920x1080.png',
-      '/images/home/projects/reloways_cover-1920x1080.png',
-    ],
+    image: '/images/home/projects/reloways_cover-1920x1080.png',
     accent: '#0b2416',
     color: '#0891B2',
   },
@@ -57,11 +55,7 @@ export const PROJECTS: Project[] = [
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/navonera`,
-    images: [
-      '/illustrations/projects/reloways/reloways.png',
-      '/illustrations/projects/reloways/reloways.png',
-      '/illustrations/projects/reloways/reloways.png',
-    ],
+    image: '/images/projects/navonera/navonera_cover-1.png',
     accent: '#1a0a08',
     color: '#E85530',
   },
@@ -70,17 +64,13 @@ export const PROJECTS: Project[] = [
     title: 'Bit',
     key: 'bit',
     summary:
-      'Improved clarity and usability across key product areas, with a focus on structure, decision points, and reducing friction for users.',
+      'The data table at the centre of an open-source design system. Plain by default and documented behaviour by behaviour, so teams extend it instead of rebuilding it.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Developed', prep: 'by', name: 'Bit', icon: '/illustrations/projects/icons/bit-logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/bit`,
-    images: [
-      '/illustrations/projects/bit/bit.png',
-      '/illustrations/projects/bit/bit.png',
-      '/illustrations/projects/bit/bit.png',
-    ],
+    image: '/images/projects/table/table_cover_001.png',
     accent: '#0d0a1f',
     color: '#E11D48',
   },
@@ -89,37 +79,17 @@ export const PROJECTS: Project[] = [
     title: 'GoMatchIt',
     key: 'gomatchit',
     summary:
-      'A 3-month design sprint to launch a usable and scalable B2B marketplace MVP.',
+      'A 3-month design sprint that took a business process canvas from working prototype to shipped MVP, design system included.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/gomatchit`,
-    images: [
-      '/images/home/projects/gomatchit_cover_001-1-1920x1080.png',
-      '/images/home/projects/gomatchit_cover_001-1-1920x1080.png',
-      '/images/home/projects/gomatchit_cover_001-1-1920x1080.png',
-    ],
+    image: '/images/projects/gomatchit/gomatchit_cover_001-1.png',
     accent: '#090f1f',
     color: '#D97706',
   },
 ];
-
-function ArrowLeft() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-      <path d="M11 13.5L6.5 9L11 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function ArrowRight() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-      <path d="M7 4.5L11.5 9L7 13.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export function ToolBadge({ tool }: { tool: Tool }) {
   return (
@@ -144,12 +114,6 @@ export function ToolBadge({ tool }: { tool: Tool }) {
 export function ProjectCard({ project, viewProject }: { project: Project; viewProject: string }) {
   const locale = useLocale();
   const t = useTranslations('home.projects');
-  const [idx, setIdx] = React.useState(0);
-  const total = project.images.length;
-
-  const prev = () => setIdx((i) => (i - 1 + total) % total);
-  const next = () => setIdx((i) => (i + 1) % total);
-
   return (
     <article className="grid grid-cols-1 gap-8 lg:grid-cols-[5fr_7fr] lg:gap-12 items-center py-10 border-t border-[var(--border-subtle)] first:border-t-0">
 
@@ -180,60 +144,16 @@ export function ProjectCard({ project, viewProject }: { project: Project; viewPr
         </div>
       </div>
 
-      {/* RIGHT: carousel */}
+      {/* RIGHT: cover image */}
       <div className="overflow-hidden rounded-3xl" style={{ backgroundColor: project.accent }}>
         <div className="relative" style={{ aspectRatio: '16 / 9' }}>
-        {/* Sliding strip */}
-        <div
-          className="flex h-full transition-transform duration-500 ease-in-out"
-          style={{ width: `${total * 100}%`, transform: `translateX(-${(idx * 100) / total}%)` }}
-        >
-          {project.images.map((src, i) => (
-            <div key={i} className="relative h-full shrink-0" style={{ width: `${100 / total}%` }}>
-              <Image
-                src={src}
-                alt={`${project.title} ${i + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 58vw"
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Arrows */}
-        <button
-          onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 h-9 w-9 flex items-center justify-center rounded-full bg-[rgba(15,15,20,0.7)] text-white hover:bg-[rgba(15,15,20,0.9)] transition-colors"
-          aria-label="Previous image"
-        >
-          <ArrowLeft />
-        </button>
-        <button
-          onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 h-9 w-9 flex items-center justify-center rounded-full bg-[rgba(15,15,20,0.7)] text-white hover:bg-[rgba(15,15,20,0.9)] transition-colors"
-          aria-label="Next image"
-        >
-          <ArrowRight />
-        </button>
-
-        {/* Dot indicators — only shown when multiple images */}
-        {total > 1 && (
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {project.images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIdx(i)}
-                className="h-1.5 rounded-full transition-all"
-                style={{
-                  width: i === idx ? 20 : 6,
-                  backgroundColor: i === idx ? '#fff' : 'rgba(255,255,255,0.4)',
-                }}
-                aria-label={`Go to image ${i + 1}`}
-              />
-            ))}
-          </div>
-        )}
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 58vw"
+          />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 :root {
   /* Surfaces & Globals */
-  --background: var(--grey-200);
+  --background: var(--grey-100);
   --foreground: var(--text-primary);
 
   /* Header */
