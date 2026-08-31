@@ -66,10 +66,12 @@ const META = [
 ];
 
 const ROLES = [
-  'Product design: flows, components, information architecture',
-  'Frontend build, including full right-to-left support',
-  'Content architecture and the bilingual editorial system',
-  'Product decisions: what shipped first, and what waited',
+  'Product strategy and definition: what it is, what it is not, and what ships first',
+  'Research: talking to people who had already made the move, which is where the ordering came from',
+  'Information architecture: the task model, its dependencies, and the content structure beneath it',
+  'User flows, UX and UI, and the design system that keeps them consistent',
+  'Prototyping, then the frontend build, including a Hebrew and English interface that mirrors properly rather than reading as a translation',
+  'Working with the developer day to day, so decisions were made against what could actually be built',
 ];
 
 export default function RelowaysShortPage() {
@@ -88,7 +90,7 @@ export default function RelowaysShortPage() {
             Designing a Relocation Platform from the Ground Up, While Relocating Myself
           </h1>
           <p className="case-lead">
-            Reloways helps Israelis moving to Berlin work out what to do, and in what order. I designed it and I built it.
+            Reloways began as a personal response to moving country myself. I designed and built a platform that brings practical knowledge, trusted local services, and community into one place, while living the problem it solves.
           </p>
 
           <div className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-[var(--border-subtle)] pt-8 sm:grid-cols-4 lg:grid-cols-5">
@@ -131,14 +133,14 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="01" title="The Problem" />
           <p>
-            German bureaucracy runs on prerequisites. You cannot open a bank account before you register your address, and you cannot get a residence permit before the bank account. Every step is blocked by another one.
+            Relocation is not one problem. It is dozens of small ones that arrive at different times and in an order nobody tells you: registering your address, a flat, health insurance, a bank account, a doctor, tax, and the ordinary local services you need from people you have no way to vet.
           </p>
           <p>
-            Nobody had mapped that order. People were piecing it together from Facebook groups, German PDFs, and the same question asked again every week.
+            None of that information is missing. It is spread across Google, Facebook groups, Reddit, WhatsApp threads, and government sites written in German, and every piece of it assumes you already know which piece you need.
           </p>
           <blockquote className="case-quote">
             <p>
-              People don&rsquo;t know what order to do things in, and one mistake can set them back weeks.
+              The real problem was not a lack of information. It was knowing what to do, when to do it, and who to trust.
             </p>
           </blockquote>
 
@@ -154,7 +156,7 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="02" title="Who It Is For" />
           <p>
-            The product serves both sides of a small market: people arriving in Berlin who need something done, and the Hebrew-speaking professionals already there who can do it. I wrote six personas across the two sides, and they set what got built first.
+            Reloways is for people working out how to live in a city they have just arrived in, in the first months when nothing is familiar and every decision carries a risk they cannot size. I started with Israelis moving to Berlin because that was the move I was making and the community I could reach, but the architecture was built for any nationality and city pair from the start. The first audience is a starting point, not the definition of the product.
           </p>
 
           <CaseFigure
@@ -169,29 +171,29 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-8">
           <SectionHeading number="03" title="What I Built" />
           <p>
-            Three things carry the product. Each one exists to answer a single question the user is actually asking.
+            Three decisions carry the product. Each one came out of the problem above rather than from a feature list.
           </p>
 
           <div className="space-y-4">
-            <h3 className="case-subheading">A wizard that asks who you are</h3>
+            <h3 className="case-subheading">A platform that understands where you are</h3>
             <p>
-              A short onboarding flow that branches on whether you have already landed. What it learns decides which tasks you see and in what order, so the product is different for a student with a visa appointment in three days than it is for someone still deciding whether to move.
+              Most relocation sites open on a directory and leave you to work out which part applies to you. Reloways opens by asking instead: where you are, what your situation is, whether you have landed yet. What it learns shapes everything after it, so someone with a visa appointment in three days and someone still deciding whether to move do not get the same product.
             </p>
             <PlaceholderFigure label="Onboarding wizard, two or three real steps" />
           </div>
 
           <div className="space-y-4">
-            <h3 className="case-subheading">A checklist that knows the order</h3>
+            <h3 className="case-subheading">A checklist that knows what comes next</h3>
             <p>
-              The core screen. Tasks are grouped by when they happen and ranked by urgency, not alphabetically, and the system understands which task blocks which. Registering your address sits at the root of almost everything, so it is never something you scroll past.
+              A relocation contains hundreds of tasks and almost none of them matter at the same moment. The checklist is personalised and ordered: grouped by when a thing happens, ranked by how urgent it is, and aware of which task blocks which. Registering your address sits under almost everything else, so it is never something you scroll past. The complexity stays inside the system instead of landing on the user.
             </p>
             <PlaceholderFigure label="The task checklist, showing phases and urgency" />
           </div>
 
           <div className="space-y-4">
-            <h3 className="case-subheading">Articles with the task built in</h3>
+            <h3 className="case-subheading">Knowledge connected to action</h3>
             <p>
-              Every task opens into a full guide in Hebrew and English. The checklist item appears inside the article at the point where you would actually act on it, rather than sitting in a separate list you have to switch to.
+              A guide that only explains leaves you to act somewhere else. Every article carries its task inside it, at the point in the text where you would actually do the thing. Reading and doing happen in one place, which is what turns a pile of content into a product.
             </p>
             <PlaceholderFigure label="An article with an inline task card" aspect="4/3" />
           </div>
@@ -201,13 +203,13 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="04" title="My Role" />
           <p>
-            Everything. I was the only designer and one of two people writing the code.
+            I designed Reloways from the ground up: from defining what the product should be and how its information is structured, through the UX, the visual language, and the interaction patterns, to writing a good deal of the code.
           </p>
           <ul>
             {ROLES.map((r) => <li key={r}>{r}</li>)}
           </ul>
           <p>
-            The hardest part was not the interface. It was working out the real order of German bureaucracy well enough to encode it, and designing a Hebrew and English product where the layout mirrors properly in both directions rather than looking translated.
+            The hardest part was never the interface. It was establishing the real order of German bureaucracy accurately enough to encode it.
           </p>
         </div>
 
@@ -215,10 +217,10 @@ export default function RelowaysShortPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="05" title="Where It Stands" />
           <p>
-            The product is built and running. Onboarding, the task system, and the knowledge centre all work, with 32 tasks mapped across the full journey.
+            Reloways is live and still being built. Onboarding, the task system, and the knowledge centre all work, with 32 tasks mapped across the full journey. What began as a personal response to one move has grown into a platform connecting people with local businesses, practical knowledge, and the community around both.
           </p>
           <p>
-            What is left is writing. A knowledge centre needs enough articles to feel worth trusting, and that is the current work before a public launch in the Israeli community in Berlin.
+            The writing is what remains. A knowledge centre earns trust by having enough in it, and that is the current work before opening it up publicly. It is a product still in motion rather than a finished piece of work.
           </p>
 
           <PlaceholderFigure
