@@ -180,9 +180,30 @@ export default function RelowaysShortPage() {
           </p>
 
           {t.built.blocks.map((block, i) => (
-            <div key={block.heading} className="space-y-4">
-              <h3 className="case-subheading">{block.heading}</h3>
-              <p>{block.body}</p>
+            <div key={block.heading} className="space-y-5">
+
+              <div className="flex items-baseline gap-3">
+                <span className="text-sm font-bold text-[#732fff]">{block.number}</span>
+                <h3 className="case-subheading">{block.heading}</h3>
+              </div>
+
+              {/* The decision behind the block, before the description of it */}
+              <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6 space-y-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">
+                    {t.built.soughtLabel}
+                  </p>
+                  <p className="text-[1.125rem] leading-[1.6] text-[var(--text-primary)]">{block.sought}</p>
+                </div>
+                <div className="border-t border-[var(--border-subtle)] pt-4">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#732fff] mb-1.5">
+                    {t.built.decidedLabel}
+                  </p>
+                  <p className="text-[1.125rem] leading-[1.6] text-[var(--text-primary)]">{block.decided}</p>
+                </div>
+              </div>
+
+              {block.body.map((para) => <p key={para}>{para}</p>)}
               <PlaceholderFigure label={block.figure} aspect={i === 2 ? '4/3' : '16/9'} />
             </div>
           ))}

@@ -20,7 +20,16 @@ export type CaseCopy = {
   };
   built: {
     number: string; title: string; intro: string;
-    blocks: { heading: string; body: string; figure: string }[];
+    soughtLabel: string;
+    decidedLabel: string;
+    blocks: {
+      number: string;
+      heading: string;
+      sought: string;
+      decided: string;
+      body: string[];
+      figure: string;
+    }[];
     closing: string;
   };
   role: {
@@ -71,20 +80,39 @@ const en: CaseCopy = {
     number: '03',
     title: 'What I Built',
     intro: 'Three decisions carry the product. Each one came out of the problem above rather than from a feature list.',
+    soughtLabel: 'What I wanted',
+    decidedLabel: 'What I decided',
     blocks: [
       {
+        number: '01',
         heading: 'A platform that understands where you are',
-        body: 'Most relocation sites open on a directory and leave you to work out which part applies to you. Reloways starts by learning about you instead, so it can put the right content and the right route in front of your particular move. It opens with where you are, what your situation is, and whether you have landed yet, and what it learns shapes everything after it. Someone with a visa appointment in three days and someone still weighing up whether to move do not get the same product. The system routes you: it shows you the path and what to do next.',
+        sought: 'A place that started from my situation, instead of making me search for everything from scratch.',
+        decided: 'Adapt the experience to the person, and to where they are in the move.',
+        body: [
+          'When I was looking things up during my own move, I wanted the experience to start from me: the city I had moved to, my situation, and the things I had already done.',
+          'So I decided Reloways would not simply be somewhere you look information up, but a platform that adapts itself to the person using it. Early on you tell the system where you are and what is relevant to you, and the information and the tasks you see change accordingly.',
+          'Instead of opening with “what are you looking for?”, I wanted to open with “where are you right now?”',
+        ],
         figure: 'Onboarding wizard, two or three real steps',
       },
       {
+        number: '02',
         heading: 'A checklist that knows what comes next',
-        body: 'A relocation contains hundreds of tasks and almost none of them matter at the same moment. The checklist is personalised and ordered: grouped by when a thing happens, ranked by how urgent it is, and aware of which task blocks which. Registering your address sits under almost everything else, so it is never something you scroll past. The complexity stays inside the system instead of landing on the user.',
+        sought: 'Not just a list of tasks, but a way to understand what to do now and what comes after it.',
+        decided: 'Build a checklist that organises the relocation by order and by context.',
+        body: [
+          'A relocation contains hundreds of tasks and almost none of them matter at the same moment. The checklist is personalised and ordered: grouped by when a thing happens, ranked by how urgent it is, and aware of which task blocks which. Registering your address sits under almost everything else, so it is never something you scroll past. The complexity stays inside the system instead of landing on the user.',
+        ],
         figure: 'The task checklist, showing phases and urgency',
       },
       {
+        number: '03',
         heading: 'Knowledge connected to action',
-        body: 'A guide that only explains leaves you to act somewhere else. Every article carries its task inside it, at the point in the text where you would actually do the thing. Reading and doing happen in one place, which is what turns a pile of content into a product.',
+        sought: 'A clear answer that does not leave me thinking "fine, so what do I actually do now?"',
+        decided: 'Connect the guides to the tasks they help you carry out.',
+        body: [
+          'A guide that only explains leaves you to act somewhere else. Every article carries its task inside it, at the point in the text where you would actually do the thing. Reading and doing happen in one place, which is what turns a pile of content into a product.',
+        ],
         figure: 'An article with an inline task card',
       },
     ],
@@ -151,20 +179,39 @@ const he: CaseCopy = {
     number: '03',
     title: 'מה בניתי',
     intro: 'שלוש החלטות נושאות את המוצר. כל אחת מהן נבעה מהבעיה שלמעלה ולא מרשימת פיצ׳רים.',
+    soughtLabel: 'מה חיפשתי',
+    decidedLabel: 'מה החלטתי',
     blocks: [
       {
+        number: '01',
         heading: 'פלטפורמה שמבינה איפה אתה נמצא',
-        body: 'רוב אתרי הרילוקיישן נפתחים על אינדקס ומשאירים לך להבין איזה חלק רלוונטי לך. Reloways מתחיל בללמוד עליך במקום, כדי להציב מולך את התוכן ואת הדרך שמתאימים למעבר הספציפי שלך. הוא נפתח בשאלות איפה אתה, מה המצב שלך והאם כבר נחתת, ומה שהוא לומד מעצב את כל מה שבא אחריו. מישהו עם תור לוויזה בעוד שלושה ימים ומישהו שעדיין מתלבט אם לעבור לא מקבלים את אותו מוצר. המערכת מנתבת אותך: היא מראה לך את הדרך ומה לעשות עכשיו.',
+        sought: 'מקום שיתחיל מהסיטואציה שלי ולא יגרום לי לחפש הכול מחדש.',
+        decided: 'להתאים את החוויה למשתמש ולמקום שבו הוא נמצא.',
+        body: [
+          'כשחיפשתי מידע במהלך המעבר שלי, רציתי שהחוויה תתחיל ממני: מהעיר שאליה עברתי, מהמצב שלי ומהדברים שכבר עשיתי.',
+          'לכן החלטתי ש-Reloways לא תהיה רק מקום שבו מחפשים מידע, אלא פלטפורמה שמתאימה את עצמה למשתמש. כבר בתחילת הדרך המשתמש מספר למערכת איפה הוא נמצא ומה רלוונטי עבורו, והמידע והמשימות שהוא רואה משתנים בהתאם.',
+          'במקום להתחיל בשאלה “מה אתה מחפש?”, רציתי להתחיל בשאלה “איפה אתה נמצא עכשיו?”',
+        ],
         figure: 'אונבורדינג, שניים שלושה מסכים אמיתיים',
       },
       {
-        heading: 'צ׳קליסט שיודע מה בא אחר כך',
-        body: 'רילוקיישן מכיל מאות משימות וכמעט אף אחת מהן לא רלוונטית באותו רגע. הצ׳קליסט מותאם אישית ומסודר: מקובץ לפי מתי דבר קורה, מדורג לפי כמה הוא דחוף, ומודע לאיזו משימה חוסמת איזו. רישום הכתובת יושב מתחת כמעט לכל השאר, אז הוא אף פעם לא משהו שגוללים מעליו. המורכבות נשארת בתוך המערכת במקום לנחות על המשתמש.',
+        number: '02',
+        heading: 'צ׳קליסט שיודע מה הצעד הבא',
+        sought: 'לא רק רשימה של משימות, אלא להבין מה לעשות עכשיו ומה אחר כך.',
+        decided: 'לבנות צ׳קליסט שמארגן את תהליך הרילוקיישן לפי סדר והקשר.',
+        body: [
+          'רילוקיישן מכיל מאות משימות וכמעט אף אחת מהן לא רלוונטית באותו רגע. הצ׳קליסט מותאם אישית ומסודר: מקובץ לפי מתי דבר קורה, מדורג לפי כמה הוא דחוף, ומודע לאיזו משימה חוסמת איזו. רישום הכתובת יושב מתחת כמעט לכל השאר, אז הוא אף פעם לא משהו שגוללים מעליו. המורכבות נשארת בתוך המערכת במקום לנחות על המשתמש.',
+        ],
         figure: 'הצ׳קליסט, עם השלבים והדחיפות',
       },
       {
-        heading: 'ידע שמחובר לפעולה',
-        body: 'מדריך שרק מסביר משאיר אותך לפעול במקום אחר. כל מאמר נושא בתוכו את המשימה שלו, בנקודה בטקסט שבה באמת היית עושה את הדבר. קריאה ועשייה קורות במקום אחד, וזה מה שהופך ערימת תוכן למוצר.',
+        number: '03',
+        heading: 'ידע שמוביל לפעולה',
+        sought: 'תשובה ברורה שלא משאירה אותי עם “אוקיי, אז מה אני עושה עכשיו?”',
+        decided: 'לחבר בין מדריכים לבין המשימות שהם עוזרים לבצע.',
+        body: [
+          'מדריך שרק מסביר משאיר אותך לפעול במקום אחר. כל מאמר נושא בתוכו את המשימה שלו, בנקודה בטקסט שבה באמת היית עושה את הדבר. קריאה ועשייה קורות במקום אחד, וזה מה שהופך ערימת תוכן למוצר.',
+        ],
         figure: 'מאמר עם כרטיס משימה משובץ',
       },
     ],
