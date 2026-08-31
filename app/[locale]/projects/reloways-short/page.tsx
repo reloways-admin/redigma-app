@@ -73,7 +73,7 @@ export default function RelowaysShortPage() {
 
           <p className="type-kicker text-[#732fff] mb-6">{t.kicker}</p>
 
-          <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6">
+          <h1 className="text-4xl font-bold text-[var(--text-primary)] leading-tight lg:text-6xl mb-6 whitespace-pre-line">
             {t.title}
           </h1>
           <p className="case-lead">
