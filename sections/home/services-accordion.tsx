@@ -109,7 +109,7 @@ export default function HomeServicesAccordion() {
                       {isOpen ? <MinusIcon /> : <PlusIcon />}
                     </span>
                   </div>
-                  {/* Mobile image — full width, outside flex row */}
+                  {/* Mobile image, full width, outside flex row */}
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
@@ -137,7 +137,7 @@ export default function HomeServicesAccordion() {
             })}
           </div>
 
-          {/* Right: image panel — desktop only */}
+          {/* Right: image panel, desktop only */}
           <div
             className="hidden lg:block relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
             style={{ aspectRatio: '4 / 3' }}

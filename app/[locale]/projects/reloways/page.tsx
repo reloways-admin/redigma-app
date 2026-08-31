@@ -79,10 +79,10 @@ export default function RelowaysPage() {
 
           <div>
               <h1 className="text-3xl font-bold text-[var(--text-primary)] leading-tight lg:text-5xl mb-6">
-                Designing a Relocation Platform from the Ground Up — While Relocating Myself
+                Designing a Relocation Platform from the Ground Up, While Relocating Myself
               </h1>
               <p className="case-lead">
-                Reloways is a bilingual product (Hebrew/English) that helps Israelis navigate the dependency chain of German bureaucracy — from Anmeldung to long-term settlement. I designed it and built it.
+                Reloways is a bilingual product (Hebrew/English) that helps Israelis navigate the dependency chain of German bureaucracy, from Anmeldung to long-term settlement. I designed it and built it.
               </p>
 
           {/* Meta, sitting under the title rather than beside it */}
@@ -95,7 +95,7 @@ export default function RelowaysPage() {
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)] mb-1.5">Status</p>
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-subtle)] bg-[var(--surface-1)] px-3 py-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
-                  <span className="text-xs font-medium text-[var(--text-primary)]">MVP — Live in development</span>
+                  <span className="text-xs font-medium text-[var(--text-primary)]">MVP · Live in development</span>
                 </div>
               </div>
               <div>
@@ -150,7 +150,7 @@ export default function RelowaysPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="01" title="The Problem" />
           <p>
-            Moving to a new country is one of the most stressful, document-heavy experiences a person can go through. For Israelis relocating to Berlin specifically, the gap is enormous: German bureaucracy is notoriously complex and unforgiving — you can't open a bank account without first registering your address (Anmeldung). You can't get a residence permit without the bank account. Every step has a prerequisite.
+            Moving to a new country is one of the most stressful, document-heavy experiences a person can go through. For Israelis relocating to Berlin specifically, the gap is enormous: German bureaucracy is notoriously complex and unforgiving. You can't open a bank account without first registering your address (Anmeldung). You can't get a residence permit without the bank account. Every step has a prerequisite.
           </p>
           <p>
             Yet the available resources look like a 2009 expat forum. Fragmented Reddit threads, PDFs in German, Facebook groups where the same questions get asked every week. Nobody has mapped the actual dependency chain of tasks, told you what to do <em>first</em>, or packaged this into a language you actually read.
@@ -171,7 +171,7 @@ export default function RelowaysPage() {
         <div className="case-section space-y-6">
           <SectionHeading number="02" title="Who It's For" />
           <p>
-            Reloways was designed for four distinct user types, which the product calls <em>archetypes</em>. The archetype drives everything — which tasks surface, in what order, and which articles are recommended.
+            Reloways was designed for four distinct user types, which the product calls <em>archetypes</em>. The archetype drives everything: which tasks surface, in what order, and which articles are recommended.
           </p>
 
           <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
@@ -187,7 +187,7 @@ export default function RelowaysPage() {
                 {[
                   { archetype: 'Explorer', profile: 'Considering a move, no date set', need: 'Inspiration, overview, "is this for me?"' },
                   { archetype: 'Planner', profile: 'Has a move date, hasn\'t landed yet', need: 'Time-triggered pre-arrival checklist' },
-                  { archetype: 'Settler', profile: 'Already in Berlin (0–365 days)', need: 'Urgent, ordered task system — "what do I do today?"' },
+                  { archetype: 'Settler', profile: 'Already in Berlin (0–365 days)', need: 'Urgent, ordered task system, "what do I do today?"' },
                   { archetype: 'Local', profile: 'Living there 1+ year', need: 'Business setup, community, optimization' },
                 ].map((row) => (
                   <tr key={row.archetype} className="bg-white">
@@ -201,9 +201,9 @@ export default function RelowaysPage() {
           </div>
 
           <p>
-            The primary audience at launch is <strong className="font-semibold text-[var(--text-primary)]">Israelis</strong> — hence the bilingual Hebrew/English experience with full RTL support. But the architecture was designed to extend to any nationality + city combination.
+            The primary audience at launch is <strong className="font-semibold text-[var(--text-primary)]">Israelis</strong>, hence the bilingual Hebrew/English experience with full RTL support. But the architecture was designed to extend to any nationality + city combination.
           </p>
-          <ImagePlaceholder label="Split-screen: Hebrew (RTL) · English (LTR) — same onboarding step, both directions" />
+          <ImagePlaceholder label="Split-screen: Hebrew (RTL) · English (LTR), same onboarding step, both directions" />
         </div>
 
         {/* What the Product Does */}
@@ -215,20 +215,20 @@ export default function RelowaysPage() {
               The first thing a new user does is complete a 6–7 step wizard. The flow branches based on whether they're a Settler (already in Berlin) or a Planner/Explorer (not yet arrived). Steps collect country of origin, how long they've been in Berlin, employment situation (employee, freelancer, student, job-seeking), visa type, top priorities, and preferred language.
             </p>
             <p>
-              This data drives the archetype — and the archetype drives everything that follows.
+              This data drives the archetype, and the archetype drives everything that follows.
             </p>
-            <ImagePlaceholder label="Onboarding wizard — card-picker component, branching logic annotated" />
+            <ImagePlaceholder label="Onboarding wizard: card-picker component, branching logic annotated" />
           </FeatureBlock>
 
-          <FeatureBlock number="2" title="Smart Checklist System — The Core Interface">
+          <FeatureBlock number="2" title="Smart Checklist System, The Core Interface">
             <p>
               For Settlers, the primary experience is a phase-based task system organized as a timeline:
             </p>
             <ul className="space-y-2 pl-4">
               {[
-                { phase: 'Upon Landing (Days 0–30)', desc: 'Critical blockers — Anmeldung, bank account, health insurance' },
-                { phase: 'First 30 Days (Weeks 2–12)', desc: 'Foundation — residence permit, freelancer registration, Tax ID' },
-                { phase: 'First 90 Days (Month 3+)', desc: 'Life optimization — long-term housing, Kita, language learning' },
+                { phase: 'Upon Landing (Days 0–30)', desc: 'Critical blockers: Anmeldung, bank account, health insurance' },
+                { phase: 'First 30 Days (Weeks 2–12)', desc: 'Foundation: residence permit, freelancer registration, Tax ID' },
+                { phase: 'First 90 Days (Month 3+)', desc: 'Life optimization: long-term housing, Kita, language learning' },
               ].map((item) => (
                 <li key={item.phase} className="flex items-start gap-2">
                   <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#732fff]/50" />
@@ -237,25 +237,25 @@ export default function RelowaysPage() {
               ))}
             </ul>
             <p>
-              Each task carries an urgency score (1–10), a linked in-depth article, and dependency logic ("you must complete X before Y"). Some tasks only appear for specific audiences — freelancers, parents, students.
+              Each task carries an urgency score (1–10), a linked in-depth article, and dependency logic ("you must complete X before Y"). Some tasks only appear for specific audiences: freelancers, parents, students.
             </p>
             <p>
-              The critical insight: mapping the actual <strong className="font-semibold text-[var(--text-primary)]">dependency chain</strong> of German bureaucracy. Anmeldung is the single critical blocker — almost everything else depends on it. Designing around that truth rather than a flat list was the core product decision.
+              The critical insight: mapping the actual <strong className="font-semibold text-[var(--text-primary)]">dependency chain</strong> of German bureaucracy. Anmeldung is the single critical blocker, and almost everything else depends on it. Designing around that truth rather than a flat list was the core product decision.
             </p>
-            <ImagePlaceholder label="Dependency chain diagram — Anmeldung as root node, urgency color-coded" />
+            <ImagePlaceholder label="Dependency chain diagram: Anmeldung as root node, urgency color-coded" />
           </FeatureBlock>
 
-          <FeatureBlock number="3" title="Knowledge Center — Bilingual Article Library">
+          <FeatureBlock number="3" title="Knowledge Center, Bilingual Article Library">
             <p>
-              Every task links to a long-form article in both Hebrew and English. Articles are structured as step-by-step guides with embedded task cards inline — the checklist item appears <em>at the moment in the article where you'd naturally take action</em>, not bolted on at the top or bottom.
+              Every task links to a long-form article in both Hebrew and English. Articles are structured as step-by-step guides with embedded task cards inline. The checklist item appears <em>at the moment in the article where you'd naturally take action</em>, not bolted on at the top or bottom.
             </p>
             <p>
               Content is organized by phase (PRE / ARRIVE / SETTLE / LOCAL) and category (Finance, Housing, Bureaucracy, Health, Employment, Education, Life in Germany). The URL structure mirrors the relocation geography: <code className="text-xs bg-[var(--surface-1)] border border-[var(--border-subtle)] rounded px-1.5 py-0.5">/knowledge/europe/germany/berlin/[category]/[article]</code>
             </p>
-            <ImagePlaceholder label="Knowledge Center — desktop view with phase tabs, category sections, table of contents sidebar" aspect="4/3" />
+            <ImagePlaceholder label="Knowledge Center: desktop view with phase tabs, category sections, table of contents sidebar" aspect="4/3" />
           </FeatureBlock>
 
-          <FeatureBlock number="4" title="Content Architecture — The Design Behind the Design">
+          <FeatureBlock number="4" title="Content Architecture, The Design Behind the Design">
             <p>
               Before writing a single line of frontend code, I built a structured knowledge base in Obsidian to model the entire relocation journey:
             </p>
@@ -273,9 +273,9 @@ export default function RelowaysPage() {
               ))}
             </ul>
             <p>
-              This pre-work meant the CMS schema, frontend data model, and content structure were all aligned from day one — rather than retrofitting content into a system that wasn't built for it.
+              This pre-work meant the CMS schema, frontend data model, and content structure were all aligned from day one, rather than retrofitting content into a system that wasn't built for it.
             </p>
-            <ImagePlaceholder label="Design system — task card component in default, hover, and completed states" />
+            <ImagePlaceholder label="Design system: task card component in default, hover, and completed states" />
           </FeatureBlock>
         </div>
 
@@ -329,15 +329,15 @@ export default function RelowaysPage() {
             <div className="space-y-6">
               <div>
                 <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-2">The bilingual RTL problem.</p>
-                <p>Hebrew reads right-to-left. Every layout decision — navigation, card grids, arrow icons, text alignment, breadcrumbs — had to work in both directions. This wasn't just <code className="text-xs bg-[var(--surface-1)] border border-[var(--border-subtle)] rounded px-1.5 py-0.5">direction: rtl</code>; it required thinking about information hierarchy differently depending on reading direction. I built a custom hook that detects locale and flips directional UI tokens accordingly.</p>
+                <p>Hebrew reads right-to-left. Every layout decision (navigation, card grids, arrow icons, text alignment, breadcrumbs) had to work in both directions. This wasn't just <code className="text-xs bg-[var(--surface-1)] border border-[var(--border-subtle)] rounded px-1.5 py-0.5">direction: rtl</code>; it required thinking about information hierarchy differently depending on reading direction. I built a custom hook that detects locale and flips directional UI tokens accordingly.</p>
               </div>
               <div>
                 <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-2">Designing for uncertainty.</p>
-                <p>Users arrive with wildly different situations: a freelancer who landed last week, a student with a visa appointment in 3 days, a parent who needs Kita for a 2-year-old. The challenge was building one interface that serves all of them without overwhelming anyone. The archetype + audience-tag system was the solution — tasks only surface if they're relevant to your situation.</p>
+                <p>Users arrive with wildly different situations: a freelancer who landed last week, a student with a visa appointment in 3 days, a parent who needs Kita for a 2-year-old. The challenge was building one interface that serves all of them without overwhelming anyone. The archetype + audience-tag system was the solution: tasks only surface if they're relevant to your situation.</p>
               </div>
               <div>
                 <p className="text-[1.0625rem] font-semibold text-[var(--text-primary)] mb-2">The content architecture problem.</p>
-                <p>Relocation guides usually fail because they're written as flat lists. A real relocation has a graph structure — tasks that unlock other tasks. Designing the dependency system required deep research into German bureaucracy, interviews with people who'd moved, and mapping the actual causal relationships. The Anmeldung insight — that it's the absolute Day 1 blocker, without which nothing else works — shaped the entire information hierarchy.</p>
+                <p>Relocation guides usually fail because they're written as flat lists. A real relocation has a graph structure, where tasks unlock other tasks. Designing the dependency system required deep research into German bureaucracy, interviews with people who'd moved, and mapping the actual causal relationships. The Anmeldung insight, that it's the absolute Day 1 blocker without which nothing else works, shaped the entire information hierarchy.</p>
               </div>
             </div>
           </div>
@@ -363,7 +363,7 @@ export default function RelowaysPage() {
               <DecisionItem
                 number={4}
                 title="Embed tasks inside articles, not just beside them."
-                body="The inline task card component means a checklist item appears mid-article at the natural action moment — not as a separate UI layer you have to context-switch to."
+                body="The inline task card component means a checklist item appears mid-article at the natural action moment, not as a separate UI layer you have to context-switch to."
               />
               <DecisionItem
                 number={5}
@@ -377,10 +377,10 @@ export default function RelowaysPage() {
             <SubHeading title="What I Learned" />
             <div className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-1)] p-6 space-y-4">
               <p>
-                Building both the design and the product revealed a pattern I didn't expect: <strong className="font-semibold text-[var(--text-primary)]">the hardest design problems were information architecture, not UI.</strong> Getting the task ID naming convention right, deciding how categories map to phases, understanding that <code className="text-xs bg-white border border-[var(--border-subtle)] rounded px-1.5 py-0.5">editorialStatus</code> and <code className="text-xs bg-white border border-[var(--border-subtle)] rounded px-1.5 py-0.5">priority</code> needed to be separate fields on articles — these were decisions that shaped the whole product and couldn't be easily undone after the fact.
+                Building both the design and the product revealed a pattern I didn't expect: <strong className="font-semibold text-[var(--text-primary)]">the hardest design problems were information architecture, not UI.</strong> Getting the task ID naming convention right, deciding how categories map to phases, understanding that <code className="text-xs bg-white border border-[var(--border-subtle)] rounded px-1.5 py-0.5">editorialStatus</code> and <code className="text-xs bg-white border border-[var(--border-subtle)] rounded px-1.5 py-0.5">priority</code> needed to be separate fields on articles. These were decisions that shaped the whole product and couldn't be easily undone after the fact.
               </p>
               <p>
-                I also learned that <strong className="font-semibold text-[var(--text-primary)]">a well-structured knowledge base is a design deliverable.</strong> The Obsidian vault — roadmaps, task database, article templates, bilingual reference — is not just documentation. It's the design spec, the content model, and the editorial guide in one place.
+                I also learned that <strong className="font-semibold text-[var(--text-primary)]">a well-structured knowledge base is a design deliverable.</strong> The Obsidian vault, with its roadmaps, task database, article templates, and bilingual reference, is not just documentation. It's the design spec, the content model, and the editorial guide in one place.
               </p>
             </div>
           </div>
@@ -418,10 +418,10 @@ export default function RelowaysPage() {
           <div className="rounded-2xl border border-[var(--border-subtle)] bg-white p-6 space-y-3">
             {[
               { label: 'System architecture', value: '~95% complete' },
-              { label: 'Frontend', value: 'Core flows built — onboarding, knowledge center, task system' },
+              { label: 'Frontend', value: 'Core flows built: onboarding, knowledge center, task system' },
               { label: 'CMS', value: 'Live on Strapi Cloud · 6 articles published (PRE phase)' },
               { label: 'Tasks', value: '32 tasks mapped across all 4 phases, with full dependency chains and metadata' },
-              { label: 'Content', value: 'Sprint 1 underway — targeting 7 ARRIVE-phase articles as the critical path to launch' },
+              { label: 'Content', value: 'Sprint 1 underway, targeting 7 ARRIVE-phase articles as the critical path to launch' },
             ].map((item) => (
               <div key={item.label} className="flex gap-4 items-baseline border-b border-[var(--border-subtle)] pb-3 last:border-b-0 last:pb-0">
                 <p className="w-44 shrink-0 text-xs font-semibold uppercase tracking-widest text-[var(--text-secondary)]">{item.label}</p>
@@ -430,7 +430,7 @@ export default function RelowaysPage() {
             ))}
           </div>
           <p>
-            The product is functional and running. The blocker to public launch is content volume — you need enough articles to make the knowledge center feel substantive. That's the current focus.
+            The product is functional and running. The blocker to public launch is content volume. You need enough articles to make the knowledge center feel substantive. That's the current focus.
           </p>
         </div>
 
@@ -439,7 +439,7 @@ export default function RelowaysPage() {
           <SectionHeading number="08" title="What's Next" />
           <ul className="space-y-3">
             {[
-              'Complete Sprint 1: 7 ARRIVE-phase articles — Anmeldung, banking, health insurance, residence permit, freelancer registration, visa, blocked account',
+              'Complete Sprint 1: 7 ARRIVE-phase articles: Anmeldung, banking, health insurance, residence permit, freelancer registration, visa, blocked account',
               'Launch public beta targeting Israeli expat communities in Berlin',
               'Add Munich as the second city',
               'Explore partnerships with Israeli relocation communities and HR teams at Berlin tech companies',

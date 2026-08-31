@@ -24,7 +24,7 @@ export default function Home() {
       <Testimonials />
       <HomeAbout />
       <HomeFinalCta />
-      {/* Hidden — kept for future use */}
+      {/* Hidden, kept for future use */}
       <div className="hidden">
         <HomeServicesStacked />
         <HomeHowIWork />
