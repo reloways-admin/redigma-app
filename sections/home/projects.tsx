@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
     title: 'Bit',
     key: 'bit',
     summary:
-      'Improved clarity and usability across key product areas, with a focus on structure, decision points, and reducing friction for users.',
+      'The data table at the centre of an open-source design system. Plain by default and documented behaviour by behaviour, so teams extend it instead of rebuilding it.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Developed', prep: 'by', name: 'Bit', icon: '/illustrations/projects/icons/bit-logo.svg' },
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     title: 'GoMatchIt',
     key: 'gomatchit',
     summary:
-      'A 3-month design sprint to launch a usable and scalable B2B marketplace MVP.',
+      'A 3-month design sprint that took a business process canvas from working prototype to shipped MVP, design system included.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },

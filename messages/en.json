@@ -195,10 +195,10 @@
           "summary": "A neighborhood discovery platform connecting locals with hyper-relevant services and experiences."
         },
         "bit": {
-          "summary": "Improved clarity and usability across key product areas, with a focus on structure, decision points, and reducing friction for users."
+          "summary": "The data table at the centre of an open-source design system. Plain by default and documented behaviour by behaviour, so teams extend it instead of rebuilding it."
         },
         "gomatchit": {
-          "summary": "A 3-month design sprint to launch a usable and scalable B2B marketplace MVP."
+          "summary": "A 3-month design sprint that took a business process canvas from working prototype to shipped MVP, design system included."
         }
       }
     },
