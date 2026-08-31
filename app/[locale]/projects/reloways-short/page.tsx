@@ -47,7 +47,7 @@ function SectionHeading({ number, title }: { number: string; title: string }) {
 
 /* One figure per build block, in order. */
 const BLOCK_FIGURES = [
-  { src: '/images/projects/reloways/reloways-onboarding.png', aspect: '4020/1568' },
+  { src: '/images/projects/reloways/reloways-onboarding.png', aspect: '4780/1195' },
   { src: '/images/projects/reloways/reloways-journey.png', aspect: '3840/2614' },
   { src: '/images/projects/reloways/reloways-next-step.png', aspect: '2080/1320' },
 ];

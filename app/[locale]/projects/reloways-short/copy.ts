@@ -100,7 +100,7 @@ const en: CaseCopy = {
         ],
         figure: 'Onboarding wizard, two or three real steps',
         figureAlt: 'Three onboarding steps: where are you now, what is your employment situation, and what is most urgent',
-        figureCaption: 'Three of the six onboarding steps, redrawn. What the wizard learns here decides which tasks appear and in what order.',
+        figureCaption: 'Three of the seven onboarding steps. What the wizard learns here decides which tasks appear, and in what order.',
       },
       {
         number: '02',
@@ -224,7 +224,7 @@ const he: CaseCopy = {
         ],
         figure: 'אונבורדינג, שניים שלושה מסכים אמיתיים',
         figureAlt: 'שלושה שלבי אונבורדינג: איפה אתה נמצא, מה מצב התעסוקה, ומה הכי דחוף',
-        figureCaption: 'שלושה מתוך ששת שלבי האונבורדינג, בשרטוט מחדש. מה שהמערכת לומדת כאן קובע אילו משימות יופיעו ובאיזה סדר.',
+        figureCaption: 'שלושה מתוך שבעת שלבי האונבורדינג. מה שהמערכת לומדת כאן קובע אילו משימות יופיעו, ובאיזה סדר.',
       },
       {
         number: '02',
