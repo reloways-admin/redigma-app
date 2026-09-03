@@ -11,12 +11,14 @@ export type FincatCopy = {
   meta: { label: string; value: string; href?: string }[];
   toolsLabel: string;
   heroFigure: Figure;
+  closingFigure: Figure;
   sections: {
     number: string;
     kicker?: string;
     title: string;
     body: string[];
     figure?: Figure;
+    figures?: Figure[];
     blocks?: { heading: string; body: string[]; figure?: Figure }[];
   }[];
   closing: { title: string; body: string[] };
@@ -42,9 +44,9 @@ const en: FincatCopy = {
   ],
   toolsLabel: 'Tools',
   heroFigure: {
-    src: `${F}/fincat_cover_001.jpg`,
-    aspect: '16/9',
-    alt: 'The Fincat homepage: the illustrated cat beside a headline about today’s financial choices leading to tomorrow’s independence',
+    src: `${F}/fincat-hero.webp`,
+    aspect: '2560/1636',
+    alt: 'The Fincat homepage on a laptop held in two hands, with the illustrated cat and the yellow field',
     caption: 'The homepage as it shipped. The cat and the yellow stayed, everything around them changed.',
   },
   sections: [
@@ -56,6 +58,12 @@ const en: FincatCopy = {
         'That is the interesting constraint. A community that has been around a while has visual equity, and the instinct to modernise by clearing the table would have cost more than it gained. People would have stopped recognising the thing they had followed for years.',
         'So the brief was narrow and hard at the same time: keep the cat and keep the palette, and change everything else until the brand reads as a business rather than a page you follow.',
       ],
+      figure: {
+        src: `${F}/fincat-visual-language.webp`,
+        aspect: '2816/1400',
+        alt: 'The Fincat visual language: colour values, a type scale, cards, form elements, avatars, and the cat',
+        caption: 'What came out of that constraint. Palette, type scale, components, and the cat, as one language.',
+      },
     },
     {
       number: '02',
@@ -65,12 +73,20 @@ const en: FincatCopy = {
         'The open question was which direction to take it in. We explored that together, in full page designs rather than sketches, because the difference between one cat and another does not settle in the abstract. A cat in a scene reads differently from a cat as a portrait, and the illustration technique changes how serious the whole page feels before anyone reads a word.',
         'Out of that exploration we arrived together at which cat to use and in what technique, and that decision set the terms for every illustration that came after it.',
       ],
-      figure: {
-        src: `${F}/fincat-cat-directions.png`,
-        aspect: '4540/4996',
-        alt: 'Two versions of the Fincat homepage, one with the cat walking through a city scene and one with the cat seated against a yellow field',
-        caption: 'Two directions for the same cat. The one below is the one we went with.',
-      },
+      figures: [
+        {
+          src: `${F}/fincat_img_005.png`,
+          aspect: '4248/1815',
+          alt: 'A range of cat variations in different builds, expressions, and levels of detail',
+          caption: 'Searching for the cat. Different builds, different levels of detail, different techniques.',
+        },
+        {
+          src: `${F}/fincat-cat-directions.png`,
+          aspect: '4540/4996',
+          alt: 'Two versions of the Fincat homepage, one with the cat walking through a city scene and one with the cat seated against a yellow field',
+          caption: 'And the same question at full page size. The one below is the one we went with.',
+        },
+      ],
     },
     {
       number: '03',
@@ -98,27 +114,32 @@ const en: FincatCopy = {
         'That order mattered. I designed the pages first and worked out where the character was needed and doing what, and only then briefed the illustration. Commissioning drawings first and finding places for them afterwards is how a brand ends up with charming assets that never quite fit.',
       ],
       figure: {
-        src: `${F}/fincat_img_005.png`,
-        aspect: '4248/1815',
-        alt: 'A family of Fincat cat illustrations in different poses and expressions',
-        caption: 'The pose range, drawn to a brief that came out of the layouts rather than the other way round.',
+        placeholder: 'The illustration in use across the site, drawn to a brief that came out of the layouts',
+        aspect: '16/9',
       },
     },
     {
       number: '05',
-      title: 'Where a Friendly Brand Has to Work Hardest',
+      title: 'Onboarding the Service Providers',
       body: [
-        'The pleasant part of a brand like this is the homepage. The part that decides whether it works is the form.',
-        'Fincat asks people to hand over details about their money and to be matched with an adviser they have never met. That is the moment where charm can turn into a reason to distrust, so those screens got the most restrained treatment on the site: the character present but quiet, plenty of room, and the structure doing the reassuring.',
+        'The other side of the marketplace is the providers, and they have to sign up. The two screens here are the opening of that process and then the screen where you make choices and fill things in.',
+        'This is where the language has to prove itself. Up to this point the cat and the yellow had lived on content pages, where they are free to be charming. Here they have to work inside a form, holding the character of the brand without getting in the way of someone entering their details.',
+        'So the cats stay present but measured, and the yellow works as a marker rather than as a field. The structure carries the process, and the brand keeps it company.',
       ],
       figure: {
         src: `${F}/fincat_img_0062.png`,
         aspect: '4020/1989',
-        alt: 'Two Fincat screens for joining as a partner, with a form and the cat illustration used sparingly',
-        caption: 'Joining as a service provider. The character stays, and steps back.',
+        alt: 'Two Fincat onboarding screens for service providers, an opening screen and a screen of choices and input fields, both using the cat illustrations and the brand yellow',
+        caption: 'Service provider onboarding. The opening, then the choices and the fields.',
       },
     },
   ],
+  closingFigure: {
+    src: `${F}/fincat-overview.webp`,
+    aspect: '2816/1586',
+    alt: 'The Fincat adviser listing on a laptop, showing rated advisers with photographs',
+    caption: 'The marketplace the whole thing was built to carry.',
+  },
   closing: {
     title: 'Design and Strategy, Running Together',
     body: [
@@ -147,9 +168,9 @@ const he: FincatCopy = {
   ],
   toolsLabel: 'כלים',
   heroFigure: {
-    src: `${F}/fincat_cover_001.jpg`,
-    aspect: '16/9',
-    alt: 'דף הבית של חתול פיננסי: החתול המאויר לצד כותרת על הבחירות הכלכליות של היום כדרך לעצמאות של מחר',
+    src: `${F}/fincat-hero.webp`,
+    aspect: '2560/1636',
+    alt: 'דף הבית של חתול פיננסי על מחשב נייד שמוחזק בשתי ידיים, עם החתול המאויר והשדה הצהוב',
     caption: 'דף הבית כפי שעלה לאוויר. החתול והצהוב נשארו, כל השאר השתנה.',
   },
   sections: [
@@ -161,6 +182,12 @@ const he: FincatCopy = {
         'זה האילוץ המעניין. לקהילה שקיימת כבר זמן יש נכסים ויזואליים, והדחף לרענן על ידי ניקוי השולחן היה עולה יותר ממה שהוא מרוויח. אנשים היו מפסיקים לזהות את הדבר שהם עוקבים אחריו שנים.',
         'לכן הבריף היה צר וקשה בו זמנית: להשאיר את החתול ואת הפלטה, ולשנות כל דבר אחר עד שהמותג נקרא כמו עסק ולא כמו עמוד שעוקבים אחריו.',
       ],
+      figure: {
+        src: `${F}/fincat-visual-language.webp`,
+        aspect: '2816/1400',
+        alt: 'השפה הוויזואלית של חתול פיננסי: ערכי צבע, סולם טיפוגרפי, כרטיסים, אלמנטים של טופס, אווטרים והחתול',
+        caption: 'מה שיצא מהאילוץ הזה. פלטה, סולם טיפוגרפי, קומפוננטות והחתול, כשפה אחת.',
+      },
     },
     {
       number: '02',
@@ -170,12 +197,20 @@ const he: FincatCopy = {
         'השאלה הפתוחה הייתה לאיזה כיוון לוקחים אותו. חקרנו את זה יחד, בעמודים מלאים ולא בסקיצות, כי את ההבדל בין חתול לחתול אי אפשר להכריע בהפשטה. חתול בתוך סצנה נקרא אחרת מחתול כדיוקן, וטכניקת האיור קובעת כמה רצינית מרגישה כל הפריסה עוד לפני שקוראים מילה.',
         'מתוך החקירה הזאת הגענו יחד להחלטה באיזה חתול נשתמש ובאיזו טכניקה, וההחלטה הזאת קבעה את התנאים לכל האיורים שבאו אחריה.',
       ],
-      figure: {
-        src: `${F}/fincat-cat-directions.png`,
-        aspect: '4540/4996',
-        alt: 'שתי גרסאות של דף הבית של חתול פיננסי, אחת עם החתול מהלך בתוך סצנה עירונית ואחת עם החתול יושב על שדה צהוב',
-        caption: 'שני כיוונים לאותו חתול. התחתון הוא זה שבחרנו.',
-      },
+      figures: [
+        {
+          src: `${F}/fincat_img_005.png`,
+          aspect: '4248/1815',
+          alt: 'מגוון וריאציות של החתול במבנים, בהבעות וברמות פירוט שונות',
+          caption: 'החיפוש אחרי החתול. מבנים שונים, רמות פירוט שונות, טכניקות שונות.',
+        },
+        {
+          src: `${F}/fincat-cat-directions.png`,
+          aspect: '4540/4996',
+          alt: 'שתי גרסאות של דף הבית של חתול פיננסי, אחת עם החתול מהלך בתוך סצנה עירונית ואחת עם החתול יושב על שדה צהוב',
+          caption: 'ואותה שאלה בגודל של עמוד מלא. התחתון הוא זה שבחרנו.',
+        },
+      ],
     },
     {
       number: '03',
@@ -203,27 +238,32 @@ const he: FincatCopy = {
         'הסדר הזה חשוב. קודם עיצבתי את העמודים והבנתי איפה הדמות נחוצה ומה היא עושה שם, ורק אחר כך תדרכתי את האיור. להזמין איורים קודם ואז לחפש להם מקום זו הדרך שבה מותג נשאר עם נכסים מקסימים שלא באמת מתאימים.',
       ],
       figure: {
-        src: `${F}/fincat_img_005.png`,
-        aspect: '4248/1815',
-        alt: 'משפחת איורים של החתול של חתול פיננסי בתנוחות ובהבעות שונות',
-        caption: 'טווח התנוחות, שצויר לפי בריף שיצא מהפריסות ולא להיפך.',
+        placeholder: 'האיור בשימוש לאורך האתר, שצויר לפי בריף שיצא מהפריסות',
+        aspect: '16/9',
       },
     },
     {
       number: '05',
-      title: 'איפה מותג ידידותי צריך לעבוד הכי קשה',
+      title: 'האונבורדינג של נותני השירות',
       body: [
-        'החלק הנעים במותג כזה הוא דף הבית. החלק שקובע אם הוא עובד הוא הטופס.',
-        'חתול פיננסי מבקש מאנשים למסור פרטים על הכסף שלהם ולהיות מחוברים ליועץ שהם לא פגשו. זה הרגע שבו חן יכול להתהפך לסיבה לחשוד, ולכן המסכים האלה קיבלו את הטיפול המאופק ביותר באתר: הדמות נוכחת אבל שקטה, הרבה אוויר, והמבנה הוא זה שמרגיע.',
+        'הצד השני של המרקטפלייס הוא נותני השירות, והם צריכים להירשם. שני המסכים כאן הם הפתיחה של התהליך, ואחריה המסך שבו בוחרים ומזינים פרטים.',
+        'זה המקום שבו השפה צריכה להוכיח את עצמה. עד כאן החתול והצהוב חיו בעמודי תוכן, שבהם מותר להם להיות מקסימים. כאן הם צריכים לעבוד בתוך טופס, לשמור על האופי של המותג בלי להפריע למי שממלא שדות.',
+        'לכן החתולים נשארים נוכחים אבל מדודים, והצהוב עובד כסימון ולא כשטח. המבנה נושא את התהליך, והמותג מלווה אותו.',
       ],
       figure: {
         src: `${F}/fincat_img_0062.png`,
         aspect: '4020/1989',
-        alt: 'שני מסכים של חתול פיננסי להצטרפות כשותף, עם טופס ועם החתול המאויר בשימוש מדוד',
-        caption: 'הצטרפות כנותן שירות. הדמות נשארת, ונסוגה צעד אחורה.',
+        alt: 'שני מסכי אונבורדינג של חתול פיננסי לנותני שירות, מסך פתיחה ומסך של בחירות ושדות קלט, שניהם עם החתולים המאוירים והצהוב של המותג',
+        caption: 'האונבורדינג של נותני השירות. הפתיחה, ואחריה הבחירות והשדות.',
       },
     },
   ],
+  closingFigure: {
+    src: `${F}/fincat-overview.webp`,
+    aspect: '2816/1586',
+    alt: 'רשימת היועצים של חתול פיננסי על מחשב נייד, עם יועצים מדורגים ותמונות',
+    caption: 'המרקטפלייס שכל זה נבנה כדי לשאת.',
+  },
   closing: {
     title: 'עיצוב ואסטרטגיה שרצים ביחד',
     body: [

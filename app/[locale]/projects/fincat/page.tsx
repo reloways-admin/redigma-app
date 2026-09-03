@@ -131,6 +131,7 @@ export default function FincatPage() {
               {section.body.map((p) => <p key={p}>{p}</p>)}
             </div>
             {section.figure ? <CaseFigure figure={section.figure} /> : null}
+            {section.figures?.map((f) => <CaseFigure key={f.src ?? f.placeholder} figure={f} />)}
 
             {section.blocks?.map((block) => (
               <div key={block.heading} className="space-y-5 pt-4">
@@ -143,6 +144,7 @@ export default function FincatPage() {
         ))}
 
         <div className="case-section space-y-6">
+          <CaseFigure figure={t.closingFigure} />
           <h2 className="case-heading">{t.closing.title}</h2>
           {t.closing.body.map((p) => <p key={p}>{p}</p>)}
         </div>
