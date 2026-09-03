@@ -92,7 +92,7 @@ const en: BitCopy = {
       title: 'A Data Table That Could Grow',
       body: [
         'A data table looks simple until it meets a real product. Different volumes of data, different column structures, nested columns, loading, empty states, search, pagination, and every screen size, each one a separate design problem.',
-        'So rather than design one table, I built a system that could handle a range of cases and keep growing with the product. It ships in Bit’s open-source design system, which means it is not the table for one screen. It is the table other people build their tables from.',
+        'The table was designed to fit a range of situations, and it became our master table. Other teams used it and sent feedback back, which is what refined it. That way each team got a table that changed with demand while still being consumed from a single source that kept evolving.',
       ],
       blocks: [
         {
@@ -268,7 +268,7 @@ const he: BitCopy = {
       title: 'טבלת נתונים שיכולה לגדול',
       body: [
         'טבלת נתונים נראית פשוטה עד שהיא פוגשת מוצר אמיתי. כמויות שונות של מידע, מבני עמודות שונים, מידע מקונן, מצבי טעינה, מצבים ריקים, חיפוש, פייג׳ינציה וגדלי מסך שונים, כל אחד מהם בעיית עיצוב אחרת.',
-        'לכן במקום לעצב טבלה אחת, בניתי מערכת שיכולה להתמודד עם מגוון תרחישים ולהמשיך לגדול יחד עם המוצר. היא נשלחת בדיזיין סיסטם בקוד פתוח של Bit, כלומר היא לא הטבלה של מסך אחד. היא הטבלה שאחרים בונים ממנה את הטבלאות שלהם.',
+        'הטבלה עוצבה על מנת להתאים למגוון מצבים, והיא היוותה את טבלת המאסטר שלנו, ששאר חברי הצוות בצוותים האחרים השתמשו בה והעבירו פידבק על מנת לשכלל אותה. ככה הצוותים קיבלו טבלה שמשתנה על פי ביקוש ותוך כדי נצרכת ממקור אחד שמשתנה.',
       ],
       blocks: [
         {
