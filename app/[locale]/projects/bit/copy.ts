@@ -23,6 +23,7 @@ export type BitCopy = {
 };
 
 const TABLE = '/images/projects/table';
+const BIT = '/images/projects/bit';
 
 const en: BitCopy = {
   kicker: 'Case study',
@@ -64,8 +65,10 @@ const en: BitCopy = {
         'Working with Eden, I looked at how developers actually find a command and how they build a picture of the way capabilities relate. Instead of leaving the commands as a long list of items, we gave them a hierarchy of categories, groups, and families, so commands with something in common appear together.',
       ],
       figure: {
-        placeholder: 'The CLI reference, with the category structure and filtering',
+        src: `${BIT}/bit-cli-reference.jpg`,
         aspect: '16/9',
+        alt: 'The CLI reference page, with commands grouped into categories and a filter bar above them',
+        caption: 'The reference after the restructure. Commands sit under the area of the product they belong to, and some belong to more than one.',
       },
       blocks: [
         {
@@ -74,7 +77,12 @@ const en: BitCopy = {
             'To make that structure scannable, I designed dedicated icons for the categories and built a full icon family around them, drawn as a set rather than one at a time.',
             'They are not there to give the system character. On a dense page an icon lets a developer tell one class of capability from another at a glance, before reading a label, which is what makes the hierarchy usable rather than merely correct.',
           ],
-          figure: { placeholder: 'The icon family, and the icons in use inside the product', aspect: '16/9' },
+          figure: {
+            src: `${BIT}/bit-cli-icons.jpg`,
+            aspect: '4005/2160',
+            alt: 'The full set of seventy-five CLI icons laid out in a grid',
+            caption: 'Seventy-five icons, drawn as one family so the set stays coherent as it grows.',
+          },
         },
       ],
     },
@@ -233,8 +241,10 @@ const he: BitCopy = {
         'יחד עם עדן בחנתי איך מפתחים באמת מוצאים פקודה ואיך הם בונים תמונה של הקשר בין היכולות השונות. במקום להשאיר את הפקודות כאוסף ארוך של פריטים, בנינו היררכיה של קטגוריות, קבוצות ומשפחות, כך שפקודות שיש ביניהן קשר מופיעות יחד.',
       ],
       figure: {
-        placeholder: 'ספריית הפקודות, עם מבנה הקטגוריות והסינון',
+        src: `${BIT}/bit-cli-reference.jpg`,
         aspect: '16/9',
+        alt: 'עמוד ספריית הפקודות, עם פקודות מקובצות לקטגוריות ושורת סינון מעליהן',
+        caption: 'הספרייה אחרי הארגון מחדש. כל פקודה יושבת תחת האזור במוצר שאליו היא שייכת, וחלקן שייכות ליותר מאחד.',
       },
       blocks: [
         {
@@ -243,7 +253,12 @@ const he: BitCopy = {
             'כדי להפוך את המבנה הזה למשהו שקל לסרוק, עיצבתי אייקונים ייעודיים לקטגוריות ובניתי סביבם משפחת אייקונים שלמה, מצוירת כמערכת ולא אחד־אחד.',
             'הם לא נועדו לתת למערכת אופי. בעמוד צפוף, אייקון מאפשר למפתח להבדיל בין סוגי יכולות במבט, לפני שקרא תווית, וזה מה שהופך את ההיררכיה לשימושית ולא רק לנכונה.',
           ],
-          figure: { placeholder: 'משפחת האייקונים, והאייקונים בשימוש בתוך המוצר', aspect: '16/9' },
+          figure: {
+            src: `${BIT}/bit-cli-icons.jpg`,
+            aspect: '4005/2160',
+            alt: 'סט שבעים וחמישה אייקוני ה־CLI פרוס בגריד',
+            caption: 'שבעים וחמישה אייקונים, מצוירים כמשפחה אחת כדי שהסט יישאר קוהרנטי כשהוא גדל.',
+          },
         },
       ],
     },
