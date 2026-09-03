@@ -32,8 +32,8 @@ const en: FincatCopy = {
   subtitle: 'Turning a long-running community into something that looks and works like a business',
   lead: [
     'Fincat is an established name in Israeli finance. It grew as a community first, and by the time I came in it wanted to operate as a brand: a real site, a marketplace of advisers and service providers, and a way of presenting itself that matched what it had become.',
-    'My part was the design: the visual language, the interface, and a new icon system designed from scratch. Along with a good deal of thinking about the cat illustration itself, worked through with Keren, with the founders, and with the illustrator, so the drawings that came back were the right ones for each area of the site.',
-    'Keren Rightler led the strategy, the brand foundation, and the marketing side. That way the two of us ran in parallel and handed the client one result rather than two halves.',
+    'My part was the design: the visual language, the interface, and a new icon system built from scratch. Along with a good deal of thinking about the cat character that would carry the new product. Keren Rightler was alongside the project from the beginning, and I worked with her, with the founders, and with the illustrator to get the right illustration for every area of the site.',
+    'Keren led the strategy, the brand foundation, and the marketing side. That way the two of us ran in parallel and handed the client one result rather than two halves.',
   ],
   meta: [
     { label: 'Type', value: 'Visual language and product design' },
@@ -52,11 +52,11 @@ const en: FincatCopy = {
   sections: [
     {
       number: '01',
-      title: 'What Could Not Be Thrown Away',
+      title: 'What I Inherited Before the Work Started',
       body: [
-        'This was not a blank page. Fincat arrived with two things its audience already recognised: an illustrated cat as the face of the brand, and a palette of black, yellow, and white.',
-        'That is the interesting constraint. A community that has been around a while has visual equity, and the instinct to modernise by clearing the table would have cost more than it gained. People would have stopped recognising the thing they had followed for years.',
-        'So the brief was narrow and hard at the same time: keep the cat and keep the palette, and change everything else until the brand reads as a business rather than a page you follow.',
+        'Fincat arrived with two things its audience already recognised: an illustrated cat as the face of the brand, and a palette of black, yellow, and white. You could say the start of the work was clear, in the sense that what could not be given up had already been decided.',
+        'It was genuinely interesting to work this way, against a brand that already has a presence, where the job is to stay close to it and change it at the same time. A community that has been around a while has visual equity, and the instinct to modernise by clearing the table would have cost more than it gained. People would have stopped recognising the thing they had followed for years.',
+        'So the brief was narrow, and inside that narrowness I had real creative freedom. It was clear to all of us that the cat and the palette stay, and within those limits the client gave me room to find a new graphic language and develop it.',
       ],
       figure: {
         src: `${F}/fincat-visual-language.webp`,
@@ -156,8 +156,8 @@ const he: FincatCopy = {
   subtitle: 'להפוך קהילה ותיקה למשהו שנראה ועובד כמו עסק',
   lead: [
     'חתול פיננסי הוא שם מוכר בעולם הפיננסים בישראל. הוא צמח קודם כל כקהילה, וכשנכנסתי לתמונה הוא רצה לפעול כמותג: אתר אמיתי, מרקטפלייס של יועצים ונותני שירות, ודרך להציג את עצמו שתתאים למה שהוא כבר הפך להיות.',
-    'החלק שלי היה העיצוב: השפה הוויזואלית, הממשק, ומערכת אייקונים חדשה שעוצבה מאפס. וגם חשיבה מעמיקה על האיור של החתול, בעבודה מול קרן, מול המייסדים ומול המאיירת, כדי לקבל את האיורים המושלמים לכל אזור באתר.',
-    'קרן רייטלר הובילה את האסטרטגיה, הבסיס המותגי והצד השיווקי. וכך שנינו רצנו במקביל ומסרנו ללקוחות שלנו תוצאה אחת, ולא שני חצאים.',
+    'החלק שלי היה העיצוב: השפה הוויזואלית, הממשק, ומערכת אייקונים חדשה שעוצבה מאפס. וגם חשיבה מעמיקה על דמות החתול שתלווה את המוצר החדש. קרן רייטלר ליוותה את הפרויקט מההתחלה, ואני עבדתי מולה בשילוב כוחות, יחד עם המייסדים ועם המאיירת, כדי לקבל את האיורים המושלמים לכל אזור באתר.',
+    'קרן הובילה את האסטרטגיה, הבסיס המותגי והצד השיווקי. וכך שנינו רצנו במקביל ומסרנו ללקוחות שלנו תוצאה אחת, ולא שני חצאים.',
   ],
   meta: [
     { label: 'סוג', value: 'שפה ויזואלית ועיצוב מוצר' },
@@ -176,11 +176,11 @@ const he: FincatCopy = {
   sections: [
     {
       number: '01',
-      title: 'מה שאסור היה לזרוק',
+      title: 'מה קיבלתי בירושה לפני תחילת העבודה',
       body: [
-        'זה לא היה דף חלק. חתול פיננסי הגיע עם שני דברים שהקהל שלו כבר זיהה: חתול מאויר כפנים של המותג, ופלטת שחור, צהוב ולבן.',
-        'זה האילוץ המעניין. לקהילה שקיימת כבר זמן יש נכסים ויזואליים, והדחף לרענן על ידי ניקוי השולחן היה עולה יותר ממה שהוא מרוויח. אנשים היו מפסיקים לזהות את הדבר שהם עוקבים אחריו שנים.',
-        'לכן הבריף היה צר וקשה בו זמנית: להשאיר את החתול ואת הפלטה, ולשנות כל דבר אחר עד שהמותג נקרא כמו עסק ולא כמו עמוד שעוקבים אחריו.',
+        'חתול פיננסי הגיע עם שני דברים שהקהל שלו כבר זיהה: חתול מאויר כפנים של המותג, ופלטת שחור, צהוב ולבן. אפשר לומר שתחילת העבודה הייתה ברורה, במובן הזה שידענו על מה אסור לוותר.',
+        'היה מעניין מאוד לעבוד ככה, מול מותג שכבר יש לו נוכחות, ולהבין איך להיצמד אליה ובו בזמן גם לשנות אותה. לקהילה שקיימת כבר זמן יש נכסים ויזואליים, והדחף לרענן על ידי ניקוי השולחן היה עולה יותר ממה שהוא מרוויח. אנשים היו מפסיקים לזהות את הדבר שהם עוקבים אחריו שנים.',
+        'לכן הבריף היה צר, ודווקא בתוכו קיבלתי חופש יצירתי אמיתי. היה ברור לכולנו שהחתול ופלטת הצבעים נשארים, ובתוך הגבולות האלה הלקוחות נתנו לי מקום למצוא שפה גרפית חדשה ולפתח אותה.',
       ],
       figure: {
         src: `${F}/fincat-visual-language.webp`,
