@@ -54,22 +54,22 @@ const en: FincatCopy = {
       body: [
         'This was not a blank page. Fincat arrived with two things its audience already recognised: an illustrated cat as the face of the brand, and a palette of black, yellow, and white.',
         'That is the interesting constraint. A community that has been around a while has visual equity, and the instinct to modernise by clearing the table would have cost more than it gained. People would have stopped recognising the thing they had followed for years.',
-        'So the brief I set myself was narrower and harder: keep the cat and keep the palette, and change everything else until the brand reads as a business rather than a page you follow.',
+        'So the brief was narrow and hard at the same time: keep the cat and keep the palette, and change everything else until the brand reads as a business rather than a page you follow.',
       ],
     },
     {
       number: '02',
-      title: 'Who Does the Brand Speak As?',
+      title: 'Which Cat, and in What Technique',
       body: [
-        'The first real question was not layout. It was who the visitor meets when the page opens.',
-        'A finance brand asking people about their money has two obvious moves. Lead with a person, which buys credibility and looks like every other financial site. Or lead with the cat, which is distinctive and risks looking like it is not taking the subject seriously.',
-        'I designed both, at full fidelity, because the difference is not something you can settle in the abstract. Seeing them side by side made it plain: the cat holds attention and the person does not, and the seriousness can be carried by the copy and the typography instead of by a stock photograph.',
+        'The cat itself was never in question. It was the mark people knew the brand by, and the name is Fincat, so it was obvious to everyone that the cat stays.',
+        'The open question was which direction to take it in. We explored that together, in full page designs rather than sketches, because the difference between one cat and another does not settle in the abstract. A cat in a scene reads differently from a cat as a portrait, and the illustration technique changes how serious the whole page feels before anyone reads a word.',
+        'Out of that exploration we arrived together at which cat to use and in what technique, and that decision set the terms for every illustration that came after it.',
       ],
       figure: {
-        src: `${F}/fincat-hero-directions.png`,
+        src: `${F}/fincat-cat-directions.png`,
         aspect: '4540/4996',
-        alt: 'Two versions of the Fincat homepage hero, one led by a photograph of a person and one led by the illustrated cat',
-        caption: 'Two directions for the same hero. The one below is the one that shipped.',
+        alt: 'Two versions of the Fincat homepage, one with the cat walking through a city scene and one with the cat seated against a yellow field',
+        caption: 'Two directions for the same cat. The one below is the one we went with.',
       },
     },
     {
@@ -159,22 +159,22 @@ const he: FincatCopy = {
       body: [
         'זה לא היה דף חלק. חתול פיננסי הגיע עם שני דברים שהקהל שלו כבר זיהה: חתול מאויר כפנים של המותג, ופלטת שחור, צהוב ולבן.',
         'זה האילוץ המעניין. לקהילה שקיימת כבר זמן יש נכסים ויזואליים, והדחף לרענן על ידי ניקוי השולחן היה עולה יותר ממה שהוא מרוויח. אנשים היו מפסיקים לזהות את הדבר שהם עוקבים אחריו שנים.',
-        'לכן הבריף שהצבתי לעצמי היה צר יותר וקשה יותר: להשאיר את החתול ואת הפלטה, ולשנות כל דבר אחר עד שהמותג נקרא כמו עסק ולא כמו עמוד שעוקבים אחריו.',
+        'לכן הבריף היה צר וקשה בו זמנית: להשאיר את החתול ואת הפלטה, ולשנות כל דבר אחר עד שהמותג נקרא כמו עסק ולא כמו עמוד שעוקבים אחריו.',
       ],
     },
     {
       number: '02',
-      title: 'בשם מי המותג מדבר?',
+      title: 'איזה חתול, ובאיזו טכניקה',
       body: [
-        'השאלה האמיתית הראשונה לא הייתה פריסה. היא הייתה את מי המבקר פוגש כשהעמוד נפתח.',
-        'למותג פיננסי ששואל אנשים על הכסף שלהם יש שתי מהלכים מובנים מאליהם. להוביל עם אדם, מה שקונה אמינות ונראה כמו כל אתר פיננסי אחר. או להוביל עם החתול, שהוא ייחודי ומסתכן להיראות כאילו הוא לא לוקח את הנושא ברצינות.',
-        'עיצבתי את שתיהן, במלוא הרזולוציה, כי את ההבדל הזה אי אפשר להכריע בהפשטה. לראות אותן זו מול זו עשה את זה ברור: החתול מחזיק את תשומת הלב והאדם לא, והרצינות יכולה להיישא על ידי הטקסט והטיפוגרפיה במקום על ידי תמונת סטוק.',
+        'החתול עצמו לא היה בסימן שאלה. הוא היה סימן ההיכר של המותג, והשם עצמו הוא חתול פיננסי, אז היה ברור לכולם שהחתול נשאר.',
+        'השאלה הפתוחה הייתה לאיזה כיוון לוקחים אותו. חקרנו את זה יחד, בעמודים מלאים ולא בסקיצות, כי את ההבדל בין חתול לחתול אי אפשר להכריע בהפשטה. חתול בתוך סצנה נקרא אחרת מחתול כדיוקן, וטכניקת האיור קובעת כמה רצינית מרגישה כל הפריסה עוד לפני שקוראים מילה.',
+        'מתוך החקירה הזאת הגענו יחד להחלטה באיזה חתול נשתמש ובאיזו טכניקה, וההחלטה הזאת קבעה את התנאים לכל האיורים שבאו אחריה.',
       ],
       figure: {
-        src: `${F}/fincat-hero-directions.png`,
+        src: `${F}/fincat-cat-directions.png`,
         aspect: '4540/4996',
-        alt: 'שתי גרסאות של ההירו בדף הבית של חתול פיננסי, אחת מובלת בתצלום של אדם ואחת מובלת בחתול המאויר',
-        caption: 'שני כיוונים לאותו הירו. התחתון הוא זה שעלה לאוויר.',
+        alt: 'שתי גרסאות של דף הבית של חתול פיננסי, אחת עם החתול מהלך בתוך סצנה עירונית ואחת עם החתול יושב על שדה צהוב',
+        caption: 'שני כיוונים לאותו חתול. התחתון הוא זה שבחרנו.',
       },
     },
     {
