@@ -23,6 +23,7 @@ export type BitCopy = {
 };
 
 const TABLE = '/images/projects/table';
+const BIT = '/images/projects/bit';
 
 const en: BitCopy = {
   kicker: 'Case study',
@@ -42,8 +43,10 @@ const en: BitCopy = {
   ],
   toolsLabel: 'Tools',
   heroFigure: {
-    placeholder: 'Bit in 2018 beside Bit today. One image carrying the whole transformation.',
+    src: `${BIT}/bit-home.png`,
     aspect: '16/9',
+    alt: 'The Bit Cloud homepage today: a dark hero reading "Build like you use apps" above a prompt field',
+    caption: 'Bit today, at bit.cloud.',
   },
   sections: [
     {
@@ -64,8 +67,10 @@ const en: BitCopy = {
         'Working with Eden, I looked at how developers actually find a command and how they build a picture of the way capabilities relate. Instead of leaving the commands as a long list of items, we gave them a hierarchy of categories, groups, and families, so commands with something in common appear together.',
       ],
       figure: {
-        placeholder: 'The CLI reference, with the category structure and filtering',
+        src: `${BIT}/bit-cli-reference.jpg`,
         aspect: '16/9',
+        alt: 'The CLI reference page, with commands grouped into categories and a filter bar above them',
+        caption: 'The reference after the restructure. Commands sit under the area of the product they belong to, and some belong to more than one.',
       },
       blocks: [
         {
@@ -74,7 +79,12 @@ const en: BitCopy = {
             'To make that structure scannable, I designed dedicated icons for the categories and built a full icon family around them, drawn as a set rather than one at a time.',
             'They are not there to give the system character. On a dense page an icon lets a developer tell one class of capability from another at a glance, before reading a label, which is what makes the hierarchy usable rather than merely correct.',
           ],
-          figure: { placeholder: 'The icon family, and the icons in use inside the product', aspect: '16/9' },
+          figure: {
+            src: `${BIT}/bit-cli-icons.jpg`,
+            aspect: '4005/2160',
+            alt: 'The full set of seventy-five CLI icons laid out in a grid',
+            caption: 'Seventy-five icons, drawn as one family so the set stays coherent as it grows.',
+          },
         },
       ],
     },
@@ -84,7 +94,7 @@ const en: BitCopy = {
       title: 'A Data Table That Could Grow',
       body: [
         'A data table looks simple until it meets a real product. Different volumes of data, different column structures, nested columns, loading, empty states, search, pagination, and every screen size, each one a separate design problem.',
-        'So rather than design one table, I built a system that could handle a range of cases and keep growing with the product. It ships in Bit’s open-source design system, which means it is not the table for one screen. It is the table other people build their tables from.',
+        'The table was designed to fit a range of situations, and it became our master table. Other teams used it and sent feedback back, which is what refined it. That way each team got a table that changed with demand while still being consumed from a single source that kept evolving.',
       ],
       blocks: [
         {
@@ -107,23 +117,24 @@ const en: BitCopy = {
             'Where load time is expected it uses a skeleton rather than a spinner. A spinner says something is happening. A skeleton says what is arriving and how much of it, and holds the layout still so nothing jumps.',
           ],
           figure: {
-            src: `${TABLE}/table_img_003.png`,
+            src: `${TABLE}/table_skeleton.png`,
             aspect: '1000/360',
             alt: 'The table skeleton state: grey placeholder blocks matching the column structure of the loaded table',
             caption: 'The skeleton mirrors the real column widths, so the layout never shifts when data arrives.',
           },
         },
         {
-          heading: 'A component is more than what the user sees',
+          heading: 'The documentation is part of the design',
           body: [
-            'For a component to grow over time it has to work for the people building with it. I documented the states, the structures, and the parts, so developers could understand not only how it looks but when and how to use each piece.',
-            'That document is the deliverable, not the appendix to it.',
+            'Alongside the design I wrote the table’s documentation, in a long and precise document. It covered every capability, from pagination and sorting through row selection, row expansion, and infinite scroll. For each one I wrote what it does, when to use it, and how it behaves at the edges.',
+            'The need was practical. A shared table reaches teams who were not in the conversations where its behaviour was decided. Without something that explains how it acts, every team interprets it differently and the component quietly splits into several versions.',
+            'By the end of it, people on the team could both read about the table and propose changes to it, so everyone using it got the benefit of the improvements.',
           ],
           figure: {
             src: `${TABLE}/table_img_005.png`,
             aspect: '1000/380',
-            alt: 'The written specification cards for pagination, sorting, toolbar, row selection, row expansion, infinite scroll, and column controls',
-            caption: 'Every behaviour written down before it was built.',
+            alt: 'The written documentation cards for pagination, sorting, toolbar, row selection, row expansion, infinite scroll, and column controls',
+            caption: 'A sample of the table’s behaviour documentation. Every capability written down before it was built.',
           },
         },
       ],
@@ -137,8 +148,10 @@ const en: BitCopy = {
         'The aim was one consistent system that can handle several ways in and several situations without exposing the complexity sitting behind it.',
       ],
       figure: {
-        placeholder: 'The authentication flow, with the main screens',
-        aspect: '4/3',
+        src: `${BIT}/bit-authentication.png`,
+        aspect: '3053/1884',
+        alt: 'Three authentication screens: sign in by email with SSO underneath, a six digit confirmation code, and two-factor authentication',
+        caption: 'Three states out of one system. Email and SSO, the confirmation code, and two-factor, each with its own way back out.',
       },
       blocks: [
         {
@@ -211,8 +224,10 @@ const he: BitCopy = {
   ],
   toolsLabel: 'כלים',
   heroFigure: {
-    placeholder: 'Bit ב־2018 מול Bit היום. תמונה אחת שנושאת את כל סיפור השינוי.',
+    src: `${BIT}/bit-home.png`,
     aspect: '16/9',
+    alt: 'דף הבית של Bit Cloud היום: הירו כהה עם הכותרת Build like you use apps מעל שדה קלט',
+    caption: 'Bit היום, ב־bit.cloud.',
   },
   sections: [
     {
@@ -233,8 +248,10 @@ const he: BitCopy = {
         'יחד עם עדן בחנתי איך מפתחים באמת מוצאים פקודה ואיך הם בונים תמונה של הקשר בין היכולות השונות. במקום להשאיר את הפקודות כאוסף ארוך של פריטים, בנינו היררכיה של קטגוריות, קבוצות ומשפחות, כך שפקודות שיש ביניהן קשר מופיעות יחד.',
       ],
       figure: {
-        placeholder: 'ספריית הפקודות, עם מבנה הקטגוריות והסינון',
+        src: `${BIT}/bit-cli-reference.jpg`,
         aspect: '16/9',
+        alt: 'עמוד ספריית הפקודות, עם פקודות מקובצות לקטגוריות ושורת סינון מעליהן',
+        caption: 'הספרייה אחרי הארגון מחדש. כל פקודה יושבת תחת האזור במוצר שאליו היא שייכת, וחלקן שייכות ליותר מאחד.',
       },
       blocks: [
         {
@@ -243,7 +260,12 @@ const he: BitCopy = {
             'כדי להפוך את המבנה הזה למשהו שקל לסרוק, עיצבתי אייקונים ייעודיים לקטגוריות ובניתי סביבם משפחת אייקונים שלמה, מצוירת כמערכת ולא אחד־אחד.',
             'הם לא נועדו לתת למערכת אופי. בעמוד צפוף, אייקון מאפשר למפתח להבדיל בין סוגי יכולות במבט, לפני שקרא תווית, וזה מה שהופך את ההיררכיה לשימושית ולא רק לנכונה.',
           ],
-          figure: { placeholder: 'משפחת האייקונים, והאייקונים בשימוש בתוך המוצר', aspect: '16/9' },
+          figure: {
+            src: `${BIT}/bit-cli-icons.jpg`,
+            aspect: '4005/2160',
+            alt: 'סט שבעים וחמישה אייקוני ה־CLI פרוס בגריד',
+            caption: 'שבעים וחמישה אייקונים, מצוירים כמשפחה אחת כדי שהסט יישאר קוהרנטי כשהוא גדל.',
+          },
         },
       ],
     },
@@ -252,8 +274,8 @@ const he: BitCopy = {
       kicker: 'דיזיין סיסטם',
       title: 'טבלת נתונים שיכולה לגדול',
       body: [
-        'טבלת נתונים נראית פשוטה עד שהיא פוגשת מוצר אמיתי. כמויות שונות של מידע, מבני עמודות שונים, מידע מקונן, מצבי טעינה, מצבים ריקים, חיפוש, פייג׳ינציה וגדלי מסך שונים, כל אחד מהם בעיית עיצוב אחרת.',
-        'לכן במקום לעצב טבלה אחת, בניתי מערכת שיכולה להתמודד עם מגוון תרחישים ולהמשיך לגדול יחד עם המוצר. היא נשלחת בדיזיין סיסטם בקוד פתוח של Bit, כלומר היא לא הטבלה של מסך אחד. היא הטבלה שאחרים בונים ממנה את הטבלאות שלהם.',
+        'טבלת נתונים נראית פשוטה עד שהיא פוגשת מוצר אמיתי. כמויות שונות של מידע, מבני עמודות שונים, מידע מקונן, מצבי טעינה, מצבים ריקים, חיפוש, חלוקה לעמודים וגדלי מסך שונים, כל אחד מהם בעיית עיצוב אחרת.',
+        'הטבלה עוצבה על מנת להתאים למגוון מצבים, והיא היוותה את טבלת המאסטר שלנו, ששאר חברי הצוות בצוותים האחרים השתמשו בה והעבירו פידבק על מנת לשכלל אותה. ככה הצוותים קיבלו טבלה שמשתנה על פי ביקוש ותוך כדי נצרכת ממקור אחד שמשתנה.',
       ],
       blocks: [
         {
@@ -276,23 +298,24 @@ const he: BitCopy = {
             'כשצפוי זמן טעינה היא משתמשת בשלד ולא בספינר. ספינר אומר שמשהו קורה. שלד אומר מה עומד להגיע וכמה ממנו, ומחזיק את הפריסה יציבה כך ששום דבר לא קופץ.',
           ],
           figure: {
-            src: `${TABLE}/table_img_003.png`,
+            src: `${TABLE}/table_skeleton.png`,
             aspect: '1000/360',
             alt: 'מצב השלד של הטבלה: בלוקים אפורים שתואמים את מבנה העמודות של הטבלה הטעונה',
             caption: 'השלד משקף את רוחבי העמודות האמיתיים, כך שהפריסה לא זזה כשהמידע מגיע.',
           },
         },
         {
-          heading: 'הקומפוננטה היא יותר ממה שהמשתמש רואה',
+          heading: 'התיעוד הוא חלק מהעיצוב',
           body: [
-            'כדי שקומפוננטה תוכל לגדול לאורך זמן, היא צריכה לעבוד גם עבור האנשים שבונים איתה. תיעדתי את המצבים, המבנים והחלקים השונים, כך שמפתחים יוכלו להבין לא רק איך היא נראית, אלא גם מתי ואיך להשתמש בכל חלק.',
-            'המסמך הזה הוא התוצר, לא הנספח לו.',
+            'לצד העיצוב כתבתי את התיעוד של הטבלה במסמך מאוד מפורט ומדויק. המסמך כיסה את כל היכולות שלה, מהחלוקה לעמודים והמיון ועד בחירת שורות, הרחבת שורה וגלילה אינסופית. לכל אחת כתבתי מה היא עושה, מתי להשתמש בה, ואיך היא מתנהגת במצבי הקצה.',
+            'הצורך היה מעשי. טבלה משותפת מגיעה לצוותים שלא ישבו בשיחות שבהן הוחלט איך היא אמורה לעבוד. בלי טקסט שמסביר את ההתנהגות, כל צוות מפרש אחרת, והרכיב מתפצל בשקט לכמה גרסאות שונות.',
+            'בסופו של התהליך אנשי הצוות יכלו גם לקרוא על הטבלה וגם להציע שינויים, כך שכל מי שמשתמש בה נהנה מהשיפורים.',
           ],
           figure: {
             src: `${TABLE}/table_img_005.png`,
             aspect: '1000/380',
-            alt: 'כרטיסי המפרט הכתוב לפייג׳ינציה, מיון, Toolbar, בחירת שורות, הרחבת שורה, גלילה אינסופית ושליטה בעמודות',
-            caption: 'כל התנהגות נכתבה לפני שנבנתה.',
+            alt: 'כרטיסי התיעוד הכתוב לחלוקה לעמודים, מיון, Toolbar, בחירת שורות, הרחבת שורה, גלילה אינסופית ושליטה בעמודות',
+            caption: 'דוגמה מתוך תיעוד ההתנהגות של הטבלה. כל יכולת נכתבה לפני שנבנתה.',
           },
         },
       ],
@@ -306,8 +329,10 @@ const he: BitCopy = {
         'המטרה הייתה מערכת אחת עקבית שיכולה להתמודד עם דרכי כניסה שונות ועם מצבים שונים, בלי לחשוף למשתמש את המורכבות שנמצאת מאחוריה.',
       ],
       figure: {
-        placeholder: 'ה־Authentication Flow, עם המסכים המרכזיים',
-        aspect: '4/3',
+        src: `${BIT}/bit-authentication.png`,
+        aspect: '3053/1884',
+        alt: 'שלושה מסכי Authentication: כניסה במייל עם SSO מתחת, קוד אימות בן שש ספרות, ואימות דו־שלבי',
+        caption: 'שלושה מצבים מתוך מערכת אחת. מייל ו־SSO, קוד האימות, והאימות הדו־שלבי, ולכל אחד דרך חזרה משלו.',
       },
       blocks: [
         {

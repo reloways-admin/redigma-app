@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
     title: 'Reloways',
     key: 'reloways',
     summary:
-      'Product UX, flows, and component structure for a relocation platform. Designed to move fast with a developer while keeping the system consistent.',
+      'A platform that tells Israelis moving to Berlin what to do, in what order, and who to trust. I designed it and I built it, in Hebrew and English.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Developed', prep: 'with', name: 'Cursor', icon: '/illustrations/projects/icons/cursor logo.svg' },
@@ -64,13 +64,13 @@ export const PROJECTS: Project[] = [
     title: 'Bit',
     key: 'bit',
     summary:
-      'The data table at the centre of an open-source design system. Plain by default and documented behaviour by behaviour, so teams extend it instead of rebuilding it.',
+      'Eight years inside one product, from a freelance project in 2018 to Head of Design. The command system, a data table other teams built on, authentication, and the visual language still running it today.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Developed', prep: 'by', name: 'Bit', icon: '/illustrations/projects/icons/bit-logo.svg' },
     ],
     href: (locale) => `/${locale}/projects/bit`,
-    image: '/images/projects/table/table_cover_001.png',
+    image: '/images/projects/bit/bit-home.png',
     accent: '#0d0a1f',
     color: '#E11D48',
   },
@@ -79,7 +79,7 @@ export const PROJECTS: Project[] = [
     title: 'GoMatchIt',
     key: 'gomatchit',
     summary:
-      'A 3-month design sprint that took a business process canvas from working prototype to shipped MVP, design system included.',
+      'Three months to take a canvas for mapping business processes from a working prototype to a shipped MVP. Most of the work was deciding what not to build yet.',
     tools: [
       { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
       { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },

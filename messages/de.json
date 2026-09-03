@@ -179,16 +179,16 @@
       },
       "items": {
         "reloways": {
-          "summary": "Produkt-UX, Flows und Komponentenstruktur für eine Relocation-Plattform. Auf schnelles Arbeiten mit einem Entwickler ausgelegt, ohne das System inkonsistent werden zu lassen."
+          "summary": "Eine Plattform, die Israelis beim Umzug nach Berlin sagt, was zu tun ist, in welcher Reihenfolge und wem sie vertrauen können. Ich habe sie entworfen und gebaut, auf Hebräisch und Englisch."
         },
         "navonera": {
           "summary": "Eine Plattform zur Nachbarschaftssuche, die Menschen vor Ort mit passenden Diensten und Erlebnissen verbindet."
         },
         "bit": {
-          "summary": "Die Datentabelle im Zentrum eines Open-Source-Designsystems. Bewusst schlicht und Verhalten für Verhalten dokumentiert, damit Teams sie erweitern statt neu zu bauen."
+          "summary": "Acht Jahre in einem Produkt, von einem Freelance-Projekt 2018 bis zum Head of Design. Das Befehlssystem, eine Datentabelle, auf der andere Teams aufbauten, Authentication und die visuelle Sprache, die es heute noch trägt."
         },
         "gomatchit": {
-          "summary": "Ein dreimonatiger Design-Sprint, der ein Canvas für Geschäftsprozesse vom funktionierenden Prototyp zum ausgelieferten MVP gebracht hat, Designsystem inklusive."
+          "summary": "Drei Monate, um ein Canvas zum Abbilden von Geschäftsprozessen vom funktionierenden Prototyp zum ausgelieferten MVP zu bringen. Die meiste Arbeit war die Entscheidung, was noch nicht gebaut wird."
         }
       }
     },
