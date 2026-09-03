@@ -43,8 +43,10 @@ const en: BitCopy = {
   ],
   toolsLabel: 'Tools',
   heroFigure: {
-    placeholder: 'Bit in 2018 beside Bit today. One image carrying the whole transformation.',
+    src: `${BIT}/bit-home.png`,
     aspect: '16/9',
+    alt: 'The Bit Cloud homepage today: a dark hero reading "Build like you use apps" above a prompt field',
+    caption: 'Bit today, at bit.cloud.',
   },
   sections: [
     {
@@ -146,8 +148,10 @@ const en: BitCopy = {
         'The aim was one consistent system that can handle several ways in and several situations without exposing the complexity sitting behind it.',
       ],
       figure: {
-        placeholder: 'The authentication flow, with the main screens',
-        aspect: '4/3',
+        src: `${BIT}/bit-authentication.png`,
+        aspect: '3053/1884',
+        alt: 'Three authentication screens: sign in by email with SSO underneath, a six digit confirmation code, and two-factor authentication',
+        caption: 'Three states out of one system. Email and SSO, the confirmation code, and two-factor, each with its own way back out.',
       },
       blocks: [
         {
@@ -220,8 +224,10 @@ const he: BitCopy = {
   ],
   toolsLabel: 'כלים',
   heroFigure: {
-    placeholder: 'Bit ב־2018 מול Bit היום. תמונה אחת שנושאת את כל סיפור השינוי.',
+    src: `${BIT}/bit-home.png`,
     aspect: '16/9',
+    alt: 'דף הבית של Bit Cloud היום: הירו כהה עם הכותרת Build like you use apps מעל שדה קלט',
+    caption: 'Bit היום, ב־bit.cloud.',
   },
   sections: [
     {
@@ -323,8 +329,10 @@ const he: BitCopy = {
         'המטרה הייתה מערכת אחת עקבית שיכולה להתמודד עם דרכי כניסה שונות ועם מצבים שונים, בלי לחשוף למשתמש את המורכבות שנמצאת מאחוריה.',
       ],
       figure: {
-        placeholder: 'ה־Authentication Flow, עם המסכים המרכזיים',
-        aspect: '4/3',
+        src: `${BIT}/bit-authentication.png`,
+        aspect: '3053/1884',
+        alt: 'שלושה מסכי Authentication: כניסה במייל עם SSO מתחת, קוד אימות בן שש ספרות, ואימות דו־שלבי',
+        caption: 'שלושה מצבים מתוך מערכת אחת. מייל ו־SSO, קוד האימות, והאימות הדו־שלבי, ולכל אחד דרך חזרה משלו.',
       },
       blocks: [
         {
