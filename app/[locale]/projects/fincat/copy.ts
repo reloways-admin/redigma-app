@@ -30,7 +30,8 @@ const en: FincatCopy = {
   subtitle: 'Turning a long-running community into something that looks and works like a business',
   lead: [
     'Fincat is an established name in Israeli personal finance. It grew as a community first, and by the time I came in it wanted to operate as a brand: a real site, a marketplace of advisers and service providers, and a way of presenting itself that matched what it had become.',
-    'My part was the design. The visual language, the interface, the icon system, and the art direction for the illustration. Keren Rightler led the strategy, the brand foundation, and the marketing side, and the two ran in parallel rather than in sequence.',
+    'My part was the design: the visual language, the interface, and a new icon system designed from scratch. Along with a good deal of thinking about the cat illustration itself, worked through with Keren, with the founders, and with the illustrator, so the drawings that came back were the right ones for each area of the site.',
+    'Keren Rightler led the strategy, the brand foundation, and the marketing side. That way the two of us ran in parallel and handed the client one result rather than two halves.',
   ],
   meta: [
     { label: 'Type', value: 'Visual language and product design' },
@@ -134,7 +135,8 @@ const he: FincatCopy = {
   subtitle: 'להפוך קהילה ותיקה למשהו שנראה ועובד כמו עסק',
   lead: [
     'חתול פיננסי הוא שם מוכר בעולם הפיננסים האישיים בישראל. הוא צמח קודם כל כקהילה, וכשנכנסתי לתמונה הוא רצה לפעול כמותג: אתר אמיתי, מרקטפלייס של יועצים ונותני שירות, ודרך להציג את עצמו שתתאים למה שהוא כבר הפך להיות.',
-    'החלק שלי היה העיצוב. השפה הוויזואלית, הממשק, מערכת האייקונים והבימוי של האיור. קרן רייטלר הובילה את האסטרטגיה, הבסיס המותגי והצד השיווקי, והשניים רצו במקביל ולא אחד אחרי השני.',
+    'החלק שלי היה העיצוב: השפה הוויזואלית, הממשק, ומערכת אייקונים חדשה שעוצבה מאפס. וגם חשיבה מעמיקה על האיור של החתול, בעבודה מול קרן, מול המייסדים ומול המאיירת, כדי לקבל את האיורים המושלמים לכל אזור באתר.',
+    'קרן רייטלר הובילה את האסטרטגיה, הבסיס המותגי והצד השיווקי. וכך שנינו רצנו במקביל ומסרנו ללקוחות שלנו תוצאה אחת, ולא שני חצאים.',
   ],
   meta: [
     { label: 'סוג', value: 'שפה ויזואלית ועיצוב מוצר' },
