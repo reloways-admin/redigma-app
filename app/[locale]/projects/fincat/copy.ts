@@ -67,11 +67,11 @@ const en: FincatCopy = {
     },
     {
       number: '02',
-      title: 'Which Cat, and in What Technique',
+      title: 'Which Cat, and What World It Lives In',
       body: [
         'The cat itself was never in question. It was the mark people knew the brand by, and the name is Fincat, so it was obvious to everyone that the cat stays.',
-        'The open question was which direction to take it in. We explored that together, in full page designs rather than sketches, because the difference between one cat and another does not settle in the abstract. A cat in a scene reads differently from a cat as a portrait, and the illustration technique changes how serious the whole page feels before anyone reads a word.',
-        'Out of that exploration we arrived together at which cat to use and in what technique, and that decision set the terms for every illustration that came after it.',
+        'The open question was which direction to take it in. We explored that together, in full page designs rather than sketches, because you cannot settle the difference between one cat and another without seeing the world it lives in: which pages it has to work on, and how it holds up against the typography and the text around it.',
+        'We knew early that we wanted an illustrated cat. What took time was working out how, and in what technique, to draw it. I started by bringing in illustrations, and once we found the right cat we knew it was the one.',
       ],
       figures: [
         {
@@ -91,11 +91,12 @@ const en: FincatCopy = {
     {
       number: '03',
       kicker: 'Iconography',
-      title: 'Icons Next to an Illustrated Cat',
+      title: 'New Icons',
       body: [
-        'A marketplace of advisers needs a lot of small signals: kinds of service, stages of a process, categories of question. That means an icon set, and an icon set was the hardest thing to get right here.',
-        'The reason is the cat. A playful illustration next to geometric, neutral icons reads as two brands sharing a page. Push the icons too far toward the illustration and they stop working at small sizes and start competing with the character.',
-        'I designed them as one family, in circles that echo the roundness of the illustration, with a single weight and a shared level of detail. They sit next to the cat without imitating it, and they still read at the size a list actually uses.',
+        'A marketplace of advisers needs a lot of small signals: kinds of service, stages of a process, categories, and more. That means a whole icon set, and it was the part of the process I enjoyed making most.',
+        'While working on them I decided the brand needed more colour. Soft tones we could use inside the icons, as fields of colour that lift them off the page. The icons themselves are flat, but built in layers.',
+        'I designed whole families of them, to stand for different areas and categories in the product and to give the graphic language some range.',
+        'Alongside the category icons I made a second set to support the language, with a light three dimensional shadow, as a counter to the two dimensional cat that reads as though it has depth. That was an important decision, and it is what keeps the two apart.',
       ],
       figure: {
         src: `${F}/fincat_img_0042.png`,
@@ -106,12 +107,12 @@ const en: FincatCopy = {
     },
     {
       number: '04',
-      kicker: 'Art direction',
-      title: 'Directing the Illustration',
+      kicker: 'Illustration',
+      title: 'A Cat in a Range of Poses',
       body: [
         'The cat could not stay a single pose. A brand that has a character needs that character in enough situations to carry a whole site, and one drawing repeated everywhere reads as a logo rather than a personality.',
-        'The illustration itself was drawn by an illustrator. My part was the direction: defining the range of poses the brand needed, choosing references, setting the level of detail and the way the cat sits inside the layouts, and reviewing the work as it came back.',
-        'That order mattered. I designed the pages first and worked out where the character was needed and doing what, and only then briefed the illustration. Commissioning drawings first and finding places for them afterwards is how a brand ends up with charming assets that never quite fit.',
+        'The illustration itself was drawn by an illustrator. My part was designing the screens and working out how the cat could appear as part of the page.',
+        'That order mattered. I designed the pages first and worked out where the character was needed and what it was doing there, and only then was the cat drawn and placed into the frame.',
       ],
       figure: {
         placeholder: 'The illustration in use across the site, drawn to a brief that came out of the layouts',
@@ -120,11 +121,11 @@ const en: FincatCopy = {
     },
     {
       number: '05',
-      title: 'Onboarding the Service Providers',
+      title: 'Onboarding for Service Providers',
       body: [
-        'The other side of the marketplace is the providers, and they have to sign up. The two screens here are the opening of that process and then the screen where you make choices and fill things in.',
-        'This is where the language has to prove itself. Up to this point the cat and the yellow had lived on content pages, where they are free to be charming. Here they have to work inside a form, holding the character of the brand without getting in the way of someone entering their details.',
-        'So the cats stay present but measured, and the yellow works as a marker rather than as a field. The structure carries the process, and the brand keeps it company.',
+        'The other side of the marketplace is the service providers, and for them we built a sign-up experience that is designed and pleasant, using the illustrations and the icons.',
+        'That matters more than it sounds. Providers are the supply side of a marketplace, and if signing up feels like paperwork they simply do not finish it. The first screen opens the process, and the second is where the choices and the fields are.',
+        'It is also where the icons earn their keep. They label the choices, so the screen can be scanned instead of read, and the yellow marks where to act. The cat stays present but measured, so the character of the brand keeps someone company through the process without getting in the way of them filling it in.',
       ],
       figure: {
         src: `${F}/fincat_img_0062.png`,
@@ -143,9 +144,9 @@ const en: FincatCopy = {
   closing: {
     title: 'Design and Strategy, Running Together',
     body: [
-      'What made this project work is that it was not handed between two people. Keren was defining the audience, the brand foundation, and how Fincat would reach people, while I was designing what those people would land on. Neither half waited for the other to finish.',
-      'That is a pairing I keep coming back to, and Keren and I still take on work together where a project genuinely needs both: strategy that decides what should be said, and design that decides what it looks like when someone actually meets it.',
-      'If that is the shape of what you need, it is worth asking about as one piece of work rather than two.',
+      'What made this project work is that it was not handed from one person to the other. Keren defined the audience, the brand foundation, and the way Fincat would reach people, and I designed what the users would see and go through. The work was a synergy of doing.',
+      'Working in a team is not new to me and I like it a great deal, being part of a group that moves a project along. Having feedback, and someone able to look at the work from outside, is one of the most important things there is for making products with real impact.',
+      'Keren and I still take on work together where a project genuinely needs both halves, so if that is the shape of what you need, it is worth asking about as one piece of work rather than two.',
     ],
   },
 };
@@ -191,11 +192,11 @@ const he: FincatCopy = {
     },
     {
       number: '02',
-      title: 'איזה חתול, ובאיזו טכניקה',
+      title: 'איזה חתול, ובאיזה עולם הוא חי',
       body: [
         'החתול עצמו לא היה בסימן שאלה. הוא היה סימן ההיכר של המותג, והשם עצמו הוא חתול פיננסי, אז היה ברור לכולם שהחתול נשאר.',
-        'השאלה הפתוחה הייתה לאיזה כיוון לוקחים אותו. חקרנו את זה יחד, בעמודים מלאים ולא בסקיצות, כי את ההבדל בין חתול לחתול אי אפשר להכריע בהפשטה. חתול בתוך סצנה נקרא אחרת מחתול כדיוקן, וטכניקת האיור קובעת כמה רצינית מרגישה כל הפריסה עוד לפני שקוראים מילה.',
-        'מתוך החקירה הזאת הגענו יחד להחלטה באיזה חתול נשתמש ובאיזו טכניקה, וההחלטה הזאת קבעה את התנאים לכל האיורים שבאו אחריה.',
+        'השאלה הפתוחה הייתה לאיזה כיוון לוקחים אותו. חקרנו את זה יחד, בעמודים מלאים ולא בסקיצות, כי את ההבדל בין חתול לחתול אי אפשר להכריע בלי לראות את העולם שבו הוא חי: באילו עמודים הוא צריך לתפקד, ואיך הוא בא לידי ביטוי אל מול הטיפוגרפיה והטקסטים באתר.',
+        'הבנו מוקדם שאנחנו רוצים חתול מאויר. מה שלקח זמן היה לבחון באיזו דרך ובאיזו טכניקה נאייר אותו. בהתחלה אני הבאתי איורים, ואחרי שמצאנו את החתול המושלם ידענו שזה הוא.',
       ],
       figures: [
         {
@@ -215,11 +216,12 @@ const he: FincatCopy = {
     {
       number: '03',
       kicker: 'אייקונוגרפיה',
-      title: 'אייקונים לצד חתול מאויר',
+      title: 'אייקונים חדשים',
       body: [
-        'מרקטפלייס של יועצים דורש הרבה סימנים קטנים: סוגי שירות, שלבים בתהליך, קטגוריות של שאלות. כלומר סט אייקונים שלם, וזה היה החלק הכי עדין בעיצוב.',
-        'הקושי הוא החתול. אייקונים גיאומטריים ויבשים לצד איור שובב נראים כמו שני מותגים על אותו עמוד. אבל אם מקרבים אותם יותר מדי לשפה של האיור, הם מאבדים קריאות בקטן ומתחילים להתחרות בדמות עצמה.',
-        'עיצבתי אותם כמשפחה אחת, בתוך מסגרות עגולות שמדברות עם הקווים של האיור, במשקל אחיד ובאותה רמת פירוט. הם יושבים ליד החתול בלי לחקות אותו, ונשארים ברורים גם בגודל הקטן שבו הם מופיעים ברשימה.',
+        'מרקטפלייס של יועצים דורש הרבה סימנים קטנים: סוגי שירות, שלבים בתהליך, קטגוריות ועוד. כלומר סט אייקונים שלם, וזה היה החלק שהכי נהניתי ליצור בתהליך.',
+        'תוך כדי העבודה על האייקונים החלטתי שצריך להוסיף עוד צבעים למותג. צבעים רכים שנוכל להשתמש בהם בתוך האייקונים, כמשטחי צבע שמבליטים אותם. האייקונים עצמם שטוחים, אבל בנויים בשכבות.',
+        'עיצבתי משפחות שלמות של אייקונים, כדי לייצג אזורים וקטגוריות שונים במוצר ולתת עושר לשפה הגרפית.',
+        'לצד האייקונים של הקטגוריות יצרתי גם שפה של אייקונים שתומכים בשפה, עם אפקט קל של הצללה תלת ממדית, כקונטרה לחתול הדו ממדי שנראה תלת ממדי. זו הייתה החלטה עיצובית חשובה, והיא מה שמבדל בין השניים.',
       ],
       figure: {
         src: `${F}/fincat_img_0042.png`,
@@ -230,12 +232,12 @@ const he: FincatCopy = {
     },
     {
       number: '04',
-      kicker: 'בימוי',
-      title: 'לבַמות את האיור',
+      kicker: 'איור',
+      title: 'חתול במגוון תנוחות',
       body: [
         'החתול לא יכול היה להישאר בתנוחה אחת. מותג שיש לו דמות צריך אותה במספיק מצבים כדי לשאת אתר שלם, ואיור אחד שחוזר בכל מקום נקרא כמו לוגו ולא כמו אישיות.',
-        'את האיור עצמו ציירה מאיירת. החלק שלי היה הבימוי: להגדיר את טווח התנוחות שהמותג צריך, לבחור רפרנסים, לקבוע את רמת הפירוט ואת האופן שבו החתול יושב בתוך הפריסות, ולעבור על העבודה כשהיא חזרה.',
-        'הסדר הזה חשוב. קודם עיצבתי את העמודים והבנתי איפה הדמות נחוצה ומה היא עושה שם, ורק אחר כך תדרכתי את האיור. להזמין איורים קודם ואז לחפש להם מקום זו הדרך שבה מותג נשאר עם נכסים מקסימים שלא באמת מתאימים.',
+        'את האיור עצמו ציירה מאיירת. החלק שלי היה עיצוב המסכים והחשיבה איך החתול יכול להופיע כחלק מהעמוד.',
+        'הסדר הזה חשוב. קודם עיצבתי את העמודים והבנתי איפה הדמות נחוצה ומה היא עושה שם, ורק אחר כך החתול אויר ונכנס לפריים.',
       ],
       figure: {
         placeholder: 'האיור בשימוש לאורך האתר, שצויר לפי בריף שיצא מהפריסות',
@@ -244,11 +246,11 @@ const he: FincatCopy = {
     },
     {
       number: '05',
-      title: 'האונבורדינג של נותני השירות',
+      title: 'חוויית Onboarding לנותני השירות',
       body: [
-        'הצד השני של המרקטפלייס הוא נותני השירות, והם צריכים להירשם. שני המסכים כאן הם הפתיחה של התהליך, ואחריה המסך שבו בוחרים ומזינים פרטים.',
-        'זה המקום שבו השפה צריכה להוכיח את עצמה. עד כאן החתול והצהוב חיו בעמודי תוכן, שבהם מותר להם להיות מקסימים. כאן הם צריכים לעבוד בתוך טופס, לשמור על האופי של המותג בלי להפריע למי שממלא שדות.',
-        'לכן החתולים נשארים נוכחים אבל מדודים, והצהוב עובד כסימון ולא כשטח. המבנה נושא את התהליך, והמותג מלווה אותו.',
+        'הצד השני של המרקטפלייס הוא נותני השירות, ולהם בנינו חוויית הרשמה מעוצבת ונעימה, על ידי שימוש באיורים ובאייקונים.',
+        'זה חשוב יותר ממה שזה נשמע. נותני השירות הם ההיצע של המרקטפלייס, ואם ההרשמה מרגישה כמו מילוי טפסים הם פשוט לא מסיימים אותה. המסך הראשון פותח את התהליך, והשני הוא זה שבו בוחרים ומזינים פרטים.',
+        'זה גם המקום שבו האייקונים מוכיחים את עצמם. הם מתייגים את הבחירות, כך שאפשר לסרוק את המסך במקום לקרוא אותו, והצהוב מסמן איפה פועלים. החתול נשאר נוכח אבל מדוד, כדי שהאופי של המותג ילווה את מי שנרשם בלי להפריע לו למלא.',
       ],
       figure: {
         src: `${F}/fincat_img_0062.png`,
@@ -267,9 +269,9 @@ const he: FincatCopy = {
   closing: {
     title: 'עיצוב ואסטרטגיה שרצים ביחד',
     body: [
-      'מה שגרם לפרויקט הזה לעבוד הוא שהוא לא עבר מיד ליד. קרן הגדירה את הקהל, את הבסיס המותגי ואת הדרך שבה חתול פיננסי יגיע לאנשים, ואני עיצבתי את מה שהאנשים האלה ינחתו עליו. אף חצי לא חיכה שהשני יגמור.',
-      'זה צירוף שאני חוזר אליו, וקרן ואני ממשיכים לקחת יחד עבודות שבאמת דורשות את שני הדברים: אסטרטגיה שמחליטה מה צריך להיאמר, ועיצוב שמחליט איך זה נראה כשמישהו באמת פוגש את זה.',
-      'אם זו הצורה של מה שאתם צריכים, שווה לשאול על זה כעבודה אחת ולא כשתיים.',
+      'מה שגרם לפרויקט הזה לעבוד הוא שהוא לא עבר מיד ליד. קרן הגדירה את הקהל, את הבסיס המותגי ואת הדרך שבה חתול פיננסי יגיע לאנשים, ואני עיצבתי את מה שהמשתמשים יראו ויחוו. העבודה הייתה סינרגיה של עשייה.',
+      'עבודה בצוות היא לא זרה לי ואני מאוד אוהב אותה, להיות חלק מצוות שמניע פרויקטים. כשיש פידבק ויכולת התבוננות מהצד, זה אחד הדברים החשובים ביותר כדי ליצור מוצרים איכותיים עם אימפקט אמיתי.',
+      'קרן ואני ממשיכים לקחת יחד עבודות שבאמת דורשות את שני החצאים, אז אם זו הצורה של מה שאתם צריכים, שווה לשאול על זה כעבודה אחת ולא כשתיים.',
     ],
   },
 };
