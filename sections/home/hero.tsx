@@ -67,15 +67,17 @@ export function HomeHero() {
           {/* Right column on desktop, stacked under the actions on phone and
               tablet. His face at real size, not a 48px avatar further down. */}
           <div className="lg:w-2/5 lg:self-center">
-            <figure className="relative mx-auto aspect-[4/5] w-full max-w-[420px] overflow-hidden border border-[var(--border-subtle)] bg-[var(--surface-1)]">
+            {/* Background-removed cutout (amir-hero-cutout-2026-09-28.webp),
+                cropped just below the crossed arms. No frame: the figure sits
+                straight on the page background. The old amir-avatar.jpg is
+                kept in public/images/home for other uses. */}
+            <figure className="relative mx-auto aspect-[1000/1453] w-full max-w-[300px] sm:max-w-[360px] lg:max-w-[440px]">
               <Image
-                src="/images/home/amir-avatar.jpg"
+                src="/images/home/amir-hero-cutout-2026-09-28.webp"
                 alt="Amir Shalev"
                 fill
-                /* The source is a head-and-shoulders crop, so the frame is
-                   pulled up to keep the face off the vertical centre. */
-                className="object-cover object-[center_22%]"
-                sizes="(max-width: 1024px) 100vw, 420px"
+                className="object-contain object-bottom"
+                sizes="(max-width: 640px) 300px, (max-width: 1024px) 360px, 440px"
                 priority
               />
             </figure>
