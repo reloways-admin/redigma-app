@@ -2,6 +2,16 @@
   "home": {
     "hero": {
       "status": "Bereit für neue Projekte",
+      "pill": "10+ years in product design and entrepreneurship",
+      "titleMain": "I design products.",
+      "titleAccent": "And I build them.",
+      "lede": "Senior product design for founders and product teams, from figuring out what to build to building it.",
+      "whatsapp": "WhatsApp +49 1556 0370097",
+      "bookCall": "Book a call",
+      "board": {
+        "drag": "Drag",
+        "dragging": "Dragging"
+      },
       "titlePre": "Wir schaffen",
       "titleHighlight1": "Klarheit",
       "titleMid": "für",
@@ -189,6 +199,10 @@
         },
         "gomatchit": {
           "summary": "Drei Monate, um ein Canvas zum Abbilden von Geschäftsprozessen vom funktionierenden Prototyp zum ausgelieferten MVP zu bringen. Die meiste Arbeit war die Entscheidung, was noch nicht gebaut wird."
+        },
+        "fincat": {
+          "summary": "Turning a long-running community into something that looks and works like a business: a visual language, the interface, and a new icon system built from scratch.",
+          "credit": "A Redigma project with Method Queen. Strategy: Keren Rightler, Method Queen."
         }
       }
     },
@@ -240,6 +254,51 @@
           ]
         }
       }
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "q1": {
+          "question": "Who is Amir Shalev and what does he do?",
+          "answer": "I'm a senior product designer and entrepreneur based in Berlin, with 10+ years of experience designing digital products. I work directly with founders and product teams on product definition, UX, visual design, design systems and hands-on building."
+        },
+        "q2": {
+          "question": "Do you also develop the products you design?",
+          "answer": "Yes. I design and build digital products myself, so my work can go beyond a Figma file. Depending on the project, I can work with your existing development team or take on hands-on implementation myself."
+        },
+        "q3": {
+          "question": "Can I hire you if I already have a development team?",
+          "answer": "Absolutely. I can work alongside your developers and focus on product definition, UX, UI, design systems or improving an existing product. Because I also build, I design with technical constraints in mind and talk directly with developers."
+        },
+        "q4": {
+          "question": "Do you work alone or as part of a team?",
+          "answer": "Most projects start with me working directly with the founder or product team. For larger branding or product projects, I also work through Two Otters, the studio I co-founded with Keren Rightler."
+        },
+        "q5": {
+          "question": "How much does it cost?",
+          "answer": "It depends on scope, complexity and the level of involvement needed. [Pricing, from Amir]"
+        },
+        "q6": {
+          "question": "How long does a typical project take?",
+          "answer": "Scope ranges from a focused UX problem to a larger product definition and design project. [Typical durations, from Amir]"
+        },
+        "q7": {
+          "question": "What languages do you work in?",
+          "answer": "I work in English, Hebrew and German-speaking contexts. [Confirm, from Amir]"
+        },
+        "q8": {
+          "question": "What is Redigma, and how does it relate to Two Otters?",
+          "answer": "Redigma is my personal design and product practice, where I work as a senior designer, consultant and builder. Two Otters is the studio I co-founded with Keren Rightler for larger branding and product projects."
+        },
+        "q9": {
+          "question": "How do I start?",
+          "answer": "Send me a message on WhatsApp or book a call, with a little context about the product and what you need help with. [First step details, from Amir]"
+        }
+      }
+    },
+    "whatsappFloat": {
+      "label": "WhatsApp",
+      "aria": "Message Amir on WhatsApp"
     },
     "finalCta": {
       "heading": "Braucht dein Produkt mehr Klarheit?",

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import { EMAIL, WHATSAPP_NUMBER, WHATSAPP_URL } from '@/lib/contact';
 
 const linkClass = 'text-sm text-white/50 hover:text-white transition-colors';
 
@@ -33,18 +34,32 @@ export function Footer() {
             {/* Case studies */}
             <div>
               <p className="text-sm font-semibold text-white mb-5">{t('caseStudiesLabel')}</p>
+              {/* Navonera is unlinked here on purpose. Its page and assets are
+                  still in the repo, it is simply not pointed at any more. */}
               <ul className="space-y-3">
                 <li><Link href={href('/projects/bit')} className={linkClass}>Bit</Link></li>
-                <li><Link href={href('/projects/navonera')} className={linkClass}>Navonera</Link></li>
-                <li><Link href={href('/projects/gomatchit')} className={linkClass}>GoMatchIt</Link></li>
                 <li><Link href={href('/projects/reloways')} className={linkClass}>Reloways</Link></li>
+                <li><Link href={href('/projects/gomatchit')} className={linkClass}>GoMatchIt</Link></li>
+                <li><Link href={href('/projects/fincat')} className={linkClass}>Fincat</Link></li>
               </ul>
             </div>
 
             {/* Contact */}
             <div>
               <p className="text-sm font-semibold text-white mb-5">{t('contactLabel')}</p>
+              {/* Email first, then WhatsApp: the two ways anyone actually
+                  reaches Amir, ahead of the social profiles. */}
               <ul className="space-y-3">
+                <li>
+                  <a href={`mailto:${EMAIL}`} className={linkClass}>
+                    {EMAIL}
+                  </a>
+                </li>
+                <li>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    WhatsApp {WHATSAPP_NUMBER}
+                  </a>
+                </li>
                 <li>
                   <a href="https://www.instagram.com/redigma" target="_blank" rel="noopener noreferrer" className={linkClass}>
                     Instagram
@@ -63,7 +78,8 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex items-center justify-between gap-4 flex-wrap">
-          <p className="text-sm text-white/30">{t('copyright')}</p>
+          {/* white/30 on #0a0a0a measured about 2.2:1. Lifted to clear AA. */}
+          <p className="text-sm text-white/70">{t('copyright')}</p>
           <div className="flex items-center gap-6">
             <Link href={href('/feedback')} className="text-sm text-white/50 hover:text-white transition-colors">
               {t('getFeedback')}

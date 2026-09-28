@@ -13,8 +13,12 @@ const COMPANIES = [
   { src: '/logos/clients/financial-cat-he.png', alt: 'Financial Cat' },
 ];
 
-export default function HomeCompanyLogos() {
+export default function HomeCompanyLogos({
+  variant = 'band',
+}: {
+  variant?: 'band' | 'inline';
+}) {
   const t = useTranslations('home.companies');
 
-  return <CompanyLogos title={t('title')} logos={COMPANIES} />;
+  return <CompanyLogos title={t('title')} logos={COMPANIES} variant={variant} />;
 }

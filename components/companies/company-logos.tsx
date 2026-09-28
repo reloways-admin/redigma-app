@@ -19,6 +19,12 @@ type CompanyLogosProps = {
   logos: CompanyLogo[];
   id?: string;
   className?: string;
+  /**
+   * 'band'   its own full-width section, the standalone strip.
+   * 'inline' the same row without a section wrapper, for sitting directly
+   *          under the hero promise where the hero already owns the padding.
+   */
+  variant?: 'band' | 'inline';
 };
 
 export function CompanyLogos({
@@ -26,24 +32,22 @@ export function CompanyLogos({
   logos,
   id = 'companies',
   className,
+  variant = 'band',
 }: CompanyLogosProps) {
-  return (
-    <section
-      id={id}
-      className={[
-        // Pure white, so the logo strip reads as its own clean band rather
-        // than blending into the off-white the surrounding sections use.
-        'bg-white py-24 lg:py-32 border-t border-[var(--border-subtle)]',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <div className="mx-auto max-w-[1360px] px-6">
-        <div className="mb-12 text-center">
-          <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
-            {title}
-          </h2>
+  const inline = variant === 'inline';
+
+  const row = (
+    <>
+        <div className={inline ? 'mb-8 text-center' : 'mb-12 text-center'}>
+          {inline ? (
+            <p className="mx-auto max-w-2xl text-sm font-medium text-[var(--text-secondary)]">
+              {title}
+            </p>
+          ) : (
+            <h2 className="mx-auto max-w-4xl text-balance text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
+              {title}
+            </h2>
+          )}
         </div>
 
         <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 lg:gap-x-16">
@@ -83,7 +87,28 @@ export function CompanyLogos({
             );
           })}
         </ul>
-      </div>
+    </>
+  );
+
+  if (inline) {
+    return (
+      <div className={['pt-20 lg:pt-24', className].filter(Boolean).join(' ')}>{row}</div>
+    );
+  }
+
+  return (
+    <section
+      id={id}
+      className={[
+        // Pure white, so the logo strip reads as its own clean band rather
+        // than blending into the off-white the surrounding sections use.
+        'bg-white py-24 lg:py-32 border-t border-[var(--border-subtle)]',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <div className="mx-auto max-w-[1360px] px-6">{row}</div>
     </section>
   );
 }

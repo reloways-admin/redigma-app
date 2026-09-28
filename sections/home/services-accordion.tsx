@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 const SERVICES = [
@@ -32,30 +30,20 @@ const SERVICES = [
   },
 ];
 
-function PlusIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M9 3.75V14.25M3.75 9H14.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function MinusIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M3.75 9H14.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
+/**
+ * What I actually do.
+ *
+ * The deliverables used to be the reward for opening an accordion, which meant
+ * three of the four services showed nothing concrete at any given moment. They
+ * are the part a buyer scans for, so they are all on the page now, as plain
+ * lists. The panel on the right is a single still, no longer a slideshow tied
+ * to which row happens to be open.
+ */
 export default function HomeServicesAccordion() {
   const t = useTranslations('home.services');
-  const [openId, setOpenId] = useState<string>(SERVICES[0].id);
-
-  const active = SERVICES.find((s) => s.id === openId) ?? SERVICES[0];
 
   return (
-    <section id="services" className="border-t border-[var(--border-subtle)] py-20 lg:py-28 bg-[var(--background)]">
+    <section id="services" className="border-t border-[var(--border-subtle)] py-20 lg:py-28 bg-[var(--background)] scroll-mt-[var(--spacing-12)]">
       <div className="mx-auto max-w-[1360px] px-6">
 
         {/* Heading */}
@@ -68,98 +56,68 @@ export default function HomeServicesAccordion() {
         {/* Two-column layout */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
 
-          {/* Left: service list */}
+          {/* Left: the four services, everything visible */}
           <div>
-            {SERVICES.map((service) => {
-              const isOpen = service.id === openId;
-              return (
-                <div
-                  key={service.id}
-                  className="border-b border-[var(--border-subtle)] py-5 cursor-pointer"
-                  onClick={() => setOpenId(isOpen ? '' : service.id)}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <span
-                        className="text-lg font-medium transition-colors duration-150 block"
-                        style={{ color: isOpen ? 'var(--text-primary)' : 'var(--text-secondary)' }}
-                      >
-                        {t(`items.${service.key}.title`)}
-                      </span>
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                            animate={{ opacity: 1, height: 'auto', marginTop: 8 }}
-                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                            transition={{ duration: 0.22, ease: 'easeInOut' }}
-                            className="overflow-hidden"
-                          >
-                            <p className="type-body text-[var(--text-secondary)] leading-relaxed max-w-sm">
-                              {t(`items.${service.key}.body`)}
-                            </p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                    <span
-                      className="mt-1 shrink-0 transition-colors duration-150"
-                      style={{ color: isOpen ? 'var(--text-primary)' : 'var(--text-secondary)' }}
+            {SERVICES.map((service) => (
+              <div
+                key={service.id}
+                className="border-b border-[var(--border-subtle)] py-5"
+              >
+                <h3 className="block text-lg font-medium text-[var(--text-primary)]">
+                  {t(`items.${service.key}.title`)}
+                </h3>
+
+                <p className="mt-2 max-w-sm type-body leading-relaxed text-[var(--text-secondary)]">
+                  {t(`items.${service.key}.body`)}
+                </p>
+
+                <ul className="mt-3.5 flex max-w-sm flex-col gap-2">
+                  {(t.raw(`items.${service.key}.bullets`) as string[]).map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="flex gap-2.5 text-sm leading-normal text-[var(--text-secondary)]"
                     >
-                      {isOpen ? <MinusIcon /> : <PlusIcon />}
-                    </span>
-                  </div>
-                  {/* Mobile image, full width, outside flex row */}
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                        animate={{ opacity: 1, height: 'auto', marginTop: 20 }}
-                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                        transition={{ duration: 0.22, ease: 'easeInOut' }}
-                        className="lg:hidden overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
-                        style={{ aspectRatio: '16 / 9' }}
-                      >
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={service.imageSrc}
-                            alt={t(`items.${service.key}.title`)}
-                            fill
-                            className="object-contain"
-                            sizes="100vw"
-                          />
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                      <span
+                        aria-hidden="true"
+                        className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-[var(--purple-400)]"
+                      />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Mobile illustration, full width under its service */}
+                <div
+                  className="relative mt-5 w-full overflow-hidden rounded-2xl border border-[var(--border-subtle)] lg:hidden"
+                  style={{ aspectRatio: '16 / 9' }}
+                >
+                  <Image
+                    src={service.imageSrc}
+                    alt=""
+                    fill
+                    className="object-contain p-6"
+                    sizes="100vw"
+                  />
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
-          {/* Right: image panel, desktop only */}
+          {/* Right: one still panel, desktop only. It rides along with the list
+              rather than competing with it for attention. */}
           <div
-            className="hidden lg:block relative overflow-hidden rounded-2xl border border-[var(--border-subtle)]"
+            className="sticky top-28 hidden overflow-hidden rounded-2xl border border-[var(--border-subtle)] lg:block"
             style={{ aspectRatio: '4 / 3' }}
           >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active.id}
-                initial={{ opacity: 0, y: 20, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -12, scale: 0.96 }}
-                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as const }}
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                <Image
-                  src={active.imageSrc}
-                  alt={t(`items.${active.key}.title`)}
-                  fill
-                  className="object-contain p-12 "
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </motion.div>
-            </AnimatePresence>
+            <div className="relative h-full w-full">
+              <Image
+                src={SERVICES[0].imageSrc}
+                alt=""
+                fill
+                className="object-contain p-12"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
 
         </div>

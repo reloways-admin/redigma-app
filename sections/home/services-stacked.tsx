@@ -156,7 +156,9 @@ export function HomeServicesStacked() {
   const t = useTranslations('home.services');
 
   return (
-    <section id="services">
+    /* No id here: #services belongs to the live section in
+       services-accordion.tsx, and the nav anchor needs exactly one target. */
+    <section>
       {/* Dark heading band */}
       <div className="bg-[#0a0a0a] pt-20 pb-10">
         <div className="mx-auto max-w-[1360px] px-6">

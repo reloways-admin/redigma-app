@@ -22,6 +22,8 @@ type Project = {
   image: string;
   accent: string;
   color: string;
+  /** Set when the work was shared with a partner, so the credit is on the card. */
+  hasCredit?: boolean;
 };
 
 export const PROJECTS: Project[] = [
@@ -44,21 +46,8 @@ export const PROJECTS: Project[] = [
     accent: '#0b2416',
     color: '#0891B2',
   },
-  {
-    index: '02',
-    title: 'Navonera',
-    key: 'navonera',
-    summary:
-      'A neighborhood discovery platform connecting locals with hyper-relevant services and experiences.',
-    tools: [
-      { action: 'Designed', prep: 'with', name: 'Figma', icon: '/illustrations/projects/icons/Figma-Dark logo.svg' },
-      { action: 'Designed', prep: 'with', name: 'Illustrator', icon: '/illustrations/projects/icons/illustrator logo.svg' },
-    ],
-    href: (locale) => `/${locale}/projects/navonera`,
-    image: '/images/projects/navonera/navonera_cover-1.png',
-    accent: '#1a0a08',
-    color: '#E85530',
-  },
+  // Navonera is unlinked, not deleted: its page and assets stay in the repo,
+  // it just no longer appears in any list. Restore this entry to bring it back.
   {
     index: '03',
     title: 'Bit',
@@ -89,6 +78,20 @@ export const PROJECTS: Project[] = [
     accent: '#090f1f',
     color: '#D97706',
   },
+  {
+    index: '05',
+    title: 'Fincat',
+    key: 'fincat',
+    summary:
+      'Turning a long-running community into something that looks and works like a business: a visual language, the interface, and a new icon system built from scratch.',
+    // No tool row yet: the case study does not name the stack.
+    tools: [],
+    href: (locale) => `/${locale}/projects/fincat`,
+    image: '/images/projects/fincat/fincat-hero.webp',
+    accent: '#111018',
+    color: '#732fff',
+    hasCredit: true,
+  },
 ];
 
 export function ToolBadge({ tool }: { tool: Tool }) {
@@ -117,21 +120,31 @@ export function ProjectCard({ project, viewProject }: { project: Project; viewPr
   return (
     <article className="grid grid-cols-1 gap-8 lg:grid-cols-[5fr_7fr] lg:gap-12 items-center py-10 border-t border-[var(--border-subtle)] first:border-t-0">
 
-      {/* LEFT: text */}
+      {/* LEFT: text. The project name is the heading here, so it is set a step
+          above its summary rather than a step below it. */}
       <div className="flex flex-col gap-5">
         <div>
-          <p className="text-2xl font-bold text-[var(--text-secondary)] leading-snug lg:text-3xl mb-0">{project.title}.</p>
-          <p className="text-2xl font-bold text-[var(--text-primary)] leading-snug lg:text-3xl">
+          <p className="mb-2.5 text-2xl font-bold leading-tight text-[var(--text-primary)] lg:text-3xl">
+            {project.title}.
+          </p>
+          <p className="text-lg leading-relaxed text-[var(--text-secondary)] lg:text-xl">
             {t(`items.${project.key}.summary`)}
           </p>
+          {project.hasCredit ? (
+            <p className="mt-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+              {t(`items.${project.key}.credit`)}
+            </p>
+          ) : null}
         </div>
 
         {/* Tool badges */}
-        <div className="flex flex-wrap gap-x-6 gap-y-3 pt-1">
-          {project.tools.map((tool) => (
-            <ToolBadge key={tool.name} tool={tool} />
-          ))}
-        </div>
+        {project.tools.length > 0 ? (
+          <div className="flex flex-wrap gap-x-6 gap-y-3 pt-1">
+            {project.tools.map((tool) => (
+              <ToolBadge key={tool.name} tool={tool} />
+            ))}
+          </div>
+        ) : null}
 
         {/* CTA */}
         <div className="pt-2">
@@ -161,7 +174,7 @@ export function ProjectCard({ project, viewProject }: { project: Project; viewPr
   );
 }
 
-const HOME_INDICES = ['01', '03', '04'];
+const HOME_INDICES = ['01', '03', '04', '05'];
 
 export default function HomeProjects() {
   const t = useTranslations('home.projects');
@@ -176,13 +189,19 @@ export default function HomeProjects() {
     >
       <div className="mx-auto max-w-[1360px] px-6">
 
-        <div className="flex items-end justify-between mb-4">
-          <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
-            Selected work.
-          </h2>
+        <div className="mb-6 flex items-end justify-between gap-6">
+          <div>
+            <p className="type-kicker text-[var(--text-brand)]">{t('kicker')}</p>
+            <h2 className="mt-2.5 text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
+              {t('title')}
+            </h2>
+            <p className="mt-2.5 max-w-xl text-hero-subtitle text-[var(--text-secondary)]">
+              {t('subtitle')}
+            </p>
+          </div>
           <Link
             href={`/${locale}/projects`}
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            className="hidden shrink-0 sm:inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
           >
             {t('viewAll')} →
           </Link>

@@ -369,6 +369,59 @@ text-decoration-color: var(--border-subtle);
   }
 }
 
+/* The pill that stands in for the pointer over a draggable shape. Parked
+   off-screen and transparent until the board's effect moves it. */
+.drag-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  pointer-events: none;
+  border-radius: var(--radius-full);
+  background: var(--grey-800);
+  color: var(--grey-100);
+  padding: 6px 10px;
+  font-size: var(--font-size-1);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translate3d(-200px, -200px, 0) translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 120ms ease;
+  will-change: transform;
+}
+
+.drag-cursor.is-visible {
+  opacity: 1;
+}
+
+/* Only hide the real cursor where there is a pill to replace it. Coarse
+   pointers keep the native behaviour and never see the pill at all. */
+@media (hover: hover) and (pointer: fine) {
+  .board-item,
+  .board-item.is-dragging {
+    cursor: none;
+  }
+
+  body.is-dragging-board {
+    cursor: none;
+    user-select: none;
+  }
+}
+
+/* ── FAQ disclosure ──────────────────────────────────────────────────────────
+   The section is plain <details>/<summary>, so all the browser needs from us
+   is the plus turning into a minus. Written here rather than as a group-open
+   utility so the rule is explicit and does not depend on variant generation. */
+
+.faq-sign-bar {
+  transition: opacity 150ms ease;
+}
+
+.faq-item[open] .faq-sign-bar {
+  opacity: 0;
+}
+
 /* ── Case study long form ────────────────────────────────────────────────────
    These pages run 1,200 to 1,800 words, which is reading rather than scanning,
    and they were set like interface copy: 16px on a 1.5 line height across a

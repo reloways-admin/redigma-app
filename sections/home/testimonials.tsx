@@ -23,7 +23,8 @@ function TestimonialCard({
         <p className="text-base font-bold text-[var(--text-primary)]">{company}</p>
       ) : null}
 
-      <blockquote className="flex-1 text-base text-[var(--text-primary)] leading-relaxed">
+      {/* The quote is the point of the card, so it is set above body size. */}
+      <blockquote className="flex-1 type-quote text-[var(--text-primary)]">
         &ldquo;{quote}&rdquo;
       </blockquote>
 
@@ -75,16 +76,19 @@ function MobileCarousel({ items }: { items: TestimonialItem[] }) {
 
   return (
     <>
-      {/* Mobile carousel */}
-      <div className="md:hidden -mx-6">
+      {/* Mobile carousel. It stays inside the padded container and sizes its
+          cards in percent rather than vw: a negative margin plus vw widths
+          overshot the viewport and gave the whole page a horizontal scrollbar
+          at 375px. */}
+      <div className="md:hidden">
         <div
           ref={trackRef}
           onScroll={onScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 px-6"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"
           style={{ scrollbarWidth: 'none' }}
         >
           {items.map((item, i) => (
-            <div key={i} className="snap-start shrink-0 w-[82vw] last:pr-6">
+            <div key={i} className="snap-start shrink-0 w-[88%]">
               <TestimonialCard {...item} />
             </div>
           ))}
@@ -133,14 +137,9 @@ export default function Testimonials() {
       role: 'CEO',
       imageSrc: '/images/home/adi.jpg',
     },
-    {
-      company: 'Navonera',
-      quote: t('items.ariel.quote'),
-      author: t('items.ariel.name'),
-      role: 'Co-founder',
-      // No photo on file yet, so the card falls back to initials rather than
-      // requesting a missing image. Add imageSrc back once we have one.
-    },
+    // Ariel Ben-David is off the home page: his card was the one with no photo
+    // and it carried the Navonera name, which is unlinked now. The message
+    // keys are left in place.
     {
       // Eyal works under his own name rather than a company, so his site
       // stands in for the company line the other cards use.
@@ -148,9 +147,6 @@ export default function Testimonials() {
       quote: t('items.eyal.quote'),
       author: t('items.eyal.name'),
       imageSrc: '/images/home/eyal.jpg',
-      // No photo on file yet, so the card falls back to initials rather than
-      // requesting a missing image. Add imageSrc back once we have one.
-
     },
   ];
 
