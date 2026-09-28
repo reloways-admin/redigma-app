@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { EMAIL, WHATSAPP_NUMBER, WHATSAPP_URL } from '@/lib/contact';
+import { EMAIL, WHATSAPP_URL } from '@/lib/contact';
 
 const linkClass = 'text-sm text-white/50 hover:text-white transition-colors';
 
@@ -56,8 +56,11 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
+                  {/* The number itself is not printed: the wa.me link carries
+                      it, and a phone number set in plain text on a marketing
+                      page is an invitation to scrapers. */}
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                    WhatsApp {WHATSAPP_NUMBER}
+                    WhatsApp
                   </a>
                 </li>
                 <li>

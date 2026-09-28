@@ -2,10 +2,10 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Button } from '@/components/ui/button';
+import { HeroCta, WhatsAppGlyph, CalendarGlyph } from '@/components/ui/hero-cta';
 import { HeroBoard } from '@/components/hero-board';
 import HomeCompanyLogos from '@/sections/home/company-logos';
-import { WHATSAPP_URL } from '@/lib/contact';
+import { WHATSAPP_URL, BOOKING_URL } from '@/lib/contact';
 
 export function HomeHero() {
   const t = useTranslations('home.hero');
@@ -19,15 +19,18 @@ export function HomeHero() {
 
           {/* Left: pill, h1, subtitle, two actions */}
           <div className="flex flex-col lg:w-3/5">
+            {/* status-pill-hero, not status-pill: a smaller pill so the label
+                reads as a caption under the headline rather than competing
+                with it. The pill used elsewhere on the site is unchanged. */}
             <div className="mb-6 flex">
-              <span className="status-pill">
+              <span className="status-pill-hero">
                 <span className="status-indicator" />
                 {t('pill')}
               </span>
             </div>
             {/* No entrance animation: the h1 is the page's main content and
                 should be readable on first paint, never blank or half-blank. */}
-            <h1 className="mb-8 text-hero-title tracking-tight text-[var(--text-primary)] max-w-2xl leading-tight">
+            <h1 className="mb-8 text-hero-title text-[var(--text-primary)] max-w-2xl">
               {t('titleMain')}{' '}
               <span className="text-[#732fff]">{t('titleAccent')}</span>
             </h1>
@@ -37,20 +40,27 @@ export function HomeHero() {
             </p>
 
             {/* Two actions only. WhatsApp is how Israeli deals actually start,
-                so it takes the primary slot. */}
+                so it takes the primary slot and wears the brand green. The
+                booking button is the same button in the house purple, so the
+                pair reads as one control with two temperatures. */}
             <div className="flex flex-wrap gap-4">
-              <Button
+              <HeroCta
                 href={WHATSAPP_URL}
-                variant="primary"
-                target="_blank"
-                rel="noopener noreferrer"
+                icon={<WhatsAppGlyph />}
+                ariaLabel="WhatsApp"
+                /* #0b1f14 on #25D366 measures about 8.7:1. White measures 2:1
+                   and fails, so the label is dark. */
+                className="border-[#25D366] bg-[#25D366] text-[#0b1f14]"
               >
                 {t('whatsapp')}
-              </Button>
-              {/* TODO: replace with real booking link */}
-              <Button href="#contact" variant="outline">
+              </HeroCta>
+              <HeroCta
+                href={BOOKING_URL}
+                icon={<CalendarGlyph />}
+                className="border-[#732fff] bg-transparent text-[#732fff] hover:bg-[#732fff]/8"
+              >
                 {t('bookCall')}
-              </Button>
+              </HeroCta>
             </div>
           </div>
 

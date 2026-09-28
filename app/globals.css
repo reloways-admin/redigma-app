@@ -13,8 +13,16 @@
 }
 
 /* 3. Custom Global Utilities */
+/* The hero headline, and only the hero headline. It used to borrow
+   type-page-title at 72px, which crowded the photo, ran the promise onto three
+   lines below 1280 and pushed the two actions under the fold on a laptop. It
+   is about a fifth smaller at every width now. type-page-title itself is
+   untouched, so nothing else on the site moves. */
 @utility text-hero-title {
-  @apply type-page-title;
+  font-size: 56px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 @utility text-hero-subtitle {
@@ -69,7 +77,7 @@ body {
 /* 5. Responsive Overrides & Adaptive Tokens */
 @media (max-width: 1280px) {
   .text-hero-title {
-    font-size: var(--font-size-8); /* 56px */
+    font-size: 46px;
   }
 }
 
@@ -77,17 +85,17 @@ body {
   :root {
     --spacing-hero-gap: var(--spacing-6);
   }
-  
+
   .text-hero-title {
-    font-size: var(--font-size-7); /* 48px */
+    font-size: 40px;
   }
 }
 
 @media (max-width: 640px) {
   .text-hero-title {
-    font-size: var(--font-size-7); /* 48px */
+    font-size: 38px;
   }
-  
+
   .text-hero-subtitle {
     font-size: 1.125rem;
   }

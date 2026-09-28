@@ -1,8 +1,43 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+
+/**
+ * The testimonials, in one place. Add a card by adding an entry here: `key`
+ * points at messages/*.json under home.testimonials.items, everything else is
+ * the same across locales.
+ */
+const TESTIMONIALS = [
+  {
+    key: 'keren',
+    company: 'Method Queen',
+    role: 'Owner',
+    imageSrc: '/images/home/keren.jpg',
+  },
+  {
+    key: 'adi',
+    company: 'Financial Cat',
+    role: 'CEO',
+    imageSrc: '/images/home/adi.jpg',
+  },
+  {
+    // Eyal works under his own name rather than a company, so his site stands
+    // in for the company line the other cards use.
+    key: 'eyal',
+    company: 'eyallahav.com',
+    role: undefined,
+    imageSrc: '/images/home/eyal.jpg',
+  },
+] as const;
+
+/**
+ * Four passes of the list make the track. The animation shifts it by exactly
+ * half its width, so passes 0 and 1 hand over to passes 2 and 3 with no seam,
+ * and half a track is wider than any viewport we care about, so the loop never
+ * shows an empty stretch.
+ */
+const MARQUEE_PASSES = [0, 1, 2, 3];
 
 function TestimonialCard({
   company,
@@ -18,20 +53,24 @@ function TestimonialCard({
   imageSrc?: string;
 }) {
   return (
-    <div className="flex flex-col gap-6 rounded-2xl border border-[var(--border-subtle)] p-8 bg-white">
+    /* The spacing between cards lives here as a margin rather than as a flex
+       gap on the track. A gap would fall between the passes too, and then half
+       the track width is no longer exactly two passes, which is the number the
+       seamless loop is built on. */
+    <div className="me-6 flex h-full w-[85vw] max-w-[340px] shrink-0 flex-col gap-6 rounded-2xl border border-[var(--border-subtle)] bg-white p-8 md:w-[420px] md:max-w-none">
       {company ? (
         <p className="text-base font-bold text-[var(--text-primary)]">{company}</p>
       ) : null}
 
       {/* The quote is the point of the card, so it is set above body size. */}
-      <blockquote className="flex-1 type-quote text-[var(--text-primary)]">
+      <blockquote className="flex-1 type-body leading-relaxed text-[var(--text-primary)]">
         &ldquo;{quote}&rdquo;
       </blockquote>
 
       <div className="flex items-center gap-3">
         {imageSrc ? (
           <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
-            <Image src={imageSrc} alt={author} fill className="object-cover" sizes="44px" />
+            <Image src={imageSrc} alt="" fill className="object-cover" sizes="44px" />
           </div>
         ) : (
           <div className="h-11 w-11 shrink-0 rounded-full bg-[#732fff]/10 flex items-center justify-center">
@@ -51,104 +90,25 @@ function TestimonialCard({
   );
 }
 
-type TestimonialItem = { company?: string; quote: string; author: string; role?: string; imageSrc?: string };
-
-function MobileCarousel({ items }: { items: TestimonialItem[] }) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [current, setCurrent] = useState(0);
-
-  function scrollTo(index: number) {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.children[index] as HTMLElement;
-    if (!card) return;
-    track.scrollTo({ left: card.offsetLeft - track.offsetLeft, behavior: 'smooth' });
-    setCurrent(index);
-  }
-
-  function onScroll() {
-    const track = trackRef.current;
-    if (!track) return;
-    const scrollLeft = track.scrollLeft;
-    const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth ?? 0;
-    if (cardWidth) setCurrent(Math.round(scrollLeft / cardWidth));
-  }
-
-  return (
-    <>
-      {/* Mobile carousel. It stays inside the padded container and sizes its
-          cards in percent rather than vw: a negative margin plus vw widths
-          overshot the viewport and gave the whole page a horizontal scrollbar
-          at 375px. */}
-      <div className="md:hidden">
-        <div
-          ref={trackRef}
-          onScroll={onScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2"
-          style={{ scrollbarWidth: 'none' }}
-        >
-          {items.map((item, i) => (
-            <div key={i} className="snap-start shrink-0 w-[88%]">
-              <TestimonialCard {...item} />
-            </div>
-          ))}
-        </div>
-
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-6">
-          {items.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollTo(i)}
-              aria-label={`Go to slide ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === current ? 'w-6 bg-[#732fff]' : 'w-2 bg-[var(--border-subtle)]'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop grid */}
-      <div className="hidden md:grid gap-4 md:grid-cols-2">
-        {items.map((item, i) => (
-          <TestimonialCard key={i} {...item} />
-        ))}
-      </div>
-    </>
-  );
-}
-
+/**
+ * Client feedback, as a marquee.
+ *
+ * It scrolls on its own and the visitor cannot grab it: no drag handlers, no
+ * scroll snapping, no overflow to swipe. It pauses when the pointer is over it
+ * or when something inside it takes focus, and under prefers-reduced-motion it
+ * stops being a marquee at all and becomes a plain wrapping grid of cards.
+ * The direction mirrors in RTL, which is handled in components.css.
+ */
 export default function Testimonials() {
   const t = useTranslations('home.testimonials');
 
-  const items = [
-    {
-      company: 'Method Queen',
-      quote: t('items.keren.quote'),
-      author: t('items.keren.name'),
-      role: 'Owner',
-      imageSrc: '/images/home/keren.jpg',
-    },
-    {
-      company: 'Financial Cat',
-      quote: t('items.adi.quote'),
-      author: t('items.adi.name'),
-      role: 'CEO',
-      imageSrc: '/images/home/adi.jpg',
-    },
-    // Ariel Ben-David is off the home page: his card was the one with no photo
-    // and it carried the Navonera name, which is unlinked now. The message
-    // keys are left in place.
-    {
-      // Eyal works under his own name rather than a company, so his site
-      // stands in for the company line the other cards use.
-      company: 'eyallahav.com',
-      quote: t('items.eyal.quote'),
-      author: t('items.eyal.name'),
-      imageSrc: '/images/home/eyal.jpg',
-    },
-  ];
+  const items = TESTIMONIALS.map((item) => ({
+    company: item.company,
+    role: item.role,
+    imageSrc: item.imageSrc,
+    quote: t(`items.${item.key}.quote`),
+    author: t(`items.${item.key}.name`),
+  }));
 
   return (
     <section
@@ -156,7 +116,6 @@ export default function Testimonials() {
       className="py-20 lg:py-28 border-t border-[var(--border-subtle)] scroll-mt-[var(--spacing-12)] bg-[#f0f0f5]"
     >
       <div className="mx-auto max-w-[1360px] px-6">
-
         {/* Heading */}
         <div className="mb-14">
           <h2 className="text-3xl font-bold text-[var(--text-primary)] lg:text-4xl">
@@ -166,10 +125,26 @@ export default function Testimonials() {
             {t('title.highlight')}
           </p>
         </div>
+      </div>
 
-        {/* Cards: carousel on mobile, grid on md+ */}
-        <MobileCarousel items={items} />
-
+      {/* Full bleed, clipped. The clip is what keeps a 420px card track from
+          giving the page a horizontal scrollbar at 375px. */}
+      <div className="testimonial-marquee overflow-hidden px-6">
+        <div className="testimonial-marquee-track flex w-max">
+          {MARQUEE_PASSES.map((pass) => (
+            <div
+              key={pass}
+              className="flex shrink-0"
+              /* Only the first pass is real content. The copies exist to make
+                 the loop seamless and are invisible to assistive tech. */
+              aria-hidden={pass > 0 ? true : undefined}
+            >
+              {items.map((item) => (
+                <TestimonialCard key={`${pass}-${item.author}`} {...item} />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

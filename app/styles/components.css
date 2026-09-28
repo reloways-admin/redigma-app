@@ -294,6 +294,23 @@ text-decoration-color: var(--border-subtle);
   @apply h-2 w-2 rounded-full bg-green-500; /* Represents "Ready for work" */
 }
 
+/* Hero-only pill. Same shape as status-pill, roughly a fifth smaller, so the
+   label sits under the headline as a caption rather than competing with it.
+   Kept separate so the pill used elsewhere on the site does not move. */
+@utility status-pill-hero {
+  @apply inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[11px] font-medium leading-none;
+  border-color: var(--border-subtle);
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+}
+
+/* The dot comes down with the pill. Written as a plain rule so it beats the
+   status-indicator utility without needing an !important. */
+.status-pill-hero .status-indicator {
+  height: 6px;
+  width: 6px;
+}
+
 @utility about-image-container {
   @apply relative aspect-square w-full max-w-[500px] mx-auto overflow-hidden border;
   border-color: var(--border-subtle);
@@ -409,18 +426,9 @@ text-decoration-color: var(--border-subtle);
   }
 }
 
-/* ── FAQ disclosure ──────────────────────────────────────────────────────────
-   The section is plain <details>/<summary>, so all the browser needs from us
-   is the plus turning into a minus. Written here rather than as a group-open
-   utility so the rule is explicit and does not depend on variant generation. */
-
-.faq-sign-bar {
-  transition: opacity 150ms ease;
-}
-
-.faq-item[open] .faq-sign-bar {
-  opacity: 0;
-}
+/* The FAQ no longer needs a stylesheet. It is a scripted accordion now, so the
+   drawer and the plus-to-x rotation live with the component in faq.tsx, where
+   they can be switched off for prefers-reduced-motion in the same place. */
 
 /* ── Case study long form ────────────────────────────────────────────────────
    These pages run 1,200 to 1,800 words, which is reading rather than scanning,
@@ -599,4 +607,63 @@ text-decoration-color: var(--border-subtle);
   color: var(--text-secondary);
   text-align: center;
   text-wrap: pretty;
+}
+
+/* ── Testimonials marquee ────────────────────────────────────────────────────
+   The track holds four passes of the same three cards. Shifting it by half its
+   width lands pass 2 exactly where pass 0 started, so the loop has no seam.
+   The card spacing is a margin on the card, not a gap on the track: a gap would
+   also sit between the passes and half the track would stop being two passes.
+
+   Nothing here is interactive. The visitor cannot drag or swipe it, only hover
+   it to stop it, which is the point of a marquee that is proof rather than
+   navigation. */
+@keyframes testimonial-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Mirrored for Hebrew: in RTL the track is laid out right to left, so the same
+   shift has to go the other way to keep the cards flowing off the same edge. */
+@keyframes testimonial-marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(50%); }
+}
+
+.testimonial-marquee-track {
+  animation: testimonial-marquee 50s linear infinite;
+  will-change: transform;
+}
+
+[dir="rtl"] .testimonial-marquee-track {
+  animation-name: testimonial-marquee-rtl;
+}
+
+.testimonial-marquee:hover .testimonial-marquee-track,
+.testimonial-marquee:focus-within .testimonial-marquee-track {
+  animation-play-state: paused;
+}
+
+/* No motion at all when the visitor has asked for none. The duplicate passes
+   go away and the real one wraps into a centred grid, so every card is still
+   reachable without anything moving. */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee-track {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1.5rem;
+  }
+
+  .testimonial-marquee-track > [aria-hidden="true"] {
+    display: none;
+  }
+
+  /* The remaining pass stops being a box of its own so its cards become flex
+     items of the wrapping track. Left as a flex item it would refuse to shrink
+     and the cards would never wrap. */
+  .testimonial-marquee-track > :first-child {
+    display: contents;
+  }
 }

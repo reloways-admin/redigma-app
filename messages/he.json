@@ -24,7 +24,7 @@
       "titleMain": "I design products.",
       "titleAccent": "And I build them.",
       "lede": "Senior product design for founders and product teams, from figuring out what to build to building it.",
-      "whatsapp": "WhatsApp +49 1556 0370097",
+      "whatsapp": "WhatsApp",
       "bookCall": "Book a call",
       "board": {
         "drag": "Drag",
@@ -95,6 +95,7 @@
     "miniProduct": {
       "title": "פרספקטיבת UX מלאה על המוצר או הרעיון שלכם –",
       "titleHighlight": "תוך 48 שעות",
+      "stepLabel": "שלב {n}",
       "step1": {
         "title": "שולחים את זה",
         "item1Strong": "קישור למוצר שלכם",
