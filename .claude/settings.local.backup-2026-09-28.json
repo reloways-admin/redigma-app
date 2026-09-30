@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(npm run:*)",
+      "Bash(cp /Users/amirshalev/Redigma_Project/redigma-app/middleware.ts /Users/amirshalev/Redigma_Project/redigma-app/proxy.ts)",
+      "Bash(rm /Users/amirshalev/Redigma_Project/redigma-app/middleware.ts)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npx tsc:*)",
+      "Bash(grep -E '^[A-Za-z ]{4,}')",
+      "Bash(python3:*)",
+      "Bash(grep:*)"
+    ]
+  }
+}
