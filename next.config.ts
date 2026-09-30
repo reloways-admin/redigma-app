@@ -5,7 +5,8 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ['10.0.0.10'],
+  // LOCAL ONLY, do not commit: LAN IP added so a phone on the same Wi-Fi gets HMR.
+  allowedDevOrigins: ['10.0.0.10', '192.168.0.109'],
 };
 
 export default withNextIntl(nextConfig);
