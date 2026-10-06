@@ -495,5 +495,11 @@
       "openMenu": "Menü öffnen",
       "closeMenu": "Menü schließen"
     }
+  },
+  "writing": {
+    "title": "Schreiben",
+    "subtitle": "Gedanken über Design, Produkt und was ich beim Bauen von Dingen gelernt habe.",
+    "readMore": "Weiterlesen",
+    "backToWriting": "Zurück zum Schreiben"
   }
 }
