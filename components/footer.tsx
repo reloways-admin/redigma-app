@@ -41,6 +41,7 @@ export function Footer() {
                 <li><Link href={href('/projects/reloways')} className={linkClass}>Reloways</Link></li>
                 <li><Link href={href('/projects/gomatchit')} className={linkClass}>GoMatchIt</Link></li>
                 <li><Link href={href('/projects/fincat')} className={linkClass}>Fincat</Link></li>
+                <li><Link href={href('/writing')} className={linkClass}>Writing</Link></li>
               </ul>
             </div>
 
